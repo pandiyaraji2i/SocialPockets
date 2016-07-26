@@ -1,0 +1,865 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		671C44431D4091E4000C94A0 /* LoanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 671C44421D4091E4000C94A0 /* LoanViewController.m */; };
+		671C44471D4094CA000C94A0 /* MwalletHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 671C44461D4094CA000C94A0 /* MwalletHelper.m */; };
+		802EDF43A49A32B470A0D8D8 /* libPods-SocialPockets.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0455716A8E3A563761CB5AAC /* libPods-SocialPockets.a */; };
+		A3253D121D3C9DE90081A59C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A3253D111D3C9DE90081A59C /* main.m */; };
+		A3253D151D3C9DE90081A59C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A3253D141D3C9DE90081A59C /* AppDelegate.m */; };
+		A3253D181D3C9DE90081A59C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3253D171D3C9DE90081A59C /* ViewController.m */; };
+		A3253D1B1D3C9DE90081A59C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3253D191D3C9DE90081A59C /* Main.storyboard */; };
+		A3253D1D1D3C9DE90081A59C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3253D1C1D3C9DE90081A59C /* Assets.xcassets */; };
+		A3253D201D3C9DE90081A59C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3253D1E1D3C9DE90081A59C /* LaunchScreen.storyboard */; };
+		A389685D1D40DD3F00FA8F14 /* SharedMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = A389685C1D40DD3F00FA8F14 /* SharedMethods.m */; };
+		A38968621D40DDF000FA8F14 /* SocialHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A389685F1D40DDF000FA8F14 /* SocialHelper.m */; };
+		A38968631D40DDF000FA8F14 /* SocialSiteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A38968611D40DDF000FA8F14 /* SocialSiteViewController.m */; };
+		A38968671D40DE1A00FA8F14 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A38968661D40DE1A00FA8F14 /* LoginViewController.m */; };
+		A3C3C83C1D3DF09F00C65B09 /* LoginHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C3C83B1D3DF09F00C65B09 /* LoginHelper.m */; };
+		A3C3C8471D3DF1E000C65B09 /* NetworkHelperClass.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C3C8401D3DF1E000C65B09 /* NetworkHelperClass.m */; };
+		A3C3C8481D3DF1E000C65B09 /* NSJSONSerialization+RemovingNulls.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C3C8421D3DF1E000C65B09 /* NSJSONSerialization+RemovingNulls.m */; };
+		A3C3C8491D3DF1E000C65B09 /* NSURLSession+SynchronousTask.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C3C8441D3DF1E000C65B09 /* NSURLSession+SynchronousTask.m */; };
+		A3C3C84A1D3DF1E000C65B09 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C3C8461D3DF1E000C65B09 /* Reachability.m */; };
+		A3C3C8501D3DF7D500C65B09 /* NSString+AdditionalMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C3C84F1D3DF7D500C65B09 /* NSString+AdditionalMethods.m */; };
+		A3C3C88B1D3F4AE300C65B09 /* SocialPocketsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C3C88A1D3F4AE300C65B09 /* SocialPocketsTests.m */; };
+		A3C3C8961D3F7B2F00C65B09 /* ChangePasswordController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C3C8951D3F7B2F00C65B09 /* ChangePasswordController.m */; };
+		A3C3C89A1D3F837000C65B09 /* RegistrationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C3C8991D3F837000C65B09 /* RegistrationModel.m */; };
+		A3C3C89D1D3F837700C65B09 /* RegistrationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C3C89C1D3F837700C65B09 /* RegistrationViewController.m */; };
+		A3C3C8A11D3F86CF00C65B09 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C3C8A01D3F86CF00C65B09 /* ProfileViewController.m */; };
+		A3C3C8A41D3F86EC00C65B09 /* ProfileModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C3C8A31D3F86EC00C65B09 /* ProfileModel.m */; };
+		A3C3C8A71D3F928C00C65B09 /* OTPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C3C8A61D3F928C00C65B09 /* OTPViewController.m */; };
+		A3C3C8AA1D3FB4AF00C65B09 /* LoanHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C3C8A91D3FB4AF00C65B09 /* LoanHelper.m */; };
+		A3D65A831D460BA100B47E46 /* CameraFrameWork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3D65A821D460BA100B47E46 /* CameraFrameWork.framework */; };
+		A3D65A841D460BA100B47E46 /* CameraFrameWork.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A3D65A821D460BA100B47E46 /* CameraFrameWork.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A3D65A881D4619A200B47E46 /* RearViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3D65A871D4619A200B47E46 /* RearViewController.m */; };
+		A3D65A8B1D4619AF00B47E46 /* DashBoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3D65A8A1D4619AF00B47E46 /* DashBoardViewController.m */; };
+		A3D65A931D461A5700B47E46 /* MFSideMenuContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3D65A8E1D461A5700B47E46 /* MFSideMenuContainerViewController.m */; };
+		A3D65A941D461A5700B47E46 /* MFSideMenuShadow.m in Sources */ = {isa = PBXBuildFile; fileRef = A3D65A901D461A5700B47E46 /* MFSideMenuShadow.m */; };
+		A3D65A951D461A5700B47E46 /* UIViewController+MFSideMenuAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = A3D65A921D461A5700B47E46 /* UIViewController+MFSideMenuAdditions.m */; };
+		A3D65A991D461AD100B47E46 /* CustomNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3D65A981D461AD100B47E46 /* CustomNavigationController.m */; };
+		A3D65AA41D46364E00B47E46 /* BackGroud_Home.png in Resources */ = {isa = PBXBuildFile; fileRef = A3D65AA31D46364E00B47E46 /* BackGroud_Home.png */; };
+		A3D65AA61D46368800B47E46 /* HowItWorks.png in Resources */ = {isa = PBXBuildFile; fileRef = A3D65AA51D46368800B47E46 /* HowItWorks.png */; };
+		A3D65AAB1D46386500B47E46 /* loan.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A3D65AA71D46386500B47E46 /* loan.jpg */; };
+		A3D65AAC1D46386500B47E46 /* mobile pocket.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A3D65AA81D46386500B47E46 /* mobile pocket.jpg */; };
+		A3D65AAD1D46386500B47E46 /* rating.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A3D65AA91D46386500B47E46 /* rating.jpg */; };
+		A3D65AAE1D46386500B47E46 /* Social.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A3D65AAA1D46386500B47E46 /* Social.jpg */; };
+		A3D65AB01D4639F700B47E46 /* BackGround_Login.png in Resources */ = {isa = PBXBuildFile; fileRef = A3D65AAF1D4639F700B47E46 /* BackGround_Login.png */; };
+		A3D65AB41D463A0F00B47E46 /* sp logo.png in Resources */ = {isa = PBXBuildFile; fileRef = A3D65AB21D463A0F00B47E46 /* sp logo.png */; };
+		FBAAB8291D422888001C918B /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = FBAAB8281D422888001C918B /* Podfile */; };
+		FBAAB8361D4239D7001C918B /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBAAB8331D4239D7001C918B /* FBSDKCoreKit.framework */; };
+		FBAAB8371D4239D7001C918B /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBAAB8341D4239D7001C918B /* FBSDKLoginKit.framework */; };
+		FBAAB8381D4239D7001C918B /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBAAB8351D4239D7001C918B /* FBSDKShareKit.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A3C3C88D1D3F4AE300C65B09 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A3253D051D3C9DE90081A59C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A3253D0C1D3C9DE90081A59C;
+			remoteInfo = SocialPockets;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A3D65A851D460BA100B47E46 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				A3D65A841D460BA100B47E46 /* CameraFrameWork.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		0455716A8E3A563761CB5AAC /* libPods-SocialPockets.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SocialPockets.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		671C44411D4091E4000C94A0 /* LoanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoanViewController.h; sourceTree = "<group>"; };
+		671C44421D4091E4000C94A0 /* LoanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoanViewController.m; sourceTree = "<group>"; };
+		671C44451D4094CA000C94A0 /* MwalletHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MwalletHelper.h; sourceTree = "<group>"; };
+		671C44461D4094CA000C94A0 /* MwalletHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MwalletHelper.m; sourceTree = "<group>"; };
+		853DFEBFFD11370D4A6D76B8 /* Pods-SocialPockets.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialPockets.release.xcconfig"; path = "Pods/Target Support Files/Pods-SocialPockets/Pods-SocialPockets.release.xcconfig"; sourceTree = "<group>"; };
+		A3253D0D1D3C9DE90081A59C /* SocialPockets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocialPockets.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A3253D111D3C9DE90081A59C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A3253D131D3C9DE90081A59C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		A3253D141D3C9DE90081A59C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		A3253D161D3C9DE90081A59C /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		A3253D171D3C9DE90081A59C /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		A3253D1A1D3C9DE90081A59C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A3253D1C1D3C9DE90081A59C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A3253D1F1D3C9DE90081A59C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A3253D211D3C9DE90081A59C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A389685B1D40DD3F00FA8F14 /* SharedMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedMethods.h; sourceTree = "<group>"; };
+		A389685C1D40DD3F00FA8F14 /* SharedMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedMethods.m; sourceTree = "<group>"; };
+		A389685E1D40DDF000FA8F14 /* SocialHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialHelper.h; sourceTree = "<group>"; };
+		A389685F1D40DDF000FA8F14 /* SocialHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocialHelper.m; sourceTree = "<group>"; };
+		A38968601D40DDF000FA8F14 /* SocialSiteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialSiteViewController.h; sourceTree = "<group>"; };
+		A38968611D40DDF000FA8F14 /* SocialSiteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocialSiteViewController.m; sourceTree = "<group>"; };
+		A38968651D40DE1A00FA8F14 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		A38968661D40DE1A00FA8F14 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		A3C3C83A1D3DF09F00C65B09 /* LoginHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginHelper.h; sourceTree = "<group>"; };
+		A3C3C83B1D3DF09F00C65B09 /* LoginHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginHelper.m; sourceTree = "<group>"; };
+		A3C3C83E1D3DF1E000C65B09 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		A3C3C83F1D3DF1E000C65B09 /* NetworkHelperClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkHelperClass.h; sourceTree = "<group>"; };
+		A3C3C8401D3DF1E000C65B09 /* NetworkHelperClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkHelperClass.m; sourceTree = "<group>"; };
+		A3C3C8411D3DF1E000C65B09 /* NSJSONSerialization+RemovingNulls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSJSONSerialization+RemovingNulls.h"; sourceTree = "<group>"; };
+		A3C3C8421D3DF1E000C65B09 /* NSJSONSerialization+RemovingNulls.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSJSONSerialization+RemovingNulls.m"; sourceTree = "<group>"; };
+		A3C3C8431D3DF1E000C65B09 /* NSURLSession+SynchronousTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURLSession+SynchronousTask.h"; sourceTree = "<group>"; };
+		A3C3C8441D3DF1E000C65B09 /* NSURLSession+SynchronousTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURLSession+SynchronousTask.m"; sourceTree = "<group>"; };
+		A3C3C8451D3DF1E000C65B09 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		A3C3C8461D3DF1E000C65B09 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		A3C3C84C1D3DF22800C65B09 /* ApiHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ApiHeader.h; sourceTree = "<group>"; };
+		A3C3C84D1D3DF2A200C65B09 /* SocialPockets-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SocialPockets-Prefix.pch"; sourceTree = "<group>"; };
+		A3C3C84E1D3DF7D500C65B09 /* NSString+AdditionalMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+AdditionalMethods.h"; sourceTree = "<group>"; };
+		A3C3C84F1D3DF7D500C65B09 /* NSString+AdditionalMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+AdditionalMethods.m"; sourceTree = "<group>"; };
+		A3C3C8881D3F4AE300C65B09 /* SocialPocketsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SocialPocketsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A3C3C88A1D3F4AE300C65B09 /* SocialPocketsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SocialPocketsTests.m; sourceTree = "<group>"; };
+		A3C3C88C1D3F4AE300C65B09 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A3C3C8941D3F7B2F00C65B09 /* ChangePasswordController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangePasswordController.h; sourceTree = "<group>"; };
+		A3C3C8951D3F7B2F00C65B09 /* ChangePasswordController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangePasswordController.m; sourceTree = "<group>"; };
+		A3C3C8981D3F837000C65B09 /* RegistrationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistrationModel.h; sourceTree = "<group>"; };
+		A3C3C8991D3F837000C65B09 /* RegistrationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistrationModel.m; sourceTree = "<group>"; };
+		A3C3C89B1D3F837700C65B09 /* RegistrationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistrationViewController.h; sourceTree = "<group>"; };
+		A3C3C89C1D3F837700C65B09 /* RegistrationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistrationViewController.m; sourceTree = "<group>"; };
+		A3C3C89F1D3F86CF00C65B09 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		A3C3C8A01D3F86CF00C65B09 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		A3C3C8A21D3F86EC00C65B09 /* ProfileModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileModel.h; sourceTree = "<group>"; };
+		A3C3C8A31D3F86EC00C65B09 /* ProfileModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileModel.m; sourceTree = "<group>"; };
+		A3C3C8A51D3F928C00C65B09 /* OTPViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTPViewController.h; sourceTree = "<group>"; };
+		A3C3C8A61D3F928C00C65B09 /* OTPViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OTPViewController.m; sourceTree = "<group>"; };
+		A3C3C8A81D3FB4AF00C65B09 /* LoanHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoanHelper.h; sourceTree = "<group>"; };
+		A3C3C8A91D3FB4AF00C65B09 /* LoanHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoanHelper.m; sourceTree = "<group>"; };
+		A3D65A821D460BA100B47E46 /* CameraFrameWork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CameraFrameWork.framework; sourceTree = "<group>"; };
+		A3D65A861D4619A200B47E46 /* RearViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RearViewController.h; sourceTree = "<group>"; };
+		A3D65A871D4619A200B47E46 /* RearViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RearViewController.m; sourceTree = "<group>"; };
+		A3D65A891D4619AF00B47E46 /* DashBoardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashBoardViewController.h; sourceTree = "<group>"; };
+		A3D65A8A1D4619AF00B47E46 /* DashBoardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DashBoardViewController.m; sourceTree = "<group>"; };
+		A3D65A8C1D461A5700B47E46 /* MFSideMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFSideMenu.h; sourceTree = "<group>"; };
+		A3D65A8D1D461A5700B47E46 /* MFSideMenuContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFSideMenuContainerViewController.h; sourceTree = "<group>"; };
+		A3D65A8E1D461A5700B47E46 /* MFSideMenuContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFSideMenuContainerViewController.m; sourceTree = "<group>"; };
+		A3D65A8F1D461A5700B47E46 /* MFSideMenuShadow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFSideMenuShadow.h; sourceTree = "<group>"; };
+		A3D65A901D461A5700B47E46 /* MFSideMenuShadow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFSideMenuShadow.m; sourceTree = "<group>"; };
+		A3D65A911D461A5700B47E46 /* UIViewController+MFSideMenuAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MFSideMenuAdditions.h"; sourceTree = "<group>"; };
+		A3D65A921D461A5700B47E46 /* UIViewController+MFSideMenuAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MFSideMenuAdditions.m"; sourceTree = "<group>"; };
+		A3D65A971D461AD100B47E46 /* CustomNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomNavigationController.h; sourceTree = "<group>"; };
+		A3D65A981D461AD100B47E46 /* CustomNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomNavigationController.m; sourceTree = "<group>"; };
+		A3D65AA31D46364E00B47E46 /* BackGroud_Home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BackGroud_Home.png; sourceTree = "<group>"; };
+		A3D65AA51D46368800B47E46 /* HowItWorks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HowItWorks.png; sourceTree = "<group>"; };
+		A3D65AA71D46386500B47E46 /* loan.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = loan.jpg; sourceTree = "<group>"; };
+		A3D65AA81D46386500B47E46 /* mobile pocket.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "mobile pocket.jpg"; sourceTree = "<group>"; };
+		A3D65AA91D46386500B47E46 /* rating.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = rating.jpg; sourceTree = "<group>"; };
+		A3D65AAA1D46386500B47E46 /* Social.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Social.jpg; sourceTree = "<group>"; };
+		A3D65AAF1D4639F700B47E46 /* BackGround_Login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BackGround_Login.png; sourceTree = "<group>"; };
+		A3D65AB21D463A0F00B47E46 /* sp logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sp logo.png"; sourceTree = "<group>"; };
+		EF9931AE443B4ADDC7E0B64A /* Pods-SocialPockets.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialPockets.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SocialPockets/Pods-SocialPockets.debug.xcconfig"; sourceTree = "<group>"; };
+		FBAAB8281D422888001C918B /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		FBAAB8331D4239D7001C918B /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		FBAAB8341D4239D7001C918B /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		FBAAB8351D4239D7001C918B /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A3253D0A1D3C9DE90081A59C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FBAAB8381D4239D7001C918B /* FBSDKShareKit.framework in Frameworks */,
+				802EDF43A49A32B470A0D8D8 /* libPods-SocialPockets.a in Frameworks */,
+				A3D65A831D460BA100B47E46 /* CameraFrameWork.framework in Frameworks */,
+				FBAAB8361D4239D7001C918B /* FBSDKCoreKit.framework in Frameworks */,
+				FBAAB8371D4239D7001C918B /* FBSDKLoginKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A3C3C8851D3F4AE300C65B09 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1A440D39982BE729DDB2E6FA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EF9931AE443B4ADDC7E0B64A /* Pods-SocialPockets.debug.xcconfig */,
+				853DFEBFFD11370D4A6D76B8 /* Pods-SocialPockets.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		671C44441D4093C3000C94A0 /* Mobile Wallet */ = {
+			isa = PBXGroup;
+			children = (
+				671C44451D4094CA000C94A0 /* MwalletHelper.h */,
+				671C44461D4094CA000C94A0 /* MwalletHelper.m */,
+			);
+			name = "Mobile Wallet";
+			sourceTree = "<group>";
+		};
+		8475099805C07C9E06A7A1F2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0455716A8E3A563761CB5AAC /* libPods-SocialPockets.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A3253D041D3C9DE90081A59C = {
+			isa = PBXGroup;
+			children = (
+				A3D65A821D460BA100B47E46 /* CameraFrameWork.framework */,
+				FBAAB8281D422888001C918B /* Podfile */,
+				FBAAB82A1D422B81001C918B /* FrameWork */,
+				A3253D0F1D3C9DE90081A59C /* SocialPockets */,
+				A3C3C8891D3F4AE300C65B09 /* SocialPocketsTests */,
+				A3253D0E1D3C9DE90081A59C /* Products */,
+				1A440D39982BE729DDB2E6FA /* Pods */,
+				8475099805C07C9E06A7A1F2 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		A3253D0E1D3C9DE90081A59C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A3253D0D1D3C9DE90081A59C /* SocialPockets.app */,
+				A3C3C8881D3F4AE300C65B09 /* SocialPocketsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A3253D0F1D3C9DE90081A59C /* SocialPockets */ = {
+			isa = PBXGroup;
+			children = (
+				A38968691D40DF1600FA8F14 /* SharedMethods */,
+				A38968681D40DF0400FA8F14 /* HeaderFiles */,
+				A3253D131D3C9DE90081A59C /* AppDelegate.h */,
+				A3253D141D3C9DE90081A59C /* AppDelegate.m */,
+				A3D65AB51D4652EF00B47E46 /* LaunchScreen */,
+				A3C3C83D1D3DF1AF00C65B09 /* Login */,
+				A3C3C89E1D3F837A00C65B09 /* Registration */,
+				A3D65AB61D46530000B47E46 /* Dashboard */,
+				A3D65A961D461A5B00B47E46 /* SlideMenu */,
+				A38968641D40DDFD00FA8F14 /* Social accounts */,
+				A3C3C8AB1D3FB4B200C65B09 /* Loan */,
+				671C44441D4093C3000C94A0 /* Mobile Wallet */,
+				A3C3C8971D3F7E6100C65B09 /* AccountProfile */,
+				A3C3C8511D3DFCA700C65B09 /* Categories */,
+				A3C3C84B1D3DF1E700C65B09 /* Network */,
+				A3253D191D3C9DE90081A59C /* Main.storyboard */,
+				A3253D1C1D3C9DE90081A59C /* Assets.xcassets */,
+				A3253D1E1D3C9DE90081A59C /* LaunchScreen.storyboard */,
+				A3253D211D3C9DE90081A59C /* Info.plist */,
+				A3253D101D3C9DE90081A59C /* Supporting Files */,
+			);
+			path = SocialPockets;
+			sourceTree = "<group>";
+		};
+		A3253D101D3C9DE90081A59C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A3253D111D3C9DE90081A59C /* main.m */,
+				A3C3C84D1D3DF2A200C65B09 /* SocialPockets-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A38968641D40DDFD00FA8F14 /* Social accounts */ = {
+			isa = PBXGroup;
+			children = (
+				A389685E1D40DDF000FA8F14 /* SocialHelper.h */,
+				A389685F1D40DDF000FA8F14 /* SocialHelper.m */,
+				A38968601D40DDF000FA8F14 /* SocialSiteViewController.h */,
+				A38968611D40DDF000FA8F14 /* SocialSiteViewController.m */,
+			);
+			name = "Social accounts";
+			sourceTree = "<group>";
+		};
+		A38968681D40DF0400FA8F14 /* HeaderFiles */ = {
+			isa = PBXGroup;
+			children = (
+				A3C3C83E1D3DF1E000C65B09 /* Constants.h */,
+				A3C3C84C1D3DF22800C65B09 /* ApiHeader.h */,
+			);
+			name = HeaderFiles;
+			sourceTree = "<group>";
+		};
+		A38968691D40DF1600FA8F14 /* SharedMethods */ = {
+			isa = PBXGroup;
+			children = (
+				A389685B1D40DD3F00FA8F14 /* SharedMethods.h */,
+				A389685C1D40DD3F00FA8F14 /* SharedMethods.m */,
+			);
+			name = SharedMethods;
+			sourceTree = "<group>";
+		};
+		A3C3C83D1D3DF1AF00C65B09 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				A38968651D40DE1A00FA8F14 /* LoginViewController.h */,
+				A38968661D40DE1A00FA8F14 /* LoginViewController.m */,
+				A3C3C83A1D3DF09F00C65B09 /* LoginHelper.h */,
+				A3C3C83B1D3DF09F00C65B09 /* LoginHelper.m */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		A3C3C84B1D3DF1E700C65B09 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				A3C3C83F1D3DF1E000C65B09 /* NetworkHelperClass.h */,
+				A3C3C8401D3DF1E000C65B09 /* NetworkHelperClass.m */,
+				A3C3C8411D3DF1E000C65B09 /* NSJSONSerialization+RemovingNulls.h */,
+				A3C3C8421D3DF1E000C65B09 /* NSJSONSerialization+RemovingNulls.m */,
+				A3C3C8431D3DF1E000C65B09 /* NSURLSession+SynchronousTask.h */,
+				A3C3C8441D3DF1E000C65B09 /* NSURLSession+SynchronousTask.m */,
+				A3C3C8451D3DF1E000C65B09 /* Reachability.h */,
+				A3C3C8461D3DF1E000C65B09 /* Reachability.m */,
+			);
+			name = Network;
+			sourceTree = "<group>";
+		};
+		A3C3C8511D3DFCA700C65B09 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				A3C3C84E1D3DF7D500C65B09 /* NSString+AdditionalMethods.h */,
+				A3C3C84F1D3DF7D500C65B09 /* NSString+AdditionalMethods.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
+		A3C3C8891D3F4AE300C65B09 /* SocialPocketsTests */ = {
+			isa = PBXGroup;
+			children = (
+				A3C3C88A1D3F4AE300C65B09 /* SocialPocketsTests.m */,
+				A3C3C88C1D3F4AE300C65B09 /* Info.plist */,
+			);
+			path = SocialPocketsTests;
+			sourceTree = "<group>";
+		};
+		A3C3C8971D3F7E6100C65B09 /* AccountProfile */ = {
+			isa = PBXGroup;
+			children = (
+				A3C3C89F1D3F86CF00C65B09 /* ProfileViewController.h */,
+				A3C3C8A01D3F86CF00C65B09 /* ProfileViewController.m */,
+				A3C3C8A21D3F86EC00C65B09 /* ProfileModel.h */,
+				A3C3C8A31D3F86EC00C65B09 /* ProfileModel.m */,
+				A3C3C8941D3F7B2F00C65B09 /* ChangePasswordController.h */,
+				A3C3C8951D3F7B2F00C65B09 /* ChangePasswordController.m */,
+			);
+			name = AccountProfile;
+			sourceTree = "<group>";
+		};
+		A3C3C89E1D3F837A00C65B09 /* Registration */ = {
+			isa = PBXGroup;
+			children = (
+				A3C3C89B1D3F837700C65B09 /* RegistrationViewController.h */,
+				A3C3C89C1D3F837700C65B09 /* RegistrationViewController.m */,
+				A3C3C8A51D3F928C00C65B09 /* OTPViewController.h */,
+				A3C3C8A61D3F928C00C65B09 /* OTPViewController.m */,
+				A3C3C8981D3F837000C65B09 /* RegistrationModel.h */,
+				A3C3C8991D3F837000C65B09 /* RegistrationModel.m */,
+				A3D65AA31D46364E00B47E46 /* BackGroud_Home.png */,
+				A3D65AA51D46368800B47E46 /* HowItWorks.png */,
+				A3D65AA71D46386500B47E46 /* loan.jpg */,
+				A3D65AA81D46386500B47E46 /* mobile pocket.jpg */,
+				A3D65AA91D46386500B47E46 /* rating.jpg */,
+				A3D65AAA1D46386500B47E46 /* Social.jpg */,
+				A3D65AAF1D4639F700B47E46 /* BackGround_Login.png */,
+				A3D65AB21D463A0F00B47E46 /* sp logo.png */,
+			);
+			name = Registration;
+			sourceTree = "<group>";
+		};
+		A3C3C8AB1D3FB4B200C65B09 /* Loan */ = {
+			isa = PBXGroup;
+			children = (
+				A3C3C8A81D3FB4AF00C65B09 /* LoanHelper.h */,
+				A3C3C8A91D3FB4AF00C65B09 /* LoanHelper.m */,
+				671C44411D4091E4000C94A0 /* LoanViewController.h */,
+				671C44421D4091E4000C94A0 /* LoanViewController.m */,
+			);
+			name = Loan;
+			sourceTree = "<group>";
+		};
+		A3D65A961D461A5B00B47E46 /* SlideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				A3D65A8C1D461A5700B47E46 /* MFSideMenu.h */,
+				A3D65A8D1D461A5700B47E46 /* MFSideMenuContainerViewController.h */,
+				A3D65A8E1D461A5700B47E46 /* MFSideMenuContainerViewController.m */,
+				A3D65A8F1D461A5700B47E46 /* MFSideMenuShadow.h */,
+				A3D65A901D461A5700B47E46 /* MFSideMenuShadow.m */,
+				A3D65A911D461A5700B47E46 /* UIViewController+MFSideMenuAdditions.h */,
+				A3D65A921D461A5700B47E46 /* UIViewController+MFSideMenuAdditions.m */,
+			);
+			name = SlideMenu;
+			sourceTree = "<group>";
+		};
+		A3D65AB51D4652EF00B47E46 /* LaunchScreen */ = {
+			isa = PBXGroup;
+			children = (
+				A3253D161D3C9DE90081A59C /* ViewController.h */,
+				A3253D171D3C9DE90081A59C /* ViewController.m */,
+			);
+			name = LaunchScreen;
+			sourceTree = "<group>";
+		};
+		A3D65AB61D46530000B47E46 /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				A3D65A861D4619A200B47E46 /* RearViewController.h */,
+				A3D65A871D4619A200B47E46 /* RearViewController.m */,
+				A3D65A891D4619AF00B47E46 /* DashBoardViewController.h */,
+				A3D65A8A1D4619AF00B47E46 /* DashBoardViewController.m */,
+				A3D65A971D461AD100B47E46 /* CustomNavigationController.h */,
+				A3D65A981D461AD100B47E46 /* CustomNavigationController.m */,
+			);
+			name = Dashboard;
+			sourceTree = "<group>";
+		};
+		FBAAB82A1D422B81001C918B /* FrameWork */ = {
+			isa = PBXGroup;
+			children = (
+				FBAAB82C1D422B97001C918B /* Facebook */,
+				FBAAB82B1D422B90001C918B /* Twitter */,
+			);
+			name = FrameWork;
+			path = SocialPockets;
+			sourceTree = "<group>";
+		};
+		FBAAB82B1D422B90001C918B /* Twitter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Twitter;
+			sourceTree = "<group>";
+		};
+		FBAAB82C1D422B97001C918B /* Facebook */ = {
+			isa = PBXGroup;
+			children = (
+				FBAAB8331D4239D7001C918B /* FBSDKCoreKit.framework */,
+				FBAAB8341D4239D7001C918B /* FBSDKLoginKit.framework */,
+				FBAAB8351D4239D7001C918B /* FBSDKShareKit.framework */,
+			);
+			name = Facebook;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A3253D0C1D3C9DE90081A59C /* SocialPockets */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A3253D241D3C9DE90081A59C /* Build configuration list for PBXNativeTarget "SocialPockets" */;
+			buildPhases = (
+				906D597897E4466B632ECFA7 /* [CP] Check Pods Manifest.lock */,
+				A3253D091D3C9DE90081A59C /* Sources */,
+				A3253D0A1D3C9DE90081A59C /* Frameworks */,
+				A3253D0B1D3C9DE90081A59C /* Resources */,
+				1AA4AB063038C0AFD08C5C80 /* [CP] Embed Pods Frameworks */,
+				21A176EA3F6714CF05E794E4 /* [CP] Copy Pods Resources */,
+				A3D65A851D460BA100B47E46 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SocialPockets;
+			productName = SocialPockets;
+			productReference = A3253D0D1D3C9DE90081A59C /* SocialPockets.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A3C3C8871D3F4AE300C65B09 /* SocialPocketsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A3C3C8911D3F4AE300C65B09 /* Build configuration list for PBXNativeTarget "SocialPocketsTests" */;
+			buildPhases = (
+				A3C3C8841D3F4AE300C65B09 /* Sources */,
+				A3C3C8851D3F4AE300C65B09 /* Frameworks */,
+				A3C3C8861D3F4AE300C65B09 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A3C3C88E1D3F4AE300C65B09 /* PBXTargetDependency */,
+			);
+			name = SocialPocketsTests;
+			productName = SocialPocketsTests;
+			productReference = A3C3C8881D3F4AE300C65B09 /* SocialPocketsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A3253D051D3C9DE90081A59C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = Pandiyaraj;
+				TargetAttributes = {
+					A3253D0C1D3C9DE90081A59C = {
+						CreatedOnToolsVersion = 7.2;
+					};
+					A3C3C8871D3F4AE300C65B09 = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = A3253D0C1D3C9DE90081A59C;
+					};
+				};
+			};
+			buildConfigurationList = A3253D081D3C9DE90081A59C /* Build configuration list for PBXProject "SocialPockets" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A3253D041D3C9DE90081A59C;
+			productRefGroup = A3253D0E1D3C9DE90081A59C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A3253D0C1D3C9DE90081A59C /* SocialPockets */,
+				A3C3C8871D3F4AE300C65B09 /* SocialPocketsTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A3253D0B1D3C9DE90081A59C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A3D65AAD1D46386500B47E46 /* rating.jpg in Resources */,
+				A3253D201D3C9DE90081A59C /* LaunchScreen.storyboard in Resources */,
+				A3253D1D1D3C9DE90081A59C /* Assets.xcassets in Resources */,
+				A3D65AA61D46368800B47E46 /* HowItWorks.png in Resources */,
+				A3D65AAE1D46386500B47E46 /* Social.jpg in Resources */,
+				FBAAB8291D422888001C918B /* Podfile in Resources */,
+				A3D65AA41D46364E00B47E46 /* BackGroud_Home.png in Resources */,
+				A3D65AB01D4639F700B47E46 /* BackGround_Login.png in Resources */,
+				A3253D1B1D3C9DE90081A59C /* Main.storyboard in Resources */,
+				A3D65AAC1D46386500B47E46 /* mobile pocket.jpg in Resources */,
+				A3D65AB41D463A0F00B47E46 /* sp logo.png in Resources */,
+				A3D65AAB1D46386500B47E46 /* loan.jpg in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A3C3C8861D3F4AE300C65B09 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1AA4AB063038C0AFD08C5C80 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SocialPockets/Pods-SocialPockets-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		21A176EA3F6714CF05E794E4 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SocialPockets/Pods-SocialPockets-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		906D597897E4466B632ECFA7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A3253D091D3C9DE90081A59C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A3253D181D3C9DE90081A59C /* ViewController.m in Sources */,
+				A3C3C8AA1D3FB4AF00C65B09 /* LoanHelper.m in Sources */,
+				A3D65A991D461AD100B47E46 /* CustomNavigationController.m in Sources */,
+				A3C3C89D1D3F837700C65B09 /* RegistrationViewController.m in Sources */,
+				A3D65A8B1D4619AF00B47E46 /* DashBoardViewController.m in Sources */,
+				A3D65A941D461A5700B47E46 /* MFSideMenuShadow.m in Sources */,
+				A3C3C8491D3DF1E000C65B09 /* NSURLSession+SynchronousTask.m in Sources */,
+				A3C3C84A1D3DF1E000C65B09 /* Reachability.m in Sources */,
+				A3C3C89A1D3F837000C65B09 /* RegistrationModel.m in Sources */,
+				A389685D1D40DD3F00FA8F14 /* SharedMethods.m in Sources */,
+				A3C3C8501D3DF7D500C65B09 /* NSString+AdditionalMethods.m in Sources */,
+				A3C3C8961D3F7B2F00C65B09 /* ChangePasswordController.m in Sources */,
+				671C44471D4094CA000C94A0 /* MwalletHelper.m in Sources */,
+				A3D65A951D461A5700B47E46 /* UIViewController+MFSideMenuAdditions.m in Sources */,
+				A3C3C8A41D3F86EC00C65B09 /* ProfileModel.m in Sources */,
+				A3C3C83C1D3DF09F00C65B09 /* LoginHelper.m in Sources */,
+				A38968621D40DDF000FA8F14 /* SocialHelper.m in Sources */,
+				A3253D151D3C9DE90081A59C /* AppDelegate.m in Sources */,
+				A3C3C8A11D3F86CF00C65B09 /* ProfileViewController.m in Sources */,
+				A38968631D40DDF000FA8F14 /* SocialSiteViewController.m in Sources */,
+				A3C3C8A71D3F928C00C65B09 /* OTPViewController.m in Sources */,
+				A3D65A881D4619A200B47E46 /* RearViewController.m in Sources */,
+				671C44431D4091E4000C94A0 /* LoanViewController.m in Sources */,
+				A3253D121D3C9DE90081A59C /* main.m in Sources */,
+				A3C3C8471D3DF1E000C65B09 /* NetworkHelperClass.m in Sources */,
+				A38968671D40DE1A00FA8F14 /* LoginViewController.m in Sources */,
+				A3C3C8481D3DF1E000C65B09 /* NSJSONSerialization+RemovingNulls.m in Sources */,
+				A3D65A931D461A5700B47E46 /* MFSideMenuContainerViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A3C3C8841D3F4AE300C65B09 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A3C3C88B1D3F4AE300C65B09 /* SocialPocketsTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A3C3C88E1D3F4AE300C65B09 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A3253D0C1D3C9DE90081A59C /* SocialPockets */;
+			targetProxy = A3C3C88D1D3F4AE300C65B09 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A3253D191D3C9DE90081A59C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A3253D1A1D3C9DE90081A59C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A3253D1E1D3C9DE90081A59C /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A3253D1F1D3C9DE90081A59C /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A3253D221D3C9DE90081A59C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		A3253D231D3C9DE90081A59C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A3253D251D3C9DE90081A59C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EF9931AE443B4ADDC7E0B64A /* Pods-SocialPockets.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SocialPockets",
+					"$(PROJECT_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SocialPockets/SocialPockets-Prefix.pch";
+				INFOPLIST_FILE = SocialPockets/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ideas2it.SocialPockets;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		A3253D261D3C9DE90081A59C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 853DFEBFFD11370D4A6D76B8 /* Pods-SocialPockets.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SocialPockets",
+					"$(PROJECT_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SocialPockets/SocialPockets-Prefix.pch";
+				INFOPLIST_FILE = SocialPockets/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ideas2it.SocialPockets;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		A3C3C88F1D3F4AE300C65B09 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = SocialPocketsTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ideas2it.SocialPocketsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SocialPockets.app/SocialPockets";
+			};
+			name = Debug;
+		};
+		A3C3C8901D3F4AE300C65B09 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = SocialPocketsTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ideas2it.SocialPocketsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SocialPockets.app/SocialPockets";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A3253D081D3C9DE90081A59C /* Build configuration list for PBXProject "SocialPockets" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A3253D221D3C9DE90081A59C /* Debug */,
+				A3253D231D3C9DE90081A59C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A3253D241D3C9DE90081A59C /* Build configuration list for PBXNativeTarget "SocialPockets" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A3253D251D3C9DE90081A59C /* Debug */,
+				A3253D261D3C9DE90081A59C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A3C3C8911D3F4AE300C65B09 /* Build configuration list for PBXNativeTarget "SocialPocketsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A3C3C88F1D3F4AE300C65B09 /* Debug */,
+				A3C3C8901D3F4AE300C65B09 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A3253D051D3C9DE90081A59C /* Project object */;
+}

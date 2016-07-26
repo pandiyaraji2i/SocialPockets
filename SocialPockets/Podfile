@@ -1,0 +1,4 @@
+target "SocialPockets" do
+pod 'TwitterKit'
+#pod 'SwiftyJSON', '~> 2.3.2'
+end
