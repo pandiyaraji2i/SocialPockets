@@ -17,10 +17,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    //For FaceBook
+    //#-- For FaceBook
     [[FBSDKApplicationDelegate sharedInstance] application:application
                              didFinishLaunchingWithOptions:launchOptions];
-    // For Twitter
+    //#--  For Twitter
     [[Twitter sharedInstance] startWithConsumerKey:@"bMhvo4DTWbPg6lrSKATbFSMaq" consumerSecret:@"Ah0OxX9kWaTVZFFGOwFZRE5c1niQhrxHAU5glQdNri8rQhkdGr"];
     
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
