@@ -14,6 +14,8 @@
 #import "RearViewController.h"
 #import "OTPViewController.h"
 #import "RequestConfirmationViewController.h"
+#import "RepayLoanViewController.h"
+
 @interface ViewController ()<UIScrollViewDelegate>
 {
     UIView *subView;
@@ -117,7 +119,7 @@
 
 - (IBAction)registerButtonAction:(id)sender
 {
-   RequestConfirmationViewController  *registerVc =[self.storyboard instantiateViewControllerWithIdentifier:@"ReqConfVC"];
+   RepayLoanViewController  *registerVc =[self.storyboard instantiateViewControllerWithIdentifier:@"RepayLoanVC"];
     [self.navigationController pushViewController:registerVc animated:YES];
     
 //    RegistrationViewController *registerVc =[self.storyboard instantiateViewControllerWithIdentifier:@"registerVc"];
