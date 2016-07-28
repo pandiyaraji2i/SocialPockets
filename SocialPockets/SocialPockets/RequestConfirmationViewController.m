@@ -16,6 +16,8 @@
 @property (weak, nonatomic) IBOutlet UITableView *accountTableView;
 - (IBAction)acceptBtn:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *acceptance;
+@property (weak, nonatomic) IBOutlet UIView *transprantView;
+@property (weak, nonatomic) IBOutlet UIView *thanksView;
 
 @end
 
@@ -23,6 +25,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.transprantView.hidden = YES;
+    self.thanksView.hidden = YES;
+
     // Do any additional setup after loading the view.
    
     //    tableData = [[NSMutableArray alloc] initWithObjects:@"HDFC bank",@"ICICI Bank",@"citi bank", nil];
@@ -152,6 +157,16 @@ arr = [@[@{@"BankName":@"HDFC",@"AccountNum":@"126547682354872"}
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 60;
+}
+- (IBAction)DoneBtnTapped:(id)sender {
+    self.transprantView.hidden = NO;
+    self.thanksView.hidden = NO;
+
+}
+- (IBAction)DismissBtnTapped:(id)sender {
+    self.transprantView.hidden = YES;
+    self.thanksView.hidden = YES;
+
 }
 
 - (void)didReceiveMemoryWarning {

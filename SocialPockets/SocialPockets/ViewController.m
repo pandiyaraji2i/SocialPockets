@@ -13,6 +13,7 @@
 #import "DashBoardViewController.h"
 #import "RearViewController.h"
 #import "OTPViewController.h"
+#import "RequestConfirmationViewController.h"
 @interface ViewController ()<UIScrollViewDelegate>
 {
     UIView *subView;
@@ -116,8 +117,11 @@
 
 - (IBAction)registerButtonAction:(id)sender
 {
-    RegistrationViewController *registerVc =[self.storyboard instantiateViewControllerWithIdentifier:@"registerVc"];
+   RequestConfirmationViewController  *registerVc =[self.storyboard instantiateViewControllerWithIdentifier:@"ReqConfVC"];
     [self.navigationController pushViewController:registerVc animated:YES];
+    
+//    RegistrationViewController *registerVc =[self.storyboard instantiateViewControllerWithIdentifier:@"registerVc"];
+//    [self.navigationController pushViewController:registerVc animated:YES];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

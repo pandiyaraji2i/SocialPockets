@@ -37,4 +37,6 @@
 #define JSONCONTENTTYPE       @"application/json"
 #define MULTIPARTFORMDATA     @"application/"
 
+#define MAX_ACCOUNT  3
+
 #endif /* Constants_h */
