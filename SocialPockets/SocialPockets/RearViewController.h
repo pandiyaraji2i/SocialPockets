@@ -8,9 +8,6 @@
 
 #import <UIKit/UIKit.h>
 typedef void(^MenuSelection)(NSString*);
-@interface RearViewController : UIViewController
-{
-    IBOutlet UITableView *listTableView;
-}
+@interface RearViewController : UITableViewController
 @property (nonatomic,copy) MenuSelection menu;
 @end

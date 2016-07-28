@@ -2,15 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "scale" : "1x"
+      "scale" : "1x",
+      "filename" : "UncheckedImage.png"
     },
     {
       "idiom" : "universal",
-      "scale" : "2x"
+      "scale" : "2x",
+      "filename" : "UncheckedImage@2x.png"
     },
     {
       "idiom" : "universal",
-      "filename" : "check-square-green-512 copy.png",
+      "filename" : "UncheckedImage@3x.png",
       "scale" : "3x"
     }
   ],

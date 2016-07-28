@@ -61,7 +61,7 @@ typedef enum {
 @property (nonatomic, assign) BOOL menuSlideAnimationEnabled;
 @property (nonatomic, assign) CGFloat menuSlideAnimationFactor; // higher = less menu movement on animation
 
-
+- (void)closeSlideMenuCompletion:(void (^) (void))completion;
 - (void)toggleLeftSideMenuCompletion:(void (^)(void))completion;
 - (void)toggleRightSideMenuCompletion:(void (^)(void))completion;
 - (void)setMenuState:(MFSideMenuState)menuState completion:(void (^)(void))completion;

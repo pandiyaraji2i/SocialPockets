@@ -13,6 +13,8 @@
 - (void)viewDidLoad
 {
     self.navigationController.navigationBarHidden = NO;
+    UIImageView *imageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"BG_RegStatus1"]];
+    self.navigationItem.titleView = imageView;
 }
 
 - (IBAction)loginButtonAction:(id)sender

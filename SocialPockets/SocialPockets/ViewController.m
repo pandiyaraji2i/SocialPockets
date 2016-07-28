@@ -13,7 +13,7 @@
 #import "DashBoardViewController.h"
 #import "RearViewController.h"
 #import "OTPViewController.h"
-@interface ViewController ()<UIPageViewControllerDataSource,UIScrollViewDelegate>
+@interface ViewController ()<UIScrollViewDelegate>
 {
     UIView *subView;
     UIPageControl *pageControl;
@@ -26,7 +26,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationController.navigationBarHidden = YES;
-    
     pageTitles = @[@"Rating user according to social info given", @"Instant loans for user", @"Social sites liabalize", @"Mobile wallet to get loan and repay",@"Mobile wallet to get loan and repay",@"Mobile wallet to get loan and repay",@"Mobile wallet to get loan and repay",@"Mobile wallet to get loan and repay",@"Mobile wallet to get loan and repay",@"Mobile wallet to get loan and repay"];
     pageImages = @[@"rating.jpg", @"loan.jpg", @"Social.jpg", @"mobile pocket.jpg",@"mobile pocket.jpg",@"mobile pocket.jpg",@"mobile pocket.jpg",@"mobile pocket.jpg",@"mobile pocket.jpg",@"mobile pocket.jpg"];
     
@@ -96,23 +95,23 @@
 }
 - (IBAction)loginButtonAction:(id)sender
 {
-//    RearViewController *rearVc = [self.storyboard instantiateViewControllerWithIdentifier:@"RearVc"];
-//    DashBoardViewController *dashboardVc = [self.storyboard instantiateViewControllerWithIdentifier:@"DashboardVc"];
-//    CustomNavigationController *controller=[[CustomNavigationController alloc]initWithRootViewController:dashboardVc];
-//    MFSideMenuContainerViewController *container = [MFSideMenuContainerViewController
-//                                                    containerWithCenterViewController:controller
-//                                                    leftMenuViewController:rearVc
-//                                                    rightMenuViewController:nil];
-//    rearVc.menu =^(NSString* menuTitle){
-//  
-//        NSLog(@"til %@",menuTitle);
-//        if ([menuTitle isEqualToString:@"Logout"]) {
-//            [self dismissViewControllerAnimated:YES completion:nil];
-//        }
-//    };
-//    [self.navigationController presentViewController:container animated:YES completion:nil];
-    LoginViewController *loginVc =[self.storyboard instantiateViewControllerWithIdentifier:@"LoginVc"];
-    [self.navigationController pushViewController:loginVc animated:YES];
+    RearViewController *rearVc = [self.storyboard instantiateViewControllerWithIdentifier:@"RearVc"];
+    DashBoardViewController *dashboardVc = [self.storyboard instantiateViewControllerWithIdentifier:@"DashboardVc"];
+    CustomNavigationController *controller=[[CustomNavigationController alloc]initWithRootViewController:dashboardVc];
+    MFSideMenuContainerViewController *container = [MFSideMenuContainerViewController
+                                                    containerWithCenterViewController:controller
+                                                    leftMenuViewController:rearVc
+                                                    rightMenuViewController:nil];
+    rearVc.menu =^(NSString* menuTitle){
+  
+        NSLog(@"til %@",menuTitle);
+        if ([menuTitle isEqualToString:@"Logout"]) {
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }
+    };
+    [self.navigationController presentViewController:container animated:YES completion:nil];
+//    LoginViewController *loginVc =[self.storyboard instantiateViewControllerWithIdentifier:@"LoginVc"];
+//    [self.navigationController pushViewController:loginVc animated:YES];
 }
 
 - (IBAction)registerButtonAction:(id)sender

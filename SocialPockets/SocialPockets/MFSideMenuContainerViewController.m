@@ -311,6 +311,11 @@ typedef enum {
 #pragma mark -
 #pragma mark - Menu State
 
+- (void)closeSlideMenuCompletion:(void (^) (void))completion
+{
+    [self setMenuState:MFSideMenuStateClosed completion:completion];
+}
+
 - (void)toggleLeftSideMenuCompletion:(void (^)(void))completion {
     if(self.menuState == MFSideMenuStateLeftMenuOpen) {
         [self setMenuState:MFSideMenuStateClosed completion:completion];

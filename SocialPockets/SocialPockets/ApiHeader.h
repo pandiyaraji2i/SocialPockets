@@ -37,5 +37,7 @@
 
 
 #import "MFSideMenu.h"
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <TwitterKit/TwitterKit.h>
 
 #endif /* ApiHeader_h */

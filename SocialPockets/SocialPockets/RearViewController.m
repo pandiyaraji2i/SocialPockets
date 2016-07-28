@@ -19,7 +19,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    listArray = @[@"Profile",@"Points Feed",@"Manage Accounts",@"Edit",@"Logout"];
+    listArray = @[@"Dashboard",@"Points Feed",@"Transaction History",@"Manage Accounts",@"Terms & Conditions",@"FAQ",@"About SocialPocket"];
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.tableView.frame.size.width, 10.0f)];
+    self.tableView.separatorStyle=UITableViewCellSeparatorStyleNone;
     // Do any additional setup after loading the view.
 }
 
@@ -59,12 +61,49 @@
     }
 }
 
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 120;
+}
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    UIView *sectionView=[[UIView alloc]initWithFrame:CGRectMake(0, 20, tableView.frame.size.width, 20)];
+    UIView *sectionView=[[UIView alloc]initWithFrame:CGRectMake(0, 10, tableView.frame.size.width,100)];
+    
     sectionView.backgroundColor=[UIColor colorWithRed:38.0/255.0 green:38.0/255.0 blue:38.0/255.0 alpha:1.0];
-
+    UIImageView *tempImage =[[UIImageView alloc]initWithFrame:CGRectMake(17.5, 15, 44,44)];
+    [tempImage.layer setCornerRadius:tempImage.frame.size.width/2.0f];
+    [tempImage.layer setMasksToBounds:YES];
+    tempImage.image = [UIImage imageNamed:@"Social.jpg"];
+    tempImage.layer.borderColor = [UIColor whiteColor].CGColor;
+    tempImage.layer.borderWidth = 1.0;
+    tempImage.layer.shadowColor = [UIColor redColor].CGColor;
+    [sectionView addSubview:tempImage];
+    
+    UILabel *tempLabel =[[UILabel alloc]initWithFrame:CGRectMake(20, CGRectGetMaxY(tempImage.frame), sectionView.frame.size.width-tempImage.frame.size.width-20, 30)];
+    tempLabel.text=@"Pandiya Raj";
+    tempLabel.textColor=[UIColor whiteColor];
+    tempLabel.font=[UIFont fontWithName:@"Helvetica Neue" size:16];
+    
+    UILabel *emailIdLabel =[[UILabel alloc]initWithFrame:CGRectMake(20, CGRectGetMaxY(tempLabel.frame)-10, sectionView.frame.size.width-tempImage.frame.size.width, 30)];
+    emailIdLabel.text=@"Pandiyaraj@ideas2it.com";
+    [emailIdLabel setFont:[UIFont fontWithName:@"Helvetica Neue" size:10]];
+    emailIdLabel.textColor=[UIColor whiteColor];
+    [sectionView addSubview:emailIdLabel];
+    [sectionView addSubview:tempLabel];
+    
+    UIButton *logoutButton =[UIButton buttonWithType:UIButtonTypeCustom];
+    logoutButton.frame = CGRectMake(sectionView.frame.size.width-60, sectionView.frame.size.height-40,60, 40);
+    [logoutButton setTitle:@"Log out" forState:UIControlStateNormal];
+    [logoutButton addTarget:self action:@selector(logOut) forControlEvents:UIControlEventTouchUpInside];
+    [sectionView addSubview:logoutButton];
     return sectionView;
+}
+
+- (void)logOut
+{
+    if (menu) {
+        menu(@"Logout");
+    }
 }
 
 

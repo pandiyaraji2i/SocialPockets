@@ -24,10 +24,26 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)setStatusBarBackgroundColor:(UIColor *)color {
+    
+    UIView *statusBar = [[[UIApplication sharedApplication] valueForKey:@"statusBarWindow"] valueForKey:@"statusBar"];
+    
+    if ([statusBar respondsToSelector:@selector(setBackgroundColor:)]) {
+        statusBar.backgroundColor = color;
+    }
+    [[UIApplication  sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+}
+
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    self.toolbar.barStyle=UIBarStyleBlackTranslucent;
-    self.interactivePopGestureRecognizer.enabled = NO;
+    [self setStatusBarBackgroundColor:[UIColor blackColor]];
+    [self.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationBar setTranslucent:YES];
+    [self.navigationBar setShadowImage:[UIImage new]];
+    [self setNavigationBarHidden:NO animated:YES];
+    self.navigationBar.tintColor = [UIColor whiteColor];
+    self.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor whiteColor]};
+    self.navigationBar.backgroundColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.25];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{

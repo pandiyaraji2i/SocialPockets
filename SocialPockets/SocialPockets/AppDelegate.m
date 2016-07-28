@@ -7,8 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import <FBSDKCoreKit/FBSDKCoreKit.h>
-#import <TwitterKit/TwitterKit.h>
 
 @interface AppDelegate ()
 
@@ -24,6 +22,8 @@
                              didFinishLaunchingWithOptions:launchOptions];
     // For Twitter
     [[Twitter sharedInstance] startWithConsumerKey:@"bMhvo4DTWbPg6lrSKATbFSMaq" consumerSecret:@"Ah0OxX9kWaTVZFFGOwFZRE5c1niQhrxHAU5glQdNri8rQhkdGr"];
+    
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     return YES;
 }
 

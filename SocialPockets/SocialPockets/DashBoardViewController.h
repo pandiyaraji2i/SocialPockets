@@ -9,5 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface DashBoardViewController : UIViewController
-
+{
+    IBOutlet NSLayoutConstraint *scoreLabelTopConstraint;
+    IBOutlet NSLayoutConstraint *scoreBGHeightConstraint;
+    IBOutlet NSLayoutConstraint *pointsButtonTopConstraint;
+}
+@property (nonatomic, weak) IBOutlet UIButton *pointsButton;
 @end
