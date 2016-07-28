@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		671C44431D4091E4000C94A0 /* LoanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 671C44421D4091E4000C94A0 /* LoanViewController.m */; };
 		671C44471D4094CA000C94A0 /* MwalletHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 671C44461D4094CA000C94A0 /* MwalletHelper.m */; };
+		6777A4C51D4A008C00BF1EC3 /* RequestConfirmationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6777A4C41D4A008C00BF1EC3 /* RequestConfirmationViewController.m */; };
 		802EDF43A49A32B470A0D8D8 /* libPods-SocialPockets.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0455716A8E3A563761CB5AAC /* libPods-SocialPockets.a */; };
 		A3253D121D3C9DE90081A59C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A3253D111D3C9DE90081A59C /* main.m */; };
 		A3253D151D3C9DE90081A59C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A3253D141D3C9DE90081A59C /* AppDelegate.m */; };
@@ -108,6 +109,8 @@
 		671C44421D4091E4000C94A0 /* LoanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoanViewController.m; sourceTree = "<group>"; };
 		671C44451D4094CA000C94A0 /* MwalletHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MwalletHelper.h; sourceTree = "<group>"; };
 		671C44461D4094CA000C94A0 /* MwalletHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MwalletHelper.m; sourceTree = "<group>"; };
+		6777A4C31D4A008C00BF1EC3 /* RequestConfirmationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestConfirmationViewController.h; sourceTree = "<group>"; };
+		6777A4C41D4A008C00BF1EC3 /* RequestConfirmationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestConfirmationViewController.m; sourceTree = "<group>"; };
 		853DFEBFFD11370D4A6D76B8 /* Pods-SocialPockets.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialPockets.release.xcconfig"; path = "Pods/Target Support Files/Pods-SocialPockets/Pods-SocialPockets.release.xcconfig"; sourceTree = "<group>"; };
 		A3253D0D1D3C9DE90081A59C /* SocialPockets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocialPockets.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3253D111D3C9DE90081A59C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -316,6 +319,8 @@
 				A3253D141D3C9DE90081A59C /* AppDelegate.m */,
 				A3EAA2B21D4762210013A952 /* AddBankAccountController.h */,
 				A3EAA2B31D4762210013A952 /* AddBankAccountController.m */,
+				6777A4C31D4A008C00BF1EC3 /* RequestConfirmationViewController.h */,
+				6777A4C41D4A008C00BF1EC3 /* RequestConfirmationViewController.m */,
 				A3C3C83D1D3DF1AF00C65B09 /* Login */,
 				A3C3C89E1D3F837A00C65B09 /* Registration */,
 				A3D65AB61D46530000B47E46 /* Dashboard */,
@@ -823,6 +828,7 @@
 				A3D65A8B1D4619AF00B47E46 /* DashBoardViewController.m in Sources */,
 				A3D65A941D461A5700B47E46 /* MFSideMenuShadow.m in Sources */,
 				A3C3C8491D3DF1E000C65B09 /* NSURLSession+SynchronousTask.m in Sources */,
+				6777A4C51D4A008C00BF1EC3 /* RequestConfirmationViewController.m in Sources */,
 				A3C3C84A1D3DF1E000C65B09 /* Reachability.m in Sources */,
 				A3C3C89A1D3F837000C65B09 /* RegistrationModel.m in Sources */,
 				A389685D1D40DD3F00FA8F14 /* SharedMethods.m in Sources */,

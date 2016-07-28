@@ -15,6 +15,7 @@
         NSArray *tableData;
 }
 @property IBOutlet UITableView *socialTableView;
+@property (weak, nonatomic) IBOutlet UILabel *attLabel;
 
 @end
 
@@ -28,6 +29,21 @@
     self.socialTableView.dataSource = self;
     self.socialTableView.layer.borderWidth = 2.0;
     self.socialTableView.layer.borderColor = [UIColor grayColor].CGColor;
+    
+    NSDictionary *attribs = @{
+                              NSForegroundColorAttributeName:[UIColor whiteColor],
+                              NSFontAttributeName: [UIFont fontWithName:@"Helvetica Neue" size:11]
+                              };
+    NSMutableAttributedString *attributedText = [[NSMutableAttributedString alloc] initWithString:_attLabel.text attributes:attribs];
+    
+    
+    UIFont *boldFont = [UIFont fontWithName:@"Helvetica-Bold" size:12.0];
+    NSRange range = [_attLabel.text rangeOfString:@"Social Score"];
+    [attributedText setAttributes:@{NSForegroundColorAttributeName: [UIColor yellowColor],
+                                    NSFontAttributeName:boldFont} range:range];
+    
+    
+    _attLabel.attributedText = attributedText;
 }
 
 # pragma uitableview delagates
@@ -40,14 +56,23 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:
 (NSIndexPath *)indexPath{
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:
-                             @"cell"];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SocialCell" forIndexPath:indexPath];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc]initWithStyle:
-                UITableViewCellStyleDefault reuseIdentifier:nil];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"SocialCell"];
     }
+    
+    UILabel *lblname = (UILabel *)[cell.contentView viewWithTag:99];
+    
+    lblname.text = [tableData objectAtIndex:indexPath.row];
+    
+    UIImageView *imgname = (UIImageView *)[cell.contentView viewWithTag:1];
+    
+    
+    imgname.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@.png",[tableData objectAtIndex:indexPath.row]]];
+    
+    
     cell.textLabel.textAlignment = NSTextAlignmentCenter;
-    [cell.textLabel setText:[tableData objectAtIndex:indexPath.row]];
+    //[cell.textLabel setText:[tableData objectAtIndex:indexPath.row]];
     return cell;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
