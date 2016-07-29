@@ -7,14 +7,18 @@
 //
 
 #import "LoginViewController.h"
+#import "DashBoardViewController.h"
+#import "RearViewController.h"
 
 @implementation LoginViewController
 
 - (void)viewDidLoad
 {
     self.navigationController.navigationBarHidden = NO;
-    UIImageView *imageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"BG_RegStatus1"]];
-    self.navigationItem.titleView = imageView;
+    self.title = @"Login";
+    
+    userNameTextField.text = @"test@gmail.com";
+    passwordTextField.text = @"12345";
 }
 
 - (IBAction)loginButtonAction:(id)sender
@@ -24,7 +28,21 @@
     }
     else {
         [LOGINMACRO validateUser:userNameTextField.text password:passwordTextField.text completion:^(id obj) {
-            
+            RearViewController *rearVc = [self.storyboard instantiateViewControllerWithIdentifier:@"RearVc"];
+            DashBoardViewController *dashboardVc = [self.storyboard instantiateViewControllerWithIdentifier:@"DashboardVc"];
+            CustomNavigationController *controller=[[CustomNavigationController alloc]initWithRootViewController:dashboardVc];
+            MFSideMenuContainerViewController *container = [MFSideMenuContainerViewController
+                                                            containerWithCenterViewController:controller
+                                                            leftMenuViewController:rearVc
+                                                            rightMenuViewController:nil];
+            rearVc.menu =^(NSString* menuTitle){
+                
+                NSLog(@"til %@",menuTitle);
+                if ([menuTitle isEqualToString:@"Logout"]) {
+                    [self dismissViewControllerAnimated:YES completion:nil];
+                }
+            };
+            [self.navigationController presentViewController:container animated:YES completion:nil];
         }];
     }
 }

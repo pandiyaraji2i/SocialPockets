@@ -24,6 +24,9 @@
     [[Twitter sharedInstance] startWithConsumerKey:@"bMhvo4DTWbPg6lrSKATbFSMaq" consumerSecret:@"Ah0OxX9kWaTVZFFGOwFZRE5c1niQhrxHAU5glQdNri8rQhkdGr"];
     
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"loanIsCompleted"];
+    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"loanIsProcessed"];
     return YES;
 }
 

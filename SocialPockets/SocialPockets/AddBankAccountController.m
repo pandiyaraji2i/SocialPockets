@@ -16,14 +16,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-//    UIImageView *imageView = [[UIImageView alloc]init];
-//    imageView.image =[UIImage imageNamed:@"BG_RegStatus1"];
-//    self.navigationItem.titleView = imageView;
-
-    
-    
-    
     // Do any additional setup after loading the view.
 }
 

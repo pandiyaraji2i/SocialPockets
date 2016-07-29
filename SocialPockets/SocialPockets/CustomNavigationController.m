@@ -16,6 +16,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    //#-- Status Bar Color Change
+    [self setNeedsStatusBarAppearanceUpdate];
     // Do any additional setup after loading the view.
 }
 
@@ -44,6 +47,12 @@
     self.navigationBar.tintColor = [UIColor whiteColor];
     self.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor whiteColor]};
     self.navigationBar.backgroundColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.25];
+    
+}
+
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
 }
 
 -(void)viewWillDisappear:(BOOL)animated{

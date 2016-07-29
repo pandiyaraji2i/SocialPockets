@@ -7,6 +7,7 @@
 //
 
 #import "ApplyLoanViewController.h"
+#import "RequestConfirmationViewController.h"
  int const LoanProcessingFeeDetectionPercent = 6;
 
 
@@ -29,17 +30,30 @@
     _loanDetailsView.layer.masksToBounds = YES;
     UITapGestureRecognizer *gr = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(sliderTapped:)];
     [self.loanAmtSlider addGestureRecognizer:gr];
-    self.navigationController.navigationBarHidden = NO;
+    
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@" " style:UIBarButtonItemStylePlain target:self action:nil];
+
+
+    
     self.title = @"Apply Loan";
-//    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-//   // self.navigationController.navigationItem.backBarButtonItem = [NSDictionary dictionaryWithObject:[UIColor redColor] forKey:NSForegroundColorAttributeName];
-//
-//    self.navigationController.navigationBar.titleTextAttributes = [NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey:NSForegroundColorAttributeName];
+    
+    //#-- Status Bar Color Change
+    [self setNeedsStatusBarAppearanceUpdate];
 
 }
-- (IBAction)NextBtnTapped:(id)sender {
+- (IBAction)nextBtnTapped:(id)sender {
+    
+    [LOANMACRO loanEligibityForUserCompletion:^(id obj) {
+        if (obj) {
+            RequestConfirmationViewController *requestConfirmationVc = [self.storyboard instantiateViewControllerWithIdentifier:@"RequsetConfirmationVc"];
+            [self.navigationController pushViewController:requestConfirmationVc animated:YES];
+        }else{
+            ErrorMessageWithTitle(@"Message", @"Your not eligible for loan");
+        }
+    }];
 }
-- (IBAction)SliderValueChanged:(UISlider*)sender {
+
+- (IBAction)sliderValueChanged:(UISlider*)sender {
     double num = self.loanAmtSlider.value;
     int intpart = (int)num;
     double decpart = num - intpart;
@@ -62,7 +76,7 @@
 - (void)sliderTapped:(UIGestureRecognizer *)g {
     UISlider* s = (UISlider*)g.view;
     if (s.highlighted){
-        [self SliderValueChanged:nil];
+        [self sliderValueChanged:nil];
         return; // tap on thumb, let slider deal with it
     }
     CGPoint pt = [g locationInView: s];
@@ -70,7 +84,7 @@
     CGFloat delta = percentage * (s.maximumValue - s.minimumValue);
     CGFloat value = s.minimumValue + delta;
     self.loanAmtSlider.value = value;
-    [self  SliderValueChanged:nil];
+    [self  sliderValueChanged:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -78,6 +92,11 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark StatusBar Style
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
+}
 /*
 #pragma mark - Navigation
 

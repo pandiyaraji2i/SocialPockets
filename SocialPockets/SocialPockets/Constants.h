@@ -38,5 +38,7 @@
 #define MULTIPARTFORMDATA     @"application/"
 
 #define MAX_ACCOUNT  3
+#define INDIANRUPEES_UNICODE @"\u20B9"
+#define SAND_CLOCK @"\u23F3"
 
 #endif /* Constants_h */

@@ -12,7 +12,8 @@
 @interface LoanHelper : NSObject
 + (LoanHelper *)sharedInstance;
 
-- (void)eligibityForUserId:(NSString *)userId completion:(void (^)(id obj))completionBlock;
+-(void)loanEligibityForUserCompletion:(void (^)(id obj))completionBlock;
+
 
 - (void)requestLoanForUserId:(NSString *)userId amount:(NSString *)amount createdBy:(NSString *)createdBy completion:(void (^)(id obj))completionBlock;
 

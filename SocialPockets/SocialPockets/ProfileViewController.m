@@ -29,9 +29,6 @@
 }
 - (IBAction)onEligiblityCheck:(id)sender {
   
-    [PROFILEMACRO eligibityForUserId:@"1" completion:^(id obj) {
-        NSLog(@"eligibility = %@",obj);
-    }];
 }
 
 

@@ -51,30 +51,6 @@ static ProfileModel* _sharedInstance = nil;
 
 }
 
-/**
- *  Check the eligibility status of the user
- *
- *  @param userId          id of the user
- *  @param completionBlock response block
- */
--(void)eligibityForUserId:(NSString *)userId completion:(void (^)(id obj))completionBlock
-{
-    if ([NetworkHelperClass getInternetStatus:YES]) {
-        NSMutableDictionary *dict = [@{@"id":userId} mutableCopy];
-        id successObject = [NetworkHelperClass sendSynchronousRequestToServer:@"loanrequest/checkEligibilityStatus" httpMethod:POST requestBody:dict contentType:JSONCONTENTTYPE];
-        if (successObject) {
-            if (completionBlock) {
-                completionBlock(successObject);
-            }
-        }
-    }
-    else{
-        if (completionBlock) {
-            completionBlock(nil);
-        }
-    }
-
-}
 
 
 /**

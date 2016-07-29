@@ -7,14 +7,13 @@
 //
 
 #import "RequestConfirmationViewController.h"
-
+#import "DashBoardViewController.h"
 @interface RequestConfirmationViewController ()<UITableViewDataSource,UITableViewDelegate>{
-    NSMutableArray /*tableData,*tableNumber,*/*arr,*temp;
+    NSMutableArray *arr;
     NSMutableDictionary *accountDict;
     NSIndexPath *previousIndexpath;
 }
 @property (weak, nonatomic) IBOutlet UITableView *accountTableView;
-- (IBAction)acceptBtn:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *acceptance;
 @property (weak, nonatomic) IBOutlet UIView *transprantView;
 @property (weak, nonatomic) IBOutlet UIView *thanksView;
@@ -30,12 +29,7 @@
 
     // Do any additional setup after loading the view.
    
-    //    tableData = [[NSMutableArray alloc] initWithObjects:@"HDFC bank",@"ICICI Bank",@"citi bank", nil];
-    //    tableNumber = [[NSMutableArray alloc] initWithObjects:@"126547682354872" ,@"32875684756448756",@"126547682354872",nil];
-
-arr = [@[@{@"BankName":@"HDFC",@"AccountNum":@"126547682354872"}
-                            ,@{@"BankName":@"HDFC",@"AccountNum":@"126547682354872"}]mutableCopy];
- 
+   #warning need to download all wallets from the server
     arr=[@[@{@"BankName" : @"HDFC",
                                    @"AccountNum" : @"123456789",
                                    @"Selected" : [NSNumber numberWithBool:NO]
@@ -53,12 +47,15 @@ arr = [@[@{@"BankName":@"HDFC",@"AccountNum":@"126547682354872"}
     self.accountTableView.dataSource = self;
     self.accountTableView.layer.cornerRadius = 7;
     
-    self.navigationController.navigationBarHidden = NO;
     self.title = @"Request Confirmation";
     previousIndexpath = nil;
     
+    //#-- Status Bar Color Change
+    [self setNeedsStatusBarAppearanceUpdate];
+    
 }
 
+#pragma mark tableview datasource methods
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return arr.count >= MAX_ACCOUNT ? arr.count:[arr count]+1;
 }
@@ -67,7 +64,6 @@ arr = [@[@{@"BankName":@"HDFC",@"AccountNum":@"126547682354872"}
 (NSIndexPath *)indexPath{
     
     NSString *CellId = @"accountCell";
-    
     if (indexPath.row == arr.count) {
         CellId = nil;
     }
@@ -97,38 +93,6 @@ arr = [@[@{@"BankName":@"HDFC",@"AccountNum":@"126547682354872"}
     return cell;
     
 }
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    if((indexPath.row) == arr.count)
-    {
-        NSLog(@"Adding new account:");
-       [arr insertObject:[@{@"BankName":@"Axis",@"AccountNum":@"126547682354872",@"Selected":[NSNumber numberWithBool:NO]}mutableCopy] atIndex:arr.count];
-        [tableView reloadData];
-    }
-    else{
-        NSMutableDictionary *currentSelectedObj = [[arr objectAtIndex:indexPath.row] mutableCopy];
-        BOOL isSelectedValue = [[currentSelectedObj valueForKey:@"Selected"] boolValue];
-        [currentSelectedObj setValue:[NSNumber numberWithBool:!isSelectedValue] forKey:@"Selected"];
-        [arr replaceObjectAtIndex:indexPath.row withObject:currentSelectedObj];
-        [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
-        return;
-        UITableViewCell *currentCell = [tableView cellForRowAtIndexPath:indexPath];
-        
-        if (previousIndexpath != indexPath) {
-            UITableViewCell *prevCell = [tableView cellForRowAtIndexPath:previousIndexpath];
-            UIButton *check = (UIButton *)[prevCell.contentView viewWithTag:777];
-            [self changeAction:check];
-            previousIndexpath = nil;
-        }
-        
-        UIButton *check = (UIButton *)[currentCell.contentView viewWithTag:777];
-        [self changeAction:check];
-        previousIndexpath = indexPath;
-    }
-    
-    
-}
-
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row == arr.count) {
@@ -146,32 +110,93 @@ arr = [@[@{@"BankName":@"HDFC",@"AccountNum":@"126547682354872"}
 {
     
     [arr removeObjectAtIndex:indexPath.row];
-    
-//        loc =[[NSArray alloc]initWithArray:[[[temp mutableCopy] removeObjectAtIndex:indexPath.row]]];
     [tableView reloadData];
 }
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 60;
+}
+
+#pragma mark tableview delegate methods
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    if((indexPath.row) == arr.count)
+    {
+       [arr insertObject:[@{@"BankName":@"Axis",@"AccountNum":@"126547682354872",@"Selected":[NSNumber numberWithBool:NO]}mutableCopy] atIndex:arr.count];
+        [tableView reloadData];
+    }
+    else{
+        NSMutableDictionary *currentSelectedObj = [[arr objectAtIndex:indexPath.row] mutableCopy];
+        BOOL isSelectedValue = [[currentSelectedObj valueForKey:@"Selected"] boolValue];
+        [currentSelectedObj setValue:[NSNumber numberWithBool:!isSelectedValue] forKey:@"Selected"];
+        [arr replaceObjectAtIndex:indexPath.row withObject:currentSelectedObj];
+        [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+//        UITableViewCell *currentCell = [tableView cellForRowAtIndexPath:indexPath];
+//        
+//        if (previousIndexpath != indexPath) {
+//            UITableViewCell *prevCell = [tableView cellForRowAtIndexPath:previousIndexpath];
+//            UIButton *check = (UIButton *)[prevCell.contentView viewWithTag:777];
+//            [self changeAction:check];
+//            previousIndexpath = nil;
+//        }
+//        
+//        UIButton *check = (UIButton *)[currentCell.contentView viewWithTag:777];
+//        [self changeAction:check];
+//        previousIndexpath = indexPath;
+    }
+    
+    
+}
+
+#pragma mark button actions
 - (void)changeAction:(id)sender
 {
     UIButton *idSender = sender;
     idSender.selected = !idSender.selected;
 }
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 60;
-}
-- (IBAction)DoneBtnTapped:(id)sender {
-    self.transprantView.hidden = NO;
-    self.thanksView.hidden = NO;
+- (IBAction)doneButtonAction:(id)sender {
+    if (self.acceptance.selected) {
+        
+#warning Need to check password validation
+        
+        [LOANMACRO requestLoanForUserId:@"" amount:@"" createdBy:@"" completion:^(id obj) {
+            self.transprantView.hidden = NO;
+            self.thanksView.hidden = NO;
+
+        }];
+    }else{
+        ErrorMessageWithTitle(@"Warning", @"Please accept terms and conditions");
+    }
 
 }
-- (IBAction)DismissBtnTapped:(id)sender {
+- (IBAction)closeButtonAction:(id)sender {
     self.transprantView.hidden = YES;
     self.thanksView.hidden = YES;
-
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"loanIsProcessed"];
+    for (UIViewController* viewController in self.navigationController.viewControllers) {
+        if ([viewController isKindOfClass:[DashBoardViewController class]] ) {
+            DashBoardViewController *dashboard = (DashBoardViewController*)viewController;
+            [self.navigationController popToViewController:dashboard animated:YES];
+            break;
+        }
+    }
 }
 
+- (IBAction)acceptBtn:(id)sender {
+    _acceptance.selected = !_acceptance.selected;
+}
+
+
+#pragma mark view memory
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark StatusBar Style
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
 }
 
 /*
@@ -184,7 +209,4 @@ arr = [@[@{@"BankName":@"HDFC",@"AccountNum":@"126547682354872"}
  }
  */
 
-- (IBAction)acceptBtn:(id)sender {
-    _acceptance.selected = !_acceptance.selected;
-}
 @end

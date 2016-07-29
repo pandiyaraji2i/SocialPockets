@@ -8,6 +8,7 @@
 
 #import "DashBoardViewController.h"
 #import "NotificationViewController.h"
+#import "ApplyLoanViewController.h"
 
 @interface DashBoardViewController ()
 
@@ -35,6 +36,9 @@
     [notificationButton addTarget:self action:@selector(onNotificationAction) forControlEvents:UIControlEventTouchUpInside];
      self.navigationItem.rightBarButtonItem  =[[UIBarButtonItem alloc]initWithCustomView:notificationButton];
     
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@" " style:UIBarButtonItemStylePlain target:self action:nil];
+
+    
     //#-- Status Bar Color Change
     [self setNeedsStatusBarAppearanceUpdate];
     
@@ -60,12 +64,65 @@
         circleViewHeightConstraint.constant = 30;
     }
     
+    isVerificationCompleted = YES;
+    if (isVerificationCompleted) {
+        //#-- Show apply loan
+        [applyLoan setTitle:[NSString stringWithFormat:@"%@\nApply Loan",INDIANRUPEES_UNICODE] forState:UIControlStateNormal];
+        applyLoan.titleLabel.textAlignment = NSTextAlignmentCenter;
+        applyLoan.titleLabel.numberOfLines = 0;
+        applyLoan.hidden = NO;
+        verificationButton.hidden = YES;
+    }
+    else{
+        //#-- Verification is still processing
+        applyLoan.hidden = YES;
+        verificationButton.hidden = NO;
+    }
+    
     
     [self updateViewConstraints];
 
     // Do any additional setup after loading the view.
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"loanIsProcessed"]) {
+        [applyLoan setTitle:[NSString stringWithFormat:@"%@\nYour loan request is under process",SAND_CLOCK] forState:UIControlStateNormal];
+        applyLoan.titleLabel.font = [UIFont systemFontOfSize:12];
+        applyLoan.titleLabel.textAlignment = NSTextAlignmentCenter;
+        applyLoan.titleLabel.numberOfLines = 0;
+        applyLoan.hidden = NO;
+        verificationButton.hidden = YES;
+
+    }else if ([[NSUserDefaults standardUserDefaults] boolForKey:@"loanIsApproved"])
+    {
+       // Circle Progress
+        applyLoan.hidden = NO;
+        verificationButton.hidden = YES;
+
+
+    }else if ([[NSUserDefaults standardUserDefaults]boolForKey:@"verificationCompleted"])
+    {
+        applyLoan.hidden = YES;
+        verificationButton.hidden = NO;
+
+    }else if ([[NSUserDefaults standardUserDefaults] boolForKey:@"loanIsCompleted"])
+    {
+        [applyLoan setTitle:[NSString stringWithFormat:@"%@\nApply Loan",INDIANRUPEES_UNICODE] forState:UIControlStateNormal];
+        applyLoan.titleLabel.textAlignment = NSTextAlignmentCenter;
+        applyLoan.titleLabel.numberOfLines = 0;
+
+        applyLoan.hidden = NO;
+        verificationButton.hidden = YES;
+
+    }
+}
+- (IBAction)applyLoanAction:(id)sender
+{
+    ApplyLoanViewController *applyLoanVc = [self.storyboard instantiateViewControllerWithIdentifier:@"ApplyLoanVC"];
+    [self.navigationController pushViewController:applyLoanVc animated:YES];
+}
 
 #pragma mark Navigation Bar Button actions
 

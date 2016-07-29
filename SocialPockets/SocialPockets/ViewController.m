@@ -10,11 +10,6 @@
 
 #import "LoginViewController.h"
 #import "RegistrationViewController.h"
-#import "DashBoardViewController.h"
-#import "RearViewController.h"
-#import "OTPViewController.h"
-#import "RequestConfirmationViewController.h"
-#import "RepayLoanViewController.h"
 
 @interface ViewController ()<UIScrollViewDelegate>
 {
@@ -29,6 +24,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationController.navigationBarHidden = YES;
+    
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@" " style:UIBarButtonItemStylePlain target:self action:nil];
+    
     pageTitles = @[@"Rating user according to social info given", @"Instant loans for user", @"Social sites liabalize", @"Mobile wallet to get loan and repay",@"Mobile wallet to get loan and repay",@"Mobile wallet to get loan and repay",@"Mobile wallet to get loan and repay",@"Mobile wallet to get loan and repay",@"Mobile wallet to get loan and repay",@"Mobile wallet to get loan and repay"];
     pageImages = @[@"rating.jpg", @"loan.jpg", @"Social.jpg", @"mobile pocket.jpg",@"mobile pocket.jpg",@"mobile pocket.jpg",@"mobile pocket.jpg",@"mobile pocket.jpg",@"mobile pocket.jpg",@"mobile pocket.jpg"];
     
@@ -98,32 +96,17 @@
 }
 - (IBAction)loginButtonAction:(id)sender
 {
-    RearViewController *rearVc = [self.storyboard instantiateViewControllerWithIdentifier:@"RearVc"];
-    DashBoardViewController *dashboardVc = [self.storyboard instantiateViewControllerWithIdentifier:@"DashboardVc"];
-    CustomNavigationController *controller=[[CustomNavigationController alloc]initWithRootViewController:dashboardVc];
-    MFSideMenuContainerViewController *container = [MFSideMenuContainerViewController
-                                                    containerWithCenterViewController:controller
-                                                    leftMenuViewController:rearVc
-                                                    rightMenuViewController:nil];
-    rearVc.menu =^(NSString* menuTitle){
-  
-        NSLog(@"til %@",menuTitle);
-        if ([menuTitle isEqualToString:@"Logout"]) {
-            [self dismissViewControllerAnimated:YES completion:nil];
-        }
-    };
-    [self.navigationController presentViewController:container animated:YES completion:nil];
-//    LoginViewController *loginVc =[self.storyboard instantiateViewControllerWithIdentifier:@"LoginVc"];
-//    [self.navigationController pushViewController:loginVc animated:YES];
+    LoginViewController *loginVc =[self.storyboard instantiateViewControllerWithIdentifier:@"LoginVc"];
+    [self.navigationController pushViewController:loginVc animated:YES];
 }
 
 - (IBAction)registerButtonAction:(id)sender
 {
-   RepayLoanViewController  *registerVc =[self.storyboard instantiateViewControllerWithIdentifier:@"RepayLoanVC"];
-    [self.navigationController pushViewController:registerVc animated:YES];
-    
-//    RegistrationViewController *registerVc =[self.storyboard instantiateViewControllerWithIdentifier:@"registerVc"];
+//   RepayLoanViewController  *registerVc =[self.storyboard instantiateViewControllerWithIdentifier:@"RepayLoanVC"];
 //    [self.navigationController pushViewController:registerVc animated:YES];
+    
+    RegistrationViewController *registerVc =[self.storyboard instantiateViewControllerWithIdentifier:@"registerVc"];
+    [self.navigationController pushViewController:registerVc animated:YES];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

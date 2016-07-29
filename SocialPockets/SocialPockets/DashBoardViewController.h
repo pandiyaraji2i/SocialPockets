@@ -14,6 +14,9 @@
     IBOutlet NSLayoutConstraint *scoreBGHeightConstraint;
     IBOutlet NSLayoutConstraint *pointsButtonTopConstraint;
     IBOutlet NSLayoutConstraint *circleViewHeightConstraint;
+    IBOutlet UIButton *verificationButton;
+    IBOutlet UIButton *applyLoan;
+    BOOL isVerificationCompleted;
 }
 @property (nonatomic, weak) IBOutlet UIButton *pointsButton;
 @end

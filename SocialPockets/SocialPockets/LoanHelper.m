@@ -36,10 +36,15 @@ static LoanHelper* _sharedInstance = nil;
  *  @param userId          id of the user
  *  @param completionBlock response block
  */
--(void)eligibityForUserId:(NSString *)userId completion:(void (^)(id obj))completionBlock
+-(void)loanEligibityForUserCompletion:(void (^)(id obj))completionBlock
 {
+    if (completionBlock)
+    {
+        completionBlock(@"Obk");
+    }
+    return;
     if ([NetworkHelperClass getInternetStatus:YES]) {
-        NSMutableDictionary *dict = [@{@"id":userId} mutableCopy];
+        NSMutableDictionary *dict = [@{@"id":[[NSUserDefaults standardUserDefaults] valueForKey:@"userId"]} mutableCopy];
         id successObject = [NetworkHelperClass sendSynchronousRequestToServer:@"loanrequest/checkEligibilityStatus" httpMethod:POST requestBody:dict contentType:JSONCONTENTTYPE];
         if (successObject) {
             if (completionBlock) {
@@ -55,6 +60,7 @@ static LoanHelper* _sharedInstance = nil;
     
 }
 
+
 /**
  *  Send Request for loan
  *
@@ -65,7 +71,10 @@ static LoanHelper* _sharedInstance = nil;
  */
 
 - (void)requestLoanForUserId:(NSString *)userId amount:(NSString *)amount createdBy:(NSString *)createdBy completion:(void (^)(id obj))completionBlock{
-    
+    if (completionBlock) {
+        completionBlock(@"obj");
+    }
+    return;
     NSMutableDictionary *dict = [@{@"id":[NSNull null],@"userid":userId,@"amount":amount,@"created_by":createdBy} mutableCopy];
     id successObject = [NetworkHelperClass sendSynchronousRequestToServer:@"loanrequest" httpMethod:POST requestBody:dict contentType:JSONCONTENTTYPE];
     if (successObject) {

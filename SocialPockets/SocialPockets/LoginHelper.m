@@ -38,6 +38,11 @@ static LoginHelper* _sharedInstance = nil;
  */
 - (void)validateUser:(NSString *)userName password:(NSString *)password completion:(void (^)(id obj))completionBlock
 {
+    if (completionBlock)
+    {
+        completionBlock(@"suces");
+    }
+    return;
     if ([NetworkHelperClass getInternetStatus:YES]) {
         NSMutableDictionary *dict = [@{@"username":userName,@"password":password} mutableCopy];
         id successObject = [NetworkHelperClass sendSynchronousRequestToServer:@"userregistration/login" httpMethod:POST requestBody:dict contentType:JSONCONTENTTYPE];

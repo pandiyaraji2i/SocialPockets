@@ -326,15 +326,13 @@
 				A3253D141D3C9DE90081A59C /* AppDelegate.m */,
 				A3EAA2B21D4762210013A952 /* AddBankAccountController.h */,
 				A3EAA2B31D4762210013A952 /* AddBankAccountController.m */,
-				6777A4C31D4A008C00BF1EC3 /* RequestConfirmationViewController.h */,
-				6777A4C41D4A008C00BF1EC3 /* RequestConfirmationViewController.m */,
+				A3D65AB51D4652EF00B47E46 /* LaunchScreen */,
 				A3C3C83D1D3DF1AF00C65B09 /* Login */,
 				A3C3C89E1D3F837A00C65B09 /* Registration */,
 				A3D65AB61D46530000B47E46 /* Dashboard */,
 				A3B529331D49E21F00603451 /* AboutView */,
 				A3B529321D49E21400603451 /* Notifications */,
 				A3B529301D49E1FC00603451 /* Signature */,
-				A3D65AB51D4652EF00B47E46 /* LaunchScreen */,
 				A3D65A961D461A5B00B47E46 /* SlideMenu */,
 				A38968641D40DDFD00FA8F14 /* Social accounts */,
 				A3C3C8AB1D3FB4B200C65B09 /* Loan */,
@@ -483,6 +481,8 @@
 				6777A4C91D4A1EE100BF1EC3 /* Calendar_icon.png */,
 				A3B528F01D49DE7200603451 /* ApplyLoanViewController.h */,
 				A3B528F11D49DE7200603451 /* ApplyLoanViewController.m */,
+				6777A4C31D4A008C00BF1EC3 /* RequestConfirmationViewController.h */,
+				6777A4C41D4A008C00BF1EC3 /* RequestConfirmationViewController.m */,
 			);
 			name = ApplyLoan;
 			sourceTree = "<group>";

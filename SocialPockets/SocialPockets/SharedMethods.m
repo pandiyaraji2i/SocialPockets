@@ -12,6 +12,13 @@
 
 + (void)showAlertWithTitle:(NSString *)title message:(NSString *)message
 {
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        UIAlertView *errorMessageAlert=[[UIAlertView alloc] initWithTitle:title message:message delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+        
+        [errorMessageAlert show];
+    });
+    return;
     UIAlertController * alert=   [UIAlertController
                                   alertControllerWithTitle:@"My Title"
                                   message:@"Enter User Credentials"
@@ -22,7 +29,7 @@
                                                      }] ;
     [alert addAction:actionOk];
     
-    [[self topMostController] presentViewController:alert animated:YES completion:nil];
+    [[self visibleViewController] presentViewController:alert animated:YES completion:nil];
 }
 
 + (void)showAlertActionWithTitle:(NSString *)title message:(NSString *)message completion:(void (^)(id obj))completionBlock
@@ -40,11 +47,27 @@
     }];
     [alertController addAction:actionOk];
     [alertController addAction:actionCancel];
-    [[self topMostController] presentViewController:alertController animated:YES completion:nil];
+    [[self visibleViewController] presentViewController:alertController animated:YES completion:nil];
 }
 
-+ (UIViewController *)topMostController
++ (UIViewController*) topMostController
 {
-    return [UIApplication sharedApplication].keyWindow.rootViewController;
+    UIViewController *topController = [UIApplication sharedApplication].keyWindow.rootViewController;
+    
+    while (topController.presentedViewController)
+    {
+        topController = topController.presentedViewController;
+    }
+    return topController;
+}
+
++ (UIViewController *)visibleViewController
+{
+    UIViewController *topController = [SharedMethods topMostController];
+    if ([topController isKindOfClass:[UINavigationController class]]) {
+        UINavigationController *tempC = (id)topController;
+        return tempC.visibleViewController;
+    }
+    return nil;
 }
 @end
