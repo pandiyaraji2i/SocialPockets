@@ -46,19 +46,22 @@
         scoreBGHeightConstraint.constant = 40;
         scoreLabelTopConstraint.constant = 0;
         pointsButtonTopConstraint.constant = -30;
+        circleViewHeightConstraint.constant = 10;
     }else if (IPHONE5){
         scoreBGHeightConstraint.constant = 60;
         scoreLabelTopConstraint.constant = 10;
         pointsButtonTopConstraint.constant = 0 ;
+        circleViewHeightConstraint.constant = 20;
     }
     else{
         scoreBGHeightConstraint.constant = 100;
         scoreLabelTopConstraint.constant = 25;
         pointsButtonTopConstraint.constant = 20;
+        circleViewHeightConstraint.constant = 30;
     }
     
     
-    
+    [self updateViewConstraints];
 
     // Do any additional setup after loading the view.
 }

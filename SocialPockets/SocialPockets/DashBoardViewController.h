@@ -13,6 +13,7 @@
     IBOutlet NSLayoutConstraint *scoreLabelTopConstraint;
     IBOutlet NSLayoutConstraint *scoreBGHeightConstraint;
     IBOutlet NSLayoutConstraint *pointsButtonTopConstraint;
+    IBOutlet NSLayoutConstraint *circleViewHeightConstraint;
 }
 @property (nonatomic, weak) IBOutlet UIButton *pointsButton;
 @end
