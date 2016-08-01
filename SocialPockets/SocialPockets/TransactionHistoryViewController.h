@@ -8,6 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TransactionHistoryViewController : UIViewController
+@interface TransactionHistoryViewController : UIViewController{
+    UITableView *table;
+    NSInteger selectedValueSection;
+    bool isShowingListsec;
+    NSMutableArray *transData;
+}
 
+@property (retain, nonatomic) IBOutlet UITableView *table;
+@property (nonatomic) NSInteger selectedValueSection;
+@property (nonatomic) bool isShowingListsec;
+@property (retain, nonatomic) NSMutableArray *transData;
 @end
