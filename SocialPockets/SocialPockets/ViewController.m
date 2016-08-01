@@ -10,6 +10,7 @@
 
 #import "LoginViewController.h"
 #import "RegistrationViewController.h"
+#import "ManageAccountsViewController.h"
 
 @interface ViewController ()<UIScrollViewDelegate>
 {
@@ -102,11 +103,14 @@
 
 - (IBAction)registerButtonAction:(id)sender
 {
+    ManageAccountsViewController *manageVc =[self.storyboard instantiateViewControllerWithIdentifier:@"ManageAccountsVc"];
+    [self.navigationController pushViewController:manageVc animated:YES];
+
 //   RepayLoanViewController  *registerVc =[self.storyboard instantiateViewControllerWithIdentifier:@"RepayLoanVC"];
 //    [self.navigationController pushViewController:registerVc animated:YES];
     
-    RegistrationViewController *registerVc =[self.storyboard instantiateViewControllerWithIdentifier:@"registerVc"];
-    [self.navigationController pushViewController:registerVc animated:YES];
+//    RegistrationViewController *registerVc =[self.storyboard instantiateViewControllerWithIdentifier:@"registerVc"];
+//    [self.navigationController pushViewController:registerVc animated:YES];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

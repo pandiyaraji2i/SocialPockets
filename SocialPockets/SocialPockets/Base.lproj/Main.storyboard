@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BnU-aH-d6h">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BnU-aH-d6h">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -324,16 +324,16 @@
                                                 <exclude reference="1qx-0k-FKb"/>
                                             </mask>
                                             <mask key="constraints">
-                                                <exclude reference="Kvm-E0-Jc9"/>
-                                                <exclude reference="k9K-5X-2yh"/>
-                                                <exclude reference="qTL-Lp-sgK"/>
-                                                <exclude reference="ue7-uf-2TZ"/>
                                                 <exclude reference="JNN-89-Uv5"/>
                                                 <exclude reference="JkR-6S-DrO"/>
                                                 <exclude reference="HMh-26-arO"/>
                                                 <exclude reference="LcT-ef-7pJ"/>
                                                 <exclude reference="Zaz-K8-2WE"/>
                                                 <exclude reference="rxx-hh-5oF"/>
+                                                <exclude reference="Kvm-E0-Jc9"/>
+                                                <exclude reference="k9K-5X-2yh"/>
+                                                <exclude reference="qTL-Lp-sgK"/>
+                                                <exclude reference="ue7-uf-2TZ"/>
                                             </mask>
                                         </variation>
                                         <variation key="heightClass=regular-widthClass=compact">
@@ -343,16 +343,16 @@
                                                 <include reference="1qx-0k-FKb"/>
                                             </mask>
                                             <mask key="constraints">
-                                                <include reference="Kvm-E0-Jc9"/>
-                                                <include reference="k9K-5X-2yh"/>
-                                                <include reference="qTL-Lp-sgK"/>
-                                                <include reference="ue7-uf-2TZ"/>
                                                 <include reference="JNN-89-Uv5"/>
                                                 <include reference="JkR-6S-DrO"/>
                                                 <include reference="HMh-26-arO"/>
                                                 <include reference="LcT-ef-7pJ"/>
                                                 <include reference="Zaz-K8-2WE"/>
                                                 <include reference="rxx-hh-5oF"/>
+                                                <include reference="Kvm-E0-Jc9"/>
+                                                <include reference="k9K-5X-2yh"/>
+                                                <include reference="qTL-Lp-sgK"/>
+                                                <include reference="ue7-uf-2TZ"/>
                                             </mask>
                                         </variation>
                                     </view>
@@ -3530,6 +3530,10 @@
                                 <exclude reference="5dQ-9z-O0Z"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="BRx-pB-GNv"/>
+                                <exclude reference="K0r-Bk-nRz"/>
+                                <exclude reference="bdp-Vr-1be"/>
+                                <exclude reference="oO5-pz-ZNU"/>
                                 <exclude reference="3wB-pE-yQj"/>
                                 <exclude reference="bWh-QR-7k6"/>
                                 <exclude reference="dLU-5a-yxn"/>
@@ -3538,13 +3542,9 @@
                                 <exclude reference="UZy-m5-yIj"/>
                                 <exclude reference="vWB-pF-aZb"/>
                                 <exclude reference="wuB-6R-WEO"/>
-                                <exclude reference="BRx-pB-GNv"/>
-                                <exclude reference="K0r-Bk-nRz"/>
-                                <exclude reference="bdp-Vr-1be"/>
-                                <exclude reference="oO5-pz-ZNU"/>
-                                <exclude reference="PmR-Wh-2Sb"/>
                                 <exclude reference="3Ig-Iy-PqQ"/>
                                 <exclude reference="LOi-DX-2pc"/>
+                                <exclude reference="PmR-Wh-2Sb"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -3554,6 +3554,10 @@
                                 <include reference="5dQ-9z-O0Z"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="BRx-pB-GNv"/>
+                                <include reference="K0r-Bk-nRz"/>
+                                <include reference="bdp-Vr-1be"/>
+                                <include reference="oO5-pz-ZNU"/>
                                 <include reference="3wB-pE-yQj"/>
                                 <include reference="bWh-QR-7k6"/>
                                 <include reference="dLU-5a-yxn"/>
@@ -3562,13 +3566,9 @@
                                 <include reference="UZy-m5-yIj"/>
                                 <include reference="vWB-pF-aZb"/>
                                 <include reference="wuB-6R-WEO"/>
-                                <include reference="BRx-pB-GNv"/>
-                                <include reference="K0r-Bk-nRz"/>
-                                <include reference="bdp-Vr-1be"/>
-                                <include reference="oO5-pz-ZNU"/>
-                                <include reference="PmR-Wh-2Sb"/>
                                 <include reference="3Ig-Iy-PqQ"/>
                                 <include reference="LOi-DX-2pc"/>
+                                <include reference="PmR-Wh-2Sb"/>
                             </mask>
                         </variation>
                     </view>
@@ -4243,26 +4243,26 @@ Tenure Period</string>
                                 <exclude reference="34l-Vz-9kC"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="gGl-ec-ByG"/>
+                                <exclude reference="khf-Jm-icA"/>
+                                <exclude reference="lgw-a9-CFB"/>
+                                <exclude reference="B13-w0-DBD"/>
+                                <exclude reference="j3h-3k-Rw3"/>
+                                <exclude reference="vkL-oQ-AQK"/>
                                 <exclude reference="0ka-Yp-cyL"/>
                                 <exclude reference="0tk-xX-suk"/>
                                 <exclude reference="hOJ-6v-5mQ"/>
+                                <exclude reference="3EA-Tr-pQS"/>
+                                <exclude reference="3pm-XK-g72"/>
+                                <exclude reference="Bv8-xc-jlG"/>
+                                <exclude reference="fqZ-gJ-D9r"/>
+                                <exclude reference="sfn-NE-5td"/>
                                 <exclude reference="8Qt-yz-KgF"/>
                                 <exclude reference="EIw-CW-qkq"/>
                                 <exclude reference="gIe-Cc-Zm8"/>
                                 <exclude reference="GXp-Yx-m9h"/>
                                 <exclude reference="goF-32-dn8"/>
                                 <exclude reference="vuh-QB-oZE"/>
-                                <exclude reference="B13-w0-DBD"/>
-                                <exclude reference="j3h-3k-Rw3"/>
-                                <exclude reference="vkL-oQ-AQK"/>
-                                <exclude reference="3EA-Tr-pQS"/>
-                                <exclude reference="3pm-XK-g72"/>
-                                <exclude reference="Bv8-xc-jlG"/>
-                                <exclude reference="fqZ-gJ-D9r"/>
-                                <exclude reference="sfn-NE-5td"/>
-                                <exclude reference="gGl-ec-ByG"/>
-                                <exclude reference="khf-Jm-icA"/>
-                                <exclude reference="lgw-a9-CFB"/>
                                 <exclude reference="18G-4n-Rml"/>
                                 <exclude reference="Wcj-Yh-AKo"/>
                                 <exclude reference="bfS-1d-tdS"/>
@@ -4278,26 +4278,26 @@ Tenure Period</string>
                                 <include reference="34l-Vz-9kC"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="gGl-ec-ByG"/>
+                                <include reference="khf-Jm-icA"/>
+                                <include reference="lgw-a9-CFB"/>
+                                <include reference="B13-w0-DBD"/>
+                                <include reference="j3h-3k-Rw3"/>
+                                <include reference="vkL-oQ-AQK"/>
                                 <include reference="0ka-Yp-cyL"/>
                                 <include reference="0tk-xX-suk"/>
                                 <include reference="hOJ-6v-5mQ"/>
+                                <include reference="3EA-Tr-pQS"/>
+                                <include reference="3pm-XK-g72"/>
+                                <include reference="Bv8-xc-jlG"/>
+                                <include reference="fqZ-gJ-D9r"/>
+                                <include reference="sfn-NE-5td"/>
                                 <include reference="8Qt-yz-KgF"/>
                                 <include reference="EIw-CW-qkq"/>
                                 <include reference="gIe-Cc-Zm8"/>
                                 <include reference="GXp-Yx-m9h"/>
                                 <include reference="goF-32-dn8"/>
                                 <include reference="vuh-QB-oZE"/>
-                                <include reference="B13-w0-DBD"/>
-                                <include reference="j3h-3k-Rw3"/>
-                                <include reference="vkL-oQ-AQK"/>
-                                <include reference="3EA-Tr-pQS"/>
-                                <include reference="3pm-XK-g72"/>
-                                <include reference="Bv8-xc-jlG"/>
-                                <include reference="fqZ-gJ-D9r"/>
-                                <include reference="sfn-NE-5td"/>
-                                <include reference="gGl-ec-ByG"/>
-                                <include reference="khf-Jm-icA"/>
-                                <include reference="lgw-a9-CFB"/>
                                 <include reference="18G-4n-Rml"/>
                                 <include reference="Wcj-Yh-AKo"/>
                                 <include reference="bfS-1d-tdS"/>
@@ -4649,6 +4649,64 @@ Tenure Period</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0LK-FY-UdP" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1840.5" y="63.75"/>
+        </scene>
+        <!--Manage Accounts View Controller-->
+        <scene sceneID="wdx-in-xGe">
+            <objects>
+                <viewController storyboardIdentifier="ManageAccountsVc" automaticallyAdjustsScrollViewInsets="NO" id="zBn-Ns-m6K" customClass="ManageAccountsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fCL-YS-LDF"/>
+                        <viewControllerLayoutGuide type="bottom" id="8hY-s5-fRf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wsC-Tr-u82">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3FP-PQ-k7V">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="zBn-Ns-m6K" id="olH-DI-AjI"/>
+                                    <outlet property="delegate" destination="zBn-Ns-m6K" id="YjA-ON-5HV"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="3FP-PQ-k7V" firstAttribute="leading" secondItem="wsC-Tr-u82" secondAttribute="leading" id="61X-Uf-a4h"/>
+                            <constraint firstAttribute="trailing" secondItem="3FP-PQ-k7V" secondAttribute="trailing" id="Epr-fy-uqX"/>
+                            <constraint firstItem="3FP-PQ-k7V" firstAttribute="top" secondItem="fCL-YS-LDF" secondAttribute="bottom" id="VV8-QU-9D2"/>
+                            <constraint firstItem="8hY-s5-fRf" firstAttribute="top" secondItem="3FP-PQ-k7V" secondAttribute="bottom" id="nju-6l-eIm"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="3FP-PQ-k7V"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="61X-Uf-a4h"/>
+                                <exclude reference="Epr-fy-uqX"/>
+                                <exclude reference="VV8-QU-9D2"/>
+                                <exclude reference="nju-6l-eIm"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="3FP-PQ-k7V"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="61X-Uf-a4h"/>
+                                <include reference="Epr-fy-uqX"/>
+                                <include reference="VV8-QU-9D2"/>
+                                <include reference="nju-6l-eIm"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="3FP-PQ-k7V" id="kTI-AQ-TlO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8N4-cE-ROC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2485.5" y="96.75"/>
         </scene>
         <!--Repay Loan View Controller-->
         <scene sceneID="ax5-yC-dUY">
@@ -5091,7 +5149,7 @@ Tenure Period</string>
                                             </constraint>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                         <variation key="default">
                                             <mask key="constraints">
@@ -5549,6 +5607,7 @@ Tenure Period</string>
                         <viewControllerLayoutGuide type="bottom" id="992-at-EAh"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="XhO-gV-gp3">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DashboardBG" translatesAutoresizingMaskIntoConstraints="NO" id="TP3-We-ADk">
@@ -5567,10 +5626,10 @@ Tenure Period</string>
                                 <exclude reference="TP3-We-ADk"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="FGY-5H-0wI"/>
                                 <exclude reference="EdU-B0-5Za"/>
                                 <exclude reference="Phz-CB-snb"/>
                                 <exclude reference="g8L-mY-bs4"/>
-                                <exclude reference="FGY-5H-0wI"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -5578,10 +5637,10 @@ Tenure Period</string>
                                 <include reference="TP3-We-ADk"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="FGY-5H-0wI"/>
                                 <include reference="EdU-B0-5Za"/>
                                 <include reference="Phz-CB-snb"/>
                                 <include reference="g8L-mY-bs4"/>
-                                <include reference="FGY-5H-0wI"/>
                             </mask>
                         </variation>
                     </view>
@@ -5602,7 +5661,7 @@ Tenure Period</string>
         <image name="DialerBackGround" width="125" height="125"/>
         <image name="DialerCircle" width="159" height="158"/>
         <image name="HowItWorks.png" width="356" height="106"/>
-        <image name="ScoreBG" width="48" height="54"/>
+        <image name="ScoreBG" width="62" height="69"/>
         <image name="Status_stage_3.png" width="360" height="616"/>
         <image name="UncheckedImage" width="16" height="16"/>
         <image name="UpArrow" width="11" height="10"/>

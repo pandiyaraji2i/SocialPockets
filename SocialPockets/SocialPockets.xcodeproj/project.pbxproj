@@ -80,6 +80,11 @@
 		FBAAB8361D4239D7001C918B /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBAAB8331D4239D7001C918B /* FBSDKCoreKit.framework */; };
 		FBAAB8371D4239D7001C918B /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBAAB8341D4239D7001C918B /* FBSDKLoginKit.framework */; };
 		FBAAB8381D4239D7001C918B /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBAAB8351D4239D7001C918B /* FBSDKShareKit.framework */; };
+		FBB3A4F11D4F56CA001A7408 /* CollectionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FBB3A4EF1D4F56CA001A7408 /* CollectionTableViewCell.m */; };
+		FBB3A4F21D4F56CA001A7408 /* CollectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBB3A4F01D4F56CA001A7408 /* CollectionTableViewCell.xib */; };
+		FBB3A4F61D4F56E1001A7408 /* TableCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FBB3A4F41D4F56E1001A7408 /* TableCollectionViewCell.m */; };
+		FBB3A4F71D4F56E1001A7408 /* TableCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBB3A4F51D4F56E1001A7408 /* TableCollectionViewCell.xib */; };
+		FBB3A4FA1D4F570B001A7408 /* ManageAccountsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBB3A4F91D4F570B001A7408 /* ManageAccountsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -240,6 +245,14 @@
 		FBAAB8331D4239D7001C918B /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		FBAAB8341D4239D7001C918B /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		FBAAB8351D4239D7001C918B /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
+		FBB3A4EE1D4F56CA001A7408 /* CollectionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionTableViewCell.h; sourceTree = "<group>"; };
+		FBB3A4EF1D4F56CA001A7408 /* CollectionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionTableViewCell.m; sourceTree = "<group>"; };
+		FBB3A4F01D4F56CA001A7408 /* CollectionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionTableViewCell.xib; sourceTree = "<group>"; };
+		FBB3A4F31D4F56E1001A7408 /* TableCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableCollectionViewCell.h; sourceTree = "<group>"; };
+		FBB3A4F41D4F56E1001A7408 /* TableCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableCollectionViewCell.m; sourceTree = "<group>"; };
+		FBB3A4F51D4F56E1001A7408 /* TableCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableCollectionViewCell.xib; sourceTree = "<group>"; };
+		FBB3A4F81D4F570B001A7408 /* ManageAccountsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManageAccountsViewController.h; sourceTree = "<group>"; };
+		FBB3A4F91D4F570B001A7408 /* ManageAccountsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManageAccountsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -317,6 +330,7 @@
 		A3253D0F1D3C9DE90081A59C /* SocialPockets */ = {
 			isa = PBXGroup;
 			children = (
+				FBB3A4ED1D4F55F9001A7408 /* ManageAccounts */,
 				A3C3C8511D3DFCA700C65B09 /* Categories */,
 				A3C3C84B1D3DF1E700C65B09 /* Network */,
 				A38968691D40DF1600FA8F14 /* SharedMethods */,
@@ -661,6 +675,21 @@
 			name = Facebook;
 			sourceTree = "<group>";
 		};
+		FBB3A4ED1D4F55F9001A7408 /* ManageAccounts */ = {
+			isa = PBXGroup;
+			children = (
+				FBB3A4EE1D4F56CA001A7408 /* CollectionTableViewCell.h */,
+				FBB3A4F81D4F570B001A7408 /* ManageAccountsViewController.h */,
+				FBB3A4F91D4F570B001A7408 /* ManageAccountsViewController.m */,
+				FBB3A4EF1D4F56CA001A7408 /* CollectionTableViewCell.m */,
+				FBB3A4F01D4F56CA001A7408 /* CollectionTableViewCell.xib */,
+				FBB3A4F31D4F56E1001A7408 /* TableCollectionViewCell.h */,
+				FBB3A4F41D4F56E1001A7408 /* TableCollectionViewCell.m */,
+				FBB3A4F51D4F56E1001A7408 /* TableCollectionViewCell.xib */,
+			);
+			name = ManageAccounts;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -754,9 +783,11 @@
 				A3B5292F1D49E1F200603451 /* IQKeyboardManager.bundle in Resources */,
 				A3D65AA61D46368800B47E46 /* HowItWorks.png in Resources */,
 				A3D65AAE1D46386500B47E46 /* Social.jpg in Resources */,
+				FBB3A4F21D4F56CA001A7408 /* CollectionTableViewCell.xib in Resources */,
 				FBAAB8291D422888001C918B /* Podfile in Resources */,
 				A3D65AA41D46364E00B47E46 /* BackGroud_Home.png in Resources */,
 				A3D65AB01D4639F700B47E46 /* BackGround_Login.png in Resources */,
+				FBB3A4F71D4F56E1001A7408 /* TableCollectionViewCell.xib in Resources */,
 				A3253D1B1D3C9DE90081A59C /* Main.storyboard in Resources */,
 				A3D65AAC1D46386500B47E46 /* mobile pocket.jpg in Resources */,
 				A3D65AB41D463A0F00B47E46 /* sp logo.png in Resources */,
@@ -839,6 +870,7 @@
 				A3B529291D49E1F200603451 /* IQTextView.m in Sources */,
 				A3C3C89D1D3F837700C65B09 /* RegistrationViewController.m in Sources */,
 				A3B5292D1D49E1F200603451 /* IQToolbar.m in Sources */,
+				FBB3A4F11D4F56CA001A7408 /* CollectionTableViewCell.m in Sources */,
 				A3D65A8B1D4619AF00B47E46 /* DashBoardViewController.m in Sources */,
 				A3D65A941D461A5700B47E46 /* MFSideMenuShadow.m in Sources */,
 				A3C3C8491D3DF1E000C65B09 /* NSURLSession+SynchronousTask.m in Sources */,
@@ -868,11 +900,13 @@
 				A3B5292C1D49E1F200603451 /* IQTitleBarButtonItem.m in Sources */,
 				A39209751D48E0B600EBCC6F /* NotificationViewController.m in Sources */,
 				671C44431D4091E4000C94A0 /* LoanViewController.m in Sources */,
+				FBB3A4F61D4F56E1001A7408 /* TableCollectionViewCell.m in Sources */,
 				A3253D121D3C9DE90081A59C /* main.m in Sources */,
 				A3C3C8471D3DF1E000C65B09 /* NetworkHelperClass.m in Sources */,
 				A38968671D40DE1A00FA8F14 /* LoginViewController.m in Sources */,
 				A3C3C8481D3DF1E000C65B09 /* NSJSONSerialization+RemovingNulls.m in Sources */,
 				A3B528F21D49DE7200603451 /* ApplyLoanViewController.m in Sources */,
+				FBB3A4FA1D4F570B001A7408 /* ManageAccountsViewController.m in Sources */,
 				A3B529271D49E1F200603451 /* IQKeyboardManager.m in Sources */,
 				A3D65A931D461A5700B47E46 /* MFSideMenuContainerViewController.m in Sources */,
 				A3B528FB1D49E13000603451 /* SignatureViewController.m in Sources */,
