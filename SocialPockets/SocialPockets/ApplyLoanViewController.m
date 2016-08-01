@@ -11,7 +11,9 @@
  int const LoanProcessingFeeDetectionPercent = 6;
 
 
-@interface ApplyLoanViewController ()
+@interface ApplyLoanViewController (){
+    float loanMinValue;
+}
 @property (weak, nonatomic) IBOutlet UIView *loanDetailsView;
 @property (weak, nonatomic) IBOutlet UIButton *nextBtn;
 @property (weak, nonatomic) IBOutlet UILabel *loanAmountLbl;
@@ -27,6 +29,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.loanAmtSlider.minimumValue = 0;
+    self.loanAmtSlider.maximumValue = ([[loanObject objectForKey:@"MAXIMUM_LOAN_AMOUNT"] floatValue]/1000)*2;
+    loanMinValue = 1000.00;
     _loanDetailsView.layer.cornerRadius = 5.0;
     _loanDetailsView.layer.masksToBounds = YES;
     UITapGestureRecognizer *gr = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(sliderTapped:)];
@@ -40,6 +45,7 @@
     
     //#-- Status Bar Color Change
     [self setNeedsStatusBarAppearanceUpdate];
+    [self sliderValueChanged:nil];
 
 }
 - (IBAction)nextBtnTapped:(id)sender {
@@ -48,6 +54,7 @@
 }
 
 - (IBAction)sliderValueChanged:(UISlider*)sender {
+    float loanMin = (loanMinValue/1000)*2;
     double num = self.loanAmtSlider.value;
     int intpart = (int)num;
     double decpart = num - intpart;
@@ -57,6 +64,9 @@
     else
     {
         self.loanAmtSlider.value=intpart;
+    }
+    if (self.loanAmtSlider.value < loanMin) {
+        self.loanAmtSlider.value = loanMin;
     }
     NSLog(@"%f",self.loanAmtSlider.value);
 
