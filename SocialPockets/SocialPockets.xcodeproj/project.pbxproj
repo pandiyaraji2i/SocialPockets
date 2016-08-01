@@ -75,6 +75,7 @@
 		A3D65AAE1D46386500B47E46 /* Social.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A3D65AAA1D46386500B47E46 /* Social.jpg */; };
 		A3D65AB01D4639F700B47E46 /* BackGround_Login.png in Resources */ = {isa = PBXBuildFile; fileRef = A3D65AAF1D4639F700B47E46 /* BackGround_Login.png */; };
 		A3D65AB41D463A0F00B47E46 /* sp logo.png in Resources */ = {isa = PBXBuildFile; fileRef = A3D65AB21D463A0F00B47E46 /* sp logo.png */; };
+		A3DB484C1D4F8B180047EDF2 /* TransactionHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3DB484B1D4F8B180047EDF2 /* TransactionHistoryViewController.m */; };
 		A3EAA2B41D4762210013A952 /* AddBankAccountController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3EAA2B31D4762210013A952 /* AddBankAccountController.m */; };
 		FBAAB8291D422888001C918B /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = FBAAB8281D422888001C918B /* Podfile */; };
 		FBAAB8361D4239D7001C918B /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBAAB8331D4239D7001C918B /* FBSDKCoreKit.framework */; };
@@ -238,6 +239,8 @@
 		A3D65AAA1D46386500B47E46 /* Social.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Social.jpg; sourceTree = "<group>"; };
 		A3D65AAF1D4639F700B47E46 /* BackGround_Login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BackGround_Login.png; sourceTree = "<group>"; };
 		A3D65AB21D463A0F00B47E46 /* sp logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sp logo.png"; sourceTree = "<group>"; };
+		A3DB484A1D4F8B180047EDF2 /* TransactionHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransactionHistoryViewController.h; sourceTree = "<group>"; };
+		A3DB484B1D4F8B180047EDF2 /* TransactionHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransactionHistoryViewController.m; sourceTree = "<group>"; };
 		A3EAA2B21D4762210013A952 /* AddBankAccountController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddBankAccountController.h; sourceTree = "<group>"; };
 		A3EAA2B31D4762210013A952 /* AddBankAccountController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddBankAccountController.m; sourceTree = "<group>"; };
 		EF9931AE443B4ADDC7E0B64A /* Pods-SocialPockets.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialPockets.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SocialPockets/Pods-SocialPockets.debug.xcconfig"; sourceTree = "<group>"; };
@@ -340,6 +343,8 @@
 				A3253D141D3C9DE90081A59C /* AppDelegate.m */,
 				A3EAA2B21D4762210013A952 /* AddBankAccountController.h */,
 				A3EAA2B31D4762210013A952 /* AddBankAccountController.m */,
+				A3DB484A1D4F8B180047EDF2 /* TransactionHistoryViewController.h */,
+				A3DB484B1D4F8B180047EDF2 /* TransactionHistoryViewController.m */,
 				A3D65AB51D4652EF00B47E46 /* LaunchScreen */,
 				A3C3C83D1D3DF1AF00C65B09 /* Login */,
 				A3C3C89E1D3F837A00C65B09 /* Registration */,
@@ -859,6 +864,7 @@
 			files = (
 				6777A4C81D4A125300BF1EC3 /* RepayLoanViewController.m in Sources */,
 				A3253D181D3C9DE90081A59C /* ViewController.m in Sources */,
+				A3DB484C1D4F8B180047EDF2 /* TransactionHistoryViewController.m in Sources */,
 				A3B529281D49E1F200603451 /* IQKeyboardReturnKeyHandler.m in Sources */,
 				A3B5292A1D49E1F200603451 /* IQBarButtonItem.m in Sources */,
 				A3B529251D49E1F200603451 /* IQUIViewController+Additions.m in Sources */,

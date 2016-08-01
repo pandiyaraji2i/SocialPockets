@@ -13,4 +13,6 @@
 
 + (void)showAlertWithTitle:(NSString *)title message:(NSString *)message;
 + (void)showAlertActionWithTitle:(NSString *)title message:(NSString *)message completion:(void (^)(id obj))completionBlock;
++ (UIViewController*)topMostController;
++ (UIViewController *)visibleViewController;
 @end

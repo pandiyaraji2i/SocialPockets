@@ -50,7 +50,7 @@
     [[self visibleViewController] presentViewController:alertController animated:YES completion:nil];
 }
 
-+ (UIViewController*) topMostController
++ (UIViewController*)topMostController
 {
     UIViewController *topController = [UIApplication sharedApplication].keyWindow.rootViewController;
     

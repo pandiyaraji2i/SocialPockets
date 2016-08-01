@@ -61,16 +61,36 @@
             [[NSUserDefaults standardUserDefaults] setObject:nil forKey:USERID];
             AppDelegate *appDelegateTemp = (AppDelegate*)[UIApplication sharedApplication].delegate;
             appDelegateTemp.window.rootViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateInitialViewController];
-        }else{
+        }
+        else if ([menuTitle isEqualToString:@"Dashboard"])
+        {
+            [container toggleLeftSideMenuCompletion:^{
+                
+            }];
+        }
+        else{
             @try {
                // Push navigation
+                NSString *identifier;
+                if ([menuTitle isEqualToString:@"Terms & Conditions"] || [menuTitle isEqualToString:@"FAQ"] || [menuTitle isEqualToString:@"About SocialPocket"]) {
+                    identifier = @"AboutUs";
+                }
+                else {
+                    identifier = [menuTitle stringByReplacingOccurrencesOfString:@" " withString:@""];
+                }
+                id control = [storyboard instantiateViewControllerWithIdentifier:identifier];
+                [controller popToRootViewControllerAnimated:NO];
+                [controller pushViewController:control animated:YES];
+                [container toggleLeftSideMenuCompletion:^{
+                }];
+                
                 
             }
             @catch (NSException *exception) {
                 NSLog(@"error");
             }
             @finally {
-                NSLog(@"err");
+//                NSLog(@"err");
             }
         }
     };
