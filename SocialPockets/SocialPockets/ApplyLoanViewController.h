@@ -10,5 +10,5 @@
 
 @interface ApplyLoanViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UISlider *loanAmtSlider;
-
+@property (nonatomic,strong) NSDictionary *loanObject;
 @end

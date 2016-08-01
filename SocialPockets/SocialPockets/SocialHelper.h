@@ -12,7 +12,6 @@
 @interface SocialHelper : NSObject
 + (SocialHelper *)sharedInstance;
 
-- (void)getUserCreditScore:(void(^)(id obj))completionBlock;
 
 - (void)createSocialSite:(NSString *)socialId details:(NSString*)details createdBy:(NSString *)createdBy completion:(void (^)(id obj))completionBlock;
 

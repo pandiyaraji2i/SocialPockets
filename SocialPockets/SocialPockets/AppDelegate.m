@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "LoginViewController.h"
 
 @interface AppDelegate ()
 
@@ -27,6 +28,19 @@
     
     [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"loanIsCompleted"];
     [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"loanIsProcessed"];
+    
+    NSString *userId = [NSString stringWithFormat:@"%@",[[NSUserDefaults standardUserDefaults] valueForKey:USERID]];
+    if (userId.length) {
+        // logged in
+        MFSideMenuContainerViewController *container = [LoginViewController loginSuccessForIOS8:NO userId:userId fromClass:@"AppDelegate"];
+        self.window.rootViewController = (UIViewController*)container;
+    }else{
+        // Not logged in
+        self.window.rootViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateInitialViewController];
+
+      
+    }
+    
     return YES;
 }
 

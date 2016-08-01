@@ -10,5 +10,5 @@
 
 @interface LoanViewController : UIViewController
 
-
+@property (nonatomic,strong) id loanObject;
 @end

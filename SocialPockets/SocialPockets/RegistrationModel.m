@@ -65,7 +65,7 @@ static RegistrationModel* _sharedInstance = nil;
  */
 -(void)createOTPForPhoneNumber:(NSString *)phoneNumber  createdBy:(NSString *)createdby completion:(void (^)(id obj))completionBlock{
     if ([NetworkHelperClass getInternetStatus:YES]) {
-        NSMutableDictionary *dict = [@{@"user_id":[[NSUserDefaults standardUserDefaults] valueForKey:@"userid"],@"phone":phoneNumber,@"created_by":createdby} mutableCopy];
+        NSMutableDictionary *dict = [@{@"user_id":[[NSUserDefaults standardUserDefaults] valueForKey:USERID],@"phone":phoneNumber,@"created_by":createdby} mutableCopy];
         id successObject = [NetworkHelperClass sendSynchronousRequestToServer:@"createotp" httpMethod:POST requestBody:dict contentType:JSONCONTENTTYPE];
         if (successObject) {
             if (completionBlock) {
@@ -84,7 +84,7 @@ static RegistrationModel* _sharedInstance = nil;
  */
 -(void)verifyOTPForPhoneNumber:(NSString *)phoneNumber  generatedCode:(NSString *)generatedcode completion:(void (^)(id obj))completionBlock{
     if ([NetworkHelperClass getInternetStatus:YES]) {
-        NSMutableDictionary *dict = [@{@"user_id":[[NSUserDefaults standardUserDefaults] valueForKey:@"userid"],@"phone":phoneNumber,@"generated_code":generatedcode} mutableCopy];
+        NSMutableDictionary *dict = [@{@"user_id":[[NSUserDefaults standardUserDefaults] valueForKey:USERID],@"phone":phoneNumber,@"generated_code":generatedcode} mutableCopy];
         id successObject = [NetworkHelperClass sendSynchronousRequestToServer:@"verifyotp" httpMethod:POST requestBody:dict contentType:JSONCONTENTTYPE];
         if (successObject) {
             if (completionBlock) {
@@ -105,7 +105,7 @@ static RegistrationModel* _sharedInstance = nil;
  */
 -(void)resendOTPForPhoneNumber:(NSString *)phoneNumber  createdBy:(NSString *)createdby completion:(void (^)(id obj))completionBlock{
     if ([NetworkHelperClass getInternetStatus:YES]) {
-        NSMutableDictionary *dict = [@{@"user_id":[[NSUserDefaults standardUserDefaults] valueForKey:@"userid"],@"phone":phoneNumber,@"created_by":createdby} mutableCopy];
+        NSMutableDictionary *dict = [@{@"user_id":[[NSUserDefaults standardUserDefaults] valueForKey:USERID],@"phone":phoneNumber,@"created_by":createdby} mutableCopy];
         id successObject = [NetworkHelperClass sendSynchronousRequestToServer:@"resendotp" httpMethod:POST requestBody:dict contentType:JSONCONTENTTYPE];
         if (successObject) {
             if (completionBlock) {

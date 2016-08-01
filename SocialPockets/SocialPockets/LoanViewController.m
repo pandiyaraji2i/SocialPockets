@@ -16,11 +16,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
     // Do any additional setup after loading the view.
     
 }
 
-- (IBAction)RequestLoan:(id)sender {
+- (IBAction)requestLoan:(id)sender {
     [LOANMACRO requestLoanForUserId:@"25" amount:@"2500" createdBy:@"25" completion:^(id obj) {
         
         NSLog(@"%@",obj);
@@ -43,31 +45,31 @@
     }];
 }
 
-- (IBAction)RepayLoan:(id)sender{
+- (IBAction)repayLoan:(id)sender{
     [LOANMACRO repayLoanForUserId:@"25" loanId:@"14" mobileWallet:@"1" repayAmount:@"1" completion:^(id obj) {
         NSLog(@"%@",obj);
     }];
 }
 
-- (IBAction)ExtnLoan:(id)sender{
+- (IBAction)extnLoan:(id)sender{
     [LOANMACRO extnLoanForUserId:@"14" completion:^(id obj) {
         NSLog(@"%@",obj);
     }];
 }
-- (IBAction)ExtnStatusLoan:(id)sender{
+- (IBAction)extnStatusLoan:(id)sender{
     [LOANMACRO statusForExtnUserId:@"14" completion:^(id obj) {
         NSLog(@"%@",obj);
     }];
 }
 
-- (IBAction)CreateMWallet:(id)sender {
+- (IBAction)createMWallet:(id)sender {
     [MWALLET mwalletForUserId:@"14" mobilewallet:@"4" createdBy:@"14" completion:^(id obj) {
         NSLog(@"%@",obj);
     }];
     
 }
 
-- (IBAction)DeleteMwallet:(id)sender {
+- (IBAction)deleteMwallet:(id)sender {
     [MWALLET deletMwalletUserId:@"14" mobilewallet:@"4" completion:^(id obj) {
         NSLog(@"%@",obj);
     }];

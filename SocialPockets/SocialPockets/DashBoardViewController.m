@@ -81,6 +81,8 @@
     
     
     [self updateViewConstraints];
+    
+    [self getCreditScore];
 
     // Do any additional setup after loading the view.
 }
@@ -118,10 +120,35 @@
 
     }
 }
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+#pragma mark get credit score 
+
+- (void)getCreditScore
+{
+    [PROFILEMACRO getUserCreditScore:^(id obj) {
+        
+    }];
+}
+
+#pragma button actions
 - (IBAction)applyLoanAction:(id)sender
 {
-    ApplyLoanViewController *applyLoanVc = [self.storyboard instantiateViewControllerWithIdentifier:@"ApplyLoanVC"];
-    [self.navigationController pushViewController:applyLoanVc animated:YES];
+    [LOANMACRO loanEligibityForUserCompletion:^(id obj) {
+        if ([obj isKindOfClass:[NSDictionary class]]) {
+            ApplyLoanViewController *applyLoanVc = [self.storyboard instantiateViewControllerWithIdentifier:@"ApplyLoanVC"];
+            applyLoanVc.loanObject = obj;
+            [self.navigationController pushViewController:applyLoanVc animated:YES];
+        }
+        else{
+            ErrorMessageWithTitle(@"Message", @"Sorry. You are not eligible ")
+        }
+
+    }];
 }
 
 #pragma mark Navigation Bar Button actions
@@ -129,15 +156,12 @@
 - (void)onMenuAction:(UIBarButtonItem *)sender
 {
     [self.navigationController.view endEditing:YES];
-    
     if (!sender) {
-//        self.selectType = 1;
         [self.menuContainerViewController closeSlideMenuCompletion:^{
             [[(id)self.menuContainerViewController.leftMenuViewController tableView] reloadData];
         }];
     }
     else{
-//        self.selectType = 2;
         [self.menuContainerViewController toggleLeftSideMenuCompletion:^{
             [[(id)self.menuContainerViewController.leftMenuViewController tableView] reloadData];
         }];
@@ -150,11 +174,10 @@
     [self.navigationController pushViewController:notificationVc animated:YES];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
+
+
+#pragma mark Status Bar Style
 - (UIStatusBarStyle)preferredStatusBarStyle
 {
     return UIStatusBarStyleLightContent;

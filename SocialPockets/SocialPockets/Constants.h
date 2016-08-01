@@ -12,7 +12,7 @@
 
 //#-- BASE URLS
 
-#define BASEURL @"http://192.168.1.56:8000" 
+#define BASEURL @"http://192.168.1.185:8000"
 
 
 //#-- Device Types
@@ -40,5 +40,10 @@
 #define MAX_ACCOUNT  3
 #define INDIANRUPEES_UNICODE @"\u20B9"
 #define SAND_CLOCK @"\u23F3"
+
+
+//#-- USERDEFAULTS
+
+#define USERID @"User_ID"
 
 #endif /* Constants_h */

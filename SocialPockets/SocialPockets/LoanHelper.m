@@ -38,13 +38,9 @@ static LoanHelper* _sharedInstance = nil;
  */
 -(void)loanEligibityForUserCompletion:(void (^)(id obj))completionBlock
 {
-    if (completionBlock)
-    {
-        completionBlock(@"Obk");
-    }
-    return;
+
     if ([NetworkHelperClass getInternetStatus:YES]) {
-        NSMutableDictionary *dict = [@{@"id":[[NSUserDefaults standardUserDefaults] valueForKey:@"userId"]} mutableCopy];
+        NSMutableDictionary *dict = [@{@"userid":[[NSUserDefaults standardUserDefaults] valueForKey:USERID]} mutableCopy];
         id successObject = [NetworkHelperClass sendSynchronousRequestToServer:@"loanrequest/checkEligibilityStatus" httpMethod:POST requestBody:dict contentType:JSONCONTENTTYPE];
         if (successObject) {
             if (completionBlock) {
@@ -114,7 +110,7 @@ static LoanHelper* _sharedInstance = nil;
 
 - (void)repayLoan:(NSString *)loanId  mobileWallet:(NSString *)mobileWallet repayAmount:(NSString *)repayAmount completion:(void (^)(id obj))completionBlock{
     
-    NSMutableDictionary *dict = [@{@"user_id":[[NSUserDefaults standardUserDefaults] valueForKey:@"userid"],@"loan_id":loanId,@"mobile_wallet":mobileWallet,@"repayment_amount":repayAmount} mutableCopy];
+    NSMutableDictionary *dict = [@{@"user_id":[[NSUserDefaults standardUserDefaults] valueForKey:USERID],@"loan_id":loanId,@"mobile_wallet":mobileWallet,@"repayment_amount":repayAmount} mutableCopy];
     id successObject = [NetworkHelperClass sendSynchronousRequestToServer:@"loanRepayment" httpMethod:POST requestBody:dict contentType:JSONCONTENTTYPE];
     if (successObject) {
         if (completionBlock) {
@@ -131,7 +127,7 @@ static LoanHelper* _sharedInstance = nil;
 - (void)getAllLoansWithCompletionBlock:(void(^)(id obj))completionBlock
 {
     if ([NetworkHelperClass getInternetStatus:NO]) {
-        NSString *urlString = [NSString stringWithFormat:@"showallloansofuser?user_id=%@",[[NSUserDefaults standardUserDefaults] valueForKey:@"userId"]];
+        NSString *urlString = [NSString stringWithFormat:@"showallloansofuser?user_id=%@",[[NSUserDefaults standardUserDefaults] valueForKey:USERID]];
         [NetworkHelperClass sendAsynchronousRequestToServer:urlString httpMethod:GET requestBody:nil contentType:JSONCONTENTTYPE completion:^(id obj) {
             
             

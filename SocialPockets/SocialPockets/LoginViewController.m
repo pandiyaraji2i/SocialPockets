@@ -9,6 +9,7 @@
 #import "LoginViewController.h"
 #import "DashBoardViewController.h"
 #import "RearViewController.h"
+#import "AppDelegate.h"
 
 @implementation LoginViewController
 
@@ -17,8 +18,8 @@
     self.navigationController.navigationBarHidden = NO;
     self.title = @"Login";
     
-    userNameTextField.text = @"test@gmail.com";
-    passwordTextField.text = @"12345";
+    userNameTextField.text = @"pandi@gmail.com";
+    passwordTextField.text = @"pandi123";
 }
 
 - (IBAction)loginButtonAction:(id)sender
@@ -28,23 +29,52 @@
     }
     else {
         [LOGINMACRO validateUser:userNameTextField.text password:passwordTextField.text completion:^(id obj) {
-            RearViewController *rearVc = [self.storyboard instantiateViewControllerWithIdentifier:@"RearVc"];
-            DashBoardViewController *dashboardVc = [self.storyboard instantiateViewControllerWithIdentifier:@"DashboardVc"];
-            CustomNavigationController *controller=[[CustomNavigationController alloc]initWithRootViewController:dashboardVc];
-            MFSideMenuContainerViewController *container = [MFSideMenuContainerViewController
-                                                            containerWithCenterViewController:controller
-                                                            leftMenuViewController:rearVc
-                                                            rightMenuViewController:nil];
-            rearVc.menu =^(NSString* menuTitle){
+            if ([obj isKindOfClass:[NSDictionary class]]) {
                 
-                NSLog(@"til %@",menuTitle);
-                if ([menuTitle isEqualToString:@"Logout"]) {
-                    [self dismissViewControllerAnimated:YES completion:nil];
-                }
-            };
-            [self.navigationController presentViewController:container animated:YES completion:nil];
+                [[NSUserDefaults standardUserDefaults] setObject:obj forKey:@"USERINFO"];
+                [[NSUserDefaults standardUserDefaults] setObject:[obj valueForKey:@"USER_ID"] forKey:USERID];
+                
+                MFSideMenuContainerViewController *container =  [LoginViewController loginSuccessForIOS8:YES userId:[obj valueForKey:@"USER_ID"] fromClass:@"LoginViewController"];
+                [self.navigationController presentViewController:container animated:YES completion:nil];
+            }else{
+                ErrorMessageWithTitle(@"Message", @"Invalid");
+            }
+          
         }];
     }
+}
+
++(MFSideMenuContainerViewController*)loginSuccessForIOS8:(BOOL)animated  userId:(NSString *)userId fromClass:(NSString*)className
+{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+
+    RearViewController *rearVc = [storyboard instantiateViewControllerWithIdentifier:@"RearVc"];
+    DashBoardViewController *dashboardVc = [storyboard instantiateViewControllerWithIdentifier:@"DashboardVc"];
+    CustomNavigationController *controller=[[CustomNavigationController alloc]initWithRootViewController:dashboardVc];
+    MFSideMenuContainerViewController *container = [MFSideMenuContainerViewController
+                                                    containerWithCenterViewController:controller
+                                                    leftMenuViewController:rearVc
+                                                    rightMenuViewController:nil];
+    rearVc.menu =^(NSString* menuTitle){
+        if ([menuTitle isEqualToString:@"Logout"]) {
+            [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"USERINFO"];
+            [[NSUserDefaults standardUserDefaults] setObject:nil forKey:USERID];
+            AppDelegate *appDelegateTemp = (AppDelegate*)[UIApplication sharedApplication].delegate;
+            appDelegateTemp.window.rootViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateInitialViewController];
+        }else{
+            @try {
+               // Push navigation
+                
+            }
+            @catch (NSException *exception) {
+                NSLog(@"error");
+            }
+            @finally {
+                NSLog(@"err");
+            }
+        }
+    };
+    return container;
 }
 
 - (IBAction)forgotPasswordAction:(id)sender

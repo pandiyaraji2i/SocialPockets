@@ -48,28 +48,6 @@ static SocialHelper* _sharedInstance = nil;
         }
     }
 }
-/**
- *  Get user credit score
- *
- *  @param completionBlock response block
- */
-- (void)getUserCreditScore:(void (^)(id))completionBlock
-{
-    if ([NetworkHelperClass getInternetStatus:NO]) {
-        NSString *urlString =[NSString stringWithFormat:@"creditshow?user_id=%@",[[NSUserDefaults standardUserDefaults] valueForKey:@"userid"]];
-        id successObject = [NetworkHelperClass sendSynchronousRequestToServer:urlString httpMethod:GET requestBody:nil contentType:JSONCONTENTTYPE];
-        if (successObject) {
-            if (completionBlock) {
-                completionBlock(successObject);
-            }
-        }
-    }
-    else{
-        if (completionBlock) {
-            completionBlock(nil);
-        }
-    }
-}
 
 /**
  *  create social site for userId
@@ -83,7 +61,7 @@ static SocialHelper* _sharedInstance = nil;
 - (void)createSocialSite:(NSString *)socialId details:(NSString*)details createdBy:(NSString *)createdBy completion:(void (^)(id obj))completionBlock
 {
     if ([NetworkHelperClass getInternetStatus:YES]) {
-         NSMutableDictionary *dict = [@{@"user_id":@"25",@"social_id":socialId,@"details":details,@"created_by":createdBy} mutableCopy];
+         NSMutableDictionary *dict = [@{@"user_id":[[NSUserDefaults standardUserDefaults] valueForKey:USERID],@"social_id":socialId,@"details":details,@"created_by":createdBy} mutableCopy];
 //        NSMutableDictionary *dict = [@{@"user_id":[[NSUserDefaults standardUserDefaults]valueForKey:@"userid"],@"social_id":socialId,@"details":details,@"created_by":createdBy} mutableCopy];
         id successObject = [NetworkHelperClass sendSynchronousRequestToServer:@"createsocialsites" httpMethod:POST requestBody:dict contentType:JSONCONTENTTYPE];
         if (successObject) {
@@ -112,7 +90,7 @@ static SocialHelper* _sharedInstance = nil;
 - (void)updateSocialSite:(NSString *)socId socialId:(NSString *)socialId details:(NSString*)details modifiedBy:(NSString *)modifiedBy completion:(void (^)(id obj))completionBlock
 {
     if ([NetworkHelperClass getInternetStatus:YES]) {
-        NSMutableDictionary *dict = [@{@"user_id":[[NSUserDefaults standardUserDefaults]valueForKey:@"userid"],@"soc_id":socId,@"social_id":socialId,@"details":details,@"modified_by":modifiedBy} mutableCopy];
+        NSMutableDictionary *dict = [@{@"user_id":[[NSUserDefaults standardUserDefaults]valueForKey:USERID],@"soc_id":socId,@"social_id":socialId,@"details":details,@"modified_by":modifiedBy} mutableCopy];
         id successObject = [NetworkHelperClass sendSynchronousRequestToServer:@"/updatesocialsites" httpMethod:POST requestBody:dict contentType:JSONCONTENTTYPE];
         if (successObject) {
             if (completionBlock) {
@@ -134,7 +112,7 @@ static SocialHelper* _sharedInstance = nil;
 - (void)viewSocialSiteWithCompletion:(void (^)(id obj))completionBlock
 {
     if ([NetworkHelperClass getInternetStatus:YES]) {
-        NSString *urlString = [NSString stringWithFormat:@"/viewsocialdetails?user_id=%@",[[NSUserDefaults standardUserDefaults] valueForKey:@"userId"]];
+        NSString *urlString = [NSString stringWithFormat:@"/viewsocialdetails?user_id=%@",[[NSUserDefaults standardUserDefaults] valueForKey:USERID]];
         id successObject = [NetworkHelperClass sendSynchronousRequestToServer:urlString httpMethod:GET requestBody:nil contentType:JSONCONTENTTYPE];
         if (successObject) {
             if (completionBlock) {

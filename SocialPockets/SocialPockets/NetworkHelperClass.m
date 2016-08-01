@@ -118,7 +118,7 @@ static Reachability *reachability;
         id responseJson = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingMutableContainers error:nil removingNulls:YES ignoreArrays:NO];
 
         NSString *errorMessageTitle = [responseJson valueForKey:@"message"];
-        NSString *errorMessage = [[[responseJson valueForKey:@"missing parameters"] valueForKey:@"userid"] objectAtIndex:0];
+        NSString *errorMessage = [[[responseJson valueForKey:@"missing parameters"] valueForKey:USERID] objectAtIndex:0];
         NSLog(@"error message title %@ -- %@",errorMessageTitle,errorMessage);
         return responseJson;
     }

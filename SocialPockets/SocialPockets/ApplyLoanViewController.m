@@ -22,7 +22,7 @@
 @end
 
 @implementation ApplyLoanViewController
-
+@synthesize loanObject;
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -42,15 +42,8 @@
 
 }
 - (IBAction)nextBtnTapped:(id)sender {
-    
-    [LOANMACRO loanEligibityForUserCompletion:^(id obj) {
-        if (obj) {
-            RequestConfirmationViewController *requestConfirmationVc = [self.storyboard instantiateViewControllerWithIdentifier:@"RequsetConfirmationVc"];
-            [self.navigationController pushViewController:requestConfirmationVc animated:YES];
-        }else{
-            ErrorMessageWithTitle(@"Message", @"Your not eligible for loan");
-        }
-    }];
+    RequestConfirmationViewController *requestConfirmationVc = [self.storyboard instantiateViewControllerWithIdentifier:@"RequsetConfirmationVc"];
+    [self.navigationController pushViewController:requestConfirmationVc animated:YES];
 }
 
 - (IBAction)sliderValueChanged:(UISlider*)sender {

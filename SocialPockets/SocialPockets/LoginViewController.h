@@ -13,4 +13,6 @@
     IBOutlet UITextField *userNameTextField, *passwordTextField;
 
 }
+
++(MFSideMenuContainerViewController*)loginSuccessForIOS8:(BOOL)animated  userId:(NSString *)userId fromClass:(NSString*)className;
 @end

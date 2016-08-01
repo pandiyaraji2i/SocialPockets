@@ -41,7 +41,7 @@ static ProfileModel* _sharedInstance = nil;
 
 -(void)updateUserProfileWithName:(NSString *)name username:(NSString *)userName email:(NSString *)email phoneNumber:(NSString *)phoneNumber completion:(void (^)(id obj))completionBlock
 {
-    NSMutableDictionary *dict = [@{@"id":[[NSUserDefaults standardUserDefaults] valueForKey:@"userid"],@"name":name,@"username":userName,@"email":email,@"phone":phoneNumber} mutableCopy];
+    NSMutableDictionary *dict = [@{@"id":[[NSUserDefaults standardUserDefaults] valueForKey:USERID],@"name":name,@"username":userName,@"email":email,@"phone":phoneNumber} mutableCopy];
     id successObject = [NetworkHelperClass sendSynchronousRequestToServer:@"userregistration/updateProfile" httpMethod:POST requestBody:dict contentType:JSONCONTENTTYPE];
     if (successObject) {
         if (completionBlock) {
@@ -65,7 +65,7 @@ static ProfileModel* _sharedInstance = nil;
     
     if ([NetworkHelperClass getInternetStatus:YES])
     {
-        NSMutableDictionary *dict = [@{@"userid":[[NSUserDefaults standardUserDefaults] valueForKey:@"userId"],@"old_password":oldPassword,@"new_password":newPassword} mutableCopy];
+        NSMutableDictionary *dict = [@{@"userid":[[NSUserDefaults standardUserDefaults] valueForKey:USERID],@"old_password":oldPassword,@"new_password":newPassword} mutableCopy];
         id successObject = [NetworkHelperClass sendSynchronousRequestToServer:@"/userregistration/changePassword" httpMethod:POST requestBody:dict contentType:JSONCONTENTTYPE];
         if (successObject) {
             if (completionBlock) {
@@ -81,5 +81,27 @@ static ProfileModel* _sharedInstance = nil;
 }
 
 
+/**
+ *  Get user credit score
+ *
+ *  @param completionBlock response block
+ */
+- (void)getUserCreditScore:(void (^)(id))completionBlock
+{
+    if ([NetworkHelperClass getInternetStatus:NO]) {
+        NSString *urlString =[NSString stringWithFormat:@"creditshow?user_id=%@",[[NSUserDefaults standardUserDefaults] valueForKey:USERID]];
+        id successObject = [NetworkHelperClass sendSynchronousRequestToServer:urlString httpMethod:GET requestBody:nil contentType:JSONCONTENTTYPE];
+        if (successObject) {
+            if (completionBlock) {
+                completionBlock(successObject);
+            }
+        }
+    }
+    else{
+        if (completionBlock) {
+            completionBlock(nil);
+        }
+    }
+}
 
 @end
