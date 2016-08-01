@@ -145,7 +145,7 @@
             [self.navigationController pushViewController:applyLoanVc animated:YES];
         }
         else{
-            ErrorMessageWithTitle(@"Message", @"Sorry. You are not eligible ")
+            ErrorMessageWithTitle(@"Message", @"Sorry. You are not eligible ");
         }
 
     }];

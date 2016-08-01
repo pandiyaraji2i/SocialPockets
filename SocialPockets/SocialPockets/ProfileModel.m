@@ -104,4 +104,16 @@ static ProfileModel* _sharedInstance = nil;
     }
 }
 
+/**
+ *  Password validation
+ *
+ *  @param passWord        password
+ *  @param completionBlock response block
+ */
+- (void)passWordValidation:(NSString *)passWord completion:(void(^)(id obj))completionBlock{
+    if (completionBlock) {
+        completionBlock(@"re");
+    }
+}
+
 @end

@@ -16,8 +16,8 @@
 @property (weak, nonatomic) IBOutlet UITableView *accountTableView;
 @property (weak, nonatomic) IBOutlet UIButton *acceptance;
 @property (weak, nonatomic) IBOutlet UIView *transprantView;
-@property (weak, nonatomic) IBOutlet UIView *thanksView;
-
+@property (weak, nonatomic) IBOutlet UIView *thanksView,*passwordView;
+@property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 @end
 
 @implementation RequestConfirmationViewController
@@ -154,21 +154,49 @@
     UIButton *idSender = sender;
     idSender.selected = !idSender.selected;
 }
+
 - (IBAction)doneButtonAction:(id)sender {
     if (self.acceptance.selected) {
-        
-#warning Need to check password validation
-        
-        [LOANMACRO requestLoanForUserId:@"" amount:@"" createdBy:@"" completion:^(id obj) {
-            self.transprantView.hidden = NO;
-            self.thanksView.hidden = NO;
-
-        }];
+        self.transprantView.hidden = NO;
+        self.passwordView.hidden = NO;
     }else{
         ErrorMessageWithTitle(@"Warning", @"Please accept terms and conditions");
     }
-
 }
+
+- (IBAction)onPasswordOkAction:(id)sender
+{
+    if (!self.passwordTextField.text.length) {
+        ErrorMessageWithTitle(@"Message", @"Please enter password");
+    }else{
+         [PROFILEMACRO passWordValidation:self.passwordTextField.text completion:^(id obj) {
+             if ([obj isKindOfClass:[NSDictionary class]]) {
+                 self.passwordView.hidden = YES;
+                 [LOANMACRO requestLoanForUserId:@"" amount:@"" createdBy:@"" completion:^(id obj) {
+                     if ([obj isKindOfClass:[NSDictionary class]]) {
+                         self.transprantView.hidden = NO;
+                         self.thanksView.hidden = NO;
+                     }
+                     else{
+                         ErrorMessageWithTitle(@"Message", @"Something went wrong");
+                         self.transprantView.hidden = YES;
+                     }
+                     
+                 }];
+             }else{
+                 ErrorMessageWithTitle(@"Message", @"Invalid password");
+             }
+         }];
+    }
+ 
+}
+
+- (IBAction)onPasswordCloseAction:(id)sender
+{
+    self.transprantView.hidden = YES;
+    self.passwordView.hidden = YES;
+}
+
 - (IBAction)closeButtonAction:(id)sender {
     self.transprantView.hidden = YES;
     self.thanksView.hidden = YES;
