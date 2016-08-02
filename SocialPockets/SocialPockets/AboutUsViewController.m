@@ -24,6 +24,11 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark Status Bar Style
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
+}
 /*
 #pragma mark - Navigation
 

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BnU-aH-d6h">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BnU-aH-d6h">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
@@ -1716,7 +1716,40 @@
                     <view key="view" contentMode="scaleToFill" id="4bQ-Ln-dme">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DashboardBG" translatesAutoresizingMaskIntoConstraints="NO" id="xea-8T-IV9">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="xea-8T-IV9" firstAttribute="leading" secondItem="4bQ-Ln-dme" secondAttribute="leading" id="7ty-X6-k7D"/>
+                            <constraint firstAttribute="trailing" secondItem="xea-8T-IV9" secondAttribute="trailing" id="8Ke-um-1GW"/>
+                            <constraint firstItem="TSL-Je-ZZm" firstAttribute="top" secondItem="xea-8T-IV9" secondAttribute="bottom" id="T3X-Wg-h3b"/>
+                            <constraint firstItem="xea-8T-IV9" firstAttribute="top" secondItem="4bQ-Ln-dme" secondAttribute="top" id="TpI-ZQ-CO3"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="xea-8T-IV9"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="7ty-X6-k7D"/>
+                                <exclude reference="8Ke-um-1GW"/>
+                                <exclude reference="TpI-ZQ-CO3"/>
+                                <exclude reference="T3X-Wg-h3b"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="xea-8T-IV9"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="7ty-X6-k7D"/>
+                                <include reference="8Ke-um-1GW"/>
+                                <include reference="TpI-ZQ-CO3"/>
+                                <include reference="T3X-Wg-h3b"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UEM-WQ-BfA" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -3933,6 +3966,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DashboardBG" translatesAutoresizingMaskIntoConstraints="NO" id="NQg-q3-2NO">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                            </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3FP-PQ-k7V">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -3946,29 +3982,43 @@
                         <constraints>
                             <constraint firstItem="3FP-PQ-k7V" firstAttribute="leading" secondItem="wsC-Tr-u82" secondAttribute="leading" id="61X-Uf-a4h"/>
                             <constraint firstAttribute="trailing" secondItem="3FP-PQ-k7V" secondAttribute="trailing" id="Epr-fy-uqX"/>
+                            <constraint firstItem="NQg-q3-2NO" firstAttribute="top" secondItem="wsC-Tr-u82" secondAttribute="top" id="G1f-qk-t9Y"/>
                             <constraint firstItem="3FP-PQ-k7V" firstAttribute="top" secondItem="fCL-YS-LDF" secondAttribute="bottom" id="VV8-QU-9D2"/>
+                            <constraint firstItem="NQg-q3-2NO" firstAttribute="leading" secondItem="wsC-Tr-u82" secondAttribute="leading" id="jdM-qA-Y86"/>
                             <constraint firstItem="8hY-s5-fRf" firstAttribute="top" secondItem="3FP-PQ-k7V" secondAttribute="bottom" id="nju-6l-eIm"/>
+                            <constraint firstAttribute="bottom" secondItem="NQg-q3-2NO" secondAttribute="bottom" id="txT-3L-RhZ"/>
+                            <constraint firstAttribute="trailing" secondItem="NQg-q3-2NO" secondAttribute="trailing" id="zLN-3O-C5Z"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
+                                <exclude reference="NQg-q3-2NO"/>
                                 <exclude reference="3FP-PQ-k7V"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="nju-6l-eIm"/>
+                                <exclude reference="G1f-qk-t9Y"/>
+                                <exclude reference="jdM-qA-Y86"/>
+                                <exclude reference="txT-3L-RhZ"/>
+                                <exclude reference="zLN-3O-C5Z"/>
                                 <exclude reference="61X-Uf-a4h"/>
                                 <exclude reference="Epr-fy-uqX"/>
                                 <exclude reference="VV8-QU-9D2"/>
+                                <exclude reference="nju-6l-eIm"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
+                                <include reference="NQg-q3-2NO"/>
                                 <include reference="3FP-PQ-k7V"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="nju-6l-eIm"/>
+                                <include reference="G1f-qk-t9Y"/>
+                                <include reference="jdM-qA-Y86"/>
+                                <include reference="txT-3L-RhZ"/>
+                                <include reference="zLN-3O-C5Z"/>
                                 <include reference="61X-Uf-a4h"/>
                                 <include reference="Epr-fy-uqX"/>
                                 <include reference="VV8-QU-9D2"/>
+                                <include reference="nju-6l-eIm"/>
                             </mask>
                         </variation>
                     </view>
@@ -3978,7 +4028,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8N4-cE-ROC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2485.5" y="96.75"/>
+            <point key="canvasLocation" x="3229.5" y="64.5"/>
         </scene>
         <!--Repay Loan View Controller-->
         <scene sceneID="ax5-yC-dUY">
@@ -4987,6 +5037,9 @@ Tenure Period</string>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="48" y="6" width="182" height="14"/>
+                                                    </variation>
                                                 </label>
                                                 <button opaque="NO" tag="777" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="va0-pf-GuO">
                                                     <rect key="frame" x="-23" y="-15" width="46" height="30"/>
@@ -5018,6 +5071,9 @@ Tenure Period</string>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="48" y="25" width="182" height="22"/>
+                                                    </variation>
                                                 </label>
                                             </subviews>
                                             <constraints>
@@ -5938,13 +5994,15 @@ Tenure Period</string>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="gZg-MC-dcL" firstAttribute="top" secondItem="YHb-nu-cxy" secondAttribute="bottom" constant="30" id="0if-NM-vkd"/>
+                            <constraint firstItem="gZg-MC-dcL" firstAttribute="top" secondItem="tX4-ba-8Cc" secondAttribute="bottom" id="8NQ-CG-9mL"/>
+                            <constraint firstItem="tX4-ba-8Cc" firstAttribute="top" secondItem="1UI-Xe-kVU" secondAttribute="top" id="EBf-hH-ldL"/>
                             <constraint firstItem="YHb-nu-cxy" firstAttribute="centerX" secondItem="1UI-Xe-kVU" secondAttribute="centerX" id="Glu-kQ-nv7"/>
                             <constraint firstItem="gZg-MC-dcL" firstAttribute="top" secondItem="tX4-ba-8Cc" secondAttribute="bottom" id="LTY-ud-uwb"/>
                             <constraint firstItem="tX4-ba-8Cc" firstAttribute="top" secondItem="p3j-Qo-yXR" secondAttribute="bottom" id="QVf-D6-zsV"/>
                             <constraint firstAttribute="trailing" secondItem="YHb-nu-cxy" secondAttribute="trailing" constant="30" id="SAF-g1-yMz"/>
                             <constraint firstAttribute="trailing" secondItem="tX4-ba-8Cc" secondAttribute="trailing" id="e7A-p9-uaf"/>
                             <constraint firstItem="tX4-ba-8Cc" firstAttribute="leading" secondItem="1UI-Xe-kVU" secondAttribute="leading" id="hRa-pB-XJW"/>
-                            <constraint firstItem="YHb-nu-cxy" firstAttribute="top" secondItem="p3j-Qo-yXR" secondAttribute="bottom" constant="30" id="sES-sq-mCI"/>
+                            <constraint firstItem="YHb-nu-cxy" firstAttribute="top" secondItem="p3j-Qo-yXR" secondAttribute="bottom" id="sES-sq-mCI"/>
                             <constraint firstItem="YHb-nu-cxy" firstAttribute="leading" secondItem="1UI-Xe-kVU" secondAttribute="leading" constant="30" id="zgC-1R-xN2"/>
                         </constraints>
                         <variation key="default">
@@ -5953,15 +6011,17 @@ Tenure Period</string>
                                 <exclude reference="YHb-nu-cxy"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="0if-NM-vkd"/>
-                                <exclude reference="LTY-ud-uwb"/>
+                                <exclude reference="EBf-hH-ldL"/>
+                                <exclude reference="QVf-D6-zsV"/>
+                                <exclude reference="e7A-p9-uaf"/>
+                                <exclude reference="hRa-pB-XJW"/>
                                 <exclude reference="Glu-kQ-nv7"/>
                                 <exclude reference="SAF-g1-yMz"/>
                                 <exclude reference="sES-sq-mCI"/>
                                 <exclude reference="zgC-1R-xN2"/>
-                                <exclude reference="QVf-D6-zsV"/>
-                                <exclude reference="e7A-p9-uaf"/>
-                                <exclude reference="hRa-pB-XJW"/>
+                                <exclude reference="0if-NM-vkd"/>
+                                <exclude reference="8NQ-CG-9mL"/>
+                                <exclude reference="LTY-ud-uwb"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -5970,18 +6030,21 @@ Tenure Period</string>
                                 <include reference="YHb-nu-cxy"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="0if-NM-vkd"/>
-                                <include reference="LTY-ud-uwb"/>
+                                <include reference="EBf-hH-ldL"/>
+                                <exclude reference="QVf-D6-zsV"/>
+                                <include reference="e7A-p9-uaf"/>
+                                <include reference="hRa-pB-XJW"/>
                                 <include reference="Glu-kQ-nv7"/>
                                 <include reference="SAF-g1-yMz"/>
                                 <include reference="sES-sq-mCI"/>
                                 <include reference="zgC-1R-xN2"/>
-                                <include reference="QVf-D6-zsV"/>
-                                <include reference="e7A-p9-uaf"/>
-                                <include reference="hRa-pB-XJW"/>
+                                <include reference="0if-NM-vkd"/>
+                                <include reference="8NQ-CG-9mL"/>
+                                <exclude reference="LTY-ud-uwb"/>
                             </mask>
                         </variation>
                     </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
                         <outlet property="table" destination="YHb-nu-cxy" id="nTl-Ra-5k5"/>
                     </connections>

@@ -26,7 +26,10 @@
     self.table.backgroundColor = [UIColor clearColor];
     isShowingListsec = NO; 
     
-    transData = [[NSMutableArray alloc] initWithObjects:@"Transation: Rs 3000\n\nTransation details\nIn hand amount\nCredited on\nCredited to acc",@"Transation: Rs 5000\n\nTransation details\nIn hand amount\nCredited on\nCredited to acc",@"Transation: Rs 4000\n\nTransation details\nIn hand amount\nCredited on\nCredited to acc", nil];
+    transData = [[NSMutableArray alloc] initWithObjects:@"Transation: Rs 3000\n\nTransation details\nIn hand amount\nCredited on\nCredited to acc",@"Transation: Rs 5000\n\nTransation details\nIn hand amount\nCredited on\nCredited to acc",@"Transation: Rs 4000\n\nTransation details\nIn hand amount\nCredited on\nCredited to acc",@"Transation: Rs 3000\n\nTransation details\nIn hand amount\nCredited on\nCredited to acc", nil];
+    self.table.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    self.table.tableHeaderView = [[UIView alloc] initWithFrame:CGRectZero];
+    //self.table.bounces = NO;
     
     }
 //increses the section according to data received
@@ -34,6 +37,17 @@
     return [transData count];
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    
+    return 15;
+}
+
+- (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 30)];
+     [headerView setBackgroundColor:[UIColor clearColor]];
+    return headerView;
+}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
@@ -66,11 +80,13 @@
         
     }
     
-    cell.selectionStyle = UITableViewCellSelectionStyleBlue;
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.accessoryType = UITableViewCellAccessoryNone;
  
         [[cell textLabel]setNumberOfLines:0];
         [[cell textLabel] setText:[transData objectAtIndex:indexPath.section]];
+        [cell.textLabel sizeToFit];
+        cell.layer.cornerRadius = 10;
         return cell;
  
 }
@@ -89,6 +105,11 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark Status Bar Style
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
+}
 /*
  #pragma mark - Navigation
  
