@@ -21,13 +21,14 @@
     
     self.navigationController.navigationBarHidden = NO;
     self.title = @"Transaction Histroy";
+    self.table.backgroundColor = [UIColor yellowColor];
     self.table.layer.cornerRadius = 5;
     self.table.backgroundColor = [UIColor clearColor];
     isShowingListsec = NO;
     
-    
+    transData = [[NSMutableArray alloc]init];
     [LOANMACRO getAllLoansWithCompletionBlock:^(id obj) {
-        transData = [[obj objectForKey:@"loan"] mutableCopy];
+        [transData addObjectsFromArray:[obj objectForKey:@"loan"]];
         //view update has to happen in main queue
         dispatch_async(dispatch_get_main_queue(), ^{
              [table reloadData];
