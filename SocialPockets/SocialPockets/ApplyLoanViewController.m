@@ -13,6 +13,7 @@
 
 @interface ApplyLoanViewController (){
     float loanMinValue;
+    int loanMultipler;
 }
 @property (weak, nonatomic) IBOutlet UIView *loanDetailsView;
 @property (weak, nonatomic) IBOutlet UIButton *nextBtn;
@@ -29,10 +30,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    float maxLoanAmount = [[loanObject objectForKey:@"MAXIMUM_LOAN_AMOUNT"] floatValue];
+    //float maxLoanAmount = 5000;
+    [self updateSliderForAmt:maxLoanAmount];
     self.loanAmtSlider.minimumValue = 0;
-    self.loanAmtSlider.maximumValue = ([[loanObject objectForKey:@"MAXIMUM_LOAN_AMOUNT"] floatValue]/1000)*2;
-    loanMinValue = 1000.00;
-    _loanDetailsView.layer.cornerRadius = 5.0;
+        _loanDetailsView.layer.cornerRadius = 5.0;
     _loanDetailsView.layer.masksToBounds = YES;
     UITapGestureRecognizer *gr = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(sliderTapped:)];
     [self.loanAmtSlider addGestureRecognizer:gr];
@@ -52,14 +55,13 @@
 }
 - (IBAction)nextBtnTapped:(id)sender {
     RequestConfirmationViewController *requestConfirmationVc = [self.storyboard instantiateViewControllerWithIdentifier:@"RequsetConfirmationVc"];
-    requestConfirmationVc.loanAmount = self.loanAmountLbl.text;
-    requestConfirmationVc.loanInHandAmount = self.handAmtLbl.text;
+    requestConfirmationVc.loanAmount = self.MainLoanAmt.text;
+    requestConfirmationVc.loanInHandAmount = [self.handAmtLbl.text stringByReplacingOccurrencesOfString:@"Rs. " withString:@""];//self.handAmtLbl.text;
     requestConfirmationVc.tenurePeriod = [NSString stringWithFormat:@"%@",[loanObject valueForKey:@"TENURE_DATE"]];
     [self.navigationController pushViewController:requestConfirmationVc animated:YES];
 }
 
 - (IBAction)sliderValueChanged:(UISlider*)sender {
-    float loanMin = (loanMinValue/1000)*2;
     double num = self.loanAmtSlider.value;
     int intpart = (int)num;
     double decpart = num - intpart;
@@ -70,12 +72,12 @@
     {
         self.loanAmtSlider.value=intpart;
     }
-    if (self.loanAmtSlider.value < loanMin) {
-        self.loanAmtSlider.value = loanMin;
+    if (self.loanAmtSlider.value < loanMinValue) {
+        self.loanAmtSlider.value = loanMinValue;
     }
     NSLog(@"%f",self.loanAmtSlider.value);
 
-    int loanAmt =(int)self.loanAmtSlider.value*500;
+    int loanAmt =(int)self.loanAmtSlider.value*loanMultipler;
     _loanAmountLbl.text =  [NSString stringWithFormat:@"Rs. %d",loanAmt];
    _deductionAmtLbl.text =  [NSString stringWithFormat:@"- Rs. %d", (loanAmt/100)*LoanProcessingFeeDetectionPercent];
     _handAmtLbl.text =  [NSString stringWithFormat:@"Rs. %d", (loanAmt-(loanAmt/100)*LoanProcessingFeeDetectionPercent)];
@@ -106,6 +108,29 @@
 {
     return UIStatusBarStyleLightContent;
 }
+
+
+#pragma mark slider methods
+
+// set upadte slider
+
+-(void)updateSliderForAmt:(float)amt{
+    
+    if (amt<=1000) {
+        loanMultipler = 100;
+        self.loanAmtSlider.maximumValue = (amt/loanMultipler);
+        loanMinValue = 1;
+    }else if (amt<=10000){
+        loanMultipler = 500;
+        self.loanAmtSlider.maximumValue = (amt/loanMultipler);
+        loanMinValue = 1;
+    }else if (amt>10000){
+        loanMultipler = 1000;
+        self.loanAmtSlider.maximumValue = (amt/loanMultipler);
+        loanMinValue = 1;
+    }
+}
+
 /*
 #pragma mark - Navigation
 

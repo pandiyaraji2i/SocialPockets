@@ -45,7 +45,8 @@ NSArray *HeaderArray;
     }
     
     cell.imageArray = infoArray;
-    
+    cell.currentTableIndex = indexPath;
+
     [cell setInitialCollectionView];
     return cell;
 }
@@ -93,17 +94,30 @@ NSArray *HeaderArray;
 
 -(NSMutableArray *)generateImageArray {
     
-    NSMutableArray *imagesArray = [[NSMutableArray alloc] init];
-    for (int i=1; i<=10; i++) {
-        NSMutableDictionary *tempDict = [[NSMutableDictionary alloc] init];
-        NSString *infoString = [NSString stringWithFormat:@"image%d", i];
-        UIImage *image = [UIImage imageNamed:infoString];
-        
-        [tempDict setValue:infoString forKey:@"Info"];
-        [tempDict setValue:image forKey:@"Image"];
-        
-        [imagesArray addObject:tempDict];
-    }
+    NSMutableArray *imagesArray = [@[@{@"Identification Proof":@[@{@"ImageName":@"AdharIcon",
+                                                                   @"ImageText":@"Adhar Card"
+                                                                   },
+                                                                 @{@"ImageName":@"PanCard",
+                                                                   @"ImageText":@"PAN Card"
+                                                                   },]
+                                       },
+                                     @{@"Social Account":@[@{@"ImageName":@"FacebookIcon",
+                                                             @"ImageText":@"Facebook"
+                                                             },
+                                                           @{@"ImageName":@"TwitterIcon",
+                                                             @"ImageText":@"Twitter"
+                                                             },
+                                                           @{@"ImageName":@"InstagramIcon",
+                                                             @"ImageText":@"Instagram"
+                                                             }]
+                                       },
+                                     @{@"Money Account":@[@{@"ImageName":@"HDFCIcon",
+                                                            @"ImageText":@"HDFC"
+                                                            },
+                                                          @{@"ImageName":@"AddAccount",
+                                                            @"ImageText":@"ADD account"
+                                                            },]
+                                       }]mutableCopy];
     
     return imagesArray;
 }

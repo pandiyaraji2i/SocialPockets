@@ -10,7 +10,11 @@
 #import "TableCollectionViewCell.h"
 
 @implementation CollectionTableViewCell
-@synthesize imageArray;
+{
+    NSDictionary *currentSectionDictionary;
+    NSArray *secTitle;
+}
+@synthesize imageArray,currentTableIndex;
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -23,6 +27,9 @@
 
 -(void)setInitialCollectionView {
     [self.collectionView registerNib:[UINib nibWithNibName:@"TableCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"TableCollectionViewCell"];
+    currentSectionDictionary = [[NSDictionary alloc] init];
+    NSLog(@"currentdict  %@",[imageArray objectAtIndex:currentTableIndex.section]);
+    currentSectionDictionary = [imageArray objectAtIndex:currentTableIndex.section];
     [self.collectionView reloadData];
 }
 
@@ -34,16 +41,19 @@
 
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return [imageArray count];
+    secTitle = [currentSectionDictionary allKeys];
+    
+    return [[currentSectionDictionary objectForKey:[secTitle objectAtIndex:0]] count];
 }
 
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
     TableCollectionViewCell *cell = (TableCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"TableCollectionViewCell" forIndexPath:indexPath];
+    NSArray *currentRowDetail = [currentSectionDictionary objectForKey:[secTitle objectAtIndex:0]];
     
-    cell.ImageView.image = [[imageArray objectAtIndex:indexPath.row] objectForKey:@"Image"];
-    cell.InfoLabel.text = [[imageArray objectAtIndex:indexPath.row] objectForKey:@"Info"];
+    cell.ImageView.image = [UIImage imageNamed:[[currentRowDetail objectAtIndex:indexPath.row] objectForKey:@"ImageName"]];
+    cell.InfoLabel.text = [[currentRowDetail objectAtIndex:indexPath.row] objectForKey:@"ImageText"];
     
     return cell;
     
