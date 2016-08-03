@@ -43,6 +43,8 @@
     
     self.title = @"Apply Loan";
     
+    tenurePeriodLabel.text = [NSString stringWithFormat:@"%@ Days Tenure Period",[self.loanObject valueForKey:@"TENURE_DATE"]];
+    
     //#-- Status Bar Color Change
     [self setNeedsStatusBarAppearanceUpdate];
     [self sliderValueChanged:nil];
@@ -50,6 +52,9 @@
 }
 - (IBAction)nextBtnTapped:(id)sender {
     RequestConfirmationViewController *requestConfirmationVc = [self.storyboard instantiateViewControllerWithIdentifier:@"RequsetConfirmationVc"];
+    requestConfirmationVc.loanAmount = self.loanAmountLbl.text;
+    requestConfirmationVc.loanInHandAmount = self.handAmtLbl.text;
+    requestConfirmationVc.tenurePeriod = [NSString stringWithFormat:@"%@",[loanObject valueForKey:@"TENURE_DATE"]];
     [self.navigationController pushViewController:requestConfirmationVc animated:YES];
 }
 

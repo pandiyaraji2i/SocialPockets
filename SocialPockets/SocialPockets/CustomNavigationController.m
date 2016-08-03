@@ -19,6 +19,10 @@
     
     //#-- Status Bar Color Change
     [self setNeedsStatusBarAppearanceUpdate];
+    
+    if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
+        self.navigationController.interactivePopGestureRecognizer.enabled = NO;
+    }
     // Do any additional setup after loading the view.
 }
 
@@ -59,6 +63,7 @@
     [super viewWillDisappear:animated];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
+
 
 
 /*

@@ -570,6 +570,11 @@ shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherG
 // this method handles any pan event
 // and sets the navigation controller's frame as needed
 - (void) handlePan:(UIPanGestureRecognizer *)recognizer {
+    
+    //$-- Edited by pandi for disable swipe gesture other than dashboard
+    if ([self.centerViewController childViewControllers].count >1) {
+        return;
+    }
     UIView *view = [self.centerViewController view];
     
 	if(recognizer.state == UIGestureRecognizerStateBegan) {

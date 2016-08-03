@@ -72,4 +72,7 @@ typedef enum {
 // can be used to attach a pan gesture recognizer to a custom view
 - (UIPanGestureRecognizer *)panGestureRecognizer;
 
+- (void)addCenterGestureRecognizers;
+- (void)removeCenterGestureRecognizers;
+
 @end

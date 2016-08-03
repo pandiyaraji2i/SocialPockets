@@ -70,4 +70,34 @@
     }
     return nil;
 }
+
++ (NSString *)stringFromGivenDate:(NSDate *)date formatType:(NSString *)formatType
+{
+    NSDateFormatter *dateformatter = [[NSDateFormatter alloc] init];
+    [dateformatter setDateFormat:formatType];
+    NSString *afterString=[dateformatter stringFromDate:date];
+    return afterString;
+}
+
++ (NSDate *)dateFromGivenString:(NSString *)dateString formatType:(NSString *)formatType
+{
+    NSDateFormatter *formater=[[NSDateFormatter alloc]init];
+    [formater setDateFormat:formatType];
+    NSDate *curntdate =[formater dateFromString:dateString];
+    return curntdate;
+}
+
++(NSString*)convertString:(NSString*)dateString fromFormat:(NSString*)format1 toFormat:(NSString*)format2{
+    NSDate *tempDate=[SharedMethods dateFromGivenString:dateString formatType:format1];
+    return [SharedMethods stringFromGivenDate:tempDate formatType:format2];
+}
+
++ (NSDate *)addDaysToDate:(int)days startDate:(NSDate *)date
+{
+    NSCalendar *cal         = [NSCalendar currentCalendar];
+    NSDateComponents *comps = [cal components:NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitWeekday | NSCalendarUnitWeekOfMonth | NSCalendarUnitWeekOfYear fromDate:date];
+    comps.day+=days;
+    return [cal dateFromComponents:comps];
+}
+
 @end

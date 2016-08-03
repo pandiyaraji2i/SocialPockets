@@ -15,8 +15,11 @@
     IBOutlet NSLayoutConstraint *pointsButtonTopConstraint;
     IBOutlet NSLayoutConstraint *circleViewHeightConstraint;
     IBOutlet UIButton *verificationButton;
+    IBOutlet UILabel *pointsCountLabel, * verifyLabel, *timeLabel;
+    IBOutlet UIButton *zerothDigitScoreButton, *tenthDigitScoreButton, *hundredDigitScoreButton;
     IBOutlet UIButton *applyLoan;
     BOOL isVerificationCompleted;
+    IBOutlet UIView *scoreBGView;
 }
 @property (nonatomic, weak) IBOutlet UIButton *pointsButton;
 @end

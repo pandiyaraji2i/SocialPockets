@@ -13,11 +13,32 @@
 @end
 
 @implementation AboutUsViewController
+@synthesize titleStr;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+//    self.title = titleStr;
+    titleStr  = self.title;
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:self.titleStr message:@"mess" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+    [alert show];
+    if ([self.titleStr isEqualToString:@"Terms & Conditions"]) {
+
+    }else if ([self.titleStr isEqualToString:@"FAQs"])
+    {
+        
+    }else{
+        
+    }
+    
+    
     // Do any additional setup after loading the view.
 }
+
+- (void)viewWillAppear:(BOOL)animated
+{
+}
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

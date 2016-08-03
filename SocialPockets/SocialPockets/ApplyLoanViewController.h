@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface ApplyLoanViewController : UIViewController
+{
+    IBOutlet UILabel *tenurePeriodLabel;
+}
 @property (weak, nonatomic) IBOutlet UISlider *loanAmtSlider;
 @property (nonatomic,strong) NSDictionary *loanObject;
 @end

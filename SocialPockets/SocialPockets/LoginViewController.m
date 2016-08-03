@@ -65,7 +65,6 @@
         else if ([menuTitle isEqualToString:@"Dashboard"])
         {
             [container toggleLeftSideMenuCompletion:^{
-                
             }];
         }
         else{
@@ -79,9 +78,11 @@
                     identifier = [menuTitle stringByReplacingOccurrencesOfString:@" " withString:@""];
                 }
                 id control = [storyboard instantiateViewControllerWithIdentifier:identifier];
+                [control setTitle:menuTitle];
                 [controller popToRootViewControllerAnimated:NO];
                 [controller pushViewController:control animated:YES];
                 [container toggleLeftSideMenuCompletion:^{
+
                 }];
                 
                 

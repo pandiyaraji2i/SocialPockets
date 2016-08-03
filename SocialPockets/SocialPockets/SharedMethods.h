@@ -15,4 +15,8 @@
 + (void)showAlertActionWithTitle:(NSString *)title message:(NSString *)message completion:(void (^)(id obj))completionBlock;
 + (UIViewController*)topMostController;
 + (UIViewController *)visibleViewController;
++ (NSString *)stringFromGivenDate:(NSDate *)date formatType:(NSString *)formatType;
++ (NSDate *)dateFromGivenString:(NSString *)dateString formatType:(NSString *)formatType;
++ (NSString*)convertString:(NSString*)dateString fromFormat:(NSString*)format1 toFormat:(NSString*)format2;
++ (NSDate *)addDaysToDate:(int)days startDate:(NSDate *)date;
 @end

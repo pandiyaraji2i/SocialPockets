@@ -88,20 +88,12 @@ static ProfileModel* _sharedInstance = nil;
  */
 - (void)getUserCreditScore:(void (^)(id))completionBlock
 {
-    if ([NetworkHelperClass getInternetStatus:NO]) {
-        NSString *urlString =[NSString stringWithFormat:@"creditshow?user_id=%@",[[NSUserDefaults standardUserDefaults] valueForKey:USERID]];
-        id successObject = [NetworkHelperClass sendSynchronousRequestToServer:urlString httpMethod:GET requestBody:nil contentType:JSONCONTENTTYPE];
-        if (successObject) {
-            if (completionBlock) {
-                completionBlock(successObject);
-            }
-        }
-    }
-    else{
+    NSString *urlString =[NSString stringWithFormat:@"creditshow?user_id=%@",[[NSUserDefaults standardUserDefaults] valueForKey:USERID]];
+    [NetworkHelperClass sendAsynchronousRequestToServer:urlString httpMethod:GET requestBody:nil contentType:JSONCONTENTTYPE completion:^(id obj) {
         if (completionBlock) {
-            completionBlock(nil);
+            completionBlock(obj);
         }
-    }
+    }];
 }
 
 /**
@@ -111,8 +103,12 @@ static ProfileModel* _sharedInstance = nil;
  *  @param completionBlock response block
  */
 - (void)passWordValidation:(NSString *)passWord completion:(void(^)(id obj))completionBlock{
-    if (completionBlock) {
-        completionBlock(@"re");
+    NSMutableDictionary *dict = [@{@"userid":[[NSUserDefaults standardUserDefaults] valueForKey:USERID],@"password":passWord} mutableCopy];
+    id successObject = [NetworkHelperClass sendSynchronousRequestToServer:@"userregistration/passwordVerification" httpMethod:POST requestBody:dict contentType:JSONCONTENTTYPE];
+    if (successObject) {
+        if (completionBlock) {
+            completionBlock(successObject);
+        }
     }
 }
 

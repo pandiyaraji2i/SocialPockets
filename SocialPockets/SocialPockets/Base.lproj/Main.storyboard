@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BnU-aH-d6h">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BnU-aH-d6h">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
@@ -84,6 +84,26 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l79-fk-I4G">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <subviews>
+                                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7ND-yX-tQr">
+                                        <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="48" id="jcM-o6-7ok"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <state key="normal" title="0" backgroundImage="ScoreBG">
+                                            <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="jcM-o6-7ok"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="heightClass=regular-widthClass=compact">
+                                            <mask key="constraints">
+                                                <include reference="jcM-o6-7ok"/>
+                                            </mask>
+                                        </variation>
+                                    </button>
                                     <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RaV-9k-Zta">
                                         <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                         <constraints>
@@ -91,7 +111,7 @@
                                             <constraint firstAttribute="height" constant="54" id="geV-zC-Wli"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                        <state key="normal" title="2" backgroundImage="ScoreBG">
+                                        <state key="normal" title="0" backgroundImage="ScoreBG">
                                             <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <variation key="default">
@@ -113,7 +133,7 @@
                                             <constraint firstAttribute="width" constant="48" id="b3e-sG-Nrs"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                        <state key="normal" title="1" backgroundImage="ScoreBG">
+                                        <state key="normal" title="0" backgroundImage="ScoreBG">
                                             <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <variation key="default">
@@ -124,26 +144,6 @@
                                         <variation key="heightClass=regular-widthClass=compact">
                                             <mask key="constraints">
                                                 <include reference="b3e-sG-Nrs"/>
-                                            </mask>
-                                        </variation>
-                                    </button>
-                                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7ND-yX-tQr">
-                                        <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="48" id="jcM-o6-7ok"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                        <state key="normal" title="3" backgroundImage="ScoreBG">
-                                            <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="jcM-o6-7ok"/>
-                                            </mask>
-                                        </variation>
-                                        <variation key="heightClass=regular-widthClass=compact">
-                                            <mask key="constraints">
-                                                <include reference="jcM-o6-7ok"/>
                                             </mask>
                                         </variation>
                                     </button>
@@ -166,9 +166,9 @@
                                 </constraints>
                                 <variation key="default">
                                     <mask key="subviews">
+                                        <exclude reference="7ND-yX-tQr"/>
                                         <exclude reference="RaV-9k-Zta"/>
                                         <exclude reference="7K7-og-j7q"/>
-                                        <exclude reference="7ND-yX-tQr"/>
                                     </mask>
                                     <mask key="constraints">
                                         <exclude reference="CoP-eZ-vBs"/>
@@ -188,9 +188,9 @@
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact">
                                     <mask key="subviews">
+                                        <include reference="7ND-yX-tQr"/>
                                         <include reference="RaV-9k-Zta"/>
                                         <include reference="7K7-og-j7q"/>
-                                        <include reference="7ND-yX-tQr"/>
                                     </mask>
                                     <mask key="constraints">
                                         <include reference="CoP-eZ-vBs"/>
@@ -568,11 +568,18 @@
                     <connections>
                         <outlet property="applyLoan" destination="1qx-0k-FKb" id="BZh-L6-0AU"/>
                         <outlet property="circleViewHeightConstraint" destination="f6M-NJ-aFS" id="jwO-3g-zk8"/>
+                        <outlet property="hundredDigitScoreButton" destination="7ND-yX-tQr" id="dnU-qv-iVW"/>
                         <outlet property="pointsButton" destination="mK7-Q4-Ezj" id="2au-4C-iSb"/>
                         <outlet property="pointsButtonTopConstraint" destination="Mmm-En-N38" id="XfS-Wg-vD5"/>
+                        <outlet property="pointsCountLabel" destination="Bt5-tr-Bnw" id="rdG-fG-WjW"/>
                         <outlet property="scoreBGHeightConstraint" destination="CoP-eZ-vBs" id="TWE-bw-2tv"/>
+                        <outlet property="scoreBGView" destination="l79-fk-I4G" id="8FC-pO-Rut"/>
                         <outlet property="scoreLabelTopConstraint" destination="O8x-Fy-w8k" id="bWf-Ym-zcM"/>
+                        <outlet property="tenthDigitScoreButton" destination="RaV-9k-Zta" id="6Ns-y9-ljQ"/>
+                        <outlet property="timeLabel" destination="AGO-FE-Lfz" id="5qg-S0-byV"/>
                         <outlet property="verificationButton" destination="UbG-wV-mKF" id="m12-o7-2DU"/>
+                        <outlet property="verifyLabel" destination="adj-r5-g1k" id="gKv-Tf-GOB"/>
+                        <outlet property="zerothDigitScoreButton" destination="7K7-og-j7q" id="ur3-m2-ptN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FAH-bB-myA" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1717,7 +1724,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DashboardBG" translatesAutoresizingMaskIntoConstraints="NO" id="xea-8T-IV9">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CloseIcon" translatesAutoresizingMaskIntoConstraints="NO" id="xea-8T-IV9">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                             </imageView>
                         </subviews>
@@ -1733,10 +1740,10 @@
                                 <exclude reference="xea-8T-IV9"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="T3X-Wg-h3b"/>
                                 <exclude reference="7ty-X6-k7D"/>
                                 <exclude reference="8Ke-um-1GW"/>
                                 <exclude reference="TpI-ZQ-CO3"/>
-                                <exclude reference="T3X-Wg-h3b"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -1744,10 +1751,10 @@
                                 <include reference="xea-8T-IV9"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="T3X-Wg-h3b"/>
                                 <include reference="7ty-X6-k7D"/>
                                 <include reference="8Ke-um-1GW"/>
                                 <include reference="TpI-ZQ-CO3"/>
-                                <include reference="T3X-Wg-h3b"/>
                             </mask>
                         </variation>
                     </view>
@@ -3614,6 +3621,7 @@
                         <outlet property="loanAmtSlider" destination="JUm-Qn-ybh" id="Azy-7M-3fk"/>
                         <outlet property="loanDetailsView" destination="5dQ-9z-O0Z" id="mej-yS-Hin"/>
                         <outlet property="nextBtn" destination="p0Y-P3-Doe" id="zZS-lC-jTh"/>
+                        <outlet property="tenurePeriodLabel" destination="JU3-mW-RnN" id="qCu-4K-I0C"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lf6-Rx-kpS" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -3966,7 +3974,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DashboardBG" translatesAutoresizingMaskIntoConstraints="NO" id="NQg-q3-2NO">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CloseIcon" translatesAutoresizingMaskIntoConstraints="NO" id="NQg-q3-2NO">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3FP-PQ-k7V">
@@ -3995,14 +4003,14 @@
                                 <exclude reference="3FP-PQ-k7V"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="nju-6l-eIm"/>
+                                <exclude reference="61X-Uf-a4h"/>
+                                <exclude reference="Epr-fy-uqX"/>
+                                <exclude reference="VV8-QU-9D2"/>
                                 <exclude reference="G1f-qk-t9Y"/>
                                 <exclude reference="jdM-qA-Y86"/>
                                 <exclude reference="txT-3L-RhZ"/>
                                 <exclude reference="zLN-3O-C5Z"/>
-                                <exclude reference="61X-Uf-a4h"/>
-                                <exclude reference="Epr-fy-uqX"/>
-                                <exclude reference="VV8-QU-9D2"/>
-                                <exclude reference="nju-6l-eIm"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -4011,14 +4019,14 @@
                                 <include reference="3FP-PQ-k7V"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="nju-6l-eIm"/>
+                                <include reference="61X-Uf-a4h"/>
+                                <include reference="Epr-fy-uqX"/>
+                                <include reference="VV8-QU-9D2"/>
                                 <include reference="G1f-qk-t9Y"/>
                                 <include reference="jdM-qA-Y86"/>
                                 <include reference="txT-3L-RhZ"/>
                                 <include reference="zLN-3O-C5Z"/>
-                                <include reference="61X-Uf-a4h"/>
-                                <include reference="Epr-fy-uqX"/>
-                                <include reference="VV8-QU-9D2"/>
-                                <include reference="nju-6l-eIm"/>
                             </mask>
                         </variation>
                     </view>
@@ -4931,7 +4939,7 @@ Tenure Period</string>
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DashboardBG" translatesAutoresizingMaskIntoConstraints="NO" id="TP3-We-ADk">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CloseIcon" translatesAutoresizingMaskIntoConstraints="NO" id="TP3-We-ADk">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                             </imageView>
                         </subviews>
@@ -5147,10 +5155,13 @@ Tenure Period</string>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
                                         <color key="textColor" red="1" green="0.93503421630000005" blue="0.11956565030000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
+                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="82" y="89" width="78" height="15"/>
+                                        </variation>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="5,000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xxn-Zs-Jsd">
                                         <rect key="frame" x="42" y="47" width="85" height="22"/>
-                                        <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="25"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <color key="textColor" red="1" green="0.93503421630000005" blue="0.11956565030000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -5180,7 +5191,7 @@ Tenure Period</string>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="5,000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lMx-ur-lHK">
                                         <rect key="frame" x="272" y="47" width="100" height="22"/>
-                                        <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="25"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <color key="textColor" red="1" green="0.93503421630000005" blue="0.11956565030000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -5211,6 +5222,9 @@ Tenure Period</string>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
                                         <color key="textColor" red="1" green="0.93503421630000005" blue="0.11956565030000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
+                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="240" y="89" width="93" height="15"/>
+                                        </variation>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Calendar_icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="QMI-1H-31e">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
@@ -5265,6 +5279,13 @@ Tenure Period</string>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <view opaque="NO" alpha="0.80000001192092896" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RpF-Ul-zF8">
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="0.0" y="-20" width="400" height="800"/>
+                                        </variation>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -5279,8 +5300,10 @@ Tenure Period</string>
                                     <constraint firstItem="QMI-1H-31e" firstAttribute="centerY" secondItem="nvi-Q4-Js2" secondAttribute="centerY" id="Q1l-bj-YHH">
                                         <variation key="heightClass=regular-widthClass=compact" constant="20"/>
                                     </constraint>
+                                    <constraint firstItem="Xxn-Zs-Jsd" firstAttribute="leading" secondItem="Mme-tG-FV8" secondAttribute="leading" id="TGu-Kw-Xd9"/>
                                     <constraint firstItem="KTr-Ub-Mhk" firstAttribute="bottom" secondItem="Ddr-vA-RYK" secondAttribute="top" id="TmT-7g-h8Y"/>
                                     <constraint firstItem="Qrq-40-odE" firstAttribute="top" secondItem="Xxn-Zs-Jsd" secondAttribute="bottom" constant="5" id="VXM-Bm-g4o"/>
+                                    <constraint firstItem="lMx-ur-lHK" firstAttribute="trailing" secondItem="FCQ-Mj-1eQ" secondAttribute="trailing" id="XXv-lh-7Ps"/>
                                     <constraint firstItem="KTr-Ub-Mhk" firstAttribute="leading" secondItem="QMI-1H-31e" secondAttribute="trailing" constant="30" id="YPj-lJ-q5K"/>
                                     <constraint firstItem="Ddr-vA-RYK" firstAttribute="centerX" secondItem="nvi-Q4-Js2" secondAttribute="centerX" id="Za3-sX-qwq"/>
                                     <constraint firstItem="uRd-kR-TTu" firstAttribute="trailing" secondItem="Qrq-40-odE" secondAttribute="trailing" id="cb9-7U-jad"/>
@@ -5296,28 +5319,31 @@ Tenure Period</string>
                                         <exclude reference="QMI-1H-31e"/>
                                         <exclude reference="uRd-kR-TTu"/>
                                         <exclude reference="KTr-Ub-Mhk"/>
+                                        <exclude reference="RpF-Ul-zF8"/>
                                     </mask>
                                     <mask key="constraints">
-                                        <exclude reference="TmT-7g-h8Y"/>
-                                        <exclude reference="YPj-lJ-q5K"/>
-                                        <exclude reference="e8l-Nf-hSA"/>
+                                        <exclude reference="TGu-Kw-Xd9"/>
+                                        <exclude reference="iNA-C7-xzg"/>
+                                        <exclude reference="tYC-vT-Ixj"/>
+                                        <exclude reference="HZP-0e-k5G"/>
+                                        <exclude reference="VXM-Bm-g4o"/>
                                         <exclude reference="cb9-7U-jad"/>
                                         <exclude reference="FU9-H1-0EY"/>
                                         <exclude reference="MFN-z8-aYX"/>
                                         <exclude reference="Nfp-qj-Uap"/>
                                         <exclude reference="Q1l-bj-YHH"/>
-                                        <exclude reference="iNA-C7-xzg"/>
-                                        <exclude reference="tYC-vT-Ixj"/>
-                                        <exclude reference="HZP-0e-k5G"/>
-                                        <exclude reference="VXM-Bm-g4o"/>
                                         <exclude reference="84F-CX-hGE"/>
                                         <exclude reference="Za3-sX-qwq"/>
                                         <exclude reference="iNL-U6-Fpc"/>
                                         <exclude reference="7GF-n4-JPU"/>
+                                        <exclude reference="XXv-lh-7Ps"/>
                                         <exclude reference="juU-4w-ciQ"/>
                                         <exclude reference="9Ma-N7-w1L"/>
                                         <exclude reference="Bxm-Fp-TqB"/>
                                         <exclude reference="dTx-Dw-xm4"/>
+                                        <exclude reference="TmT-7g-h8Y"/>
+                                        <exclude reference="YPj-lJ-q5K"/>
+                                        <exclude reference="e8l-Nf-hSA"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact">
@@ -5325,28 +5351,31 @@ Tenure Period</string>
                                         <include reference="QMI-1H-31e"/>
                                         <include reference="uRd-kR-TTu"/>
                                         <include reference="KTr-Ub-Mhk"/>
+                                        <include reference="RpF-Ul-zF8"/>
                                     </mask>
                                     <mask key="constraints">
-                                        <include reference="TmT-7g-h8Y"/>
-                                        <include reference="YPj-lJ-q5K"/>
-                                        <include reference="e8l-Nf-hSA"/>
+                                        <include reference="TGu-Kw-Xd9"/>
+                                        <include reference="iNA-C7-xzg"/>
+                                        <include reference="tYC-vT-Ixj"/>
+                                        <include reference="HZP-0e-k5G"/>
+                                        <include reference="VXM-Bm-g4o"/>
                                         <include reference="cb9-7U-jad"/>
                                         <include reference="FU9-H1-0EY"/>
                                         <include reference="MFN-z8-aYX"/>
                                         <include reference="Nfp-qj-Uap"/>
                                         <include reference="Q1l-bj-YHH"/>
-                                        <include reference="iNA-C7-xzg"/>
-                                        <include reference="tYC-vT-Ixj"/>
-                                        <include reference="HZP-0e-k5G"/>
-                                        <include reference="VXM-Bm-g4o"/>
                                         <include reference="84F-CX-hGE"/>
                                         <include reference="Za3-sX-qwq"/>
                                         <include reference="iNL-U6-Fpc"/>
                                         <include reference="7GF-n4-JPU"/>
+                                        <include reference="XXv-lh-7Ps"/>
                                         <include reference="juU-4w-ciQ"/>
                                         <include reference="9Ma-N7-w1L"/>
                                         <include reference="Bxm-Fp-TqB"/>
                                         <include reference="dTx-Dw-xm4"/>
+                                        <include reference="TmT-7g-h8Y"/>
+                                        <include reference="YPj-lJ-q5K"/>
+                                        <include reference="e8l-Nf-hSA"/>
                                     </mask>
                                 </variation>
                             </view>
@@ -5379,10 +5408,6 @@ Tenure Period</string>
                                     <action selector="acceptBtn:" destination="jbT-as-D6x" eventType="touchUpInside" id="X4z-ft-zHn"/>
                                 </connections>
                             </button>
-                            <view opaque="NO" alpha="0.80000001192092896" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RpF-Ul-zF8">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XnN-qp-u70">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <subviews>
@@ -5594,7 +5619,7 @@ Tenure Period</string>
                                     </mask>
                                 </variation>
                             </view>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5pW-mF-iqW" userLabel="PasswordView">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5pW-mF-iqW" userLabel="PasswordView">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirmation Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e24-ea-pKz">
@@ -5604,7 +5629,7 @@ Tenure Period</string>
                                             <constraint firstAttribute="height" constant="21" id="i1d-C5-UnQ"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.41568627450000001" green="0.67843137249999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.14901960784313725" green="0.5725490196078431" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                         <variation key="default">
                                             <mask key="constraints">
@@ -5621,7 +5646,7 @@ Tenure Period</string>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9oX-Vr-bub">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                        <color key="backgroundColor" red="0.41568627450000001" green="0.67843137249999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.14901960780000001" green="0.57254901960000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="yGT-NZ-xZ0"/>
                                         </constraints>
@@ -5654,44 +5679,18 @@ Tenure Period</string>
                                             </mask>
                                         </variation>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tsu-Yd-M6h">
-                                        <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                        <color key="backgroundColor" red="0.094117647060000004" green="0.58039215690000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="46" id="tax-VA-KRe">
-                                                <variation key="heightClass=regular-widthClass=compact" constant="50"/>
-                                            </constraint>
-                                            <constraint firstAttribute="height" constant="30" id="x8m-d7-Z3g"/>
-                                        </constraints>
-                                        <state key="normal" title="OK">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="tax-VA-KRe"/>
-                                                <exclude reference="x8m-d7-Z3g"/>
-                                            </mask>
-                                        </variation>
-                                        <variation key="heightClass=regular-widthClass=compact">
-                                            <mask key="constraints">
-                                                <include reference="tax-VA-KRe"/>
-                                                <include reference="x8m-d7-Z3g"/>
-                                            </mask>
-                                        </variation>
-                                        <connections>
-                                            <action selector="onPasswordOkAction:" destination="jbT-as-D6x" eventType="touchUpInside" id="JHx-vX-Sed"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i7M-sj-HXE">
                                         <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="qvW-Cb-E5o"/>
+                                            <constraint firstAttribute="height" constant="30" id="qvW-Cb-E5o">
+                                                <variation key="heightClass=regular-widthClass=compact" constant="25"/>
+                                            </constraint>
                                             <constraint firstAttribute="width" constant="46" id="vpK-za-Se0">
-                                                <variation key="heightClass=regular-widthClass=compact" constant="30"/>
+                                                <variation key="heightClass=regular-widthClass=compact" constant="25"/>
                                             </constraint>
                                         </constraints>
                                         <color key="tintColor" red="0.094117647060000004" green="0.58039215690000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
-                                        <state key="normal" image="close_round_button.png"/>
+                                        <state key="normal" image="CloseIcon"/>
                                         <variation key="default">
                                             <mask key="constraints">
                                                 <exclude reference="qvW-Cb-E5o"/>
@@ -5710,9 +5709,11 @@ Tenure Period</string>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MxB-rR-bFC">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="2" id="BGt-US-YWg"/>
+                                            <constraint firstAttribute="height" constant="2" id="BGt-US-YWg">
+                                                <variation key="heightClass=regular-widthClass=compact" constant="1"/>
+                                            </constraint>
                                         </constraints>
                                         <variation key="default">
                                             <mask key="constraints">
@@ -5731,7 +5732,7 @@ Tenure Period</string>
                                             <constraint firstAttribute="width" constant="250" id="Uj8-8q-A9i"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.1058823529" green="0.45098039220000002" blue="0.062745098040000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.12156862745098039" green="0.5490196078431373" blue="0.14901960784313725" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                         <variation key="default">
                                             <mask key="constraints">
@@ -5744,13 +5745,43 @@ Tenure Period</string>
                                             </mask>
                                         </variation>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tsu-Yd-M6h">
+                                        <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="46" id="tax-VA-KRe">
+                                                <variation key="heightClass=regular-widthClass=compact" constant="50"/>
+                                            </constraint>
+                                            <constraint firstAttribute="height" constant="30" id="x8m-d7-Z3g"/>
+                                        </constraints>
+                                        <state key="normal" title="OK"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="tax-VA-KRe"/>
+                                                <exclude reference="x8m-d7-Z3g"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="heightClass=regular-widthClass=compact">
+                                            <mask key="constraints">
+                                                <include reference="tax-VA-KRe"/>
+                                                <include reference="x8m-d7-Z3g"/>
+                                            </mask>
+                                        </variation>
+                                        <connections>
+                                            <action selector="onPasswordOkAction:" destination="jbT-as-D6x" eventType="touchUpInside" id="JHx-vX-Sed"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="9oX-Vr-bub" firstAttribute="leading" secondItem="5pW-mF-iqW" secondAttribute="leading" id="2Ae-gQ-sXP"/>
-                                    <constraint firstAttribute="trailing" secondItem="i7M-sj-HXE" secondAttribute="trailing" constant="20" id="4Me-5L-hph"/>
+                                    <constraint firstAttribute="trailing" secondItem="i7M-sj-HXE" secondAttribute="trailing" constant="20" id="4Me-5L-hph">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="10"/>
+                                    </constraint>
                                     <constraint firstItem="JWe-iN-qzk" firstAttribute="leading" secondItem="h9e-9b-ePB" secondAttribute="leading" id="6w3-BL-tw7"/>
-                                    <constraint firstAttribute="height" constant="264" id="80X-dr-GYx"/>
+                                    <constraint firstAttribute="height" constant="264" id="80X-dr-GYx">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="234"/>
+                                    </constraint>
                                     <constraint firstItem="JWe-iN-qzk" firstAttribute="trailing" secondItem="h9e-9b-ePB" secondAttribute="trailing" id="DYm-1e-CZ9"/>
                                     <constraint firstItem="tsu-Yd-M6h" firstAttribute="centerX" secondItem="5pW-mF-iqW" secondAttribute="centerX" id="EoP-oP-oW0"/>
                                     <constraint firstItem="MxB-rR-bFC" firstAttribute="leading" secondItem="h9e-9b-ePB" secondAttribute="leading" id="G4e-7A-ItO"/>
@@ -5780,10 +5811,10 @@ Tenure Period</string>
                                         <exclude reference="e24-ea-pKz"/>
                                         <exclude reference="9oX-Vr-bub"/>
                                         <exclude reference="JWe-iN-qzk"/>
-                                        <exclude reference="tsu-Yd-M6h"/>
                                         <exclude reference="i7M-sj-HXE"/>
                                         <exclude reference="MxB-rR-bFC"/>
                                         <exclude reference="h9e-9b-ePB"/>
+                                        <exclude reference="tsu-Yd-M6h"/>
                                     </mask>
                                     <mask key="constraints">
                                         <exclude reference="80X-dr-GYx"/>
@@ -5813,10 +5844,10 @@ Tenure Period</string>
                                         <include reference="e24-ea-pKz"/>
                                         <include reference="9oX-Vr-bub"/>
                                         <include reference="JWe-iN-qzk"/>
-                                        <include reference="tsu-Yd-M6h"/>
                                         <include reference="i7M-sj-HXE"/>
                                         <include reference="MxB-rR-bFC"/>
                                         <include reference="h9e-9b-ePB"/>
+                                        <include reference="tsu-Yd-M6h"/>
                                     </mask>
                                     <mask key="constraints">
                                         <include reference="80X-dr-GYx"/>
@@ -5856,22 +5887,18 @@ Tenure Period</string>
                             <constraint firstItem="AQp-tk-btO" firstAttribute="leading" secondItem="V9d-Wk-WWZ" secondAttribute="leading" constant="30" id="Epn-oP-HhX"/>
                             <constraint firstItem="5pu-MQ-LTa" firstAttribute="top" secondItem="mk2-E1-slc" secondAttribute="bottom" id="GE2-zJ-NYD"/>
                             <constraint firstItem="XnN-qp-u70" firstAttribute="centerX" secondItem="V9d-Wk-WWZ" secondAttribute="centerX" id="MJd-WL-ivl"/>
-                            <constraint firstItem="RpF-Ul-zF8" firstAttribute="leading" secondItem="V9d-Wk-WWZ" secondAttribute="leading" id="NDg-jY-dne"/>
                             <constraint firstItem="nvi-Q4-Js2" firstAttribute="top" secondItem="ov5-dN-EdG" secondAttribute="bottom" id="NEK-iM-PQC"/>
                             <constraint firstItem="AQp-tk-btO" firstAttribute="centerX" secondItem="V9d-Wk-WWZ" secondAttribute="centerX" id="NJy-9O-oWX"/>
                             <constraint firstItem="wJm-z0-qYw" firstAttribute="centerX" secondItem="V9d-Wk-WWZ" secondAttribute="centerX" id="T4K-N5-wk9"/>
                             <constraint firstItem="6Wq-b6-IL8" firstAttribute="centerX" secondItem="V9d-Wk-WWZ" secondAttribute="centerX" id="Vni-yQ-5kj"/>
-                            <constraint firstItem="RpF-Ul-zF8" firstAttribute="top" secondItem="V9d-Wk-WWZ" secondAttribute="top" id="YFk-zp-8oo"/>
                             <constraint firstItem="AQp-tk-btO" firstAttribute="centerY" secondItem="V9d-Wk-WWZ" secondAttribute="centerY" id="ag8-A7-odl"/>
                             <constraint firstItem="5pW-mF-iqW" firstAttribute="centerY" secondItem="V9d-Wk-WWZ" secondAttribute="centerY" id="eYz-WH-6Fa"/>
                             <constraint firstItem="AQp-tk-btO" firstAttribute="top" secondItem="nvi-Q4-Js2" secondAttribute="bottom" id="gEH-ZZ-BVo"/>
                             <constraint firstItem="5pu-MQ-LTa" firstAttribute="top" secondItem="wJm-z0-qYw" secondAttribute="bottom" constant="20" id="hC7-H0-RUM"/>
                             <constraint firstAttribute="trailing" secondItem="AQp-tk-btO" secondAttribute="trailing" constant="30" id="j0U-1O-fIX"/>
-                            <constraint firstAttribute="trailing" secondItem="RpF-Ul-zF8" secondAttribute="trailing" id="jkR-oL-ooA"/>
                             <constraint firstItem="mk2-E1-slc" firstAttribute="top" secondItem="V9d-Wk-WWZ" secondAttribute="top" id="m1s-VH-QjO"/>
                             <constraint firstAttribute="trailing" secondItem="nvi-Q4-Js2" secondAttribute="trailing" id="pEv-LO-pWy"/>
                             <constraint firstItem="mk2-E1-slc" firstAttribute="leading" secondItem="V9d-Wk-WWZ" secondAttribute="leading" id="uC1-kM-8QC"/>
-                            <constraint firstItem="5pu-MQ-LTa" firstAttribute="top" secondItem="RpF-Ul-zF8" secondAttribute="bottom" id="uCm-0p-zWH"/>
                             <constraint firstItem="XnN-qp-u70" firstAttribute="leading" secondItem="AQp-tk-btO" secondAttribute="leading" id="y8T-U5-04N"/>
                         </constraints>
                         <variation key="default">
@@ -5880,7 +5907,6 @@ Tenure Period</string>
                                 <exclude reference="wJm-z0-qYw"/>
                                 <exclude reference="AQp-tk-btO"/>
                                 <exclude reference="6Wq-b6-IL8"/>
-                                <exclude reference="RpF-Ul-zF8"/>
                                 <exclude reference="XnN-qp-u70"/>
                                 <exclude reference="5pW-mF-iqW"/>
                             </mask>
@@ -5896,9 +5922,6 @@ Tenure Period</string>
                                 <exclude reference="ag8-A7-odl"/>
                                 <exclude reference="gEH-ZZ-BVo"/>
                                 <exclude reference="j0U-1O-fIX"/>
-                                <exclude reference="NDg-jY-dne"/>
-                                <exclude reference="YFk-zp-8oo"/>
-                                <exclude reference="jkR-oL-ooA"/>
                                 <exclude reference="1fk-R8-gMM"/>
                                 <exclude reference="MJd-WL-ivl"/>
                                 <exclude reference="y8T-U5-04N"/>
@@ -5910,7 +5933,6 @@ Tenure Period</string>
                                 <exclude reference="pEv-LO-pWy"/>
                                 <exclude reference="GE2-zJ-NYD"/>
                                 <exclude reference="hC7-H0-RUM"/>
-                                <exclude reference="uCm-0p-zWH"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -5919,7 +5941,6 @@ Tenure Period</string>
                                 <include reference="wJm-z0-qYw"/>
                                 <include reference="AQp-tk-btO"/>
                                 <include reference="6Wq-b6-IL8"/>
-                                <include reference="RpF-Ul-zF8"/>
                                 <include reference="XnN-qp-u70"/>
                                 <include reference="5pW-mF-iqW"/>
                             </mask>
@@ -5935,9 +5956,6 @@ Tenure Period</string>
                                 <include reference="ag8-A7-odl"/>
                                 <include reference="gEH-ZZ-BVo"/>
                                 <include reference="j0U-1O-fIX"/>
-                                <include reference="NDg-jY-dne"/>
-                                <include reference="YFk-zp-8oo"/>
-                                <include reference="jkR-oL-ooA"/>
                                 <include reference="1fk-R8-gMM"/>
                                 <include reference="MJd-WL-ivl"/>
                                 <include reference="y8T-U5-04N"/>
@@ -5949,7 +5967,6 @@ Tenure Period</string>
                                 <include reference="pEv-LO-pWy"/>
                                 <include reference="GE2-zJ-NYD"/>
                                 <include reference="hC7-H0-RUM"/>
-                                <include reference="uCm-0p-zWH"/>
                             </mask>
                         </variation>
                     </view>
@@ -5957,8 +5974,14 @@ Tenure Period</string>
                     <connections>
                         <outlet property="acceptance" destination="6Wq-b6-IL8" id="fU0-av-7lM"/>
                         <outlet property="accountTableView" destination="AQp-tk-btO" id="aze-Oe-p5A"/>
+                        <outlet property="loanAmountLabel" destination="Xxn-Zs-Jsd" id="fv0-jq-gJH"/>
+                        <outlet property="loanInHandAmountLabel" destination="lMx-ur-lHK" id="Pqf-Ay-JCE"/>
+                        <outlet property="loanRequestEndDate" destination="KTr-Ub-Mhk" id="T54-Vr-dYb"/>
+                        <outlet property="loanRequestStartDate" destination="uRd-kR-TTu" id="QdB-Tq-caT"/>
+                        <outlet property="okButton" destination="tsu-Yd-M6h" id="mgM-C7-sWG"/>
                         <outlet property="passwordTextField" destination="JWe-iN-qzk" id="6tS-2v-4VB"/>
                         <outlet property="passwordView" destination="5pW-mF-iqW" id="1b9-NZ-hwN"/>
+                        <outlet property="tenurePeriodLabel" destination="Ddr-vA-RYK" id="9RR-lw-sl9"/>
                         <outlet property="thanksView" destination="XnN-qp-u70" id="aXQ-n1-cqv"/>
                         <outlet property="transprantView" destination="RpF-Ul-zF8" id="AR6-zu-Zf0"/>
                     </connections>
@@ -5979,7 +6002,7 @@ Tenure Period</string>
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DashboardBG" translatesAutoresizingMaskIntoConstraints="NO" id="tX4-ba-8Cc">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CloseIcon" translatesAutoresizingMaskIntoConstraints="NO" id="tX4-ba-8Cc">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YHb-nu-cxy">
@@ -6011,17 +6034,17 @@ Tenure Period</string>
                                 <exclude reference="YHb-nu-cxy"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="EBf-hH-ldL"/>
-                                <exclude reference="QVf-D6-zsV"/>
-                                <exclude reference="e7A-p9-uaf"/>
-                                <exclude reference="hRa-pB-XJW"/>
+                                <exclude reference="0if-NM-vkd"/>
+                                <exclude reference="8NQ-CG-9mL"/>
+                                <exclude reference="LTY-ud-uwb"/>
                                 <exclude reference="Glu-kQ-nv7"/>
                                 <exclude reference="SAF-g1-yMz"/>
                                 <exclude reference="sES-sq-mCI"/>
                                 <exclude reference="zgC-1R-xN2"/>
-                                <exclude reference="0if-NM-vkd"/>
-                                <exclude reference="8NQ-CG-9mL"/>
-                                <exclude reference="LTY-ud-uwb"/>
+                                <exclude reference="EBf-hH-ldL"/>
+                                <exclude reference="QVf-D6-zsV"/>
+                                <exclude reference="e7A-p9-uaf"/>
+                                <exclude reference="hRa-pB-XJW"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -6030,17 +6053,17 @@ Tenure Period</string>
                                 <include reference="YHb-nu-cxy"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="EBf-hH-ldL"/>
-                                <exclude reference="QVf-D6-zsV"/>
-                                <include reference="e7A-p9-uaf"/>
-                                <include reference="hRa-pB-XJW"/>
+                                <include reference="0if-NM-vkd"/>
+                                <include reference="8NQ-CG-9mL"/>
+                                <exclude reference="LTY-ud-uwb"/>
                                 <include reference="Glu-kQ-nv7"/>
                                 <include reference="SAF-g1-yMz"/>
                                 <include reference="sES-sq-mCI"/>
                                 <include reference="zgC-1R-xN2"/>
-                                <include reference="0if-NM-vkd"/>
-                                <include reference="8NQ-CG-9mL"/>
-                                <exclude reference="LTY-ud-uwb"/>
+                                <include reference="EBf-hH-ldL"/>
+                                <exclude reference="QVf-D6-zsV"/>
+                                <include reference="e7A-p9-uaf"/>
+                                <include reference="hRa-pB-XJW"/>
                             </mask>
                         </variation>
                     </view>
@@ -6060,6 +6083,7 @@ Tenure Period</string>
         <image name="BackGround_Login.png" width="360" height="640"/>
         <image name="Calendar_icon.png" width="256" height="256"/>
         <image name="CheckedImage" width="16" height="16"/>
+        <image name="CloseIcon" width="414" height="736"/>
         <image name="DashboardBG" width="414" height="736"/>
         <image name="DialerBackGround" width="125" height="125"/>
         <image name="DialerCircle" width="159" height="158"/>

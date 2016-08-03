@@ -26,8 +26,13 @@
     
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
-    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"loanIsCompleted"];
-    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"loanIsProcessed"];
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"isLoggedFirst"]) {
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"isLoggedFirst"];
+    }else{
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"loanIsCompleted"];
+        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"loanIsProcessed"];
+        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"isLoggedFirst"];
+    } 
     
     NSString *userId = [NSString stringWithFormat:@"%@",[[NSUserDefaults standardUserDefaults] valueForKey:USERID]];
     if (userId.length) {

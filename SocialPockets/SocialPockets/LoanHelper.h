@@ -15,7 +15,7 @@
 -(void)loanEligibityForUserCompletion:(void (^)(id obj))completionBlock;
 
 
-- (void)requestLoanForUserId:(NSString *)userId amount:(NSString *)amount createdBy:(NSString *)createdBy completion:(void (^)(id obj))completionBlock;
+- (void)requestLoanForUserId:(NSString *)userId amount:(NSString *)amount completion:(void (^)(id obj))completionBlock;
 
 - (void)checkStatusOfLoan:(NSString *)loanId completion:(void (^)(id obj))completionBlock;
 

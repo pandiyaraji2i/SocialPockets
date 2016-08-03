@@ -21,6 +21,7 @@
 @end
 
 @implementation RequestConfirmationViewController
+@synthesize loanInHandAmount, loanAmount,tenurePeriod;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -53,8 +54,24 @@
     //#-- Status Bar Color Change
     [self setNeedsStatusBarAppearanceUpdate];
     
+    [self updateLabels];
+    
 }
 
+
+- (void)updateLabels
+{
+    NSDate *startDate =[NSDate date];
+    NSDate *endDate = [SharedMethods addDaysToDate:[self.tenurePeriod intValue] startDate:startDate];
+    loanRequestStartDate.text = [NSString stringWithFormat:@"%@",[SharedMethods convertString:[SharedMethods stringFromGivenDate:startDate formatType:LOCALDATETIMEFORMAT] fromFormat:LOCALDATETIMEFORMAT toFormat:DATEFORMAT]];
+    loanRequestEndDate.text = [SharedMethods convertString:[SharedMethods stringFromGivenDate:endDate formatType:LOCALDATETIMEFORMAT] fromFormat:LOCALDATETIMEFORMAT toFormat:DATEFORMAT];
+    loanAmountLabel.text = loanAmount;
+    loanInHandAmountLabel.text = loanInHandAmount;
+    tenurePeriodLabel.text = [NSString stringWithFormat:@"%@ Days Tenure Period",self.tenurePeriod];
+    okButton.layer.cornerRadius = 5.0;
+    okButton.layer.borderColor = [UIColor colorWithRed:38.0/255.0 green:146.0/255.0 blue:255.0/255.0 alpha:1.0].CGColor;
+    okButton.layer.borderWidth = 1.0;
+}
 #pragma mark tableview datasource methods
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return arr.count >= MAX_ACCOUNT ? arr.count:[arr count]+1;
@@ -172,7 +189,7 @@
          [PROFILEMACRO passWordValidation:self.passwordTextField.text completion:^(id obj) {
              if ([obj isKindOfClass:[NSDictionary class]]) {
                  self.passwordView.hidden = YES;
-                 [LOANMACRO requestLoanForUserId:@"" amount:@"" createdBy:@"" completion:^(id obj) {
+                 [LOANMACRO requestLoanForUserId:[[NSUserDefaults standardUserDefaults] valueForKey:USERID] amount:self.loanAmount completion:^(id obj) {
                      if ([obj isKindOfClass:[NSDictionary class]]) {
                          self.transprantView.hidden = NO;
                          self.thanksView.hidden = NO;
@@ -181,7 +198,6 @@
                          ErrorMessageWithTitle(@"Message", @"Something went wrong");
                          self.transprantView.hidden = YES;
                      }
-                     
                  }];
              }else{
                  ErrorMessageWithTitle(@"Message", @"Invalid password");

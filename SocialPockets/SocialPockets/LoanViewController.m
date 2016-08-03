@@ -22,19 +22,6 @@
     
 }
 
-- (IBAction)requestLoan:(id)sender {
-    [LOANMACRO requestLoanForUserId:@"25" amount:@"2500" createdBy:@"25" completion:^(id obj) {
-        
-        NSLog(@"%@",obj);
-        // need to upload image
-        UIImage *img =[UIImage imageNamed:@"Chotta2.jpg"];
-        [NetworkHelperClass uploadImage:img isUserOrLoan:2 userId:@"" sync:NO completion:^(id obj) {
-             
-        }];
-    }];
-    
-}
-
 - (IBAction)LoanStatus:(id)sender {
     [LOANMACRO checkStatusOfLoan:@"11" completion:^(id obj) {
         NSLog(@"%@",obj);
