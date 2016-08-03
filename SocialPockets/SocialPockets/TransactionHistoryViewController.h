@@ -19,4 +19,6 @@
 @property (nonatomic) NSInteger selectedValueSection;
 @property (nonatomic) bool isShowingListsec;
 @property (retain, nonatomic) NSMutableArray *transData;
+
+
 @end

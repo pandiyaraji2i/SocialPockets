@@ -43,7 +43,9 @@ NSArray *HeaderArray;
     if (cell == nil) {
         cell = [[CollectionTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CollectionTableViewCell"];
     }
+    
     cell.imageArray = infoArray;
+    
     [cell setInitialCollectionView];
     return cell;
 }

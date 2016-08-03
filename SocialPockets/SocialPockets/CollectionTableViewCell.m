@@ -23,6 +23,7 @@
 
 -(void)setInitialCollectionView {
     [self.collectionView registerNib:[UINib nibWithNibName:@"TableCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"TableCollectionViewCell"];
+    [self.collectionView reloadData];
 }
 
 #pragma mark <UICollectionViewDataSource>
