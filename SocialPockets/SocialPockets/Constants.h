@@ -12,7 +12,8 @@
 
 //#-- BASE URLS
 
-#define BASEURL @"http://192.168.1.185:8000"
+//#define BASEURL @"http://192.168.1.185:8000"
+#define BASEURL @"http://128.199.150.145:8000"
 
 
 //#-- Device Types
