@@ -95,7 +95,6 @@ NSArray *HeaderArray;
     
     NSMutableArray *imagesArray = [@[@{@"Identification Proof":@[@{@"ImageName":@"AadharIcon",
                                                                    @"ImageText":@"Aadhar Card"
-                                                                   @"TextColor":@"redColor"
                                                                    },
                                                                  @{@"ImageName":@"PanCardIcon",
                                                                    @"ImageText":@"PAN Card"

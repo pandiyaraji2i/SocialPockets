@@ -11,6 +11,7 @@
 @interface RearViewController ()<UITableViewDataSource,UITableViewDelegate>
 {
     NSArray *listArray;
+    NSIndexPath *previousIndexPath;
 }
 @end
 
@@ -21,7 +22,7 @@
     [super viewDidLoad];
     listArray = @[@"Dashboard",@"Points Feed",@"Transaction History",@"Manage Accounts",@"Terms & Conditions",@"FAQ",@"About SocialPocket"];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.tableView.frame.size.width, 10.0f)];
-    self.tableView.separatorStyle=UITableViewCellSeparatorStyleNone;
+//    self.tableView.separatorStyle=UITableViewCellSeparatorStyleNone;
     // Do any additional setup after loading the view.
 }
 
@@ -50,12 +51,23 @@
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
     cell.textLabel.text = [listArray objectAtIndex:indexPath.row];
-
+    cell.textLabel.textColor = [UIColor blackColor];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (previousIndexPath && previousIndexPath != indexPath) {
+        UITableViewCell *previousCell = [tableView cellForRowAtIndexPath:previousIndexPath];
+        previousCell.textLabel.textColor = [UIColor blackColor];
+    }
+    
+    UITableViewCell *Cell = [tableView cellForRowAtIndexPath:indexPath];
+    Cell.textLabel.textColor = [UIColor colorWithRed:32.0/255.0 green:132.0/255.0 blue:37.0/255.0 alpha:1.0];
+    previousIndexPath = indexPath;
+    
+    
     if (self.menu) {
         self.menu([listArray objectAtIndex:indexPath.row]);
     }
@@ -69,33 +81,43 @@
 {
     UIView *sectionView=[[UIView alloc]initWithFrame:CGRectMake(0, 10, tableView.frame.size.width,100)];
     
-    sectionView.backgroundColor=[UIColor colorWithRed:38.0/255.0 green:38.0/255.0 blue:38.0/255.0 alpha:1.0];
+    sectionView.backgroundColor=[UIColor whiteColor];
     UIImageView *tempImage =[[UIImageView alloc]initWithFrame:CGRectMake(17.5, 15, 44,44)];
     [tempImage.layer setCornerRadius:tempImage.frame.size.width/2.0f];
     [tempImage.layer setMasksToBounds:YES];
     tempImage.image = [UIImage imageNamed:@"Social.jpg"];
-    tempImage.layer.borderColor = [UIColor whiteColor].CGColor;
+    tempImage.layer.borderColor = [UIColor lightGrayColor].CGColor;
     tempImage.layer.borderWidth = 1.0;
     tempImage.layer.shadowColor = [UIColor redColor].CGColor;
     [sectionView addSubview:tempImage];
     
     UILabel *tempLabel =[[UILabel alloc]initWithFrame:CGRectMake(20, CGRectGetMaxY(tempImage.frame), sectionView.frame.size.width-tempImage.frame.size.width-20, 30)];
     tempLabel.text=@"Pandiya Raj";
-    tempLabel.textColor=[UIColor whiteColor];
+    tempLabel.textColor=[UIColor blackColor];
     tempLabel.font=[UIFont fontWithName:@"Helvetica Neue" size:16];
     
     UILabel *emailIdLabel =[[UILabel alloc]initWithFrame:CGRectMake(20, CGRectGetMaxY(tempLabel.frame)-10, sectionView.frame.size.width-tempImage.frame.size.width, 30)];
     emailIdLabel.text=@"Pandiyaraj@ideas2it.com";
     [emailIdLabel setFont:[UIFont fontWithName:@"Helvetica Neue" size:10]];
-    emailIdLabel.textColor=[UIColor whiteColor];
+    emailIdLabel.textColor=[UIColor grayColor];
     [sectionView addSubview:emailIdLabel];
     [sectionView addSubview:tempLabel];
     
     UIButton *logoutButton =[UIButton buttonWithType:UIButtonTypeCustom];
-    logoutButton.frame = CGRectMake(sectionView.frame.size.width-60, sectionView.frame.size.height-40,60, 40);
-    [logoutButton setTitle:@"Log out" forState:UIControlStateNormal];
+    logoutButton.frame = CGRectMake(sectionView.frame.size.width-40, sectionView.frame.size.height-30,30, 30);
+    [logoutButton setImage:[UIImage imageNamed:@"LogoutIcon"] forState:UIControlStateNormal];
     [logoutButton addTarget:self action:@selector(logOut) forControlEvents:UIControlEventTouchUpInside];
     [sectionView addSubview:logoutButton];
+
+
+    
+    CALayer *border = [CALayer layer];
+    border.backgroundColor = [UIColor colorWithRed:204.0/255.0 green:204.0/255.0 blue:204.0/255.0 alpha:1.0].CGColor;
+    
+    border.frame = CGRectMake(0, 118, sectionView.frame.size.width, 1);
+    [sectionView.layer addSublayer:border];
+    
+
     return sectionView;
 }
 

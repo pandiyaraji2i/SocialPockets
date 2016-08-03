@@ -272,12 +272,12 @@
     [self.navigationController.view endEditing:YES];
     if (!sender) {
         [self.menuContainerViewController closeSlideMenuCompletion:^{
-            [[(id)self.menuContainerViewController.leftMenuViewController tableView] reloadData];
+//            [[(id)self.menuContainerViewController.leftMenuViewController tableView] reloadData];
         }];
     }
     else{
         [self.menuContainerViewController toggleLeftSideMenuCompletion:^{
-            [[(id)self.menuContainerViewController.leftMenuViewController tableView] reloadData];
+//            [[(id)self.menuContainerViewController.leftMenuViewController tableView] reloadData];
         }];
     }
 }

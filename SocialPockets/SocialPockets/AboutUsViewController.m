@@ -19,8 +19,6 @@
     [super viewDidLoad];
 //    self.title = titleStr;
     titleStr  = self.title;
-    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:self.titleStr message:@"mess" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-    [alert show];
     if ([self.titleStr isEqualToString:@"Terms & Conditions"]) {
 
     }else if ([self.titleStr isEqualToString:@"FAQs"])
