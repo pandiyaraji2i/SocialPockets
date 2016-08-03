@@ -33,6 +33,9 @@
                 
                 [[NSUserDefaults standardUserDefaults] setObject:obj forKey:@"USERINFO"];
                 [[NSUserDefaults standardUserDefaults] setObject:[obj valueForKey:@"USER_ID"] forKey:USERID];
+                [[NSUserDefaults standardUserDefaults] setObject:[obj valueForKey:@"USER_NAME"] forKey:USERNAME];
+                [[NSUserDefaults standardUserDefaults] setObject:[obj valueForKey:@"USER_EMAIL"] forKey:USEREMAIL];
+
                 
                 MFSideMenuContainerViewController *container =  [LoginViewController loginSuccessForIOS8:YES userId:[obj valueForKey:@"USER_ID"] fromClass:@"LoginViewController"];
                 [self.navigationController presentViewController:container animated:YES completion:nil];

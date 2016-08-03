@@ -92,12 +92,12 @@
     [sectionView addSubview:tempImage];
     
     UILabel *tempLabel =[[UILabel alloc]initWithFrame:CGRectMake(20, CGRectGetMaxY(tempImage.frame), sectionView.frame.size.width-tempImage.frame.size.width-20, 30)];
-    tempLabel.text=@"Pandiya Raj";
+    tempLabel.text=[[NSUserDefaults standardUserDefaults] valueForKey:USERNAME];
     tempLabel.textColor=[UIColor blackColor];
     tempLabel.font=[UIFont fontWithName:@"Helvetica Neue" size:16];
     
     UILabel *emailIdLabel =[[UILabel alloc]initWithFrame:CGRectMake(20, CGRectGetMaxY(tempLabel.frame)-10, sectionView.frame.size.width-tempImage.frame.size.width, 30)];
-    emailIdLabel.text=@"Pandiyaraj@ideas2it.com";
+    emailIdLabel.text=[[NSUserDefaults standardUserDefaults] valueForKey:USEREMAIL];
     [emailIdLabel setFont:[UIFont fontWithName:@"Helvetica Neue" size:10]];
     emailIdLabel.textColor=[UIColor grayColor];
     [sectionView addSubview:emailIdLabel];

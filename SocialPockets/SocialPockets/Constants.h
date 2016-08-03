@@ -49,5 +49,7 @@
 //#-- USERDEFAULTS
 
 #define USERID @"User_ID"
+#define USERNAME @"User_Name"
+#define USEREMAIL @"User_Email"
 
 #endif /* Constants_h */

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BnU-aH-d6h">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BnU-aH-d6h">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -2114,7 +2114,9 @@
                             <constraint firstAttribute="trailing" secondItem="Whh-3g-gGf" secondAttribute="trailing" constant="30" id="UBz-3E-y4F"/>
                             <constraint firstItem="Qmb-KM-zBF" firstAttribute="centerX" secondItem="evT-gY-yDS" secondAttribute="centerX" id="YIy-cn-dXz"/>
                             <constraint firstItem="Whh-3g-gGf" firstAttribute="centerX" secondItem="evT-gY-yDS" secondAttribute="centerX" id="YbY-B5-tRz"/>
-                            <constraint firstItem="h8e-hU-oFK" firstAttribute="top" secondItem="Bjw-M1-mLl" secondAttribute="bottom" constant="30" id="bHs-Qc-EAX"/>
+                            <constraint firstItem="h8e-hU-oFK" firstAttribute="top" secondItem="Bjw-M1-mLl" secondAttribute="bottom" constant="30" id="bHs-Qc-EAX">
+                                <variation key="heightClass=regular-widthClass=compact" constant="5"/>
+                            </constraint>
                             <constraint firstItem="OU3-yf-m9p" firstAttribute="leading" secondItem="evT-gY-yDS" secondAttribute="leading" id="gBQ-bH-4ke"/>
                             <constraint firstAttribute="trailing" secondItem="OU3-yf-m9p" secondAttribute="trailing" id="jCt-Rd-TyR"/>
                             <constraint firstItem="OU3-yf-m9p" firstAttribute="top" secondItem="evT-gY-yDS" secondAttribute="top" id="mCU-Pc-tpO"/>
@@ -6189,14 +6191,14 @@ Tenure Period</string>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="default">
                                                         <mask key="constraints">
-                                                            <exclude reference="TZM-DI-Y4l"/>
                                                             <exclude reference="HzA-x0-nB7"/>
+                                                            <exclude reference="TZM-DI-Y4l"/>
                                                         </mask>
                                                     </variation>
                                                     <variation key="heightClass=regular-widthClass=compact">
                                                         <mask key="constraints">
-                                                            <include reference="TZM-DI-Y4l"/>
                                                             <include reference="HzA-x0-nB7"/>
+                                                            <include reference="TZM-DI-Y4l"/>
                                                         </mask>
                                                     </variation>
                                                 </label>
@@ -6211,14 +6213,15 @@ Tenure Period</string>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="default">
                                                         <mask key="constraints">
-                                                            <exclude reference="g9l-f8-lFp"/>
                                                             <exclude reference="cgj-b3-B6t"/>
+                                                            <exclude reference="g9l-f8-lFp"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=regular-widthClass=compact">
+                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="130" y="20" width="100" height="20"/>
                                                         <mask key="constraints">
-                                                            <include reference="g9l-f8-lFp"/>
                                                             <include reference="cgj-b3-B6t"/>
+                                                            <include reference="g9l-f8-lFp"/>
                                                         </mask>
                                                     </variation>
                                                 </label>
@@ -6233,7 +6236,8 @@ Tenure Period</string>
                                                             <exclude reference="gvd-js-sre"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=regular-widthClass=compact">
+                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="5" y="70" width="230" height="2"/>
                                                         <mask key="constraints">
                                                             <include reference="gvd-js-sre"/>
                                                         </mask>
@@ -6251,7 +6255,7 @@ Tenure Period</string>
                                                         </mask>
                                                     </variation>
                                                     <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="5" y="103" width="330" height="2"/>
+                                                        <rect key="frame" x="5" y="97" width="230" height="2"/>
                                                         <mask key="constraints">
                                                             <include reference="Q7R-qj-oaR"/>
                                                         </mask>
@@ -6271,7 +6275,7 @@ Tenure Period</string>
                                                         </mask>
                                                     </variation>
                                                     <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="95" y="77" width="151" height="21"/>
+                                                        <rect key="frame" x="45" y="77" width="151" height="15"/>
                                                         <mask key="constraints">
                                                             <include reference="s4y-fs-wLN"/>
                                                         </mask>
@@ -6290,8 +6294,7 @@ Tenure Period</string>
                                                             <exclude reference="Jfu-Nl-k4t"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="7" y="113" width="128" height="20"/>
+                                                    <variation key="heightClass=regular-widthClass=compact">
                                                         <mask key="constraints">
                                                             <include reference="Jfu-Nl-k4t"/>
                                                         </mask>
@@ -6310,8 +6313,7 @@ Tenure Period</string>
                                                             <exclude reference="DQg-Qb-Lj2"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="7" y="138" width="128" height="20"/>
+                                                    <variation key="heightClass=regular-widthClass=compact">
                                                         <mask key="constraints">
                                                             <include reference="DQg-Qb-Lj2"/>
                                                         </mask>
@@ -6330,8 +6332,7 @@ Tenure Period</string>
                                                             <exclude reference="hOe-LG-DsG"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="7" y="163" width="128" height="20"/>
+                                                    <variation key="heightClass=regular-widthClass=compact">
                                                         <mask key="constraints">
                                                             <include reference="hOe-LG-DsG"/>
                                                         </mask>
@@ -6350,8 +6351,7 @@ Tenure Period</string>
                                                             <exclude reference="jEs-8r-1UH"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="7" y="188" width="128" height="20"/>
+                                                    <variation key="heightClass=regular-widthClass=compact">
                                                         <mask key="constraints">
                                                             <include reference="jEs-8r-1UH"/>
                                                         </mask>
@@ -6371,7 +6371,7 @@ Tenure Period</string>
                                                         </mask>
                                                     </variation>
                                                     <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="238" y="113" width="95" height="20"/>
+                                                        <rect key="frame" x="163" y="107" width="70" height="20"/>
                                                         <mask key="constraints">
                                                             <include reference="o6C-XJ-yLz"/>
                                                         </mask>
@@ -6391,7 +6391,7 @@ Tenure Period</string>
                                                         </mask>
                                                     </variation>
                                                     <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="238" y="138" width="95" height="20"/>
+                                                        <rect key="frame" x="163" y="132" width="70" height="20"/>
                                                         <mask key="constraints">
                                                             <include reference="td1-B0-sQl"/>
                                                         </mask>
@@ -6411,7 +6411,7 @@ Tenure Period</string>
                                                         </mask>
                                                     </variation>
                                                     <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="238" y="163" width="95" height="20"/>
+                                                        <rect key="frame" x="163" y="157" width="70" height="20"/>
                                                         <mask key="constraints">
                                                             <include reference="5zV-a2-IrI"/>
                                                         </mask>
@@ -6431,7 +6431,7 @@ Tenure Period</string>
                                                         </mask>
                                                     </variation>
                                                     <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="238" y="188" width="95" height="20"/>
+                                                        <rect key="frame" x="163" y="182" width="70" height="20"/>
                                                         <mask key="constraints">
                                                             <include reference="0px-uw-kPH"/>
                                                         </mask>
@@ -6495,40 +6495,40 @@ Tenure Period</string>
                                                     <exclude reference="Z7M-f4-VS5"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <exclude reference="nho-J7-28c"/>
-                                                    <exclude reference="Kcu-Xh-zNN"/>
-                                                    <exclude reference="JpF-FV-YEV"/>
-                                                    <exclude reference="5eK-zN-ZH1"/>
-                                                    <exclude reference="d6n-3w-wKZ"/>
-                                                    <exclude reference="K8u-0X-GjI"/>
-                                                    <exclude reference="tcs-4f-eWL"/>
                                                     <exclude reference="715-WG-i9a"/>
-                                                    <exclude reference="nrz-gc-QyQ"/>
                                                     <exclude reference="Jb6-SQ-cyj"/>
-                                                    <exclude reference="JaA-hf-Cef"/>
-                                                    <exclude reference="4py-Wc-bWs"/>
-                                                    <exclude reference="6fU-UM-Fg4"/>
-                                                    <exclude reference="Ege-mj-hQu"/>
-                                                    <exclude reference="Aog-sM-pIE"/>
-                                                    <exclude reference="ty6-f6-yGK"/>
+                                                    <exclude reference="nrz-gc-QyQ"/>
                                                     <exclude reference="bWe-iE-gCm"/>
-                                                    <exclude reference="kq0-b6-Irb"/>
-                                                    <exclude reference="pjm-3X-EWq"/>
-                                                    <exclude reference="aLH-vH-WJe"/>
-                                                    <exclude reference="cnf-VP-BpC"/>
-                                                    <exclude reference="v6f-GS-Rwe"/>
-                                                    <exclude reference="fvh-GM-DnH"/>
+                                                    <exclude reference="ty6-f6-yGK"/>
+                                                    <exclude reference="K8u-0X-GjI"/>
+                                                    <exclude reference="d6n-3w-wKZ"/>
+                                                    <exclude reference="tcs-4f-eWL"/>
+                                                    <exclude reference="K05-B8-EWu"/>
                                                     <exclude reference="rJL-x5-785"/>
                                                     <exclude reference="vVm-zC-BdI"/>
-                                                    <exclude reference="K05-B8-EWu"/>
+                                                    <exclude reference="Kcu-Xh-zNN"/>
+                                                    <exclude reference="nho-J7-28c"/>
+                                                    <exclude reference="5eK-zN-ZH1"/>
+                                                    <exclude reference="JpF-FV-YEV"/>
+                                                    <exclude reference="cnf-VP-BpC"/>
+                                                    <exclude reference="fvh-GM-DnH"/>
+                                                    <exclude reference="v6f-GS-Rwe"/>
+                                                    <exclude reference="Aog-sM-pIE"/>
+                                                    <exclude reference="Ege-mj-hQu"/>
                                                     <exclude reference="UTs-TI-ah2"/>
                                                     <exclude reference="g8P-JI-pAz"/>
-                                                    <exclude reference="Ijq-1k-WAj"/>
-                                                    <exclude reference="p6g-Gn-jkp"/>
-                                                    <exclude reference="nQr-5n-uap"/>
-                                                    <exclude reference="siS-Zu-vZL"/>
+                                                    <exclude reference="aLH-vH-WJe"/>
+                                                    <exclude reference="kq0-b6-Irb"/>
+                                                    <exclude reference="pjm-3X-EWq"/>
+                                                    <exclude reference="4py-Wc-bWs"/>
+                                                    <exclude reference="6fU-UM-Fg4"/>
+                                                    <exclude reference="JaA-hf-Cef"/>
                                                     <exclude reference="chp-P7-Zzp"/>
                                                     <exclude reference="ic5-cq-uof"/>
+                                                    <exclude reference="siS-Zu-vZL"/>
+                                                    <exclude reference="Ijq-1k-WAj"/>
+                                                    <exclude reference="nQr-5n-uap"/>
+                                                    <exclude reference="p6g-Gn-jkp"/>
                                                 </mask>
                                             </variation>
                                             <variation key="heightClass=regular-widthClass=compact">
@@ -6548,40 +6548,40 @@ Tenure Period</string>
                                                     <include reference="Z7M-f4-VS5"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <include reference="nho-J7-28c"/>
-                                                    <include reference="Kcu-Xh-zNN"/>
-                                                    <include reference="JpF-FV-YEV"/>
-                                                    <include reference="5eK-zN-ZH1"/>
-                                                    <include reference="d6n-3w-wKZ"/>
-                                                    <include reference="K8u-0X-GjI"/>
-                                                    <include reference="tcs-4f-eWL"/>
                                                     <include reference="715-WG-i9a"/>
-                                                    <include reference="nrz-gc-QyQ"/>
                                                     <include reference="Jb6-SQ-cyj"/>
-                                                    <include reference="JaA-hf-Cef"/>
-                                                    <include reference="4py-Wc-bWs"/>
-                                                    <include reference="6fU-UM-Fg4"/>
-                                                    <include reference="Ege-mj-hQu"/>
-                                                    <include reference="Aog-sM-pIE"/>
-                                                    <include reference="ty6-f6-yGK"/>
+                                                    <include reference="nrz-gc-QyQ"/>
                                                     <include reference="bWe-iE-gCm"/>
-                                                    <include reference="kq0-b6-Irb"/>
-                                                    <include reference="pjm-3X-EWq"/>
-                                                    <include reference="aLH-vH-WJe"/>
-                                                    <include reference="cnf-VP-BpC"/>
-                                                    <include reference="v6f-GS-Rwe"/>
-                                                    <include reference="fvh-GM-DnH"/>
+                                                    <include reference="ty6-f6-yGK"/>
+                                                    <include reference="K8u-0X-GjI"/>
+                                                    <include reference="d6n-3w-wKZ"/>
+                                                    <include reference="tcs-4f-eWL"/>
+                                                    <include reference="K05-B8-EWu"/>
                                                     <include reference="rJL-x5-785"/>
                                                     <include reference="vVm-zC-BdI"/>
-                                                    <include reference="K05-B8-EWu"/>
+                                                    <include reference="Kcu-Xh-zNN"/>
+                                                    <include reference="nho-J7-28c"/>
+                                                    <include reference="5eK-zN-ZH1"/>
+                                                    <include reference="JpF-FV-YEV"/>
+                                                    <include reference="cnf-VP-BpC"/>
+                                                    <include reference="fvh-GM-DnH"/>
+                                                    <include reference="v6f-GS-Rwe"/>
+                                                    <include reference="Aog-sM-pIE"/>
+                                                    <include reference="Ege-mj-hQu"/>
                                                     <include reference="UTs-TI-ah2"/>
                                                     <include reference="g8P-JI-pAz"/>
-                                                    <include reference="Ijq-1k-WAj"/>
-                                                    <include reference="p6g-Gn-jkp"/>
-                                                    <include reference="nQr-5n-uap"/>
-                                                    <include reference="siS-Zu-vZL"/>
+                                                    <include reference="aLH-vH-WJe"/>
+                                                    <include reference="kq0-b6-Irb"/>
+                                                    <include reference="pjm-3X-EWq"/>
+                                                    <include reference="4py-Wc-bWs"/>
+                                                    <include reference="6fU-UM-Fg4"/>
+                                                    <include reference="JaA-hf-Cef"/>
                                                     <include reference="chp-P7-Zzp"/>
                                                     <include reference="ic5-cq-uof"/>
+                                                    <include reference="siS-Zu-vZL"/>
+                                                    <include reference="Ijq-1k-WAj"/>
+                                                    <include reference="nQr-5n-uap"/>
+                                                    <include reference="p6g-Gn-jkp"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
