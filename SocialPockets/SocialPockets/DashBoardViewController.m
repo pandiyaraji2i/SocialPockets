@@ -112,10 +112,10 @@
 
 - (void)updateButtons
 {
-    repayLoanButton.hidden = NO;
-    applyLoan.hidden = YES;
-    verificationButton.hidden = YES;
-    return;
+//    repayLoanButton.hidden = NO;
+//    applyLoan.hidden = YES;
+//    verificationButton.hidden = YES;
+//    return;
     
     verifyLabel.hidden = YES;
     timeLabel.hidden = YES;

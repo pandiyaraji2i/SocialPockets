@@ -27,9 +27,8 @@ NSArray *HeaderArray;
     self.title = @"Manage Accounts";
     infoArray = [self generateImageArray];
     HeaderArray = @[@"Identification Proof", @"Social Account", @"Money Account"];
-    
-    
     [self.tableView registerNib:[UINib nibWithNibName:@"CollectionTableViewCell" bundle:nil] forCellReuseIdentifier:@"CollectionTableViewCell"];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 
 
@@ -71,7 +70,7 @@ NSArray *HeaderArray;
     UILabel *linesLabel = [[UILabel alloc] initWithFrame:CGRectMake(tableView.frame.size.width-120, 11, 100, 21)];
     linesLabel.text = section == 1 ? @"1/4 Linked" : @"";
     linesLabel.textAlignment = NSTextAlignmentRight;
-    linesLabel.textColor = [UIColor darkGrayColor];
+    linesLabel.textColor = [UIColor colorWithRed:41.0/255.0 green:158.0/255.0 blue:19.0/255.0 alpha:1.0];
     
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 44)];
     [view addSubview:titleLabel];
@@ -95,7 +94,8 @@ NSArray *HeaderArray;
 -(NSMutableArray *)generateImageArray {
     
     NSMutableArray *imagesArray = [@[@{@"Identification Proof":@[@{@"ImageName":@"AadharIcon",
-                                                                   @"ImageText":@"Adhar Card"
+                                                                   @"ImageText":@"Aadhar Card"
+                                                                   @"TextColor":@"redColor"
                                                                    },
                                                                  @{@"ImageName":@"PanCardIcon",
                                                                    @"ImageText":@"PAN Card"
