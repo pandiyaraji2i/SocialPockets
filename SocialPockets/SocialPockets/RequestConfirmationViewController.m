@@ -31,6 +31,7 @@
     // Do any additional setup after loading the view.
    
    #warning need to download all wallets from the server
+    
     arr=[@[@{@"BankName" : @"HDFC",
                                    @"AccountNum" : @"123456789",
                                    @"Selected" : [NSNumber numberWithBool:NO]
@@ -189,7 +190,7 @@
          [PROFILEMACRO passWordValidation:self.passwordTextField.text completion:^(id obj) {
              if ([obj isKindOfClass:[NSDictionary class]]) {
                  self.passwordView.hidden = YES;
-                 [LOANMACRO requestLoanForUserId:[[NSUserDefaults standardUserDefaults] valueForKey:USERID] amount:self.loanAmount completion:^(id obj) {
+                 [LOANMACRO requestLoanForUserId:[[NSUserDefaults standardUserDefaults] valueForKey:USERID] amount:self.loanAmount mobileWallerId:@"1" completion:^(id obj) {
                      if ([obj isKindOfClass:[NSDictionary class]]) {
                          self.transprantView.hidden = NO;
                          self.thanksView.hidden = NO;

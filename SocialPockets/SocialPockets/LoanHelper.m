@@ -68,8 +68,8 @@ static LoanHelper* _sharedInstance = nil;
  *  @param completionBlock responds with creation of Loan - ID
  */
 
-- (void)requestLoanForUserId:(NSString *)userId amount:(NSString *)amount completion:(void (^)(id obj))completionBlock{
-    NSMutableDictionary *dict = [@{@"id":[NSNull null],@"userid":userId,@"amount":amount,@"created_by":userId} mutableCopy];
+- (void)requestLoanForUserId:(NSString *)userId amount:(NSString *)amount mobileWallerId:(NSString *)mobileWallerId completion:(void (^)(id obj))completionBlock{
+    NSMutableDictionary *dict = [@{@"id":[NSNull null],@"userid":userId,@"amount":amount,@"created_by":userId,@"mobilewalletid":mobileWallerId} mutableCopy];
     id successObject = [NetworkHelperClass sendSynchronousRequestToServer:@"loanrequest" httpMethod:POST requestBody:dict contentType:JSONCONTENTTYPE];
     if (successObject) {
         if (completionBlock) {
