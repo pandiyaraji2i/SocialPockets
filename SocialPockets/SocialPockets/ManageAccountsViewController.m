@@ -94,10 +94,10 @@ NSArray *HeaderArray;
 
 -(NSMutableArray *)generateImageArray {
     
-    NSMutableArray *imagesArray = [@[@{@"Identification Proof":@[@{@"ImageName":@"AdharIcon",
+    NSMutableArray *imagesArray = [@[@{@"Identification Proof":@[@{@"ImageName":@"AadharIcon",
                                                                    @"ImageText":@"Adhar Card"
                                                                    },
-                                                                 @{@"ImageName":@"PanCard",
+                                                                 @{@"ImageName":@"PanCardIcon",
                                                                    @"ImageText":@"PAN Card"
                                                                    },]
                                        },
@@ -114,7 +114,7 @@ NSArray *HeaderArray;
                                      @{@"Money Account":@[@{@"ImageName":@"HDFCIcon",
                                                             @"ImageText":@"HDFC"
                                                             },
-                                                          @{@"ImageName":@"AddAccount",
+                                                          @{@"ImageName":@"AddAccountIcon",
                                                             @"ImageText":@"ADD account"
                                                             },]
                                        }]mutableCopy];
