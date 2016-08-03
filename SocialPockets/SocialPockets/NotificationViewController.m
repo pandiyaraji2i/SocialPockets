@@ -8,7 +8,7 @@
 
 #import "NotificationViewController.h"
 
-@interface NotificationViewController ()
+@interface NotificationViewController ()<UITableViewDataSource,UITableViewDelegate>
 
 @end
 
@@ -17,6 +17,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"Notifications";
+    notificationsTableView.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
+    notificationsTableView.backgroundColor = [UIColor clearColor];
     // Do any additional setup after loading the view.
 }
 
@@ -30,6 +32,36 @@
     return UIStatusBarStyleLightContent;
 }
 
+
+#pragma mark tableview data source and delegate methods
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 4;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSString *cellIdentifier = @"NotificationCell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
+    
+    if (!cell) {
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+    }
+    
+    UILabel *titleLabel = (id)[cell.contentView viewWithTag:1];
+    titleLabel.text = @"You have earned 500 points";
+    
+    UILabel *descriptionLabel  = (id)[cell.contentView viewWithTag:2];
+    descriptionLabel.text = @"Repayed loan amount 13 days earlier to the tenure period.";
+    
+    UILabel *timeLabel = (id)[cell.contentView viewWithTag:3];
+    timeLabel.text = @"5 mins ago";
+    
+    
+    cell.backgroundColor = [UIColor clearColor];
+    return cell;
+}
 /*
 #pragma mark - Navigation
 

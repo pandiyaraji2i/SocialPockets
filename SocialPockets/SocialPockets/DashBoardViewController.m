@@ -9,6 +9,7 @@
 #import "DashBoardViewController.h"
 #import "NotificationViewController.h"
 #import "ApplyLoanViewController.h"
+#import "RepayLoanViewController.h"
 
 @interface DashBoardViewController ()
 
@@ -111,22 +112,28 @@
 
 - (void)updateButtons
 {
+    repayLoanButton.hidden = NO;
+    applyLoan.hidden = YES;
+    verificationButton.hidden = YES;
+    return;
+    
     verifyLabel.hidden = YES;
     timeLabel.hidden = YES;
+    repayLoanButton.hidden = YES;
     if ([[NSUserDefaults standardUserDefaults] boolForKey:@"loanIsProcessed"]) {
-        [applyLoan setTitle:[NSString stringWithFormat:@"%@\nYour loan request is under process",SAND_CLOCK] forState:UIControlStateNormal];
-        applyLoan.titleLabel.font = [UIFont systemFontOfSize:12];
-        applyLoan.titleLabel.textAlignment = NSTextAlignmentCenter;
-        applyLoan.titleLabel.numberOfLines = 0;
-        applyLoan.hidden = NO;
+        [repayLoanButton setTitle:[NSString stringWithFormat:@"%@\nYour loan request is under process",SAND_CLOCK] forState:UIControlStateNormal];
+        repayLoanButton.titleLabel.font = [UIFont systemFontOfSize:12];
+        repayLoanButton.titleLabel.textAlignment = NSTextAlignmentCenter;
+        repayLoanButton.titleLabel.numberOfLines = 0;
+        repayLoanButton.hidden = NO;
         verificationButton.hidden = YES;
-        
+        applyLoan.hidden = YES;
     }else if ([[NSUserDefaults standardUserDefaults] boolForKey:@"loanIsApproved"])
     {
         // Circle Progress
-        applyLoan.hidden = NO;
         verificationButton.hidden = YES;
-        
+        repayLoanButton.hidden = NO;
+        applyLoan.hidden = YES;
         
     }/*else if ([[NSUserDefaults standardUserDefaults]boolForKey:@"isLoggedFirst"])
     {
@@ -253,6 +260,11 @@
     }];
 }
 
+- (IBAction)repayLoanButton:(id)sender
+{
+    RepayLoanViewController *repayLoanVC = [self.storyboard instantiateViewControllerWithIdentifier:@"RepayLoanVC"];
+    [self.navigationController pushViewController:repayLoanVC animated:YES];
+}
 #pragma mark Navigation Bar Button actions
 
 - (void)onMenuAction:(UIBarButtonItem *)sender

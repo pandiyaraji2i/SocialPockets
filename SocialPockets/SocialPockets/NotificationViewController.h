@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface NotificationViewController : UIViewController
-
+{
+    IBOutlet UITableView *notificationsTableView;
+}
 @end

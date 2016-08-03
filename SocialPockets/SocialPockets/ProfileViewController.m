@@ -20,8 +20,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }
-- (IBAction)UpdateBtnTapped:(id)sender {
- 
+- (IBAction)UpdateBtnTapped:(id)sender
+{
     [PROFILEMACRO updateUserProfileWithName:@"kovendhan" username:@"kovendhan" email:@"kovendhan@ideas2it.com" phoneNumber:@"1111111111" completion:^(id obj) {
         NSLog(@"profile update =%@",obj);
     }];

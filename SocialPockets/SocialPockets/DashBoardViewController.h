@@ -17,7 +17,7 @@
     IBOutlet UIButton *verificationButton;
     IBOutlet UILabel *pointsCountLabel, * verifyLabel, *timeLabel;
     IBOutlet UIButton *zerothDigitScoreButton, *tenthDigitScoreButton, *hundredDigitScoreButton;
-    IBOutlet UIButton *applyLoan;
+    IBOutlet UIButton *applyLoan,*repayLoanButton;
     BOOL isVerificationCompleted;
     IBOutlet UIView *scoreBGView;
 }

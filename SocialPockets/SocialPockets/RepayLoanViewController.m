@@ -48,6 +48,12 @@
     self.blackoutview.hidden = NO;
     self.thanksview.hidden = NO;
 }
+
+#pragma mark StatusBar Style
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
+}
 @end
 /*
 #pragma mark - Navigation
