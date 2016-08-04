@@ -145,6 +145,7 @@
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    //[BANKACCHELPER deleteBankAccountWithId:USERID modifiedBy:<#(NSString *)#> completion:<#^(id obj)completionBlock#>]
     
     [bankAccountArray removeObjectAtIndex:indexPath.row];
     [tableView reloadData];

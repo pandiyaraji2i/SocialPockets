@@ -27,6 +27,9 @@
 
 - (IBAction)nextButtonAction:(id)sender
 {
+    [BANKACCHELPER createBankAccountForUserId:[[NSUserDefaults standardUserDefaults] valueForKey:USERID] bankName:self.bankNameTF.text ifscCode:self.IFSCCodeTF.text accountNumber:self.accountNoTF.text branchName:@"Guindy" createdBy:[[NSUserDefaults standardUserDefaults] valueForKey:USERID] completion:^(id obj) {
+        NSLog(@"account created %@",obj);
+    }];
     
 }
 

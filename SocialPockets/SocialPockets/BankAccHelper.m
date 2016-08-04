@@ -27,19 +27,12 @@ static BankAccHelper* _sharedInstance = nil;
     return nil;
 }
 
-/**
- *  Mobile wallet creation for the user
- *
- *  @param userdId         Userid for creation of wallet
- *  @param completionBlock <#completionBlock description#>
- */
 
-- (void)mwalletForUserId:(NSString *)userId mobilewallet:(NSString *)mobilewallet createdBy:(NSString *)createdBy completion:(void (^)(id obj))completionBlock
+- (void)createBankAccountForUserId:(NSString *)userId bankName:(NSString *)bankName ifscCode:(NSString *)ifscCode accountNumber:(NSString*)accountNumber branchName:(NSString *)branchName createdBy:(NSString *)createdBy completion:(void (^)(id obj))completionBlock
 {
-    
     if([NetworkHelperClass getInternetStatus:YES]){
-        NSMutableDictionary *dict =[@{@"userid":userId,@"mobilewalletid": mobilewallet,@"created_by":createdBy}mutableCopy];
-        id successObject = [NetworkHelperClass sendSynchronousRequestToServer:@"/usermobilewallet" httpMethod:POST requestBody:dict contentType:JSONCONTENTTYPE];
+        NSMutableDictionary *dict =[@{@"userid":userId,@"bank_name": bankName,@"ifsc_code":ifscCode,@"account_number":accountNumber,@"branch":branchName,@"created_by":createdBy}mutableCopy];
+        id successObject = [NetworkHelperClass sendSynchronousRequestToServer:@"/createCreditAccount" httpMethod:POST requestBody:dict contentType:JSONCONTENTTYPE];
         if (successObject){
             if(completionBlock){
                 completionBlock(successObject);
@@ -48,27 +41,26 @@ static BankAccHelper* _sharedInstance = nil;
     }
 }
 
-- (void)deletMwalletUserId:(NSString *)userdId mobilewallet:(NSString *)mobilewallet completion:(void (^)(id obj))completionBlock
+
+- (void)deleteBankAccountWithId:(NSString *)bankAccountId modifiedBy:(NSString *)modifiedBy completion:(void (^)(id obj))completionBlock
 {
-    if ([NetworkHelperClass getInternetStatus:YES])
-    {
-        NSMutableDictionary *dict =[@{@"modified_by":userdId,@"usermobilewalletid":mobilewallet}mutableCopy];
-        id successObject = [NetworkHelperClass sendSynchronousRequestToServer:@"/usermobilewallet/removeMobilewallet" httpMethod:POST requestBody:dict contentType:JSONCONTENTTYPE];
-        if (successObject)
-        {
-            if(completionBlock)
-            {
+
+    if([NetworkHelperClass getInternetStatus:YES]){
+        NSMutableDictionary *dict =[@{@"bankAccount_id":bankAccountId,@"modified_by":modifiedBy}mutableCopy];
+        id successObject = [NetworkHelperClass sendSynchronousRequestToServer:@"/deleteCreditAccount" httpMethod:POST requestBody:dict contentType:JSONCONTENTTYPE];
+        if (successObject){
+            if(completionBlock){
                 completionBlock(successObject);
             }
         }
-            
     }
-    
 }
+
 - (void)showAllAccountWithcompletion:(void (^)(id obj))completionBlock
 {
     if ([NetworkHelperClass getInternetStatus:YES])
     {
+        
         id successObject = [NetworkHelperClass sendSynchronousRequestToServer:[NSString stringWithFormat:@"/showAllCreditAccount?user_id=%@",[[NSUserDefaults standardUserDefaults] valueForKey:USERID]] httpMethod:GET requestBody:nil contentType:JSONCONTENTTYPE];
         if (successObject)
         {
