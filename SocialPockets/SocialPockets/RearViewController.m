@@ -20,7 +20,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    listArray = @[@"Dashboard",@"Points Feed",@"Transaction History",@"Manage Accounts",@"Terms & Conditions",@"FAQ",@"About SocialPocket"];
+    listArray = @[@"Dashboard",@"My Account",@"Transaction History",@"Manage Accounts",@"Terms & Conditions",@"FAQ",@"About SocialPocket"];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.tableView.frame.size.width, 10.0f)];
 //    self.tableView.separatorStyle=UITableViewCellSeparatorStyleNone;
     // Do any additional setup after loading the view.

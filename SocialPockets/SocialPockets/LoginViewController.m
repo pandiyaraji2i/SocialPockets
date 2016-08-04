@@ -107,4 +107,10 @@
         
     }];
 }
+
+#pragma mark Status Bar Style
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
+}
 @end

@@ -341,8 +341,6 @@
 				A3B528FC1D49E1F200603451 /* IQKeyboardManager */,
 				A3253D131D3C9DE90081A59C /* AppDelegate.h */,
 				A3253D141D3C9DE90081A59C /* AppDelegate.m */,
-				A3EAA2B21D4762210013A952 /* AddBankAccountController.h */,
-				A3EAA2B31D4762210013A952 /* AddBankAccountController.m */,
 				A3DB484A1D4F8B180047EDF2 /* TransactionHistoryViewController.h */,
 				A3DB484B1D4F8B180047EDF2 /* TransactionHistoryViewController.m */,
 				A3D65AB51D4652EF00B47E46 /* LaunchScreen */,
@@ -502,6 +500,8 @@
 				A3B528F11D49DE7200603451 /* ApplyLoanViewController.m */,
 				6777A4C31D4A008C00BF1EC3 /* RequestConfirmationViewController.h */,
 				6777A4C41D4A008C00BF1EC3 /* RequestConfirmationViewController.m */,
+				A3EAA2B21D4762210013A952 /* AddBankAccountController.h */,
+				A3EAA2B31D4762210013A952 /* AddBankAccountController.m */,
 			);
 			name = ApplyLoan;
 			sourceTree = "<group>";
@@ -683,9 +683,9 @@
 		FBB3A4ED1D4F55F9001A7408 /* ManageAccounts */ = {
 			isa = PBXGroup;
 			children = (
-				FBB3A4EE1D4F56CA001A7408 /* CollectionTableViewCell.h */,
 				FBB3A4F81D4F570B001A7408 /* ManageAccountsViewController.h */,
 				FBB3A4F91D4F570B001A7408 /* ManageAccountsViewController.m */,
+				FBB3A4EE1D4F56CA001A7408 /* CollectionTableViewCell.h */,
 				FBB3A4EF1D4F56CA001A7408 /* CollectionTableViewCell.m */,
 				FBB3A4F01D4F56CA001A7408 /* CollectionTableViewCell.xib */,
 				FBB3A4F31D4F56E1001A7408 /* TableCollectionViewCell.h */,

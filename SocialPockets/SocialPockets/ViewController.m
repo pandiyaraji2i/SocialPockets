@@ -103,14 +103,15 @@
 
 - (IBAction)registerButtonAction:(id)sender
 {
-    ManageAccountsViewController *manageVc =[self.storyboard instantiateViewControllerWithIdentifier:@"ManageAccountsVc"];
-    [self.navigationController pushViewController:manageVc animated:YES];
-
-//   RepayLoanViewController  *registerVc =[self.storyboard instantiateViewControllerWithIdentifier:@"RepayLoanVC"];
-//    [self.navigationController pushViewController:registerVc animated:YES];
-    
+    ErrorMessageWithTitle(@"Message", @"In Progress");
 //    RegistrationViewController *registerVc =[self.storyboard instantiateViewControllerWithIdentifier:@"registerVc"];
 //    [self.navigationController pushViewController:registerVc animated:YES];
+}
+
+#pragma mark Status Bar Style
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

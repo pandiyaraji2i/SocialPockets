@@ -35,7 +35,7 @@
     } 
     
     NSString *userId = [NSString stringWithFormat:@"%@",[[NSUserDefaults standardUserDefaults] valueForKey:USERID]];
-    if (userId.length) {
+    if (userId.length && ![userId isEqualToString:@"(null)"]) {
         // logged in
         MFSideMenuContainerViewController *container = [LoginViewController loginSuccessForIOS8:NO userId:userId fromClass:@"AppDelegate"];
         self.window.rootViewController = (UIViewController*)container;

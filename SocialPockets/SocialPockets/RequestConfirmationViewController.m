@@ -8,6 +8,7 @@
 
 #import "RequestConfirmationViewController.h"
 #import "DashBoardViewController.h"
+#import "AddBankAccountController.h"
 @interface RequestConfirmationViewController ()<UITableViewDataSource,UITableViewDelegate>{
     NSMutableArray *arr;
     NSMutableDictionary *accountDict;
@@ -51,6 +52,7 @@
     
     self.title = @"Request Confirmation";
     previousIndexpath = nil;
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@" " style:UIBarButtonItemStylePlain target:self action:nil];
     
     //#-- Status Bar Color Change
     [self setNeedsStatusBarAppearanceUpdate];
@@ -140,6 +142,10 @@
     
     if((indexPath.row) == arr.count)
     {
+        AddBankAccountController *addBankAccount = [self.storyboard instantiateViewControllerWithIdentifier:@"AddBankAccount"];
+        [self.navigationController pushViewController:addBankAccount animated:YES];
+        return;
+        
        [arr insertObject:[@{@"BankName":@"Axis",@"AccountNum":@"126547682354872",@"Selected":[NSNumber numberWithBool:NO]}mutableCopy] atIndex:arr.count];
         [tableView reloadData];
     }

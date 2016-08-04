@@ -28,7 +28,6 @@
 -(void)setInitialCollectionView {
     [self.collectionView registerNib:[UINib nibWithNibName:@"TableCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"TableCollectionViewCell"];
     currentSectionDictionary = [[NSDictionary alloc] init];
-    NSLog(@"currentdict  %@",[imageArray objectAtIndex:currentTableIndex.section]);
     currentSectionDictionary = [imageArray objectAtIndex:currentTableIndex.section];
     [self.collectionView reloadData];
 }
