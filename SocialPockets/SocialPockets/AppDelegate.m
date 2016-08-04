@@ -32,7 +32,9 @@
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"loanIsCompleted"];
         [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"loanIsProcessed"];
         [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"isLoggedFirst"];
-    } 
+    }
+    
+    [[NSUserDefaults standardUserDefaults] synchronize];
     
     NSString *userId = [NSString stringWithFormat:@"%@",[[NSUserDefaults standardUserDefaults] valueForKey:USERID]];
     if (userId.length && ![userId isEqualToString:@"(null)"]) {

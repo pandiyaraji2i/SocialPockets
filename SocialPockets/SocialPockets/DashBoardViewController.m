@@ -121,13 +121,13 @@
     timeLabel.hidden = YES;
     repayLoanButton.hidden = YES;
     if ([[NSUserDefaults standardUserDefaults] boolForKey:@"loanIsProcessed"]) {
-        [repayLoanButton setTitle:[NSString stringWithFormat:@"%@\nYour loan request is under process",SAND_CLOCK] forState:UIControlStateNormal];
-        repayLoanButton.titleLabel.font = [UIFont systemFontOfSize:12];
-        repayLoanButton.titleLabel.textAlignment = NSTextAlignmentCenter;
-        repayLoanButton.titleLabel.numberOfLines = 0;
-        repayLoanButton.hidden = NO;
-        verificationButton.hidden = YES;
-        applyLoan.hidden = YES;
+        [applyLoan setTitle:[NSString stringWithFormat:@"%@\nYour loan request is under process",SAND_CLOCK] forState:UIControlStateNormal];
+        applyLoan.titleLabel.font = [UIFont systemFontOfSize:12];
+        applyLoan.titleLabel.textAlignment = NSTextAlignmentCenter;
+        applyLoan.titleLabel.numberOfLines = 0;
+//        repayLoanButton.hidden = NO;
+//        verificationButton.hidden = YES;
+//        applyLoan.hidden = YES;
     }else if ([[NSUserDefaults standardUserDefaults] boolForKey:@"loanIsApproved"])
     {
         // Circle Progress
@@ -247,6 +247,13 @@
  #pragma button actions
 - (IBAction)applyLoanAction:(id)sender
 {
+    UIButton *button = sender;
+    if ([button.titleLabel.text rangeOfString:@"under"].length) {
+//        ErrorMessageWithTitle(@"Message", @"Your previous loan request is already processed");
+        return;
+    }
+    
+    
     [LOANMACRO loanEligibityForUserCompletion:^(id obj) {
         if ([obj isKindOfClass:[NSDictionary class]]) {
             ApplyLoanViewController *applyLoanVc = [self.storyboard instantiateViewControllerWithIdentifier:@"ApplyLoanVC"];
@@ -254,7 +261,7 @@
             [self.navigationController pushViewController:applyLoanVc animated:YES];
         }
         else{
-            ErrorMessageWithTitle(@"Message", @"Sorry. You are not eligible ");
+            ErrorMessageWithTitle(@"Message", obj);
         }
 
     }];

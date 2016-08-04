@@ -113,18 +113,24 @@ static Reachability *reachability;
             }
         }
         return @"Error in parsing";
-    }else if ([(NSHTTPURLResponse *)response statusCode] == 422){
+    }else /*if ([(NSHTTPURLResponse *)response statusCode] == 422)*/
+    {
         //#-- Request is successful but error in response
         id responseJson = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingMutableContainers error:nil removingNulls:YES ignoreArrays:NO];
 
         NSString *errorMessageTitle = [responseJson valueForKey:@"message"];
         NSString *errorMessage = [[[responseJson valueForKey:@"missing parameters"] valueForKey:USERID] objectAtIndex:0];
         NSLog(@"error message title %@ -- %@",errorMessageTitle,errorMessage);
-        return responseJson;
+        if (errorMessageTitle.length) {
+          return errorMessageTitle;
+        }else{
+            return @"Error while send request";
+        }
+        
     }
-    else{
-        return @"Error while send request";
-    }
+//    else{
+//        return @"Error while send request";
+//    }
 }
 
 /**

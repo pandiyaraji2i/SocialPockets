@@ -1042,6 +1042,7 @@
 			baseConfigurationReference = EF9931AE443B4ADDC7E0B64A /* Pods-SocialPockets.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/SocialPockets",
@@ -1062,6 +1063,7 @@
 			baseConfigurationReference = 853DFEBFFD11370D4A6D76B8 /* Pods-SocialPockets.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/SocialPockets",

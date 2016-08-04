@@ -108,7 +108,12 @@ NSArray *HeaderArray;
                                                              },
                                                            @{@"ImageName":@"InstagramIcon",
                                                              @"ImageText":@"Instagram"
-                                                             }]
+                                                             },
+                                                           @{@"ImageName":@"LinkedinIcon",
+                                                             @"ImageText":@"LinkedIn"
+                                                             }
+                                                           
+                                                           ]
                                        },
                                      @{@"Money Account":@[@{@"ImageName":@"HDFCIcon",
                                                             @"ImageText":@"HDFC"

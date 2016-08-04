@@ -70,7 +70,7 @@
     self.title = @"Request Confirmation";
     previousIndexpath = nil;
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@" " style:UIBarButtonItemStylePlain target:self action:nil];
-    
+    bankAccountId = @"1";
     //#-- Status Bar Color Change
     [self setNeedsStatusBarAppearanceUpdate];
     
@@ -160,12 +160,12 @@
     
     if((indexPath.row) == bankAccountArray.count)
     {
-        AddBankAccountController *addBankAccount = [self.storyboard instantiateViewControllerWithIdentifier:@"AddBankAccount"];
-        [self.navigationController pushViewController:addBankAccount animated:YES];
-        return;
-        
-       [bankAccountArray insertObject:[@{@"BankName":@"Axis",@"AccountNum":@"126547682354872",@"Selected":[NSNumber numberWithBool:NO]}mutableCopy] atIndex:bankAccountArray.count];
-        [tableView reloadData];
+//        AddBankAccountController *addBankAccount = [self.storyboard instantiateViewControllerWithIdentifier:@"AddBankAccount"];
+//        [self.navigationController pushViewController:addBankAccount animated:YES];
+//        return;
+//        
+//       [bankAccountArray insertObject:[@{@"BankName":@"Axis",@"AccountNum":@"126547682354872",@"Selected":[NSNumber numberWithBool:NO]}mutableCopy] atIndex:bankAccountArray.count];
+//        [tableView reloadData];
     }
     else{
         NSMutableDictionary *currentSelectedObj = [[bankAccountArray objectAtIndex:indexPath.row] mutableCopy];
@@ -221,12 +221,12 @@
                          self.thanksView.hidden = NO;
                      }
                      else{
-                         ErrorMessageWithTitle(@"Message", @"Something went wrong");
+                         ErrorMessageWithTitle(@"Message", obj);
                          self.transprantView.hidden = YES;
                      }
                  }];
              }else{
-                 ErrorMessageWithTitle(@"Message", @"Invalid password");
+                 ErrorMessageWithTitle(@"Message", obj);
              }
          }];
     }

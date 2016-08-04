@@ -28,8 +28,8 @@
     
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@" " style:UIBarButtonItemStylePlain target:self action:nil];
     
-    pageTitles = @[@"Rating user according to social info given", @"Instant loans for user", @"Social sites liabalize", @"Mobile wallet to get loan and repay",@"Mobile wallet to get loan and repay",@"Mobile wallet to get loan and repay",@"Mobile wallet to get loan and repay",@"Mobile wallet to get loan and repay",@"Mobile wallet to get loan and repay",@"Mobile wallet to get loan and repay"];
-    pageImages = @[@"rating.jpg", @"loan.jpg", @"Social.jpg", @"mobile pocket.jpg",@"mobile pocket.jpg",@"mobile pocket.jpg",@"mobile pocket.jpg",@"mobile pocket.jpg",@"mobile pocket.jpg",@"mobile pocket.jpg"];
+    pageTitles = @[@"Rating user according to social feeds", @"Instant loans for user", @"Social sites liabalize", @"Mobile wallet to get loan and repay"];
+    pageImages = @[@"rating.jpg", @"loan.jpg", @"Social.jpg", @"mobile pocket.jpg"];
     
     //#-- Edit By Pandi
     int count = (int)pageImages.count;
