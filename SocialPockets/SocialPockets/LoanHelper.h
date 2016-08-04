@@ -19,8 +19,7 @@
 
 - (void)checkStatusOfLoan:(NSString *)loanId completion:(void (^)(id obj))completionBlock;
 
-- (void)repayLoanForUserId:(NSString *)userId loanId:(NSString *)loanId  mobileWallet:(NSString *)mobileWallet repayAmount:(NSString *)repayAmount completion:(void (^)(id obj))completionBlock;
-
+- (void)repayLoan:(NSString *)loanId  mobileWallet:(NSString *)mobileWallet repayAmount:(NSString *)repayAmount completion:(void (^)(id obj))completionBlock;
 - (void)getAllLoansWithCompletionBlock:(void(^)(id obj))completionBlock;
 
 - (void)getIndividualLoan:(NSString *)loanId completion:(void(^)(id obj))completionBlock;

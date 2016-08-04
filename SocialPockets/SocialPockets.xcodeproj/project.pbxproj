@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		671C44431D4091E4000C94A0 /* LoanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 671C44421D4091E4000C94A0 /* LoanViewController.m */; };
-		671C44471D4094CA000C94A0 /* MwalletHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 671C44461D4094CA000C94A0 /* MwalletHelper.m */; };
+		671C44471D4094CA000C94A0 /* BankAccHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 671C44461D4094CA000C94A0 /* BankAccHelper.m */; };
 		6777A4C51D4A008C00BF1EC3 /* RequestConfirmationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6777A4C41D4A008C00BF1EC3 /* RequestConfirmationViewController.m */; };
 		6777A4C81D4A125300BF1EC3 /* RepayLoanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6777A4C71D4A125300BF1EC3 /* RepayLoanViewController.m */; };
 		6777A4CA1D4A1EE100BF1EC3 /* Calendar_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6777A4C91D4A1EE100BF1EC3 /* Calendar_icon.png */; };
@@ -116,8 +116,8 @@
 		0455716A8E3A563761CB5AAC /* libPods-SocialPockets.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SocialPockets.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		671C44411D4091E4000C94A0 /* LoanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoanViewController.h; sourceTree = "<group>"; };
 		671C44421D4091E4000C94A0 /* LoanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoanViewController.m; sourceTree = "<group>"; };
-		671C44451D4094CA000C94A0 /* MwalletHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MwalletHelper.h; sourceTree = "<group>"; };
-		671C44461D4094CA000C94A0 /* MwalletHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MwalletHelper.m; sourceTree = "<group>"; };
+		671C44451D4094CA000C94A0 /* BankAccHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BankAccHelper.h; sourceTree = "<group>"; };
+		671C44461D4094CA000C94A0 /* BankAccHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BankAccHelper.m; sourceTree = "<group>"; };
 		6777A4C31D4A008C00BF1EC3 /* RequestConfirmationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestConfirmationViewController.h; sourceTree = "<group>"; };
 		6777A4C41D4A008C00BF1EC3 /* RequestConfirmationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestConfirmationViewController.m; sourceTree = "<group>"; };
 		6777A4C61D4A125300BF1EC3 /* RepayLoanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RepayLoanViewController.h; sourceTree = "<group>"; };
@@ -293,8 +293,8 @@
 		671C44441D4093C3000C94A0 /* Mobile Wallet */ = {
 			isa = PBXGroup;
 			children = (
-				671C44451D4094CA000C94A0 /* MwalletHelper.h */,
-				671C44461D4094CA000C94A0 /* MwalletHelper.m */,
+				671C44451D4094CA000C94A0 /* BankAccHelper.h */,
+				671C44461D4094CA000C94A0 /* BankAccHelper.m */,
 			);
 			name = "Mobile Wallet";
 			sourceTree = "<group>";
@@ -887,7 +887,7 @@
 				A3C3C8501D3DF7D500C65B09 /* NSString+AdditionalMethods.m in Sources */,
 				A3B5292E1D49E1F200603451 /* IQUIView+IQKeyboardToolbar.m in Sources */,
 				A3C3C8961D3F7B2F00C65B09 /* ChangePasswordController.m in Sources */,
-				671C44471D4094CA000C94A0 /* MwalletHelper.m in Sources */,
+				671C44471D4094CA000C94A0 /* BankAccHelper.m in Sources */,
 				A3EAA2B41D4762210013A952 /* AddBankAccountController.m in Sources */,
 				A3D65A951D461A5700B47E46 /* UIViewController+MFSideMenuAdditions.m in Sources */,
 				A3C3C8A41D3F86EC00C65B09 /* ProfileModel.m in Sources */,

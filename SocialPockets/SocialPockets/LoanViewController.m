@@ -33,8 +33,8 @@
 }
 
 - (IBAction)repayLoan:(id)sender{
-    [LOANMACRO repayLoanForUserId:@"25" loanId:@"14" mobileWallet:@"1" repayAmount:@"1" completion:^(id obj) {
-        NSLog(@"%@",obj);
+    [LOANMACRO repayLoan:@"14" mobileWallet:@"1" repayAmount:@"1" completion:^(id obj) {
+        
     }];
 }
 
@@ -50,14 +50,14 @@
 }
 
 - (IBAction)createMWallet:(id)sender {
-    [MWALLET mwalletForUserId:@"14" mobilewallet:@"4" createdBy:@"14" completion:^(id obj) {
+    [BANKACCHELPER mwalletForUserId:@"14" mobilewallet:@"4" createdBy:@"14" completion:^(id obj) {
         NSLog(@"%@",obj);
     }];
     
 }
 
 - (IBAction)deleteMwallet:(id)sender {
-    [MWALLET deletMwalletUserId:@"14" mobilewallet:@"4" completion:^(id obj) {
+    [BANKACCHELPER deletMwalletUserId:@"14" mobilewallet:@"4" completion:^(id obj) {
         NSLog(@"%@",obj);
     }];
 }

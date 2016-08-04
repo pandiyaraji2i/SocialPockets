@@ -40,9 +40,8 @@ static LoanHelper* _sharedInstance = nil;
 {
 
     if ([NetworkHelperClass getInternetStatus:YES]) {
-        NSMutableDictionary *dict = [@{@"userid":@"43"} mutableCopy];
-
-//        NSMutableDictionary *dict = [@{@"userid":[[NSUserDefaults standardUserDefaults] valueForKey:USERID]} mutableCopy];
+//        NSMutableDictionary *dict = [@{@"userid":@"43"} mutableCopy];
+        NSMutableDictionary *dict = [@{@"userid":[[NSUserDefaults standardUserDefaults] valueForKey:USERID]} mutableCopy];
         id successObject = [NetworkHelperClass sendSynchronousRequestToServer:@"loanrequest/checkEligibilityStatus" httpMethod:POST requestBody:dict contentType:JSONCONTENTTYPE];
         if (successObject) {
             if (completionBlock) {

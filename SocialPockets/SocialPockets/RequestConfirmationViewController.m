@@ -10,9 +10,10 @@
 #import "DashBoardViewController.h"
 #import "AddBankAccountController.h"
 @interface RequestConfirmationViewController ()<UITableViewDataSource,UITableViewDelegate>{
-    NSMutableArray *arr;
+    NSMutableArray *bankAccountArray;
     NSMutableDictionary *accountDict;
     NSIndexPath *previousIndexpath;
+    NSString *bankAccountId;
 }
 @property (weak, nonatomic) IBOutlet UITableView *accountTableView;
 @property (weak, nonatomic) IBOutlet UIButton *acceptance;
@@ -30,24 +31,40 @@
     self.thanksView.hidden = YES;
 
     // Do any additional setup after loading the view.
-   
-   #warning need to download all wallets from the server
     
-    arr=[@[@{@"BankName" : @"HDFC",
-                                   @"AccountNum" : @"123456789",
-                                   @"Selected" : [NSNumber numberWithBool:NO]
-                                   },
-                                 @{@"BankName" : @"HDFC",
-                                   @"AccountNum" : @"123456789",
-                                   @"Selected" : [NSNumber numberWithBool:YES]
-                                   },
-                                 @{@"BankName" : @"HDFC",
-                                   @"AccountNum" : @"123456789",
-                                   @"Selected" : [NSNumber numberWithBool:NO]
-                                   }
-                                 ]mutableCopy];
-    self.accountTableView.delegate = self;
-    self.accountTableView.dataSource = self;
+    bankAccountArray=[@[@{@"USRMW_BANK_NAME" : @"HDFC",
+             @"USRMW_ACCOUNT_NUMBER" : @"123456789",
+             @"USRMW_IFSC_CODE": @"HDFC1206",
+             @"USRMW_ID": @"1",
+             @"Selected" : [NSNumber numberWithBool:NO]
+             },
+           @{@"USRMW_BANK_NAME" : @"Axis",
+             @"USRMW_ACCOUNT_NUMBER" : @"123456789",
+             @"USRMW_IFSC_CODE": @"HDFC1206",
+             @"USRMW_ID": @"2",
+             @"Selected" : [NSNumber numberWithBool:NO]
+             },
+           @{@"USRMW_BANK_NAME" : @"ICICI",
+             @"USRMW_ACCOUNT_NUMBER" : @"123456789",
+             @"USRMW_IFSC_CODE": @"HDFC1206",
+             @"USRMW_ID": @"3",
+             @"Selected" : [NSNumber numberWithBool:NO]
+             }
+           ]mutableCopy];
+    
+    if ([NetworkHelperClass getInternetStatus:NO])
+    {
+        [BANKACCHELPER showAllAccountWithcompletion:^(id obj) {
+            if ([obj isKindOfClass:[NSArray class]]) {
+                NSLog( @"Bank Accounts list: %@",obj);
+                [bankAccountArray removeAllObjects];
+                obj = [obj filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"USRMW_STATUS == 1"]];
+                [bankAccountArray addObjectsFromArray:obj];
+                [self.accountTableView reloadData];
+
+            }
+                   }];
+    }
     self.accountTableView.layer.cornerRadius = 7;
     
     self.title = @"Request Confirmation";
@@ -77,21 +94,21 @@
 }
 #pragma mark tableview datasource methods
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return arr.count >= MAX_ACCOUNT ? arr.count:[arr count]+1;
+    return bankAccountArray.count >= MAX_ACCOUNT ? bankAccountArray.count:[bankAccountArray count]+1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:
 (NSIndexPath *)indexPath{
     
     NSString *CellId = @"accountCell";
-    if (indexPath.row == arr.count) {
+    if (indexPath.row == bankAccountArray.count) {
         CellId = nil;
     }
     UITableViewCell *cell =(CellId!=nil)?[tableView dequeueReusableCellWithIdentifier:CellId forIndexPath:indexPath]:[tableView dequeueReusableCellWithIdentifier:CellId];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellId];
     }
-    if (indexPath.row == arr.count) {
+    if (indexPath.row == bankAccountArray.count) {
         cell.textLabel.text = @"+ Add new account";
         cell.textLabel.textColor =[UIColor blueColor];
         cell.textLabel.textAlignment = NSTextAlignmentCenter;
@@ -99,15 +116,15 @@
     else{
         UILabel *titlename = (UILabel *)[cell.contentView viewWithTag:999];
         
-        titlename.text = [[arr objectAtIndex:indexPath.row] objectForKey:@"BankName"];
+        titlename.text = [[bankAccountArray objectAtIndex:indexPath.row] objectForKey:@"USRMW_BANK_NAME"];
         UILabel *subtitlename = (UILabel *)[cell.contentView viewWithTag:888];
         
-        subtitlename.text = [[arr objectAtIndex:indexPath.row] objectForKey:@"AccountNum"];
+        subtitlename.text = [[bankAccountArray objectAtIndex:indexPath.row] objectForKey:@"USRMW_ACCOUNT_NUMBER"];
         
         cell.textLabel.textAlignment = NSTextAlignmentCenter;
         
         UIButton *check = (UIButton *)[cell.contentView viewWithTag:777];
-        check.selected = [[[arr objectAtIndex:indexPath.row] valueForKey:@"Selected"] boolValue];
+        check.selected = [[[bankAccountArray objectAtIndex:indexPath.row] valueForKey:@"Selected"] boolValue];
         
     }
     return cell;
@@ -115,7 +132,7 @@
 }
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row == arr.count) {
+    if (indexPath.row == bankAccountArray.count) {
         return NO;
     }
     return YES;
@@ -129,7 +146,7 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    [arr removeObjectAtIndex:indexPath.row];
+    [bankAccountArray removeObjectAtIndex:indexPath.row];
     [tableView reloadData];
 }
 
@@ -140,21 +157,22 @@
 #pragma mark tableview delegate methods
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    if((indexPath.row) == arr.count)
+    if((indexPath.row) == bankAccountArray.count)
     {
         AddBankAccountController *addBankAccount = [self.storyboard instantiateViewControllerWithIdentifier:@"AddBankAccount"];
         [self.navigationController pushViewController:addBankAccount animated:YES];
         return;
         
-       [arr insertObject:[@{@"BankName":@"Axis",@"AccountNum":@"126547682354872",@"Selected":[NSNumber numberWithBool:NO]}mutableCopy] atIndex:arr.count];
+       [bankAccountArray insertObject:[@{@"BankName":@"Axis",@"AccountNum":@"126547682354872",@"Selected":[NSNumber numberWithBool:NO]}mutableCopy] atIndex:bankAccountArray.count];
         [tableView reloadData];
     }
     else{
-        NSMutableDictionary *currentSelectedObj = [[arr objectAtIndex:indexPath.row] mutableCopy];
+        NSMutableDictionary *currentSelectedObj = [[bankAccountArray objectAtIndex:indexPath.row] mutableCopy];
         BOOL isSelectedValue = [[currentSelectedObj valueForKey:@"Selected"] boolValue];
         [currentSelectedObj setValue:[NSNumber numberWithBool:!isSelectedValue] forKey:@"Selected"];
-        [arr replaceObjectAtIndex:indexPath.row withObject:currentSelectedObj];
+        [bankAccountArray replaceObjectAtIndex:indexPath.row withObject:currentSelectedObj];
         [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+        bankAccountId = [[bankAccountArray objectAtIndex:indexPath.row] valueForKey:@"USRMW_ID"];
 //        UITableViewCell *currentCell = [tableView cellForRowAtIndexPath:indexPath];
 //        
 //        if (previousIndexpath != indexPath) {
@@ -196,7 +214,7 @@
          [PROFILEMACRO passWordValidation:self.passwordTextField.text completion:^(id obj) {
              if ([obj isKindOfClass:[NSDictionary class]]) {
                  self.passwordView.hidden = YES;
-                 [LOANMACRO requestLoanForUserId:[[NSUserDefaults standardUserDefaults] valueForKey:USERID] amount:self.loanAmount mobileWallerId:@"1" completion:^(id obj) {
+                 [LOANMACRO requestLoanForUserId:[[NSUserDefaults standardUserDefaults] valueForKey:USERID] amount:self.loanAmount mobileWallerId:bankAccountId completion:^(id obj) {
                      if ([obj isKindOfClass:[NSDictionary class]]) {
                          self.transprantView.hidden = NO;
                          self.thanksView.hidden = NO;

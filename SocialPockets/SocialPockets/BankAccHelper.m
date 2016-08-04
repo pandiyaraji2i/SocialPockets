@@ -1,15 +1,15 @@
 //
-//  MwalletHelper.m
+//  BankAccHelper.m
 //  SocialPockets
 //
 //  Created by Ideas2IT-GaneshM on 21/07/16.
 //  Copyright © 2016 Pandiyaraj. All rights reserved.
 //
 
-#import "MwalletHelper.h"
-static MwalletHelper* _sharedInstance = nil;
+#import "BankAccHelper.h"
+static BankAccHelper* _sharedInstance = nil;
 
-@implementation MwalletHelper
+@implementation BankAccHelper
 
 /**
  *  Create Singleton instance of class
@@ -17,9 +17,9 @@ static MwalletHelper* _sharedInstance = nil;
  *  @return Self Class
  */
 
-+ (MwalletHelper *)sharedInstance
++ (BankAccHelper *)sharedInstance
 {
-    @synchronized ([MwalletHelper class]) {
+    @synchronized ([BankAccHelper class]) {
         if(!_sharedInstance)
             _sharedInstance = [[self alloc] init];
         return _sharedInstance;
@@ -62,6 +62,22 @@ static MwalletHelper* _sharedInstance = nil;
             }
         }
             
+    }
+    
+}
+- (void)showAllAccountWithcompletion:(void (^)(id obj))completionBlock
+{
+    if ([NetworkHelperClass getInternetStatus:YES])
+    {
+        id successObject = [NetworkHelperClass sendSynchronousRequestToServer:[NSString stringWithFormat:@"/showAllCreditAccount?user_id=%@",[[NSUserDefaults standardUserDefaults] valueForKey:USERID]] httpMethod:GET requestBody:nil contentType:JSONCONTENTTYPE];
+        if (successObject)
+        {
+            if(completionBlock)
+            {
+                completionBlock(successObject);
+            }
+        }
+        
     }
     
 }

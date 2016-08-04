@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface AddBankAccountController : UIViewController
+@property (weak, nonatomic) IBOutlet UITextField *accountNoTF;
+@property (weak, nonatomic) IBOutlet UITextField *bankNameTF;
+@property (weak, nonatomic) IBOutlet UITextField *IFSCCodeTF;
 
 @end

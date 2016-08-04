@@ -20,7 +20,7 @@
 #import "RegistrationModel.h"
 #import "ProfileModel.h"
 #import "LoanHelper.h"
-#import "MwalletHelper.h"
+#import "BankAccHelper.h"
 #import "SharedMethods.h"
 #import "SocialHelper.h"
 #import "NetworkHelperClass.h"
