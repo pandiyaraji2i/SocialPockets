@@ -12,4 +12,5 @@
 {
     IBOutlet UITableView *notificationsTableView;
 }
+@property (weak, nonatomic) IBOutlet UIImageView *backgroundImage;
 @end

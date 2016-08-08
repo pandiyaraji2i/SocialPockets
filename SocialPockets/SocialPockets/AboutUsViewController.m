@@ -27,6 +27,20 @@
     }else{
         
     }
+    if (IPHONE6PLUS_STANDARD){
+        self.backgroundImage.image = [UIImage imageNamed:@"NotificationBG6Splus.png"];
+        
+    }else if (IPHONE5){
+        self.backgroundImage.image = [UIImage imageNamed:@"NotificationBG.png"];
+        
+    }else if(IPHONE6_STANDARD){
+        self.backgroundImage.image = [UIImage imageNamed:@"NotificationBG6S.png"];
+        
+    }else{
+        self.backgroundImage.image = [UIImage imageNamed:@"NotificationBG4S.png"];
+        
+    }
+
     
     
     // Do any additional setup after loading the view.

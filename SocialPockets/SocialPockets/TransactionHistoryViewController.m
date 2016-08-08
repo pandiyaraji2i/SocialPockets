@@ -20,7 +20,7 @@
     [super viewDidLoad];
     
     self.navigationController.navigationBarHidden = NO;
-    self.title = @"Transaction Histroy";
+    self.title = @"Transaction History";
     self.table.backgroundColor = [UIColor yellowColor];
     self.table.layer.cornerRadius = 5;
     self.table.backgroundColor = [UIColor clearColor];
@@ -34,6 +34,20 @@
              [table reloadData];
         });
     }];
+    if (IPHONE6PLUS_STANDARD){
+        self.backgroundImage.image = [UIImage imageNamed:@"NotificationBG6Splus.png"];
+        
+    }else if (IPHONE5){
+        self.backgroundImage.image = [UIImage imageNamed:@"NotificationBG.png"];
+        
+    }else if(IPHONE6_STANDARD){
+        self.backgroundImage.image = [UIImage imageNamed:@"NotificationBG6S.png"];
+        
+    }else{
+        self.backgroundImage.image = [UIImage imageNamed:@"NotificationBG4S.png"];
+        
+    }
+
 
     
    // transData = [[NSMutableArray alloc] initWithObjects:@"Transation: Rs 3000\n\nTransation details\nIn hand amount\nCredited on\nCredited to acc",@"Transation: Rs 5000\n\nTransation details\nIn hand amount\nCredited on\nCredited to acc",@"Transation: Rs 4000\n\nTransation details\nIn hand amount\nCredited on\nCredited to acc",@"Transation: Rs 3000\n\nTransation details\nIn hand amount\nCredited on\nCredited to acc", nil];
@@ -113,13 +127,16 @@
     [loanAmount setText:[NSString stringWithFormat:@"Rs. %@",[[transData objectAtIndex:indexPath.section] objectForKey:@"USRLN_AMOUNT"]]];
     //[loanStatus setText:[[transData objectAtIndex:indexPath.section] objectForKey:@"USRLN_STATUS"]];
 
-    if ([[[transData objectAtIndex:indexPath.section] objectForKey:@"USRLN_STATUS"] intValue] <= 2 )
+    if ([[[transData objectAtIndex:indexPath.section] objectForKey:@"USRLN_STATUS"] intValue] > 0  && [[[transData objectAtIndex:indexPath.section] objectForKey:@"USRLN_STATUS"] intValue] <= 2)
     {
         [loanStatus setText:[NSString stringWithFormat:@"Ongoing"]];
         
     }
     else if ([[[transData objectAtIndex:indexPath.section] objectForKey:@"USRLN_STATUS"] intValue] > 2 ){
         [loanStatus setText:[NSString stringWithFormat:@"Repaid"]];
+    }
+    else if ([[[transData objectAtIndex:indexPath.section] objectForKey:@"USRLN_STATUS"] intValue] == 0 ){
+        [loanStatus setText:[NSString stringWithFormat:@"Rejected"]];
     }
     else{
         [loanStatus setText:[NSString stringWithFormat:@"-----"]];

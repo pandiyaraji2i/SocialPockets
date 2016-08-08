@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "UncheckedImage.png",
-      "scale" : "1x"
+      "scale" : "1x",
+      "filename" : "CircleUnselected.png"
     },
     {
       "idiom" : "universal",
-      "filename" : "UncheckedImage@2x.png",
-      "scale" : "2x"
+      "scale" : "2x",
+      "filename" : "CircleUnselected@2x.png"
     },
     {
       "idiom" : "universal",
-      "filename" : "UncheckedImage@3x.png",
+      "filename" : "CircleUnselected@3x.png",
       "scale" : "3x"
     }
   ],

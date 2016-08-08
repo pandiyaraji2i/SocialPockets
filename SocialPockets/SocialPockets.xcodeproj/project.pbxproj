@@ -77,6 +77,10 @@
 		A3D65AB41D463A0F00B47E46 /* sp logo.png in Resources */ = {isa = PBXBuildFile; fileRef = A3D65AB21D463A0F00B47E46 /* sp logo.png */; };
 		A3DB484C1D4F8B180047EDF2 /* TransactionHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3DB484B1D4F8B180047EDF2 /* TransactionHistoryViewController.m */; };
 		A3EAA2B41D4762210013A952 /* AddBankAccountController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3EAA2B31D4762210013A952 /* AddBankAccountController.m */; };
+		FB0342F31D54AE4C00C11019 /* NotificationBG.png in Resources */ = {isa = PBXBuildFile; fileRef = FB0342EF1D54AE4C00C11019 /* NotificationBG.png */; };
+		FB0342F41D54AE4C00C11019 /* NotificationBG4S.png in Resources */ = {isa = PBXBuildFile; fileRef = FB0342F01D54AE4C00C11019 /* NotificationBG4S.png */; };
+		FB0342F51D54AE4C00C11019 /* NotificationBG6S.png in Resources */ = {isa = PBXBuildFile; fileRef = FB0342F11D54AE4C00C11019 /* NotificationBG6S.png */; };
+		FB0342F61D54AE4C00C11019 /* NotificationBG6Splus.png in Resources */ = {isa = PBXBuildFile; fileRef = FB0342F21D54AE4C00C11019 /* NotificationBG6Splus.png */; };
 		FBAAB8291D422888001C918B /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = FBAAB8281D422888001C918B /* Podfile */; };
 		FBAAB8361D4239D7001C918B /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBAAB8331D4239D7001C918B /* FBSDKCoreKit.framework */; };
 		FBAAB8371D4239D7001C918B /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBAAB8341D4239D7001C918B /* FBSDKLoginKit.framework */; };
@@ -244,6 +248,10 @@
 		A3EAA2B21D4762210013A952 /* AddBankAccountController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddBankAccountController.h; sourceTree = "<group>"; };
 		A3EAA2B31D4762210013A952 /* AddBankAccountController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddBankAccountController.m; sourceTree = "<group>"; };
 		EF9931AE443B4ADDC7E0B64A /* Pods-SocialPockets.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialPockets.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SocialPockets/Pods-SocialPockets.debug.xcconfig"; sourceTree = "<group>"; };
+		FB0342EF1D54AE4C00C11019 /* NotificationBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NotificationBG.png; sourceTree = "<group>"; };
+		FB0342F01D54AE4C00C11019 /* NotificationBG4S.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NotificationBG4S.png; sourceTree = "<group>"; };
+		FB0342F11D54AE4C00C11019 /* NotificationBG6S.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NotificationBG6S.png; sourceTree = "<group>"; };
+		FB0342F21D54AE4C00C11019 /* NotificationBG6Splus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NotificationBG6Splus.png; sourceTree = "<group>"; };
 		FBAAB8281D422888001C918B /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		FBAAB8331D4239D7001C918B /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		FBAAB8341D4239D7001C918B /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
@@ -310,6 +318,10 @@
 		A3253D041D3C9DE90081A59C = {
 			isa = PBXGroup;
 			children = (
+				FB0342EF1D54AE4C00C11019 /* NotificationBG.png */,
+				FB0342F01D54AE4C00C11019 /* NotificationBG4S.png */,
+				FB0342F11D54AE4C00C11019 /* NotificationBG6S.png */,
+				FB0342F21D54AE4C00C11019 /* NotificationBG6Splus.png */,
 				A3D65A821D460BA100B47E46 /* CameraFrameWork.framework */,
 				FBAAB8281D422888001C918B /* Podfile */,
 				FBAAB82A1D422B81001C918B /* FrameWork */,
@@ -781,6 +793,8 @@
 			files = (
 				A3D65AAD1D46386500B47E46 /* rating.jpg in Resources */,
 				6777A4CC1D4A2FF600BF1EC3 /* close_round_button.png in Resources */,
+				FB0342F61D54AE4C00C11019 /* NotificationBG6Splus.png in Resources */,
+				FB0342F41D54AE4C00C11019 /* NotificationBG4S.png in Resources */,
 				A3BFCB5B1D48B02400D99D78 /* bg@3x.png in Resources */,
 				A3253D201D3C9DE90081A59C /* LaunchScreen.storyboard in Resources */,
 				A3253D1D1D3C9DE90081A59C /* Assets.xcassets in Resources */,
@@ -792,8 +806,10 @@
 				FBAAB8291D422888001C918B /* Podfile in Resources */,
 				A3D65AA41D46364E00B47E46 /* BackGroud_Home.png in Resources */,
 				A3D65AB01D4639F700B47E46 /* BackGround_Login.png in Resources */,
+				FB0342F31D54AE4C00C11019 /* NotificationBG.png in Resources */,
 				FBB3A4F71D4F56E1001A7408 /* TableCollectionViewCell.xib in Resources */,
 				A3253D1B1D3C9DE90081A59C /* Main.storyboard in Resources */,
+				FB0342F51D54AE4C00C11019 /* NotificationBG6S.png in Resources */,
 				A3D65AAC1D46386500B47E46 /* mobile pocket.jpg in Resources */,
 				A3D65AB41D463A0F00B47E46 /* sp logo.png in Resources */,
 				A3D65AAB1D46386500B47E46 /* loan.jpg in Resources */,

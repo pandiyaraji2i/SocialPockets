@@ -50,16 +50,16 @@
 }
 
 - (IBAction)createMWallet:(id)sender {
-    [BANKACCHELPER mwalletForUserId:@"14" mobilewallet:@"4" createdBy:@"14" completion:^(id obj) {
-        NSLog(@"%@",obj);
-    }];
+//    [BANKACCHELPER mwalletForUserId:@"14" mobilewallet:@"4" createdBy:@"14" completion:^(id obj) {
+//        NSLog(@"%@",obj);
+//    }];
     
 }
 
 - (IBAction)deleteMwallet:(id)sender {
-    [BANKACCHELPER deletMwalletUserId:@"14" mobilewallet:@"4" completion:^(id obj) {
-        NSLog(@"%@",obj);
-    }];
+//    [BANKACCHELPER deletMwalletUserId:@"14" mobilewallet:@"4" completion:^(id obj) {
+//        NSLog(@"%@",obj);
+//    }];
 }
 
 

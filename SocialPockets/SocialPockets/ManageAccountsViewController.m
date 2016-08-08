@@ -29,6 +29,19 @@ NSArray *HeaderArray;
     HeaderArray = @[@"Identification Proof", @"Social Account", @"Money Account"];
     [self.tableView registerNib:[UINib nibWithNibName:@"CollectionTableViewCell" bundle:nil] forCellReuseIdentifier:@"CollectionTableViewCell"];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    if (IPHONE6PLUS_STANDARD){
+        self.backgroundImage.image = [UIImage imageNamed:@"NotificationBG6Splus.png"];
+        
+    }else if (IPHONE5){
+        self.backgroundImage.image = [UIImage imageNamed:@"NotificationBG.png"];
+        
+    }else if(IPHONE6_STANDARD){
+        self.backgroundImage.image = [UIImage imageNamed:@"NotificationBG6S.png"];
+        
+    }else{
+        self.backgroundImage.image = [UIImage imageNamed:@"NotificationBG4S.png"];
+        
+    }
 }
 
 

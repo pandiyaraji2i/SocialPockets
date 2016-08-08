@@ -19,6 +19,7 @@
 @property (nonatomic) NSInteger selectedValueSection;
 @property (nonatomic) bool isShowingListsec;
 @property (retain, nonatomic) NSMutableArray *transData;
+@property (weak, nonatomic) IBOutlet UIImageView *backgroundImage;
 
 
 @end

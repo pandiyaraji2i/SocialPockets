@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface ManageAccountsViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UIImageView *backgroundImage;
 
 @end
