@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BnU-aH-d6h">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BnU-aH-d6h">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -3353,7 +3353,7 @@
                                             </mask>
                                         </variation>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6% Processing Fee Deduction" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0oX-mE-0Le">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" % Processing Fee Deduction" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0oX-mE-0Le">
                                         <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="15" id="Of7-rR-aQA"/>
@@ -3366,7 +3366,8 @@
                                                 <exclude reference="Of7-rR-aQA"/>
                                             </mask>
                                         </variation>
-                                        <variation key="heightClass=regular-widthClass=compact">
+                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="10" y="45" width="169" height="15"/>
                                             <mask key="constraints">
                                                 <include reference="Of7-rR-aQA"/>
                                             </mask>
@@ -3641,6 +3642,7 @@
                         <outlet property="loanAmountLbl" destination="fyL-qe-w1O" id="IZk-8l-YiT"/>
                         <outlet property="loanAmtSlider" destination="JUm-Qn-ybh" id="Azy-7M-3fk"/>
                         <outlet property="loanDetailsView" destination="5dQ-9z-O0Z" id="mej-yS-Hin"/>
+                        <outlet property="loanProcessingFee" destination="0oX-mE-0Le" id="4uA-eM-MBw"/>
                         <outlet property="nextBtn" destination="p0Y-P3-Doe" id="zZS-lC-jTh"/>
                         <outlet property="tenurePeriodLabel" destination="JU3-mW-RnN" id="qCu-4K-I0C"/>
                     </connections>
@@ -4941,7 +4943,14 @@ Tenure Period</string>
                     </view>
                     <connections>
                         <outlet property="blackoutview" destination="4uu-Ie-42D" id="Xif-PC-79b"/>
+                        <outlet property="inHandAmount" destination="v85-KL-Xqt" id="718-af-Y00"/>
+                        <outlet property="loanAmount" destination="eL6-pT-Rgm" id="PPv-3f-zcT"/>
+                        <outlet property="loanDueDate" destination="UZ6-nU-yRo" id="EDn-4Z-Kaw"/>
+                        <outlet property="loanTakenDate" destination="fq1-p8-lHU" id="E4E-n1-LMi"/>
+                        <outlet property="processingFeeAmount" destination="hDG-OZ-fqx" id="Yal-6b-ig7"/>
+                        <outlet property="processingFeePercentage" destination="Dtt-94-D4o" id="fy7-P2-gTE"/>
                         <outlet property="repay" destination="YFF-mI-Idk" id="MTa-Fc-fNV"/>
+                        <outlet property="tenurePeriod" destination="vO0-U9-xht" id="GJX-sZ-Kkk"/>
                         <outlet property="thanksview" destination="sVD-2n-7Bm" id="LlS-XO-bfR"/>
                     </connections>
                 </viewController>

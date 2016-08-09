@@ -14,4 +14,5 @@
 }
 @property (weak, nonatomic) IBOutlet UISlider *loanAmtSlider;
 @property (nonatomic,strong) NSDictionary *loanObject;
+@property (strong, nonatomic) IBOutlet UILabel *loanProcessingFee;
 @end

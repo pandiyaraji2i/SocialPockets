@@ -9,14 +9,20 @@
 #import "RepayLoanViewController.h"
 
 @interface RepayLoanViewController ()
+{
+    NSString *repayLoanId;
+    
+}
 - (IBAction)RepayBtn:(id)sender;
 @property (weak, nonatomic) IBOutlet UIView *blackoutview;
 @property (weak, nonatomic) IBOutlet UIView *thanksview;
 @property (weak, nonatomic) IBOutlet UIButton *repay;
 
-@end
 
+@end
 @implementation RepayLoanViewController
+@synthesize repayObject;
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -26,6 +32,17 @@
     self.title = @"Repay Loan";
     self.blackoutview.hidden = YES;
     self.thanksview.hidden = YES;
+    self.processingFeeAmount.text = [NSString stringWithFormat:@"%@%% Processing Fee Deduction",[self.repayObject valueForKey:@"PROCESSING_FEE"]];
+    self.tenurePeriod.text = [NSString stringWithFormat:@"%@ Days Tenure Period",[self.repayObject valueForKey:@"TENURE_DATE"]];
+    
+    [LOANMACRO getIndividualLoan:repayLoanId completion:^(id obj) {
+        self.loanTakenDate.text = [NSString stringWithFormat:@"%@",[obj valueForKey:@"USRLN_TRANSFERRED_DATE"]];
+        self.loanDueDate.text = [NSString stringWithFormat:@"%@",[obj valueForKey:@"USRLN_TENNURE_DATE"]];
+        self.loanAmount.text = [NSString stringWithFormat:@"%@",[obj valueForKey:@"USRLN_AMOUNT"]];
+        self.inHandAmount.text = [NSString stringWithFormat:@"%@",[obj valueForKey:@"USRLN_AMOUNT"]];
+        
+    }];
+    
 }
 - (IBAction)DoneBtnTapped:(id)sender {
     self.blackoutview.hidden = YES;

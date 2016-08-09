@@ -269,9 +269,19 @@
 
 - (IBAction)repayLoanButton:(id)sender
 {
-    RepayLoanViewController *repayLoanVC = [self.storyboard instantiateViewControllerWithIdentifier:@"RepayLoanVC"];
-    [self.navigationController pushViewController:repayLoanVC animated:YES];
+    [LOANMACRO loanEligibityForUserCompletion:^(id obj) {
+        if ([obj isKindOfClass:[NSDictionary class]]) {
+            RepayLoanViewController *repayLoanVC = [self.storyboard instantiateViewControllerWithIdentifier:@"RepayLoanVC"];
+            repayLoanVC.repayObject = obj;
+            [self.navigationController pushViewController:repayLoanVC animated:YES];
+        }
+        else{
+            ErrorMessageWithTitle(@"Message", obj);
+        }
+        
+    }];
 }
+
 #pragma mark Navigation Bar Button actions
 
 - (void)onMenuAction:(UIBarButtonItem *)sender

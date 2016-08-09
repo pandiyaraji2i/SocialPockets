@@ -25,7 +25,7 @@
 @end
 
 @implementation ApplyLoanViewController
-@synthesize loanObject;
+@synthesize loanObject,loanProcessingFee;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -47,6 +47,7 @@
     self.title = @"Apply Loan";
     
     tenurePeriodLabel.text = [NSString stringWithFormat:@"%@ Days Tenure Period",[self.loanObject valueForKey:@"TENURE_DATE"]];
+    loanProcessingFee.text = [NSString stringWithFormat:@"%@%% Processing Fee Deduction",[self.loanObject valueForKey:@"PROCESSING_FEE"]];
     
     //#-- Status Bar Color Change
     [self setNeedsStatusBarAppearanceUpdate];
@@ -75,7 +76,7 @@
     if (self.loanAmtSlider.value < loanMinValue) {
         self.loanAmtSlider.value = loanMinValue;
     }
-    NSLog(@"%f",self.loanAmtSlider.value);
+    
 
     int loanAmt =(int)self.loanAmtSlider.value*loanMultipler;
     _loanAmountLbl.text =  [NSString stringWithFormat:@"Rs. %d",loanAmt];
