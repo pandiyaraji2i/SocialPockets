@@ -10,7 +10,7 @@
 
 @interface RepayLoanViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UILabel *loanTakenDate;
-@property (nonatomic,strong) NSDictionary *repayObject;
+@property (nonatomic,strong) NSDictionary *repayLoanObject;
 @property (weak, nonatomic) IBOutlet UILabel *loanDueDate;
 @property (weak, nonatomic) IBOutlet UILabel *loanAmount;
 @property (weak, nonatomic) IBOutlet UILabel *tenurePeriod;

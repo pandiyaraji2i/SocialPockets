@@ -12,7 +12,9 @@
 #import "RepayLoanViewController.h"
 
 @interface DashBoardViewController ()
-
+{
+    NSDictionary *loanObject;
+}
 @end
 
 @implementation DashBoardViewController
@@ -112,13 +114,50 @@
 
 - (void)updateButtons
 {
-//    repayLoanButton.hidden = NO;
-//    applyLoan.hidden = YES;
-//    verificationButton.hidden = YES;
-//    return;
-    
     verifyLabel.hidden = YES;
     timeLabel.hidden = YES;
+    verificationButton.hidden = YES;
+    applyLoanCircleView.hidden = NO;
+    repayLoanCircleView.hidden = YES;
+    applyLoan.titleLabel.textAlignment = NSTextAlignmentCenter;
+    applyLoan.titleLabel.numberOfLines = 0;
+    
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"documentsVerificationProcess"]) {
+        //#-- Documents verification process
+        verifyLabel.hidden = NO;
+        timeLabel.hidden = NO;
+        verificationButton.hidden = NO;
+        applyLoan.hidden  = repayLoanButton.hidden = YES;
+    }
+    
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"readyToApply"]) {
+        //#-- Ready to apply loan
+        applyLoan.hidden = NO;
+        repayLoanButton.hidden = YES;
+        applyLoan.userInteractionEnabled = YES;
+        [applyLoan setTitle:[NSString stringWithFormat:@"%@\nApply Loan",INDIANRUPEES_UNICODE] forState:UIControlStateNormal];
+    }
+    
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"loanIsProcessed"]) {
+        //#-- User requested loan.. and it is processed
+        applyLoan.hidden = NO;
+        repayLoanButton.hidden = YES;
+        [applyLoan setTitle:[NSString stringWithFormat:@"%@\nYour loan request is under process",SAND_CLOCK] forState:UIControlStateNormal];
+        applyLoan.titleLabel.font = [UIFont systemFontOfSize:12];
+        applyLoan.userInteractionEnabled = NO;
+    }
+    
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"loanIsApproved"]) {
+        //#-- Loan approved by admin.. Repayment to be done
+        applyLoan.hidden = YES;
+        repayLoanButton.hidden = NO;
+        //#-- Circle Progress come in
+        repayLoanCircleView.hidden = YES;
+        applyLoanCircleView.hidden = NO;
+    }
+    return;
+    
+    
     repayLoanButton.hidden = YES;
     if ([[NSUserDefaults standardUserDefaults] boolForKey:@"loanIsProcessed"]) {
         [applyLoan setTitle:[NSString stringWithFormat:@"%@\nYour loan request is under process",SAND_CLOCK] forState:UIControlStateNormal];
@@ -157,6 +196,49 @@
 
 - (void)getCreditScore
 {
+    
+    [LOANMACRO getAllLoansWithCompletionBlock:^(id obj) {
+        if (![obj count]) {
+            [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"loanIsProcessed"];
+            [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"loanIsApproved"];
+            [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"readyToApply"];
+        }
+        else{
+            loanObject = [obj lastObject];
+            int loanStatus =[[loanObject valueForKey:@"USRLN_STATUS"] intValue];
+            switch (loanStatus) {
+                case 0: case 3: case 4: case 5:
+                {
+                    //#-- Loan either closed or loan repaid
+                    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"readyToApply"];
+                    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"loanIsApproved"];
+                    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"loanIsProcessed"];
+                    break;
+                }
+                case 1:
+                {
+                    //#-- Loan is processed
+                    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"loanIsProcessed"];
+                    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"readyToApply"];
+                    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"loanIsApproved"];
+                    break;
+                }
+                case 2:
+                {
+                    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"loanIsApproved"];
+                    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"loanIsProcessed"];
+                    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"readyToApply"];
+                    //#-- Loan is approved
+                   break;
+                }
+                default:
+                    break;
+            }
+        }
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        [self updateButtons];
+    }];
+    
     if ([NetworkHelperClass getInternetStatus:NO]) {
         [PROFILEMACRO getUserCreditScore:^(id obj) {
             if ([obj isKindOfClass:[NSDictionary class]]) {
@@ -269,17 +351,17 @@
 
 - (IBAction)repayLoanButton:(id)sender
 {
-    [LOANMACRO loanEligibityForUserCompletion:^(id obj) {
-        if ([obj isKindOfClass:[NSDictionary class]]) {
+//    [LOANMACRO loanEligibityForUserCompletion:^(id obj) {
+//        if ([obj isKindOfClass:[NSDictionary class]]) {
             RepayLoanViewController *repayLoanVC = [self.storyboard instantiateViewControllerWithIdentifier:@"RepayLoanVC"];
-            repayLoanVC.repayObject = obj;
+            repayLoanVC.repayLoanObject = loanObject;
             [self.navigationController pushViewController:repayLoanVC animated:YES];
-        }
-        else{
-            ErrorMessageWithTitle(@"Message", obj);
-        }
-        
-    }];
+//        }
+//        else{
+//            ErrorMessageWithTitle(@"Message", obj);
+//        }
+//        
+//    }];
 }
 
 #pragma mark Navigation Bar Button actions

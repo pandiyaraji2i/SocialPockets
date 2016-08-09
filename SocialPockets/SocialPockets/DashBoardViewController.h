@@ -20,6 +20,7 @@
     IBOutlet UIButton *applyLoan,*repayLoanButton;
     BOOL isVerificationCompleted;
     IBOutlet UIView *scoreBGView;
+    IBOutlet UIView *applyLoanCircleView, *repayLoanCircleView;
 }
 @property (nonatomic, weak) IBOutlet UIButton *pointsButton;
 @end

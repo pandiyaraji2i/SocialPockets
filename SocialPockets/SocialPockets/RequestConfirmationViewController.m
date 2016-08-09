@@ -57,7 +57,7 @@
     if ([NetworkHelperClass getInternetStatus:NO])
     {
         [BANKACCHELPER showAllAccountWithcompletion:^(id obj) {
-            if ([obj isKindOfClass:[NSArray class]]) {
+            if ([obj isKindOfClass:[NSArray class]] && [obj count]) {
                 NSLog( @"Bank Accounts list: %@",obj);
                 [accountArray removeAllObjects];
                 //  obj = [obj filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"(SELF.USRMW_STATUS = 2)"]];
@@ -150,10 +150,10 @@
     return YES;
 }
 
-//- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    return UITableViewCellEditingStyleDelete;
-//}
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return UITableViewCellEditingStyleDelete;
+}
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -260,7 +260,6 @@
             }
         }];
     }
-    
 }
 
 - (IBAction)onPasswordCloseAction:(id)sender
@@ -308,23 +307,23 @@
  // Pass the selected object to the new view controller.
  }
  */
--(NSArray *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    UITableViewRowAction *delete = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault title:@"Delete" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath)
-                                    {
-                                        // Delete something here
-                                    }];
-    delete.backgroundColor = [UIColor redColor];
-    
-    UITableViewRowAction *more = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault title:@" More " handler:^(UITableViewRowAction *action, NSIndexPath *indexPath)
-                                  {
-                                      //Just as an example :
-                                     // [self presentUIAlertControllerActionSheet];
-                                  }];
-    more.backgroundColor = [UIColor colorWithRed:0.188 green:0.514 blue:0.984 alpha:1];
-    
-    return @[delete, more]; //array with all the buttons you want. 1,2,3, etc...
-}
+//-(NSArray *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath {
+//    
+//    UITableViewRowAction *delete = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault title:@"Delete" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath)
+//                                    {
+//                                        // Delete something here
+//                                    }];
+//    delete.backgroundColor = [UIColor redColor];
+//    
+//    UITableViewRowAction *more = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault title:@" More " handler:^(UITableViewRowAction *action, NSIndexPath *indexPath)
+//                                  {
+//                                      //Just as an example :
+//                                     // [self presentUIAlertControllerActionSheet];
+//                                  }];
+//    more.backgroundColor = [UIColor colorWithRed:0.188 green:0.514 blue:0.984 alpha:1];
+//    
+//    return @[delete, more]; //array with all the buttons you want. 1,2,3, etc...
+//}
 
 
 @end
