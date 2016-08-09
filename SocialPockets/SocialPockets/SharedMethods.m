@@ -34,8 +34,8 @@
 
 + (void)showAlertActionWithTitle:(NSString *)title message:(NSString *)message completion:(void (^)(id obj))completionBlock
 {
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Alert"
-                                                                             message:@"Are you want to add FaceBook"
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title
+                                                                             message:message
                                                                       preferredStyle:UIAlertControllerStyleAlert];
     //We add buttons to the alert controller by creating UIAlertActions:
     UIAlertAction *actionOk = [UIAlertAction actionWithTitle:@"Ok"

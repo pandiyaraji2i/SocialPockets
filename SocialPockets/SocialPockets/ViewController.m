@@ -99,6 +99,7 @@
 {
     LoginViewController *loginVc =[self.storyboard instantiateViewControllerWithIdentifier:@"LoginVc"];
     [self.navigationController pushViewController:loginVc animated:YES];
+    
 }
 
 - (IBAction)registerButtonAction:(id)sender

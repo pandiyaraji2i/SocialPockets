@@ -90,6 +90,7 @@
 		FBB3A4F61D4F56E1001A7408 /* TableCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FBB3A4F41D4F56E1001A7408 /* TableCollectionViewCell.m */; };
 		FBB3A4F71D4F56E1001A7408 /* TableCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBB3A4F51D4F56E1001A7408 /* TableCollectionViewCell.xib */; };
 		FBB3A4FA1D4F570B001A7408 /* ManageAccountsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBB3A4F91D4F570B001A7408 /* ManageAccountsViewController.m */; };
+		FBFC66761D58A0480087F50B /* ForgotPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBFC66751D58A0480087F50B /* ForgotPasswordViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -264,6 +265,8 @@
 		FBB3A4F51D4F56E1001A7408 /* TableCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableCollectionViewCell.xib; sourceTree = "<group>"; };
 		FBB3A4F81D4F570B001A7408 /* ManageAccountsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManageAccountsViewController.h; sourceTree = "<group>"; };
 		FBB3A4F91D4F570B001A7408 /* ManageAccountsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManageAccountsViewController.m; sourceTree = "<group>"; };
+		FBFC66741D58A0480087F50B /* ForgotPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgotPasswordViewController.h; sourceTree = "<group>"; };
+		FBFC66751D58A0480087F50B /* ForgotPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgotPasswordViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -543,6 +546,8 @@
 				A38968661D40DE1A00FA8F14 /* LoginViewController.m */,
 				A3C3C83A1D3DF09F00C65B09 /* LoginHelper.h */,
 				A3C3C83B1D3DF09F00C65B09 /* LoginHelper.m */,
+				FBFC66741D58A0480087F50B /* ForgotPasswordViewController.h */,
+				FBFC66751D58A0480087F50B /* ForgotPasswordViewController.m */,
 			);
 			name = Login;
 			sourceTree = "<group>";
@@ -889,6 +894,7 @@
 				A3D65A991D461AD100B47E46 /* CustomNavigationController.m in Sources */,
 				A3B528FA1D49E13000603451 /* SignatureView.m in Sources */,
 				A3B5292B1D49E1F200603451 /* IQPreviousNextView.m in Sources */,
+				FBFC66761D58A0480087F50B /* ForgotPasswordViewController.m in Sources */,
 				A3B529291D49E1F200603451 /* IQTextView.m in Sources */,
 				A3C3C89D1D3F837700C65B09 /* RegistrationViewController.m in Sources */,
 				A3B5292D1D49E1F200603451 /* IQToolbar.m in Sources */,

@@ -9,6 +9,7 @@
 #import "LoginViewController.h"
 #import "DashBoardViewController.h"
 #import "RearViewController.h"
+#import "ForgotPasswordViewController.h"
 #import "AppDelegate.h"
 
 @implementation LoginViewController
@@ -17,7 +18,8 @@
 {
     self.navigationController.navigationBarHidden = NO;
     self.title = @"Login";
-    
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];
+
     userNameTextField.text = @"pandi@gmail.com";
     passwordTextField.text = @"pandi123";
 }
@@ -103,9 +105,9 @@
 
 - (IBAction)forgotPasswordAction:(id)sender
 {
-    [LOGINMACRO forgotPasswordForUser:@"" completion:^(id obj) {
-        
-    }];
+    ForgotPasswordViewController *forgotPasswordVC = [self.storyboard instantiateViewControllerWithIdentifier:@"ForgotPasswordVc"];
+//    [self presentViewController:forgotPasswordVC animated:YES completion:nil];
+    [self.navigationController pushViewController:forgotPasswordVC animated:YES];
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
