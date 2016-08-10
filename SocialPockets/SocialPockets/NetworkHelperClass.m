@@ -97,6 +97,9 @@ static Reachability *reachability;
  */
 +(id)getResponseBasedOnData:(NSData *)responseData response:(NSURLResponse *)response
 {
+    if (response == nil) {
+        return @"Error while send request";
+    }
     NSDictionary *contentType = [(NSHTTPURLResponse *)response allHeaderFields];
     if ([(NSHTTPURLResponse *)response statusCode] ==200) {
         //#-- Response accept type is json
@@ -119,6 +122,9 @@ static Reachability *reachability;
         id responseJson = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingMutableContainers error:nil removingNulls:YES ignoreArrays:NO];
 
         NSString *errorMessageTitle = [responseJson valueForKey:@"message"];
+        if (!errorMessageTitle.length) {
+            errorMessageTitle = [responseJson valueForKey:@"errmessage"];
+        }
         NSString *errorMessage = [[[responseJson valueForKey:@"missing parameters"] valueForKey:USERID] objectAtIndex:0];
         NSLog(@"error message title %@ -- %@",errorMessageTitle,errorMessage);
         if (errorMessageTitle.length) {

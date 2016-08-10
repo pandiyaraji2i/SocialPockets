@@ -33,45 +33,18 @@
     
     
     // Do any additional setup after loading the view.
-    accountArray = [[NSMutableArray alloc] init];
-    accountArray=[@[@{@"USRMW_BANK_NAME" : @"HDFC",
-                      @"USRMW_ACCOUNT_NUMBER" : @"123456789",
-                      @"USRMW_IFSC_CODE": @"HDFC1206",
-                      @"USRMW_ID": @"1",
-                      @"Selected" : [NSNumber numberWithBool:NO]
-                      },
-                    @{@"USRMW_BANK_NAME" : @"Axis",
-                      @"USRMW_ACCOUNT_NUMBER" : @"123456789",
-                      @"USRMW_IFSC_CODE": @"HDFC1206",
-                      @"USRMW_ID": @"2",
-                      @"Selected" : [NSNumber numberWithBool:NO]
-                      },
-                    @{@"USRMW_BANK_NAME" : @"ICICI",
-                      @"USRMW_ACCOUNT_NUMBER" : @"123456789",
-                      @"USRMW_IFSC_CODE": @"HDFC1206",
-                      @"USRMW_ID": @"3",
-                      @"Selected" : [NSNumber numberWithBool:NO]
-                      }
-                    ]mutableCopy];
-    
+    accountArray = [[NSMutableArray alloc] init];    
     if ([NetworkHelperClass getInternetStatus:NO])
     {
         [BANKACCHELPER showAllAccountWithcompletion:^(id obj) {
-            if ([obj isKindOfClass:[NSArray class]] && [obj count]) {
-                NSLog( @"Bank Accounts list: %@",obj);
+            if ([obj isKindOfClass:[NSArray class]]/* && [obj count]*/) {
                 [accountArray removeAllObjects];
-                //  obj = [obj filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"(SELF.USRMW_STATUS = 2)"]];
+//                  obj = [obj filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"USRMW_STATUS == %@", @"1"]];
                 obj = [obj filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"(%K = %@)", @"USRMW_STATUS", @"1"]];
-                
-                //                for (int i=0; i<[obj count]; i++) {
-                //                    if([[[obj objectAtIndex:i] objectForKey:@"USRMW_STATUS"] isEqualToString:@"1"]){
-                //                        [bankAccountArray addObject:[obj objectAtIndex:i]];
-                //                    }
-                //                }
                 [accountArray addObjectsFromArray:obj];
-                NSLog(@"%@",accountArray);
-                [self.accountTableView reloadData];
-                
+                dispatch_async(dispatch_get_main_queue(), ^{
+                     [self.accountTableView reloadData];
+                });
             }
         }];
     }
@@ -157,13 +130,41 @@
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //[BANKACCHELPER deleteBankAccountWithId:USERID modifiedBy:<#(NSString *)#> completion:<#^(id obj)completionBlock#>]
-    if(editingStyle == UITableViewCellEditingStyleDelete){
-    [accountArray removeObjectAtIndex:indexPath.row];
-    [tableView reloadData];
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Message"
+                                                                             message:@"Are you sure want to delete"
+                                                                      preferredStyle:UIAlertControllerStyleAlert];
+    //We add buttons to the alert controller by creating UIAlertActions:
+    UIAlertAction *actionOk = [UIAlertAction actionWithTitle:@"Ok"
+                                                       style:UIAlertActionStyleDefault
+                                                     handler:^(UIAlertAction * _Nonnull action){
+                                                         NSString *selectedBankAccountId = [[accountArray objectAtIndex:indexPath.row] valueForKey:@"USRMW_ID"];
+                                                         [self deleteBankAccount:selectedBankAccountId withIndex:indexPath];
+                                                     }] ;
+    UIAlertAction *actionCancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+    }];
+    [alertController addAction:actionOk];
+    [alertController addAction:actionCancel];
+    [self presentViewController:alertController animated:YES completion:nil];
     }
 }
 
+- (void)deleteBankAccount:(NSString *)bankAccount withIndex:(NSIndexPath *)indexPath
+{
+    [ACTIVITY showActivity:@"Loading..."];
+    [BANKACCHELPER deleteBankAccountWithId:bankAccount completion:^(id obj) {
+        [ACTIVITY performSelectorOnMainThread:@selector(hideActivity) withObject:nil waitUntilDone:YES];
+        if ([obj isKindOfClass:[NSDictionary class]]) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [accountArray removeObjectAtIndex:indexPath.row];
+                [self.accountTableView reloadData];
+            });
+        }else{
+            ErrorMessageWithTitle(@"Message", obj);
+        }
+    }];
+
+}
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 60;
 }
@@ -173,12 +174,13 @@
     
     if((indexPath.row) == accountArray.count)
     {
-        //        AddBankAccountController *addBankAccount = [self.storyboard instantiateViewControllerWithIdentifier:@"AddBankAccount"];
-        //        [self.navigationController pushViewController:addBankAccount animated:YES];
-        //        return;
-        //
-        //       [bankAccountArray insertObject:[@{@"BankName":@"Axis",@"AccountNum":@"126547682354872",@"Selected":[NSNumber numberWithBool:NO]}mutableCopy] atIndex:bankAccountArray.count];
-        //        [tableView reloadData];
+        AddBankAccountController *addBankAccount = [self.storyboard instantiateViewControllerWithIdentifier:@"AddBankAccount"];
+        [self.navigationController pushViewController:addBankAccount animated:YES];
+        addBankAccount.onCreate = ^(id obj)
+        {
+            [accountArray addObject:obj];
+            [tableView reloadData];
+        };
     }
     else{
         
@@ -189,30 +191,9 @@
             }
             previousIndexpath = indexPath;
             [tableView reloadData];
-            //[tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
             bankAccountId = [[accountArray objectAtIndex:indexPath.row] valueForKey:@"USRMW_ID"];
-            
         }
-        
-        
-        
-        
-        
-        //        UITableViewCell *currentCell = [tableView cellForRowAtIndexPath:indexPath];
-        //
-        //        if (previousIndexpath != indexPath) {
-        //            UITableViewCell *prevCell = [tableView cellForRowAtIndexPath:previousIndexpath];
-        //            UIButton *check = (UIButton *)[prevCell.contentView viewWithTag:777];
-        //            [self changeAction:check];
-        //            previousIndexpath = nil;
-        //        }
-        //
-        //        UIButton *check = (UIButton *)[currentCell.contentView viewWithTag:777];
-        //        [self changeAction:check];
-        //        previousIndexpath = indexPath;
     }
-    
-    
 }
 -(void)updateButtonStatusWithIndexPath:(NSIndexPath *)indexpath{
     NSMutableDictionary *SelectedObj = [[accountArray objectAtIndex:indexpath.row] mutableCopy];
@@ -285,6 +266,7 @@
     _acceptance.selected = !_acceptance.selected;
 }
 
+#pragma mark alertview delete
 
 #pragma mark view memory
 - (void)didReceiveMemoryWarning {

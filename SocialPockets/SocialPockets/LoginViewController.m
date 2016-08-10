@@ -30,23 +30,30 @@
         ErrorMessageWithTitle(@"Message", @"Please enter all the fields");
     }
     else {
-        [LOGINMACRO validateUser:userNameTextField.text password:passwordTextField.text completion:^(id obj) {
-            if ([obj isKindOfClass:[NSDictionary class]]) {
-                
-                [[NSUserDefaults standardUserDefaults] setObject:obj forKey:@"USERINFO"];
-                [[NSUserDefaults standardUserDefaults] setObject:[obj valueForKey:@"USER_ID"] forKey:USERID];
-                [[NSUserDefaults standardUserDefaults] setObject:[obj valueForKey:@"USER_NAME"] forKey:USERNAME];
-                [[NSUserDefaults standardUserDefaults] setObject:[obj valueForKey:@"USER_EMAIL"] forKey:USEREMAIL];
-
-                
-                MFSideMenuContainerViewController *container =  [LoginViewController loginSuccessForIOS8:YES userId:[obj valueForKey:@"USER_ID"] fromClass:@"LoginViewController"];
-                [self.navigationController presentViewController:container animated:YES completion:nil];
-            }else{
-                ErrorMessageWithTitle(@"Message", @"Invalid");
-            }
-          
-        }];
+        [ACTIVITY showActivity:@"Loading..."];
+        [self performSelector:@selector(login) withObject:nil afterDelay:1.0];
     }
+}
+
+- (void)login
+{
+    [LOGINMACRO validateUser:userNameTextField.text password:passwordTextField.text completion:^(id obj) {
+        [ACTIVITY performSelectorOnMainThread:@selector(hideActivity) withObject:nil waitUntilDone:YES];
+
+        if ([obj isKindOfClass:[NSDictionary class]]) {
+            
+            [[NSUserDefaults standardUserDefaults] setObject:obj forKey:@"USERINFO"];
+            [[NSUserDefaults standardUserDefaults] setObject:[obj valueForKey:@"USER_ID"] forKey:USERID];
+            [[NSUserDefaults standardUserDefaults] setObject:[obj valueForKey:@"USER_NAME"] forKey:USERNAME];
+            [[NSUserDefaults standardUserDefaults] setObject:[obj valueForKey:@"USER_EMAIL"] forKey:USEREMAIL];
+            
+            
+            MFSideMenuContainerViewController *container =  [LoginViewController loginSuccessForIOS8:YES userId:[obj valueForKey:@"USER_ID"] fromClass:@"LoginViewController"];
+            [self.navigationController presentViewController:container animated:YES completion:nil];
+        }else{
+            ErrorMessageWithTitle(@"Message", obj);
+        }
+    }];
 }
 
 +(MFSideMenuContainerViewController*)loginSuccessForIOS8:(BOOL)animated  userId:(NSString *)userId fromClass:(NSString*)className
@@ -87,7 +94,6 @@
                 [controller popToRootViewControllerAnimated:NO];
                 [controller pushViewController:control animated:YES];
                 [container toggleLeftSideMenuCompletion:^{
-
                 }];
                 
                 

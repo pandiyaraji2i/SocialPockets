@@ -14,6 +14,8 @@
 @interface DashBoardViewController ()
 {
     NSDictionary *loanObject;
+    double red , green, blue;
+    double finalRed , finalGreen, finalBlue;
 }
 @end
 
@@ -23,6 +25,7 @@
     [super viewDidLoad];
     self.title = @"Social Pocket";
     
+   
     //#-- Menu Button
     UIButton *hamburgerMenuButton = [UIButton buttonWithType:UIButtonTypeCustom];
     hamburgerMenuButton.frame = CGRectMake(0, 0, 22, 16);
@@ -54,17 +57,20 @@
         scoreLabelTopConstraint.constant = 0;
         pointsButtonTopConstraint.constant = -30;
         circleViewHeightConstraint.constant = 10;
+        repayCircleViewHeightConstraint.constant = 10;
     }else if (IPHONE5){
         scoreBGHeightConstraint.constant = 60;
         scoreLabelTopConstraint.constant = 10;
         pointsButtonTopConstraint.constant = 0 ;
         circleViewHeightConstraint.constant = 20;
+         repayCircleViewHeightConstraint.constant = 20;
     }
     else{
         scoreBGHeightConstraint.constant = 100;
         scoreLabelTopConstraint.constant = 25;
         pointsButtonTopConstraint.constant = 20;
         circleViewHeightConstraint.constant = 30;
+         repayCircleViewHeightConstraint.constant = 30;
     }
     
     isVerificationCompleted = YES;
@@ -84,7 +90,9 @@
     
     
     [self updateViewConstraints];
-    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [ACTIVITY showActivity:@"Getting Credit score"];
+    });
     [self getCreditScore];
     // Do any additional setup after loading the view.
 }
@@ -152,8 +160,20 @@
         applyLoan.hidden = YES;
         repayLoanButton.hidden = NO;
         //#-- Circle Progress come in
-        repayLoanCircleView.hidden = YES;
-        applyLoanCircleView.hidden = NO;
+        repayLoanCircleView.hidden = NO;
+        applyLoanCircleView.hidden = YES;
+//        repayLoanCircleView.trackFillColor = [self interpolateRGBColorFrom:[UIColor orangeColor] to:[UIColor greenColor] withFraction:1.0];
+        repayLoanCircleView.clockwise = YES;
+        repayLoanCircleView.progress = 0.9;
+        repayLoanCircleView.centerText = [NSString stringWithFormat:@"%@ 5000   Repay Loan 14 Days left",INDIANRUPEES_UNICODE];
+        __weak DashBoardViewController *dashBoardVc= self;
+        __block id loanBlockObject = loanObject;
+        repayLoanCircleView.onClick = ^(NSString* menuTitle)
+        {
+            if (menuTitle.length) {
+                [dashBoardVc repayLoanButton:loanBlockObject];
+            }
+        };
     }
     return;
     
@@ -196,9 +216,16 @@
 
 - (void)getCreditScore
 {
+    [ACTIVITY showActivity:@"Getting Credit score details"];
+    [self performSelector:@selector(getCreditScoreDetails) withObject:nil afterDelay:0.2];
     
-    [LOANMACRO getAllLoansWithCompletionBlock:^(id obj) {
-        if (![obj count]) {
+    
+}
+
+- (void)getCreditScoreDetails
+{
+    [LOANMACRO getUserCurrentLoanStatusWithCompletionBlock:^(id obj) {
+        if ([obj isKindOfClass:[NSString class]] || ![obj count]) {
             [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"loanIsProcessed"];
             [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"loanIsApproved"];
             [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"readyToApply"];
@@ -229,7 +256,7 @@
                     [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"loanIsProcessed"];
                     [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"readyToApply"];
                     //#-- Loan is approved
-                   break;
+                    break;
                 }
                 default:
                     break;
@@ -237,6 +264,8 @@
         }
         [[NSUserDefaults standardUserDefaults] synchronize];
         [self updateButtons];
+        
+        [ACTIVITY performSelectorOnMainThread:@selector(hideActivity) withObject:nil waitUntilDone:YES];
     }];
     
     if ([NetworkHelperClass getInternetStatus:NO]) {
@@ -257,9 +286,7 @@
     }else{
         
     }
-    
 }
-
 - (void)updateCrediScore:(NSString *)creditScore
 {
     if (creditScore.length < 3) {
@@ -269,14 +296,6 @@
     for(int i= length; i>=0; i--) {
         char character = [creditScore characterAtIndex:i];
         NSString *titleStr = [NSString stringWithFormat:@"%c",character];
-//        NSLog(@"%c",character);
-//        CGRect scoreBGRect = scoreBGView.frame;
-//        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-//        button.center = scoreBGView.center;
-//        button.frame = CGRectMake(75,3, 48, 54);
-//        [button setTitle:titleStr forState:UIControlStateNormal];
-//        [button setBackgroundImage:[UIImage imageNamed:@"ScoreBG"] forState:UIControlStateNormal];
-//        [scoreBGView addSubview:button];
         switch ((creditScore.length-1) - i) {
             case 4:
                 [zerothDigitScoreButton setTitle:titleStr forState:UIControlStateNormal];
@@ -298,70 +317,34 @@
         }
     }
 }
-/*
- - (void) evenlySpaceTheseButtonsInThisView : (int) buttonCount : (UIView *) thisView {
-    int widthOfAllButtons = 0;
-    for (int i = 0; i < buttonCount; i++) {
-        UIButton *thisButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [thisButton setBackgroundImage:[UIImage imageNamed:@"ScoreBG"] forState:UIControlStateNormal];
-        [thisButton setTitle:@"1" forState:UIControlStateNormal];
-
-        [thisButton setCenter:CGPointMake(0, thisView.frame.size.height / 2.0)];
-        widthOfAllButtons = widthOfAllButtons + thisButton.frame.size.width;
-    }
-    
-    int spaceBetweenButtons = (thisView.frame.size.width - widthOfAllButtons) / (buttonCount + 1);
-    
-    UIButton *lastButton = nil;
-    for (int i = 0; i < buttonCount; i++) {
-        UIButton *thisButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        if (lastButton == nil) {
-            [thisButton setFrame:CGRectMake(spaceBetweenButtons, thisButton.frame.origin.y, thisButton.frame.size.width, thisButton.frame.size.height)];
-        } else {
-            [thisButton setFrame:CGRectMake(spaceBetweenButtons + lastButton.frame.origin.x + lastButton.frame.size.width, thisButton.frame.origin.y, thisButton.frame.size.width, thisButton.frame.size.height)];
-        }
-        [thisButton setBackgroundImage:[UIImage imageNamed:@"ScoreBG"] forState:UIControlStateNormal];
-        [thisButton setTitle:@"1" forState:UIControlStateNormal];
-        lastButton = thisButton;
-    }
-}
-*/
  #pragma button actions
 - (IBAction)applyLoanAction:(id)sender
 {
-    UIButton *button = sender;
-    if ([button.titleLabel.text rangeOfString:@"under"].length) {
-//        ErrorMessageWithTitle(@"Message", @"Your previous loan request is already processed");
-        return;
-    }
-    
-    
+    [ACTIVITY showActivity:@"Loading..."];
+    [self performSelector:@selector(applyloan) withObject:nil afterDelay:0.2];
+}
+
+- (void)applyloan
+{
     [LOANMACRO loanEligibityForUserCompletion:^(id obj) {
+        [ACTIVITY performSelectorOnMainThread:@selector(hideActivity) withObject:nil waitUntilDone:YES];
         if ([obj isKindOfClass:[NSDictionary class]]) {
-            ApplyLoanViewController *applyLoanVc = [self.storyboard instantiateViewControllerWithIdentifier:@"ApplyLoanVC"];
-            applyLoanVc.loanObject = obj;
-            [self.navigationController pushViewController:applyLoanVc animated:YES];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                ApplyLoanViewController *applyLoanVc = [self.storyboard instantiateViewControllerWithIdentifier:@"ApplyLoanVC"];
+                applyLoanVc.loanObject = obj;
+                [self.navigationController pushViewController:applyLoanVc animated:YES];
+            });
         }
         else{
             ErrorMessageWithTitle(@"Message", obj);
         }
-
     }];
 }
-
 - (IBAction)repayLoanButton:(id)sender
 {
-//    [LOANMACRO loanEligibityForUserCompletion:^(id obj) {
-//        if ([obj isKindOfClass:[NSDictionary class]]) {
-            RepayLoanViewController *repayLoanVC = [self.storyboard instantiateViewControllerWithIdentifier:@"RepayLoanVC"];
-            repayLoanVC.repayLoanObject = loanObject;
-            [self.navigationController pushViewController:repayLoanVC animated:YES];
-//        }
-//        else{
-//            ErrorMessageWithTitle(@"Message", obj);
-//        }
-//        
-//    }];
+    RepayLoanViewController *repayLoanVC = [self.storyboard instantiateViewControllerWithIdentifier:@"RepayLoanVC"];
+    repayLoanVC.repayLoanObject = loanObject;
+    [self.navigationController pushViewController:repayLoanVC animated:YES];
 }
 
 #pragma mark Navigation Bar Button actions
@@ -387,6 +370,23 @@
     [self.navigationController pushViewController:notificationVc animated:YES];
 }
 
+
+#pragma mark color change
+- (UIColor *)interpolateRGBColorFrom:(UIColor *)start to:(UIColor *)end withFraction:(float)f {
+    
+    f = MAX(0, f);
+    f = MIN(1, f);
+    
+    const CGFloat *c1 = CGColorGetComponents(start.CGColor);
+    const CGFloat *c2 = CGColorGetComponents(end.CGColor);
+    
+    CGFloat r = c1[0] + (c2[0] - c1[0]) * f;
+    CGFloat g = c1[1] + (c2[1] - c1[1]) * f;
+    CGFloat b = c1[2] + (c2[2] - c1[2]) * f;
+    CGFloat a = c1[3] + (c2[3] - c1[3]) * f;
+    
+    return [UIColor colorWithRed:r green:g blue:b alpha:a];
+}
 
 
 

@@ -14,12 +14,15 @@
 		6777A4CA1D4A1EE100BF1EC3 /* Calendar_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6777A4C91D4A1EE100BF1EC3 /* Calendar_icon.png */; };
 		6777A4CC1D4A2FF600BF1EC3 /* close_round_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 6777A4CB1D4A2FF600BF1EC3 /* close_round_button.png */; };
 		802EDF43A49A32B470A0D8D8 /* libPods-SocialPockets.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0455716A8E3A563761CB5AAC /* libPods-SocialPockets.a */; };
+		A3083F941D59E1C200476BA3 /* CircleProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = A3083F931D59E1C200476BA3 /* CircleProgressView.m */; };
 		A3253D121D3C9DE90081A59C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A3253D111D3C9DE90081A59C /* main.m */; };
 		A3253D151D3C9DE90081A59C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A3253D141D3C9DE90081A59C /* AppDelegate.m */; };
 		A3253D181D3C9DE90081A59C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3253D171D3C9DE90081A59C /* ViewController.m */; };
 		A3253D1B1D3C9DE90081A59C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3253D191D3C9DE90081A59C /* Main.storyboard */; };
 		A3253D1D1D3C9DE90081A59C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3253D1C1D3C9DE90081A59C /* Assets.xcassets */; };
 		A3253D201D3C9DE90081A59C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3253D1E1D3C9DE90081A59C /* LaunchScreen.storyboard */; };
+		A38823E61D5AF566008042D9 /* ActivityIndicatior.m in Sources */ = {isa = PBXBuildFile; fileRef = A38823E31D5AF566008042D9 /* ActivityIndicatior.m */; };
+		A38823E71D5AF566008042D9 /* MessagePopUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = A38823E51D5AF566008042D9 /* MessagePopUpView.m */; };
 		A389685D1D40DD3F00FA8F14 /* SharedMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = A389685C1D40DD3F00FA8F14 /* SharedMethods.m */; };
 		A38968621D40DDF000FA8F14 /* SocialHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A389685F1D40DDF000FA8F14 /* SocialHelper.m */; };
 		A38968631D40DDF000FA8F14 /* SocialSiteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A38968611D40DDF000FA8F14 /* SocialSiteViewController.m */; };
@@ -130,6 +133,8 @@
 		6777A4C91D4A1EE100BF1EC3 /* Calendar_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Calendar_icon.png; sourceTree = "<group>"; };
 		6777A4CB1D4A2FF600BF1EC3 /* close_round_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close_round_button.png; sourceTree = "<group>"; };
 		853DFEBFFD11370D4A6D76B8 /* Pods-SocialPockets.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialPockets.release.xcconfig"; path = "Pods/Target Support Files/Pods-SocialPockets/Pods-SocialPockets.release.xcconfig"; sourceTree = "<group>"; };
+		A3083F921D59E1C200476BA3 /* CircleProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleProgressView.h; sourceTree = "<group>"; };
+		A3083F931D59E1C200476BA3 /* CircleProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleProgressView.m; sourceTree = "<group>"; };
 		A3253D0D1D3C9DE90081A59C /* SocialPockets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocialPockets.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3253D111D3C9DE90081A59C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A3253D131D3C9DE90081A59C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -140,6 +145,10 @@
 		A3253D1C1D3C9DE90081A59C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A3253D1F1D3C9DE90081A59C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A3253D211D3C9DE90081A59C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A38823E21D5AF566008042D9 /* ActivityIndicatior.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityIndicatior.h; sourceTree = "<group>"; };
+		A38823E31D5AF566008042D9 /* ActivityIndicatior.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityIndicatior.m; sourceTree = "<group>"; };
+		A38823E41D5AF566008042D9 /* MessagePopUpView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessagePopUpView.h; sourceTree = "<group>"; };
+		A38823E51D5AF566008042D9 /* MessagePopUpView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessagePopUpView.m; sourceTree = "<group>"; };
 		A389685B1D40DD3F00FA8F14 /* SharedMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedMethods.h; sourceTree = "<group>"; };
 		A389685C1D40DD3F00FA8F14 /* SharedMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedMethods.m; sourceTree = "<group>"; };
 		A389685E1D40DDF000FA8F14 /* SocialHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialHelper.h; sourceTree = "<group>"; };
@@ -388,6 +397,17 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		A38823E81D5AF569008042D9 /* Activity */ = {
+			isa = PBXGroup;
+			children = (
+				A38823E21D5AF566008042D9 /* ActivityIndicatior.h */,
+				A38823E31D5AF566008042D9 /* ActivityIndicatior.m */,
+				A38823E41D5AF566008042D9 /* MessagePopUpView.h */,
+				A38823E51D5AF566008042D9 /* MessagePopUpView.m */,
+			);
+			name = Activity;
+			sourceTree = "<group>";
+		};
 		A38968641D40DDFD00FA8F14 /* Social accounts */ = {
 			isa = PBXGroup;
 			children = (
@@ -555,6 +575,7 @@
 		A3C3C84B1D3DF1E700C65B09 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				A38823E81D5AF569008042D9 /* Activity */,
 				A3C3C83F1D3DF1E000C65B09 /* NetworkHelperClass.h */,
 				A3C3C8401D3DF1E000C65B09 /* NetworkHelperClass.m */,
 				A3C3C8411D3DF1E000C65B09 /* NSJSONSerialization+RemovingNulls.h */,
@@ -666,6 +687,8 @@
 				A3D65A8A1D4619AF00B47E46 /* DashBoardViewController.m */,
 				A3D65A971D461AD100B47E46 /* CustomNavigationController.h */,
 				A3D65A981D461AD100B47E46 /* CustomNavigationController.m */,
+				A3083F921D59E1C200476BA3 /* CircleProgressView.h */,
+				A3083F931D59E1C200476BA3 /* CircleProgressView.m */,
 			);
 			name = Dashboard;
 			sourceTree = "<group>";
@@ -765,6 +788,7 @@
 				TargetAttributes = {
 					A3253D0C1D3C9DE90081A59C = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 5839GLWA89;
 					};
 					A3C3C8871D3F4AE300C65B09 = {
 						CreatedOnToolsVersion = 7.2;
@@ -916,6 +940,7 @@
 				A3B529231D49E1F200603451 /* IQUITextFieldView+Additions.m in Sources */,
 				A3C3C83C1D3DF09F00C65B09 /* LoginHelper.m in Sources */,
 				A38968621D40DDF000FA8F14 /* SocialHelper.m in Sources */,
+				A3083F941D59E1C200476BA3 /* CircleProgressView.m in Sources */,
 				A3253D151D3C9DE90081A59C /* AppDelegate.m in Sources */,
 				A3C3C8A11D3F86CF00C65B09 /* ProfileViewController.m in Sources */,
 				A3B528F51D49E09B00603451 /* AboutUsViewController.m in Sources */,
@@ -935,9 +960,11 @@
 				A3C3C8481D3DF1E000C65B09 /* NSJSONSerialization+RemovingNulls.m in Sources */,
 				A3B528F21D49DE7200603451 /* ApplyLoanViewController.m in Sources */,
 				FBB3A4FA1D4F570B001A7408 /* ManageAccountsViewController.m in Sources */,
+				A38823E71D5AF566008042D9 /* MessagePopUpView.m in Sources */,
 				A3B529271D49E1F200603451 /* IQKeyboardManager.m in Sources */,
 				A3D65A931D461A5700B47E46 /* MFSideMenuContainerViewController.m in Sources */,
 				A3B528FB1D49E13000603451 /* SignatureViewController.m in Sources */,
+				A38823E61D5AF566008042D9 /* ActivityIndicatior.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1065,6 +1092,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Pandiyaraj M (96HHJQ3XE5)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/SocialPockets",
@@ -1075,8 +1104,9 @@
 				INFOPLIST_FILE = SocialPockets/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ideas2it.SocialPockets;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ideas2it.SocialPocketsDev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -1086,6 +1116,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Pandiyaraj M (96HHJQ3XE5)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/SocialPockets",
@@ -1096,8 +1128,9 @@
 				INFOPLIST_FILE = SocialPockets/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ideas2it.SocialPockets;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ideas2it.SocialPocketsDev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

@@ -27,4 +27,6 @@
 - (void)extnLoanForUserId:(NSString *)loanId completion:(void (^)(id obj))completionBlock;
 
 - (void)statusForExtnUserId:(NSString *)loanId completion:(void (^)(id))completionBlock;
+
+- (void)getUserCurrentLoanStatusWithCompletionBlock:(void(^)(id))completionBlock;
 @end

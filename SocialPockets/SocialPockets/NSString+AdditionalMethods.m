@@ -30,8 +30,8 @@
 
 - (BOOL)isValidPanNumber
 {
-    NSString *emailRegex = @"^[A-Z]{5}[0-9]{4}[A-Z]$";
-    NSPredicate *cardTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
+    NSString *panRegex = @"^[A-Z]{5}[0-9]{4}[A-Z]$";
+    NSPredicate *cardTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", panRegex];
     return [cardTest evaluateWithObject:self];
 }
 @end

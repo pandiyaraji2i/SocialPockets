@@ -24,6 +24,7 @@
 #import "SharedMethods.h"
 #import "SocialHelper.h"
 #import "NetworkHelperClass.h"
+#import "ActivityIndicatior.h"
 
 
 //******************* NSCategory  Classes ***************************//

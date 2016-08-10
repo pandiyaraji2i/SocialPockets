@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
+typedef void(^onCreateAction)(id);
 @interface AddBankAccountController : UIViewController
 @property (weak, nonatomic) IBOutlet UITextField *accountNoTF;
 @property (weak, nonatomic) IBOutlet UITextField *bankNameTF;
 @property (weak, nonatomic) IBOutlet UITextField *IFSCCodeTF;
-
+@property (nonatomic,copy) onCreateAction onCreate;
 @end

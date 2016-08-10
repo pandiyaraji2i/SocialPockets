@@ -7,20 +7,22 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CircleProgressView.h"
 
 @interface DashBoardViewController : UIViewController
 {
     IBOutlet NSLayoutConstraint *scoreLabelTopConstraint;
     IBOutlet NSLayoutConstraint *scoreBGHeightConstraint;
     IBOutlet NSLayoutConstraint *pointsButtonTopConstraint;
-    IBOutlet NSLayoutConstraint *circleViewHeightConstraint;
+    IBOutlet NSLayoutConstraint *circleViewHeightConstraint,*repayCircleViewHeightConstraint;
     IBOutlet UIButton *verificationButton;
     IBOutlet UILabel *pointsCountLabel, * verifyLabel, *timeLabel;
     IBOutlet UIButton *zerothDigitScoreButton, *tenthDigitScoreButton, *hundredDigitScoreButton;
     IBOutlet UIButton *applyLoan,*repayLoanButton;
     BOOL isVerificationCompleted;
     IBOutlet UIView *scoreBGView;
-    IBOutlet UIView *applyLoanCircleView, *repayLoanCircleView;
+    IBOutlet UIView *applyLoanCircleView;
+     IBOutlet CircleProgressView *repayLoanCircleView;
 }
 @property (nonatomic, weak) IBOutlet UIButton *pointsButton;
 @end

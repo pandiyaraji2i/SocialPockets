@@ -13,6 +13,7 @@
     IBOutlet UILabel *loanAmountLabel, *loanInHandAmountLabel,*tenurePeriodLabel;
     IBOutlet UILabel *loanRequestStartDate, *loanRequestEndDate;
     IBOutlet UIButton *okButton;
+    
 }
 @property (nonatomic,strong) NSString *loanAmount, *loanInHandAmount,*tenurePeriod;
 @end

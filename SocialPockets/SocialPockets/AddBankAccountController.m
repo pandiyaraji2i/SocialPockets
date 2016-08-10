@@ -13,7 +13,7 @@
 @end
 
 @implementation AddBankAccountController
-
+@synthesize onCreate;
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"Add Account";
@@ -27,8 +27,19 @@
 
 - (IBAction)nextButtonAction:(id)sender
 {
+    [ACTIVITY showActivity:@"Creating account..."];
     [BANKACCHELPER createBankAccountForUserId:[[NSUserDefaults standardUserDefaults] valueForKey:USERID] bankName:self.bankNameTF.text ifscCode:self.IFSCCodeTF.text accountNumber:self.accountNoTF.text branchName:@"Guindy" createdBy:[[NSUserDefaults standardUserDefaults] valueForKey:USERID] completion:^(id obj) {
-        NSLog(@"account created %@",obj);
+        [ACTIVITY performSelectorOnMainThread:@selector(hideActivity) withObject:nil waitUntilDone:YES];
+        if ([obj isKindOfClass:[NSDictionary class]]) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.navigationController popViewControllerAnimated:YES];
+                if (onCreate) {
+                    onCreate(obj);
+                }
+            });
+        }else{
+            ErrorMessageWithTitle(@"Message", obj);
+        }
     }];
     
 }
