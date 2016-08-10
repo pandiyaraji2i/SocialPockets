@@ -76,9 +76,14 @@
 }
 
 - (IBAction)RepayBtn:(id)sender {
-    self.blackoutview.hidden = NO;
-    self.thanksview.hidden = NO;
-    [ LOANMACRO repayLoan:repayLoanId mobileWallet:mobileWalletId repayAmount:loanRepayAmount completion:^(id obj) {
+    
+    [LOANMACRO repayLoan:repayLoanId mobileWallet:mobileWalletId repayAmount:loanRepayAmount completion:^(id obj) {
+        if ([obj isKindOfClass:[NSDictionary class]]) {
+            self.blackoutview.hidden = NO;
+            self.thanksview.hidden = NO;
+        }else{
+            ErrorMessageWithTitle(@"Message", obj);
+        }
     }];
     self.okButton.layer.borderColor = [UIColor grayColor].CGColor;
     self.okButton.layer.masksToBounds = YES;

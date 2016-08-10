@@ -29,6 +29,7 @@
 
 #define DATEFORMAT @"dd MMM, yy"
 #define LOCALDATETIMEFORMAT @"yyyy-MM-dd HH:mm:ss +0000"
+#define FONT [UIFont fontWithName:@"Gill Sans" size:16.0]
 
 //#--  HTTP HEADERS
 #define GET     @"GET" 
