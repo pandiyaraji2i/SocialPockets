@@ -788,7 +788,7 @@
 				TargetAttributes = {
 					A3253D0C1D3C9DE90081A59C = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = 5839GLWA89;
+						DevelopmentTeam = 9W5W4S5PA3;
 					};
 					A3C3C8871D3F4AE300C65B09 = {
 						CreatedOnToolsVersion = 7.2;
@@ -1093,7 +1093,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Pandiyaraj M (96HHJQ3XE5)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/SocialPockets",
@@ -1117,7 +1117,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Pandiyaraj M (96HHJQ3XE5)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/SocialPockets",

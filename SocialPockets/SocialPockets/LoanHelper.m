@@ -130,7 +130,7 @@ static LoanHelper* _sharedInstance = nil;
     if ([NetworkHelperClass getInternetStatus:NO]) {
         //        NSString *urlString = [NSString stringWithFormat:@"userregistration/%@",[[NSUserDefaults standardUserDefaults] valueForKey:USERID]];
         NSString *urlString = [NSString stringWithFormat:@"showallloansofuser?user_id=%@",[[NSUserDefaults standardUserDefaults] valueForKey:USERID]];
-        [NetworkHelperClass sendAsynchronousRequestToServer:urlString httpMethod:GET requestBody:nil contentType:JSONCONTENTTYPE completion:^(id obj) {
+        [NetworkHelperClass sendAsynchronousRequestToServer:urlString httpMethod:POST requestBody:nil contentType:JSONCONTENTTYPE completion:^(id obj) {
             if (completionBlock) {
                 completionBlock(obj);
             }
