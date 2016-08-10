@@ -112,8 +112,12 @@
                                         <color key="backgroundColor" red="0.87450980389999999" green="0.64313725489999995" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="Hfp-lE-Fwb"/>
-                                            <constraint firstAttribute="width" secondItem="t4Y-bx-R2O" secondAttribute="height" multiplier="10:3" id="e3L-xh-agU"/>
+                                            <constraint firstAttribute="height" constant="40" id="fjI-hX-sWi"/>
+                                            <constraint firstAttribute="width" constant="150" id="lCP-IK-lcl">
+                                                <variation key="heightClass=regular-widthClass=compact" constant="100"/>
+                                            </constraint>
                                         </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                         <state key="normal" title="LOGIN">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -125,13 +129,15 @@
                                         </userDefinedRuntimeAttributes>
                                         <variation key="default">
                                             <mask key="constraints">
-                                                <exclude reference="e3L-xh-agU"/>
+                                                <exclude reference="fjI-hX-sWi"/>
+                                                <exclude reference="lCP-IK-lcl"/>
                                             </mask>
                                         </variation>
                                         <variation key="heightClass=regular-widthClass=compact">
                                             <mask key="constraints">
                                                 <exclude reference="Hfp-lE-Fwb"/>
-                                                <include reference="e3L-xh-agU"/>
+                                                <include reference="fjI-hX-sWi"/>
+                                                <include reference="lCP-IK-lcl"/>
                                             </mask>
                                         </variation>
                                         <connections>
@@ -140,11 +146,15 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u0C-hd-bTn">
                                         <rect key="frame" x="399" y="550" width="166" height="30"/>
-                                        <color key="backgroundColor" red="0.074509803920000006" green="0.50980392159999999" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.12549019607843137" green="0.62745098039215685" blue="0.070588235294117646" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
+                                            <constraint firstAttribute="width" constant="150" id="3AU-x4-Lqk">
+                                                <variation key="heightClass=regular-widthClass=compact" constant="100"/>
+                                            </constraint>
                                             <constraint firstAttribute="height" constant="30" id="GMN-Uf-gf4"/>
-                                            <constraint firstAttribute="width" secondItem="u0C-hd-bTn" secondAttribute="height" multiplier="41:10" id="Ukj-an-UiA"/>
+                                            <constraint firstAttribute="height" constant="40" id="VTx-G7-8HP"/>
                                         </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                         <state key="normal" title="SIGNUP">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -156,13 +166,15 @@
                                         </userDefinedRuntimeAttributes>
                                         <variation key="default">
                                             <mask key="constraints">
-                                                <exclude reference="Ukj-an-UiA"/>
+                                                <exclude reference="3AU-x4-Lqk"/>
+                                                <exclude reference="VTx-G7-8HP"/>
                                             </mask>
                                         </variation>
                                         <variation key="heightClass=regular-widthClass=compact">
                                             <mask key="constraints">
+                                                <include reference="3AU-x4-Lqk"/>
                                                 <exclude reference="GMN-Uf-gf4"/>
-                                                <include reference="Ukj-an-UiA"/>
+                                                <include reference="VTx-G7-8HP"/>
                                             </mask>
                                         </variation>
                                         <connections>
@@ -171,13 +183,11 @@
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="t4Y-bx-R2O" firstAttribute="top" secondItem="ImR-AA-udU" secondAttribute="top" constant="10" id="10o-4k-zJm"/>
                                     <constraint firstAttribute="height" constant="50" id="72f-M4-wZa"/>
                                     <constraint firstAttribute="bottom" secondItem="t4Y-bx-R2O" secondAttribute="bottom" constant="10" id="QY8-67-qS9"/>
                                     <constraint firstAttribute="bottom" secondItem="u0C-hd-bTn" secondAttribute="bottom" constant="10" id="SG0-Ad-IbJ"/>
                                     <constraint firstAttribute="trailing" secondItem="u0C-hd-bTn" secondAttribute="trailing" id="eWD-31-aNY"/>
                                     <constraint firstItem="t4Y-bx-R2O" firstAttribute="leading" secondItem="ImR-AA-udU" secondAttribute="leading" id="emX-hN-nvk"/>
-                                    <constraint firstItem="u0C-hd-bTn" firstAttribute="top" secondItem="ImR-AA-udU" secondAttribute="top" constant="11" id="hRr-br-mqF"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="subviews">
@@ -186,12 +196,10 @@
                                     </mask>
                                     <mask key="constraints">
                                         <exclude reference="72f-M4-wZa"/>
-                                        <exclude reference="10o-4k-zJm"/>
                                         <exclude reference="QY8-67-qS9"/>
                                         <exclude reference="emX-hN-nvk"/>
                                         <exclude reference="SG0-Ad-IbJ"/>
                                         <exclude reference="eWD-31-aNY"/>
-                                        <exclude reference="hRr-br-mqF"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact">
@@ -201,12 +209,10 @@
                                     </mask>
                                     <mask key="constraints">
                                         <include reference="72f-M4-wZa"/>
-                                        <include reference="10o-4k-zJm"/>
                                         <include reference="QY8-67-qS9"/>
                                         <include reference="emX-hN-nvk"/>
                                         <include reference="SG0-Ad-IbJ"/>
                                         <include reference="eWD-31-aNY"/>
-                                        <include reference="hRr-br-mqF"/>
                                     </mask>
                                 </variation>
                             </view>
@@ -397,10 +403,14 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GDV-Ew-NrO">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <color key="backgroundColor" red="0.13183066930000001" green="0.53400967389999998" blue="0.098013150869999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.12549019610000001" green="0.62745098040000002" blue="0.070588235289999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="9i9-V8-4D0"/>
-                                    <constraint firstAttribute="width" constant="60" id="FBq-tj-M7T"/>
+                                    <constraint firstAttribute="height" constant="30" id="9i9-V8-4D0">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="31"/>
+                                    </constraint>
+                                    <constraint firstAttribute="width" constant="60" id="FBq-tj-M7T">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="72"/>
+                                    </constraint>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                 <state key="normal" title="NEXT">
@@ -474,7 +484,9 @@
                                     <constraint firstAttribute="width" constant="121" id="I1U-8P-WJk"/>
                                     <constraint firstAttribute="height" constant="30" id="a8E-oC-YZj"/>
                                 </constraints>
-                                <state key="normal" title="Resend OTP"/>
+                                <state key="normal" title="Resend OTP">
+                                    <color key="titleColor" red="0.14901960780000001" green="0.57647058819999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="I1U-8P-WJk"/>
@@ -1038,12 +1050,16 @@
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Ab-AU-BCM">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <color key="backgroundColor" red="0.094117647060000004" green="0.58039215690000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.12549019610000001" green="0.62745098040000002" blue="0.070588235289999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="oPb-Rf-Hnk"/>
-                                    <constraint firstAttribute="width" constant="73" id="p3e-Jr-5JS"/>
+                                    <constraint firstAttribute="height" constant="30" id="oPb-Rf-Hnk">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="31"/>
+                                    </constraint>
+                                    <constraint firstAttribute="width" constant="73" id="p3e-Jr-5JS">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="72"/>
+                                    </constraint>
                                 </constraints>
-                                <state key="normal" title="Next">
+                                <state key="normal" title="NEXT">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -1219,9 +1235,11 @@
                                 <color key="backgroundColor" red="0.1165952942" green="0.67435267190000003" blue="0.091622806099999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="dKm-kd-A3Q">
-                                        <variation key="heightClass=regular-widthClass=compact" constant="150"/>
+                                        <variation key="heightClass=regular-widthClass=compact" constant="143"/>
                                     </constraint>
-                                    <constraint firstAttribute="height" constant="40" id="hgT-12-v9R"/>
+                                    <constraint firstAttribute="height" constant="40" id="hgT-12-v9R">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="36"/>
+                                    </constraint>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="16"/>
                                 <state key="normal" title="LOGIN">
@@ -1273,7 +1291,9 @@
                                     <constraint firstAttribute="height" constant="30" id="0Ul-KO-S03"/>
                                     <constraint firstAttribute="width" constant="150" id="nzj-HR-Na2"/>
                                 </constraints>
-                                <state key="normal" title="Forgot Password "/>
+                                <state key="normal" title="Forgot Password ">
+                                    <color key="titleColor" red="0.14901960784313725" green="0.57647058823529407" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="0Ul-KO-S03"/>
@@ -1694,12 +1714,14 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bYJ-Bf-NYf">
                                         <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                        <color key="backgroundColor" red="0.12549019610000001" green="0.5568627451" blue="0.090196078430000007" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.12549019610000001" green="0.62745098040000002" blue="0.070588235289999995" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="50" id="38M-ib-no8">
-                                                <variation key="heightClass=regular-widthClass=compact" constant="70"/>
+                                                <variation key="heightClass=regular-widthClass=compact" constant="72"/>
                                             </constraint>
-                                            <constraint firstAttribute="height" constant="30" id="ddJ-UF-q8C"/>
+                                            <constraint firstAttribute="height" constant="30" id="ddJ-UF-q8C">
+                                                <variation key="heightClass=regular-widthClass=compact" constant="31"/>
+                                            </constraint>
                                         </constraints>
                                         <state key="normal" title="NEXT">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2387,14 +2409,17 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QYw-mZ-KnA">
                                 <rect key="frame" x="399" y="550" width="166" height="30"/>
-                                <color key="backgroundColor" red="0.074509803920000006" green="0.50980392159999999" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.12549019607843137" green="0.62745098039215685" blue="0.070588235294117646" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="F0F-ab-Ooz"/>
+                                    <constraint firstAttribute="height" constant="40" id="F0F-ab-Ooz">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="36"/>
+                                    </constraint>
                                     <constraint firstAttribute="width" constant="119" id="gE9-S3-LAZ">
-                                        <variation key="heightClass=regular-widthClass=compact" constant="100"/>
+                                        <variation key="heightClass=regular-widthClass=compact" constant="142"/>
                                     </constraint>
                                     <constraint firstAttribute="height" constant="30" id="hiH-yZ-363"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                 <state key="normal" title="OK">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -2554,14 +2579,17 @@
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p0Y-P3-Doe">
                                 <rect key="frame" x="399" y="550" width="166" height="30"/>
-                                <color key="backgroundColor" red="0.074509803920000006" green="0.50980392159999999" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.12549019610000001" green="0.62745098040000002" blue="0.070588235289999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="119" id="2G1-Mf-7Qq">
-                                        <variation key="heightClass=regular-widthClass=compact" constant="100"/>
+                                        <variation key="heightClass=regular-widthClass=compact" constant="142"/>
                                     </constraint>
-                                    <constraint firstAttribute="height" constant="30" id="ERI-9J-961"/>
+                                    <constraint firstAttribute="height" constant="30" id="ERI-9J-961">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="36"/>
+                                    </constraint>
                                     <constraint firstAttribute="height" constant="30" id="lbW-y4-xtL"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                 <state key="normal" title="NEXT">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -3505,10 +3533,12 @@
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YFF-mI-Idk">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <color key="backgroundColor" red="0.098039215690000001" green="0.55294117649999996" blue="0.08235294118" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.12549019610000001" green="0.62745098040000002" blue="0.070588235289999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="G1u-YU-mii"/>
-                                    <constraint firstAttribute="width" constant="101" id="PSa-B3-Etw"/>
+                                    <constraint firstAttribute="height" constant="30" id="G1u-YU-mii">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="30"/>
+                                    </constraint>
+                                    <constraint firstAttribute="width" constant="72" id="PSa-B3-Etw"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                 <state key="normal" title="REPAY">
@@ -4036,7 +4066,9 @@ Tenure Period</string>
                                     <constraint firstAttribute="width" secondItem="js0-Rd-bMS" secondAttribute="height" multiplier="191:30" id="aNU-er-N1O"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <state key="normal" title="What if I fail to repay?"/>
+                                <state key="normal" title="What if I fail to repay?">
+                                    <color key="titleColor" red="0.14901960780000001" green="0.57647058819999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="aNU-er-N1O"/>
@@ -5127,9 +5159,11 @@ Tenure Period</string>
                                 <color key="backgroundColor" red="0.1165952942" green="0.67435267190000003" blue="0.091622806099999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="Cpv-0u-rfu">
-                                        <variation key="heightClass=regular-widthClass=compact" constant="160"/>
+                                        <variation key="heightClass=regular-widthClass=compact" constant="174"/>
                                     </constraint>
-                                    <constraint firstAttribute="height" constant="40" id="U1x-xa-J6C"/>
+                                    <constraint firstAttribute="height" constant="40" id="U1x-xa-J6C">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="36"/>
+                                    </constraint>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
                                 <state key="normal" title="RESET PASSWORD">
@@ -5477,13 +5511,13 @@ Tenure Period</string>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yyr-iU-uZ3">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <color key="backgroundColor" red="0.098039215690000001" green="0.55294117649999996" blue="0.08235294118" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.12549019610000001" green="0.62745098040000002" blue="0.070588235289999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="60" id="DEY-nQ-Pxm"/>
+                                    <constraint firstAttribute="width" constant="72" id="DEY-nQ-Pxm"/>
                                     <constraint firstAttribute="height" constant="30" id="NsX-Og-2uz"/>
                                 </constraints>
-                                <color key="tintColor" red="0.098039215690000001" green="0.55294117649999996" blue="0.08235294118" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Done">
+                                <color key="tintColor" red="0.12549019610000001" green="0.62745098040000002" blue="0.070588235289999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="DONE">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
