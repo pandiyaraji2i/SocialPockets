@@ -13,9 +13,11 @@
 @property (nonatomic,strong) NSDictionary *repayLoanObject;
 @property (weak, nonatomic) IBOutlet UILabel *loanDueDate;
 @property (weak, nonatomic) IBOutlet UILabel *loanAmount;
+@property (weak, nonatomic) IBOutlet UILabel *loanDetailAmount;
 @property (weak, nonatomic) IBOutlet UILabel *tenurePeriod;
 @property (weak, nonatomic) IBOutlet UILabel *inHandAmount;
 @property (weak, nonatomic) IBOutlet UILabel *processingFeeAmount;
 @property (weak, nonatomic) IBOutlet UILabel *processingFeePercentage;
+@property (weak, nonatomic) IBOutlet UIButton *okButton;
 
 @end

@@ -27,7 +27,7 @@
 #define IPHONE6PLUS_ZOOMED (IS_IPHONE && [[UIScreen mainScreen] bounds].size.height == 667.0 && IS_OS_8_OR_LATER && [UIScreen mainScreen].nativeScale < [UIScreen mainScreen].scale)
 
 
-#define DATEFORMAT @"dd, MMM"
+#define DATEFORMAT @"dd MMM, yy"
 #define LOCALDATETIMEFORMAT @"yyyy-MM-dd HH:mm:ss +0000"
 
 //#--  HTTP HEADERS

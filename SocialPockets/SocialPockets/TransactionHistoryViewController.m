@@ -28,7 +28,8 @@
     
     transData = [[NSMutableArray alloc]init];
     [LOANMACRO getAllLoansWithCompletionBlock:^(id obj) {
-        [transData addObjectsFromArray:[obj objectForKey:@"loan"]];
+//        [transData addObjectsFromArray:[obj objectForKey:@"loan"]];
+        [transData addObjectsFromArray:obj];
         //view update has to happen in main queue
         dispatch_async(dispatch_get_main_queue(), ^{
              [table reloadData];
@@ -90,7 +91,13 @@
     {
         //increses the row size when clicked
         if(isShowingListsec && selectedValueSection == indexPath.section){
-            return 220;
+            if([[[transData objectAtIndex:indexPath.section] objectForKey:@"USRLN_STATUS"] intValue] > 2 ){
+                return 254;
+            }
+            else{
+                return 190;
+            }
+            
         }
         
     }
@@ -123,6 +130,9 @@
     UILabel *creditDate = (UILabel *)[cell viewWithTag:4];
     UILabel *creditAccount = (UILabel *)[cell viewWithTag:5];
     UILabel *loanTenure = (UILabel *)[cell viewWithTag:6];
+    UILabel *repayAmountLbl = (UILabel *)[cell viewWithTag:7];
+    UILabel *repaidDateLbl = (UILabel *)[cell viewWithTag:8];
+    UILabel *receiptIdLbl = (UILabel *)[cell viewWithTag:9];
   
     [loanAmount setText:[NSString stringWithFormat:@"Rs. %@",[[transData objectAtIndex:indexPath.section] objectForKey:@"USRLN_AMOUNT"]]];
     //[loanStatus setText:[[transData objectAtIndex:indexPath.section] objectForKey:@"USRLN_STATUS"]];
@@ -141,25 +151,25 @@
     else{
         [loanStatus setText:[NSString stringWithFormat:@"-----"]];
     }
+    if ([[[transData objectAtIndex:indexPath.section] objectForKey:@"loanrepayment"] isKindOfClass:[NSDictionary class]]){
+        
+        [repayAmountLbl setText:[NSString stringWithFormat:@"%@",[[[transData objectAtIndex:indexPath.section] objectForKey:@"loanrepayment"] objectForKey:@"LOARE_AMOUNT"]]];
+        repaidDateLbl.text =[SharedMethods convertString:[NSString stringWithFormat:@"%@",[[[transData objectAtIndex:indexPath.section] objectForKey:@"loanrepayment"] objectForKey:@"LOARE_CREATED_DATE"]] fromFormat:LOCALDATETIMEFORMAT toFormat:DATEFORMAT] ;
+        [receiptIdLbl setText:[NSString stringWithFormat:@"%@",[[transData objectAtIndex:indexPath.section] objectForKey:@"USRLN_RECEIPT_NUMBER"]]];
+    }
+    else{
+        
+    }
+    
     [amountInHand setText:[[transData objectAtIndex:indexPath.section] objectForKey:@"USRLN_ACTION_AMOUNT"]];
     
-    NSString *cdateStr = [[transData objectAtIndex:indexPath.section] objectForKey:@"USRLN_CREATED_DATE"];
-    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-    [dateFormat setDateFormat:@"yyyy-MM-dd hh:mm:ss"];
-    NSDate *dateStr = [dateFormat dateFromString:cdateStr];
-    [dateFormat setDateFormat:@"dd-MM-yyyy"];
-    NSString *cdate = [dateFormat stringFromDate:dateStr];
-    [creditDate setText:cdate];
-    //[creditDate setText:[[transData objectAtIndex:indexPath.section] objectForKey:@"USRLN_CREATED_DATE"]];
+    creditDate.text=[SharedMethods convertString:[NSString stringWithFormat:@"%@",[[transData objectAtIndex:indexPath.section] objectForKey:@"USRLN_CREATED_DATE"]]fromFormat:LOCALDATETIMEFORMAT toFormat:DATEFORMAT];
+    
     [creditAccount setText:[[transData objectAtIndex:indexPath.section] objectForKey:@"USRLN_MOBWM_ID"]];
     
-    cdateStr = [[transData objectAtIndex:indexPath.section] objectForKey:@"USRLN_TENNURE_DATE"];
-    [dateFormat setDateFormat:@"yyyy-MM-dd hh:mm:ss"];
-    dateStr = [dateFormat dateFromString:cdateStr];
-    [dateFormat setDateFormat:@"dd-MM-yyyy"];
-    cdate = [dateFormat stringFromDate:dateStr];
-    [loanTenure setText:cdate];
-    //[loanTenure setText:[[transData objectAtIndex:indexPath.section] objectForKey:@"USRLN_TENNURE_DATE"]];
+    loanTenure.text = creditDate.text=[SharedMethods convertString:[NSString stringWithFormat:@"%@",[[transData objectAtIndex:indexPath.section] objectForKey:@"USRLN_CREATED_DATE"]]fromFormat:LOCALDATETIMEFORMAT toFormat:DATEFORMAT];
+    
+   
     [cell.textLabel sizeToFit];
     cell.layer.cornerRadius = 10;
     return cell;

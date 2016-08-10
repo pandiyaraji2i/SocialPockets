@@ -10,13 +10,14 @@
 
 @interface RepayLoanViewController ()
 {
-    NSString *repayLoanId;
+    NSString *repayLoanId,*mobileWalletId,*loanRepayAmount;
     
 }
 - (IBAction)RepayBtn:(id)sender;
 @property (weak, nonatomic) IBOutlet UIView *blackoutview;
 @property (weak, nonatomic) IBOutlet UIView *thanksview;
 @property (weak, nonatomic) IBOutlet UIButton *repay;
+
 
 
 @end
@@ -35,29 +36,38 @@
 //    self.processingFeeAmount.text = [NSString stringWithFormat:@"%@%% Processing Fee Deduction",[self.repayObject valueForKey:@"PROCESSING_FEE"]];
 //    self.tenurePeriod.text = [NSString stringWithFormat:@"%@ Days Tenure Period",[self.repayObject valueForKey:@"TENURE_DATE"]];
     
-    self.processingFeeAmount.text = [NSString stringWithFormat:@"6 %% Processing Fee Deduction"];
+    self.processingFeePercentage.text = [NSString stringWithFormat:@"Penalty Amount"];
     self.tenurePeriod.text = [NSString stringWithFormat:@"21 Days Tenure Period"];
     
+    
 //    [LOANMACRO getIndividualLoan:repayLoanId completion:^(id obj) {
+    repayLoanId = [NSString stringWithFormat:@"%@",[repayLoanObject valueForKey:@"USRLN_ID"]];
+    mobileWalletId = [NSString stringWithFormat:@"%@",[repayLoanObject valueForKey:@"USRLN_MOBWM_ID"]];
+    loanRepayAmount = [NSString stringWithFormat:@"%@",[repayLoanObject valueForKey:@"USRLN_ACTION_AMOUNT"]];
     
         self.loanTakenDate.text = [SharedMethods convertString:[NSString stringWithFormat:@"%@",[repayLoanObject valueForKey:@"USRLN_TRANSFERRED_DATE"]] fromFormat:LOCALDATETIMEFORMAT toFormat:DATEFORMAT]; ;
         self.loanDueDate.text =[SharedMethods convertString:[NSString stringWithFormat:@"%@",[repayLoanObject valueForKey:@"USRLN_TENNURE_DATE"]] fromFormat:LOCALDATETIMEFORMAT toFormat:DATEFORMAT] ;
         self.loanAmount.text = [NSString stringWithFormat:@"%@",[repayLoanObject valueForKey:@"USRLN_AMOUNT"]];
-        self.inHandAmount.text = [NSString stringWithFormat:@"%@",[repayLoanObject valueForKey:@"USRLN_AMOUNT"]];
-        
+    self.loanDetailAmount.text = [NSString stringWithFormat:@"%@",[repayLoanObject valueForKey:@"USRLN_ACTION_AMOUNT"]];
+    int amt = 0; // temp value given for additional fee.
+    //int amt = [[repayLoanObject valueForKey:@"USRLN_ACTION_AMOUNT"] intValue];
+    //amt = (amt*6)/100;
+    int inHandAmt = [[repayLoanObject valueForKey:@"USRLN_ACTION_AMOUNT"] intValue];
+    //inHandAmt = inHandAmt-amt;
+    
+    self.inHandAmount.text =[NSString stringWithFormat:@"%d",inHandAmt];
+    self.processingFeeAmount.text =[NSString stringWithFormat:@"%d",amt];
 //    }];
     
 }
 - (IBAction)DoneBtnTapped:(id)sender {
+    
     self.blackoutview.hidden = YES;
     self.thanksview.hidden = YES;
+    [self.navigationController popViewControllerAnimated:YES];
     
 }
-- (IBAction)DismissBtnTapped:(id)sender {
-    self.blackoutview.hidden = YES;
-    self.thanksview.hidden = YES;
-    
-}
+
 
 
 - (void)didReceiveMemoryWarning {
@@ -68,6 +78,10 @@
 - (IBAction)RepayBtn:(id)sender {
     self.blackoutview.hidden = NO;
     self.thanksview.hidden = NO;
+    [ LOANMACRO repayLoan:repayLoanId mobileWallet:mobileWalletId repayAmount:loanRepayAmount completion:^(id obj) {
+    }];
+    self.okButton.layer.borderColor = [UIColor grayColor].CGColor;
+    self.okButton.layer.masksToBounds = YES;
 }
 
 #pragma mark StatusBar Style
