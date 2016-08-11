@@ -93,7 +93,7 @@
     }
     if (indexPath.row == accountArray.count) {
         cell.textLabel.text = @"+ Add new account";
-        cell.textLabel.textColor =[UIColor blueColor];
+        cell.textLabel.textColor =[UIColor colorWithRed:38.0/255.0 green:147.0/255.0 blue:255.0/255.0 alpha:1.0];
         cell.textLabel.textAlignment = NSTextAlignmentCenter;
     }
     else{

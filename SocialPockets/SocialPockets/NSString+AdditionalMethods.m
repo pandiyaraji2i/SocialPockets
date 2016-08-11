@@ -34,4 +34,12 @@
     NSPredicate *cardTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", panRegex];
     return [cardTest evaluateWithObject:self];
 }
+
+- (NSString *)rupeesFormat
+{
+    NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
+    [numberFormatter setNumberStyle: NSNumberFormatterDecimalStyle];
+    NSString *numberAsString = [numberFormatter stringFromNumber:[NSNumber numberWithDouble:[self doubleValue]]];
+    return numberAsString;
+}
 @end

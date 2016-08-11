@@ -41,7 +41,7 @@ static ActivityIndicatior* _sharedInstance = nil;
     
     if (self) {
         
-        UIViewController *topView = [SharedMethods topMostController];
+        UIViewController *topView = [SharedMethods visibleViewController];
         
         if(messageView)[messageView HideActivityIndicator];
         float width = topView.view.frame.size.width - 60;
@@ -63,8 +63,8 @@ static ActivityIndicatior* _sharedInstance = nil;
 - (void)showActivity:(NSString*)message
 {
     dispatch_async(dispatch_get_main_queue(), ^{
-        messageView.loadingLabel.text = @"";
-        UIViewController *topView = [SharedMethods topMostController];
+//        messageView.loadingLabel.text = @"";
+        UIViewController *topView = [SharedMethods visibleViewController];
         topView.view.userInteractionEnabled = NO;
         messageView.hidden = NO;
         messageView.loadingLabel.text = message;
@@ -78,7 +78,7 @@ static ActivityIndicatior* _sharedInstance = nil;
 - (void)hideActivity
 {
 //    dispatch_async(dispatch_get_main_queue(), ^{
-        UIViewController *topView = [SharedMethods topMostController];
+        UIViewController *topView = [SharedMethods visibleViewController];
         topView.view.userInteractionEnabled = YES;
         messageView.hidden = YES;
 //    });

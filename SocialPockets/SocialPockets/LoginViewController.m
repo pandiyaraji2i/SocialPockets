@@ -39,7 +39,7 @@
 {
     [LOGINMACRO validateUser:userNameTextField.text password:passwordTextField.text completion:^(id obj) {
         [ACTIVITY performSelectorOnMainThread:@selector(hideActivity) withObject:nil waitUntilDone:YES];
-
+        
         if ([obj isKindOfClass:[NSDictionary class]]) {
             
             [[NSUserDefaults standardUserDefaults] setObject:obj forKey:@"USERINFO"];
@@ -59,7 +59,7 @@
 +(MFSideMenuContainerViewController*)loginSuccessForIOS8:(BOOL)animated  userId:(NSString *)userId fromClass:(NSString*)className
 {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
-
+    
     RearViewController *rearVc = [storyboard instantiateViewControllerWithIdentifier:@"RearVc"];
     DashBoardViewController *dashboardVc = [storyboard instantiateViewControllerWithIdentifier:@"DashboardVc"];
     CustomNavigationController *controller=[[CustomNavigationController alloc]initWithRootViewController:dashboardVc];
@@ -81,9 +81,9 @@
         }
         else{
             @try {
-               // Push navigation
+                // Push navigation
                 NSString *identifier;
-                if ([menuTitle isEqualToString:@"Terms & Conditions"] || [menuTitle isEqualToString:@"FAQ"] || [menuTitle isEqualToString:@"About SocialPocket"]) {
+                if ([menuTitle isEqualToString:@"Terms & Conditions"] || [menuTitle isEqualToString:@"FAQ"] || [menuTitle isEqualToString:@"About Social Pocket"]) {
                     identifier = @"AboutUs";
                 }
                 else {
@@ -102,7 +102,7 @@
                 NSLog(@"error");
             }
             @finally {
-//                NSLog(@"err");
+                //                NSLog(@"err");
             }
         }
     };
@@ -112,7 +112,7 @@
 - (IBAction)forgotPasswordAction:(id)sender
 {
     ForgotPasswordViewController *forgotPasswordVC = [self.storyboard instantiateViewControllerWithIdentifier:@"ForgotPasswordVc"];
-//    [self presentViewController:forgotPasswordVC animated:YES completion:nil];
+    //    [self presentViewController:forgotPasswordVC animated:YES completion:nil];
     [self.navigationController pushViewController:forgotPasswordVC animated:YES];
 }
 

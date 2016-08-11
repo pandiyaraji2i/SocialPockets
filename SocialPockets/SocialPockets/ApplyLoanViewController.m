@@ -57,7 +57,7 @@
 - (IBAction)nextBtnTapped:(id)sender {
     RequestConfirmationViewController *requestConfirmationVc = [self.storyboard instantiateViewControllerWithIdentifier:@"RequsetConfirmationVc"];
     requestConfirmationVc.loanAmount = self.MainLoanAmt.text;
-    requestConfirmationVc.loanInHandAmount = [self.handAmtLbl.text stringByReplacingOccurrencesOfString:@"Rs. " withString:@""];//self.handAmtLbl.text;
+    requestConfirmationVc.loanInHandAmount = [[self.handAmtLbl.text stringByReplacingOccurrencesOfString:@"Rs. " withString:@""] rupeesFormat];//self.handAmtLbl.text;
     requestConfirmationVc.tenurePeriod = [NSString stringWithFormat:@"%@",[loanObject valueForKey:@"TENURE_DATE"]];
     [self.navigationController pushViewController:requestConfirmationVc animated:YES];
 }
@@ -82,7 +82,7 @@
     _loanAmountLbl.text =  [NSString stringWithFormat:@"Rs. %d",loanAmt];
    _deductionAmtLbl.text =  [NSString stringWithFormat:@"- Rs. %d", (loanAmt/100)*LoanProcessingFeeDetectionPercent];
     _handAmtLbl.text =  [NSString stringWithFormat:@"Rs. %d", (loanAmt-(loanAmt/100)*LoanProcessingFeeDetectionPercent)];
-    _MainLoanAmt.text = [NSString stringWithFormat:@"%d", loanAmt];
+    _MainLoanAmt.text = [[NSString stringWithFormat:@"%d", loanAmt] rupeesFormat];
 
 }
 - (void)sliderTapped:(UIGestureRecognizer *)g {

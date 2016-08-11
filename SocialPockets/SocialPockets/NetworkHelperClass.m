@@ -30,7 +30,7 @@ static Reachability *reachability;
     NSURL *requestUrl=[NSURL URLWithString:urlString]; // encode url if + or some symbols occurs in action name
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:requestUrl];
     request.HTTPMethod = httpMethod;
-    request.timeoutInterval = 300;
+    request.timeoutInterval = 120;
     NSString *jsonString;
     NSError *error;
     if ([contentType isEqualToString:URLENCODEDCONTENTTYPE]) {
@@ -98,7 +98,7 @@ static Reachability *reachability;
 +(id)getResponseBasedOnData:(NSData *)responseData response:(NSURLResponse *)response
 {
     if (response == nil) {
-        return @"Error while send request";
+        return @"Your device is having poor or no connection to connect the server. Please check or reset your connection.";
     }
     NSDictionary *contentType = [(NSHTTPURLResponse *)response allHeaderFields];
     if ([(NSHTTPURLResponse *)response statusCode] ==200) {

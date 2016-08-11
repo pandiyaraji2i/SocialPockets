@@ -71,6 +71,9 @@
     [pageControl addTarget:self action:@selector(changePage:) forControlEvents:UIControlEventValueChanged];
     [subView addSubview:pageControl];
     pageControl.backgroundColor = [UIColor blackColor];
+    
+    //#-- Status Bar Color Change
+    [self setNeedsStatusBarAppearanceUpdate];
    
     // Do any additional setup after loading the view, typically from a nib.
 }

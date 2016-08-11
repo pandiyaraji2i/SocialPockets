@@ -12,4 +12,5 @@
 - (BOOL)isValidEmail;
 - (BOOL)isValidPhoneNumber;
 - (BOOL)isValidPanNumber;
+- (NSString *)rupeesFormat;
 @end

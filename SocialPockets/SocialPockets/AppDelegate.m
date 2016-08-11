@@ -48,6 +48,17 @@
       
     }
     
+    UIUserNotificationSettings *settings =[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert |
+                                           UIUserNotificationTypeBadge | UIUserNotificationTypeSound categories:nil];
+    
+    [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
+    
+    [[UIApplication sharedApplication] registerForRemoteNotifications];
+  
+    if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)])
+    {
+        [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound categories:nil]];
+    }
     return YES;
 }
 
@@ -85,4 +96,34 @@
 }
 
 
+#pragma mark push notifications
+
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
+{
+    //#-- 611730a67c67df645fd30688dbf485906a274a9111e7483ac336d58851990e4d iPhone 5
+    NSString * token = [NSString stringWithFormat:@"%@", deviceToken];
+    //Format token as you need:
+    token = [token stringByReplacingOccurrencesOfString:@" " withString:@""];
+    token = [token stringByReplacingOccurrencesOfString:@">" withString:@""];
+    token = [token stringByReplacingOccurrencesOfString:@"<" withString:@""];
+    
+    [[NSUserDefaults standardUserDefaults] setObject:token forKey:@"appDeviceToken"]; //save token to resend it if request fails
+    //[[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"apnsTokenSentSuccessfully"]; // set flag for request status
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    NSLog(@"Device ID %@",[[[UIDevice currentDevice]identifierForVendor]UUIDString]);
+}
+
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
+{
+    NSLog(@"userInfo -- %@",userInfo);
+//     NSString *pushMessage = [[[userInfo valueForKey:@"aps"] valueForKey:@"alert"] valueForKey:@"loc-key"];
+//    NSLog(@"message --- %@",pushMessage );
+}
+
+- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error
+{
+    NSLog(@"error %@",[error description]);
+}
 @end
