@@ -77,8 +77,15 @@
             <string>Roboto-Medium</string>
             <string>Roboto-Medium</string>
             <string>Roboto-Medium</string>
+            <string>Roboto-Medium</string>
+            <string>Roboto-Medium</string>
+            <string>Roboto-Medium</string>
+            <string>Roboto-Medium</string>
+            <string>Roboto-Medium</string>
+            <string>Roboto-Medium</string>
         </mutableArray>
         <mutableArray key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
             <string>Roboto-Regular</string>
             <string>Roboto-Regular</string>
             <string>Roboto-Regular</string>
@@ -3826,7 +3833,7 @@ Tenure Period</string>
                                     <constraint firstItem="UZ6-nU-yRo" firstAttribute="centerX" secondItem="ebU-d3-XB4" secondAttribute="centerX" id="g6W-zI-eZv"/>
                                     <constraint firstItem="fkE-fp-GxZ" firstAttribute="centerY" secondItem="ua2-To-XgC" secondAttribute="centerY" constant="20" id="j9r-ds-8Ch"/>
                                     <constraint firstItem="Dbb-3T-Wte" firstAttribute="centerX" secondItem="ua2-To-XgC" secondAttribute="centerX" id="rw9-JD-3BQ"/>
-                                    <constraint firstItem="fkE-fp-GxZ" firstAttribute="top" secondItem="Dbb-3T-Wte" secondAttribute="bottom" constant="30" id="wNX-Ah-I2s"/>
+                                    <constraint firstItem="fkE-fp-GxZ" firstAttribute="top" secondItem="Dbb-3T-Wte" secondAttribute="bottom" constant="5" id="wNX-Ah-I2s"/>
                                     <constraint firstItem="fkE-fp-GxZ" firstAttribute="centerX" secondItem="ua2-To-XgC" secondAttribute="centerX" id="xuo-TW-heM"/>
                                 </constraints>
                                 <variation key="default">
@@ -3892,8 +3899,8 @@ Tenure Period</string>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="15" id="OT7-je-UP0"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="12"/>
+                                        <color key="textColor" red="0.32941176470588235" green="0.32941176470588235" blue="0.32941176470588235" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                         <variation key="default">
                                             <mask key="constraints">
@@ -3911,8 +3918,8 @@ Tenure Period</string>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="15" id="dFD-Xx-4KP"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="12"/>
+                                        <color key="textColor" red="0.32941176470588235" green="0.32941176470588235" blue="0.32941176470588235" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                         <variation key="default">
                                             <mask key="constraints">
@@ -3930,15 +3937,16 @@ Tenure Period</string>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="15" id="lLm-hr-spD"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="12"/>
+                                        <color key="textColor" red="0.52941176470588236" green="0.52941176470588236" blue="0.52941176470588236" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                         <variation key="default">
                                             <mask key="constraints">
                                                 <exclude reference="lLm-hr-spD"/>
                                             </mask>
                                         </variation>
-                                        <variation key="heightClass=regular-widthClass=compact">
+                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="267" y="65" width="53" height="15"/>
                                             <mask key="constraints">
                                                 <include reference="lLm-hr-spD"/>
                                             </mask>
@@ -3949,15 +3957,16 @@ Tenure Period</string>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="17" id="2jU-Ok-bcG"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <color key="textColor" red="0.1058823529" green="0.45098039220000002" blue="0.062745098040000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="15"/>
+                                        <color key="textColor" red="0.11764705882352941" green="0.58823529411764708" blue="0.15294117647058825" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                         <variation key="default">
                                             <mask key="constraints">
                                                 <exclude reference="2jU-Ok-bcG"/>
                                             </mask>
                                         </variation>
-                                        <variation key="heightClass=regular-widthClass=compact">
+                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="10" y="90" width="111" height="17"/>
                                             <mask key="constraints">
                                                 <include reference="2jU-Ok-bcG"/>
                                             </mask>
@@ -3968,15 +3977,16 @@ Tenure Period</string>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="15" id="9od-lD-nib"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="12"/>
+                                        <color key="textColor" red="0.52941176470588236" green="0.52941176470588236" blue="0.52941176470588236" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                         <variation key="default">
                                             <mask key="constraints">
                                                 <exclude reference="9od-lD-nib"/>
                                             </mask>
                                         </variation>
-                                        <variation key="heightClass=regular-widthClass=compact">
+                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="266" y="40" width="54" height="15"/>
                                             <mask key="constraints">
                                                 <include reference="9od-lD-nib"/>
                                             </mask>
@@ -3988,8 +3998,8 @@ Tenure Period</string>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="15" id="APN-jz-0yg"/>
                                             <constraint firstAttribute="height" constant="15" id="L2g-LB-5lh"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <color key="textColor" red="0.1058823529" green="0.45098039220000002" blue="0.062745098040000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="15"/>
+                                        <color key="textColor" red="0.11764705882352941" green="0.58823529411764708" blue="0.15294117647058825" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                         <variation key="default">
                                             <mask key="constraints">
@@ -3997,7 +4007,8 @@ Tenure Period</string>
                                                 <exclude reference="L2g-LB-5lh"/>
                                             </mask>
                                         </variation>
-                                        <variation key="heightClass=regular-widthClass=compact">
+                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="255" y="91" width="65" height="15"/>
                                             <mask key="constraints">
                                                 <include reference="APN-jz-0yg"/>
                                                 <include reference="L2g-LB-5lh"/>
@@ -4031,7 +4042,9 @@ Tenure Period</string>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="Dtt-94-D4o" firstAttribute="top" secondItem="LVM-zZ-mB0" secondAttribute="bottom" constant="20" id="1f4-EG-ag4"/>
+                                    <constraint firstItem="Dtt-94-D4o" firstAttribute="top" secondItem="LVM-zZ-mB0" secondAttribute="bottom" constant="20" id="1f4-EG-ag4">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="10"/>
+                                    </constraint>
                                     <constraint firstAttribute="trailing" secondItem="eL6-pT-Rgm" secondAttribute="trailing" constant="20" id="26k-V4-8zf"/>
                                     <constraint firstItem="eL6-pT-Rgm" firstAttribute="trailing" secondItem="v85-KL-Xqt" secondAttribute="trailing" id="2aP-uw-ERH"/>
                                     <constraint firstItem="hDG-OZ-fqx" firstAttribute="centerY" secondItem="Dtt-94-D4o" secondAttribute="centerY" id="4nr-3S-px2"/>
@@ -4119,29 +4132,16 @@ Tenure Period</string>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="js0-Rd-bMS">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="js0-Rd-bMS" secondAttribute="height" multiplier="191:30" id="aNU-er-N1O"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
                                 <state key="normal" title="What if I fail to repay?">
                                     <color key="titleColor" red="0.14901960780000001" green="0.57647058819999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="aNU-er-N1O"/>
-                                    </mask>
-                                </variation>
-                                <variation key="heightClass=regular-widthClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="aNU-er-N1O"/>
-                                    </mask>
-                                </variation>
                             </button>
-                            <view alpha="0.84999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4uu-Ie-42D" userLabel="Blackout View">
+                            <view alpha="0.59999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4uu-Ie-42D" userLabel="Blackout View">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sVD-2n-7Bm" userLabel="Thanks View">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sVD-2n-7Bm" userLabel="Thanks View">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thank You" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BS1-lt-NjD">
@@ -4357,14 +4357,18 @@ Tenure Period</string>
                             <constraint firstItem="YFF-mI-Idk" firstAttribute="centerX" secondItem="JFb-iR-Jps" secondAttribute="centerX" id="RZp-ZM-UFv"/>
                             <constraint firstAttribute="trailing" secondItem="4uu-Ie-42D" secondAttribute="trailing" id="Rb0-Cg-l3j"/>
                             <constraint firstItem="YFF-mI-Idk" firstAttribute="top" secondItem="js0-Rd-bMS" secondAttribute="bottom" constant="60" id="S2e-v3-cnq">
-                                <variation key="heightClass=regular-widthClass=compact" constant="100"/>
+                                <variation key="heightClass=regular-widthClass=compact" constant="30"/>
                             </constraint>
                             <constraint firstAttribute="trailing" secondItem="sVD-2n-7Bm" secondAttribute="trailing" constant="30" id="cLd-5X-BsY"/>
                             <constraint firstItem="js0-Rd-bMS" firstAttribute="centerX" secondItem="JFb-iR-Jps" secondAttribute="centerX" id="e2Q-d3-2Si"/>
                             <constraint firstItem="gnN-82-kdi" firstAttribute="leading" secondItem="JFb-iR-Jps" secondAttribute="leading" id="r40-dT-dSc"/>
                             <constraint firstAttribute="trailing" secondItem="AXC-lp-GW9" secondAttribute="trailing" constant="30" id="ser-tS-vH1"/>
-                            <constraint firstItem="AXC-lp-GW9" firstAttribute="centerY" secondItem="JFb-iR-Jps" secondAttribute="centerY" id="sl3-CH-gW3"/>
-                            <constraint firstItem="sVD-2n-7Bm" firstAttribute="centerY" secondItem="JFb-iR-Jps" secondAttribute="centerY" id="ujn-kv-DQZ"/>
+                            <constraint firstItem="AXC-lp-GW9" firstAttribute="centerY" secondItem="JFb-iR-Jps" secondAttribute="centerY" id="sl3-CH-gW3">
+                                <variation key="heightClass=regular-widthClass=compact" constant="30"/>
+                            </constraint>
+                            <constraint firstItem="sVD-2n-7Bm" firstAttribute="centerY" secondItem="JFb-iR-Jps" secondAttribute="centerY" id="ujn-kv-DQZ">
+                                <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
+                            </constraint>
                             <constraint firstAttribute="trailing" secondItem="ua2-To-XgC" secondAttribute="trailing" id="vRA-Fk-ouN"/>
                             <constraint firstItem="sVD-2n-7Bm" firstAttribute="leading" secondItem="JFb-iR-Jps" secondAttribute="leading" constant="30" id="xgZ-M6-c0m"/>
                         </constraints>
