@@ -51,8 +51,10 @@
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
     cell.textLabel.text = [listArray objectAtIndex:indexPath.row];
-    cell.textLabel.textColor = [UIColor blackColor];
+    cell.textLabel.textColor = [UIColor grayColor];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.textLabel.font = [UIFont fontWithName:@"Roboto" size:14];
+
     return cell;
 }
 
@@ -60,13 +62,15 @@
 {
     if (previousIndexPath && previousIndexPath != indexPath) {
         UITableViewCell *previousCell = [tableView cellForRowAtIndexPath:previousIndexPath];
-        previousCell.textLabel.textColor = [UIColor blackColor];
+        previousCell.textLabel.textColor = [UIColor grayColor];
     }
     
     UITableViewCell *Cell = [tableView cellForRowAtIndexPath:indexPath];
     Cell.textLabel.textColor = [UIColor colorWithRed:32.0/255.0 green:132.0/255.0 blue:37.0/255.0 alpha:1.0];
+    Cell.textLabel.font = [UIFont fontWithName:@"Roboto-Medium" size:14];
+
     previousIndexPath = indexPath;
-    
+
     
     if (self.menu) {
         self.menu([listArray objectAtIndex:indexPath.row]);
@@ -75,36 +79,36 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 120;
+    return 140;
 }
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    UIView *sectionView=[[UIView alloc]initWithFrame:CGRectMake(0, 10, tableView.frame.size.width,100)];
+    UIView *sectionView=[[UIView alloc]initWithFrame:CGRectMake(0, 10, tableView.frame.size.width,120)];
     
     sectionView.backgroundColor=[UIColor whiteColor];
-    UIImageView *tempImage =[[UIImageView alloc]initWithFrame:CGRectMake(17.5, 15, 44,44)];
+    UIImageView *tempImage =[[UIImageView alloc]initWithFrame:CGRectMake(17.5, 10, 69,69)];
     [tempImage.layer setCornerRadius:tempImage.frame.size.width/2.0f];
     [tempImage.layer setMasksToBounds:YES];
-    tempImage.image = [UIImage imageNamed:@"Social.jpg"];
+    tempImage.image = [UIImage imageNamed:@"ProfileImage"];
     tempImage.layer.borderColor = [UIColor lightGrayColor].CGColor;
     tempImage.layer.borderWidth = 1.0;
     tempImage.layer.shadowColor = [UIColor redColor].CGColor;
     [sectionView addSubview:tempImage];
     
-    UILabel *tempLabel =[[UILabel alloc]initWithFrame:CGRectMake(20, CGRectGetMaxY(tempImage.frame), sectionView.frame.size.width-tempImage.frame.size.width-20, 30)];
-    tempLabel.text=[[NSUserDefaults standardUserDefaults] valueForKey:USERNAME];
-    tempLabel.textColor=[UIColor blackColor];
-    tempLabel.font=[UIFont fontWithName:@"Helvetica Neue" size:16];
+    UILabel *nameLabel =[[UILabel alloc]initWithFrame:CGRectMake(20, CGRectGetMaxY(tempImage.frame), sectionView.frame.size.width-tempImage.frame.size.width-20, 30)];
+    nameLabel.text=[[NSUserDefaults standardUserDefaults] valueForKey:USERNAME];
+    nameLabel.textColor=[UIColor blackColor];
+    nameLabel.font=[UIFont fontWithName:@"Roboto-Light" size:15];
     
-    UILabel *emailIdLabel =[[UILabel alloc]initWithFrame:CGRectMake(20, CGRectGetMaxY(tempLabel.frame)-10, sectionView.frame.size.width-tempImage.frame.size.width, 30)];
+    UILabel *emailIdLabel =[[UILabel alloc]initWithFrame:CGRectMake(20, CGRectGetMaxY(nameLabel.frame)-10, sectionView.frame.size.width-tempImage.frame.size.width, 30)];
     emailIdLabel.text=[[NSUserDefaults standardUserDefaults] valueForKey:USEREMAIL];
-    [emailIdLabel setFont:[UIFont fontWithName:@"Helvetica Neue" size:10]];
+    emailIdLabel.font=[UIFont fontWithName:@"Roboto-Medium" size:11];
     emailIdLabel.textColor=[UIColor grayColor];
     [sectionView addSubview:emailIdLabel];
-    [sectionView addSubview:tempLabel];
+    [sectionView addSubview:nameLabel];
     
     UIButton *logoutButton =[UIButton buttonWithType:UIButtonTypeCustom];
-    logoutButton.frame = CGRectMake(sectionView.frame.size.width-40, sectionView.frame.size.height-30,30, 30);
+    logoutButton.frame = CGRectMake(sectionView.frame.size.width-60, 30,30, 30);
     [logoutButton setImage:[UIImage imageNamed:@"LogoutIcon"] forState:UIControlStateNormal];
     [logoutButton addTarget:self action:@selector(logOut) forControlEvents:UIControlEventTouchUpInside];
     [sectionView addSubview:logoutButton];
@@ -114,7 +118,7 @@
     CALayer *border = [CALayer layer];
     border.backgroundColor = [UIColor colorWithRed:204.0/255.0 green:204.0/255.0 blue:204.0/255.0 alpha:1.0].CGColor;
     
-    border.frame = CGRectMake(0, 118, sectionView.frame.size.width, 1);
+    border.frame = CGRectMake(0, 138, sectionView.frame.size.width, 1);
     [sectionView.layer addSublayer:border];
     
 

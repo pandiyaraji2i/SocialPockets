@@ -76,7 +76,8 @@
     isVerificationCompleted = YES;
     if (isVerificationCompleted) {
         //#-- Show apply loan
-        [applyLoan setTitle:[NSString stringWithFormat:@"%@\nApply Loan",INDIANRUPEES_UNICODE] forState:UIControlStateNormal];
+        [applyLoan setTitle:[NSString stringWithFormat:@"%@\nAPPLY LOAN",INDIANRUPEES_UNICODE] forState:UIControlStateNormal];
+        [applyLoan setFont:[UIFont fontWithName:@"Roboto-Medium" size:15]];
         applyLoan.titleLabel.textAlignment = NSTextAlignmentCenter;
         applyLoan.titleLabel.numberOfLines = 0;
         applyLoan.hidden = NO;
@@ -143,7 +144,7 @@
         applyLoan.hidden = NO;
         repayLoanButton.hidden = YES;
         applyLoan.userInteractionEnabled = YES;
-        [applyLoan setTitle:[NSString stringWithFormat:@"%@\nApply Loan",INDIANRUPEES_UNICODE] forState:UIControlStateNormal];
+        [applyLoan setTitle:[NSString stringWithFormat:@"%@\nAPPLY LOAN",INDIANRUPEES_UNICODE] forState:UIControlStateNormal];
     }
     
     if ([[NSUserDefaults standardUserDefaults] boolForKey:@"loanIsProcessed"]) {
@@ -200,7 +201,7 @@
         verificationButton.hidden =NO;
     }*/else if ([[NSUserDefaults standardUserDefaults] boolForKey:@"loanIsCompleted"] || [[NSUserDefaults standardUserDefaults] boolForKey:@"isLoggedFirst"])
     {
-        [applyLoan setTitle:[NSString stringWithFormat:@"%@\nApply Loan",INDIANRUPEES_UNICODE] forState:UIControlStateNormal];
+        [applyLoan setTitle:[NSString stringWithFormat:@"%@\nAPPLY LOAN",INDIANRUPEES_UNICODE] forState:UIControlStateNormal];
         applyLoan.titleLabel.textAlignment = NSTextAlignmentCenter;
         applyLoan.titleLabel.numberOfLines = 0;
         
