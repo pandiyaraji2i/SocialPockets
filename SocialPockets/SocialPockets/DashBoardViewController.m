@@ -66,17 +66,21 @@
         repayCircleViewHeightConstraint.constant = 20;
     }
     else{
-        scoreBGHeightConstraint.constant = 90;
+        scoreBGHeightConstraint.constant = 100;
         scoreLabelTopConstraint.constant = 25;
         pointsButtonTopConstraint.constant = 10;
         circleViewHeightConstraint.constant = 50;
         repayCircleViewHeightConstraint.constant = 50;
+//        zerothLeadingConstraint.constant = hundredthTrailingConstraint.constant =30;
+//        buttonHeightConstraint.constant = 69;
+//        buttonWidthConstraint.constant = 100;
+        
     }
     
     isVerificationCompleted = YES;
     if (isVerificationCompleted) {
         //#-- Show apply loan
-        [applyLoan setTitle:[NSString stringWithFormat:@"%@\nApply Loan",INDIANRUPEES_UNICODE] forState:UIControlStateNormal];
+        [applyLoan setTitle:[NSString stringWithFormat:@"%@\nAPPLY LOAN",INDIANRUPEES_UNICODE] forState:UIControlStateNormal];
         applyLoan.titleLabel.textAlignment = NSTextAlignmentCenter;
         applyLoan.titleLabel.numberOfLines = 0;
         applyLoan.hidden = NO;
@@ -93,7 +97,7 @@
     
     [self setupMenuBarButtonItems];
     
-    [self getCreditScore];
+//    [self getCreditScore];
     // Do any additional setup after loading the view.
 }
 
@@ -248,15 +252,21 @@
         applyLoan.hidden = NO;
         repayLoanButton.hidden = YES;
         applyLoan.userInteractionEnabled = YES;
-        [applyLoan setTitle:[NSString stringWithFormat:@"%@\nAPPLY LOAN",INDIANRUPEES_UNICODE] forState:UIControlStateNormal];
+        [applyLoan setImage:[UIImage imageNamed:@"Rupees"] forState:UIControlStateNormal];
+        [applyLoan setImageEdgeInsets:UIEdgeInsetsMake(-25, 37.5, 0, 0)];
+        [applyLoan setTitleEdgeInsets:UIEdgeInsetsMake(30, -15, 0, 0)];
+        [applyLoan setTitle:[NSString stringWithFormat:@"APPLY LOAN"] forState:UIControlStateNormal];
     }
-    
+//
     if ([[NSUserDefaults standardUserDefaults] boolForKey:@"loanIsProcessed"]) {
         //#-- User requested loan.. and it is processed
         applyLoan.hidden = NO;
         repayLoanButton.hidden = YES;
+//        [applyLoan setImage:[UIImage imageNamed:@"SandClock"] forState:UIControlStateNormal];
+//        [applyLoan setImageEdgeInsets:UIEdgeInsetsMake(-55, 37.5, 0, 0)];
+//        [applyLoan setTitleEdgeInsets:UIEdgeInsetsMake(55, -16, 0, 0)];
+//        [applyLoan setTitle:[NSString stringWithFormat:@"Your loan request is under process"] forState:UIControlStateNormal];
         [applyLoan setTitle:[NSString stringWithFormat:@"%@\nYour loan request is under process",SAND_CLOCK] forState:UIControlStateNormal];
-        applyLoan.titleLabel.font = [UIFont systemFontOfSize:12];
         applyLoan.userInteractionEnabled = NO;
     }
     
