@@ -21,7 +21,7 @@
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];
 
     userNameTextField.text = @"ganeshm@ideas2it.com";
-    passwordTextField.text = @"ODI0MDAy";
+    passwordTextField.text = @"test1234";
 }
 
 - (IBAction)loginButtonAction:(id)sender

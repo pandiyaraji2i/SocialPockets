@@ -120,7 +120,7 @@
     UILabel *titleLbl = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, headerView.frame.size.width, headerView.frame.size.height)];
     titleLbl.text = @"Pick an account to credit the Loan";
     titleLbl.textColor = [UIColor grayColor];
-    titleLbl.font = [UIFont fontWithName:@"Roboto-Light" size:11];
+    titleLbl.font = [UIFont fontWithName:@"Roboto-Light" size:13];
     titleLbl.textAlignment = NSTextAlignmentCenter;
     [headerView addSubview:titleLbl];
     return headerView;
