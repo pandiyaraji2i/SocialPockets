@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9525" systemVersion="15E65" minimumToolsVersion="Xcode 7.0">
+    <entity name="TransactionHistory" representedClassName="TransactionHistory" syncable="YES">
+        <attribute name="loanId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="loanObject" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <relationship name="transctionToUser" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="UserDetails" inverseName="userTransactions" inverseEntity="UserDetails" syncable="YES"/>
+    </entity>
+    <entity name="UserDetails" representedClassName="UserDetails" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="user_eligible_status" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="user_email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="user_name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="user_phone_number" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userId" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="userTransactions" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="TransactionHistory" inverseName="transctionToUser" inverseEntity="TransactionHistory" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="UserDetails" positionX="-63" positionY="-18" width="128" height="148"/>
+        <element name="TransactionHistory" positionX="331" positionY="18" width="128" height="88"/>
+    </elements>
+</model>

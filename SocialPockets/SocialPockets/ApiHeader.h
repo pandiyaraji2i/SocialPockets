@@ -41,4 +41,16 @@
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <TwitterKit/TwitterKit.h>
 
+
+
+//******************* Database classes ***************************//
+
+#import "DatabaseObject.h"
+
+#import "UserProfileObject.h"
+#import "TransactionObjectModel.h"
+
+#import "UserDetails.h"
+#import "TransactionHistory.h"
+
 #endif /* ApiHeader_h */

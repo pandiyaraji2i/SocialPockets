@@ -31,6 +31,13 @@
 #define LOCALDATETIMEFORMAT @"yyyy-MM-dd HH:mm:ss +0000"
 #define FONT [UIFont fontWithName:@"Gill Sans" size:16.0]
 
+// ***** Document Directory Constants ***** //
+#define DOCUMENT_DIRECTORY NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0]
+#define DOCUMENT_DIRECTORY_WITHPATH(path) [SharedMethods documentPathWithPath:path]
+#define DOCUMENT_DIRECTORY_WITHPATHWITHOUTUSERID(path) [DOCUMENT_DIRECTORY stringByAppendingPathComponent:path]
+#define DOCUMENT_DIRECTORY_URL [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject]
+
+
 //#--  HTTP HEADERS
 #define GET     @"GET" 
 #define POST    @"POST"

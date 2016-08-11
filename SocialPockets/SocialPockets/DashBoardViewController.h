@@ -16,6 +16,8 @@
     IBOutlet NSLayoutConstraint *pointsButtonTopConstraint,*zerothLeadingConstraint, *hundredthTrailingConstraint;
     IBOutlet NSLayoutConstraint *circleViewHeightConstraint,*repayCircleViewHeightConstraint;
     IBOutlet NSLayoutConstraint *buttonWidthConstraint, *buttonHeightConstraint;
+    IBOutlet NSLayoutConstraint *tenthDigitScoreButtonWidthConstraint;
+    IBOutlet NSLayoutConstraint *tenthDigitScoreButtonHeightConstraint;
     IBOutlet UIButton *verificationButton;
     IBOutlet UILabel *pointsCountLabel, * verifyLabel, *timeLabel;
     IBOutlet UIButton *zerothDigitScoreButton, *tenthDigitScoreButton, *hundredDigitScoreButton;

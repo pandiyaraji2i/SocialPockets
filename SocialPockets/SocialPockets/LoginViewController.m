@@ -41,19 +41,43 @@
         [ACTIVITY performSelectorOnMainThread:@selector(hideActivity) withObject:nil waitUntilDone:YES];
         
         if ([obj isKindOfClass:[NSDictionary class]]) {
-            
-            [[NSUserDefaults standardUserDefaults] setObject:obj forKey:@"USERINFO"];
-            [[NSUserDefaults standardUserDefaults] setObject:[obj valueForKey:@"USER_ID"] forKey:USERID];
-            [[NSUserDefaults standardUserDefaults] setObject:[obj valueForKey:@"USER_NAME"] forKey:USERNAME];
-            [[NSUserDefaults standardUserDefaults] setObject:[obj valueForKey:@"USER_EMAIL"] forKey:USEREMAIL];
-            
-            
-            MFSideMenuContainerViewController *container =  [LoginViewController loginSuccessForIOS8:YES userId:[obj valueForKey:@"USER_ID"] fromClass:@"LoginViewController"];
-            [self.navigationController presentViewController:container animated:YES completion:nil];
+            [self updateObjectToDatabase:obj];
+//            MFSideMenuContainerViewController *container =  [LoginViewController loginSuccessForIOS8:YES userId:[obj valueForKey:@"USER_ID"] fromClass:@"LoginViewController"];
+//            [self.navigationController presentViewController:container animated:YES completion:nil];
         }else{
             ErrorMessageWithTitle(@"Message", obj);
         }
     }];
+}
+
+- (void)updateObjectToDatabase:(id)obj
+{
+    [[NSUserDefaults standardUserDefaults] setObject:obj forKey:@"USERINFO"];
+    [[NSUserDefaults standardUserDefaults] setObject:[obj valueForKey:@"USER_ID"] forKey:USERID];
+    [[NSUserDefaults standardUserDefaults] setObject:[obj valueForKey:@"USER_NAME"] forKey:USERNAME];
+    [[NSUserDefaults standardUserDefaults] setObject:[obj valueForKey:@"USER_EMAIL"] forKey:USEREMAIL];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    NSString *userId = [NSString stringWithFormat:@"%@",[obj valueForKey:@"USER_ID"]];
+    if (userId.length)
+    {
+        if (USERINFO.userId.length && ![USERINFO.userId isEqualToString:userId]) {
+            [DBPROFILE clearForNewUser];
+            [DATABASE.managedObjectContext deleteObject:USERINFO];
+            DBPROFILE.userInfo=nil;
+        }
+        USERINFO;
+        NSManagedObjectContext *profileContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
+        [profileContext performBlockAndWait:^{
+            profileContext.parentContext = DATABASE.managedObjectContext;
+            UserDetails *tempUser = (id)[profileContext objectWithID:USERINFO.objectID];
+            
+            tempUser.userId = userId;
+            [DBPROFILE generateUserInfo:obj forUser:tempUser.userId];
+            [DATABASE dbSaveRecordChildContext:profileContext];
+            MFSideMenuContainerViewController *container = [LoginViewController loginSuccessForIOS8:YES userId:USERINFO.userId fromClass:@"LoginViewController"];
+            [self.navigationController presentViewController:container animated:YES completion:nil];
+        }];
+    }
 }
 
 +(MFSideMenuContainerViewController*)loginSuccessForIOS8:(BOOL)animated  userId:(NSString *)userId fromClass:(NSString*)className

@@ -25,7 +25,7 @@
     self.table.layer.cornerRadius = 5;
     self.table.backgroundColor = [UIColor clearColor];
     isShowingListsec = NO;
-    
+    [self getTransactionHistory];
     transData = [[NSMutableArray alloc]init];
     [LOANMACRO getAllLoansWithCompletionBlock:^(id obj) {
 //        [transData addObjectsFromArray:[obj objectForKey:@"loan"]];
@@ -56,12 +56,46 @@
     self.table.tableHeaderView = [[UIView alloc] initWithFrame:CGRectZero];
     
     
-    }
+}
+
+
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
    
 
 }
+
+- (void)getTransactionHistory
+{
+    NSDictionary *postDict ;
+    NSArray *array = [TRANSACTHISTORY getAllTransactionHistory];
+//    if (array.count) {
+        postDict = @{@"user_id":[[NSUserDefaults standardUserDefaults] valueForKey:USERID], @"before":@"29"};
+
+//    }else{
+//        postDict = @{@"user_id":[[NSUserDefaults standardUserDefaults] valueForKey:USERID]};
+//    }
+    
+    [TRANSACTHISTORY downloadTransactionHistory:postDict completion:^(id obj) {
+        //        [transData addObjectsFromArray:[obj objectForKey:@"loan"]];
+        [transData addObjectsFromArray:obj];
+        //view update has to happen in main queue
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [table reloadData];
+        });
+    }];
+//    [LOANMACRO getAllLoansWithCompletionBlock:^(id obj) {
+//        //        [transData addObjectsFromArray:[obj objectForKey:@"loan"]];
+//        [transData addObjectsFromArray:obj];
+//        //view update has to happen in main queue
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            [table reloadData];
+//        });
+//    }];
+    
+}
+
+#pragma mark tableview delegate methods
 //increses the section according to data received
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return [transData count];

@@ -42,4 +42,26 @@
     NSString *numberAsString = [numberFormatter stringFromNumber:[NSNumber numberWithDouble:[self doubleValue]]];
     return numberAsString;
 }
+
+- (void)createFolderAtPath {
+    NSFileManager *fileM = [NSFileManager defaultManager];
+    NSEnumerator *enumerator = [self.pathComponents objectEnumerator];
+    NSString *currentpath;
+    NSString *fqn=DOCUMENT_DIRECTORY;
+    BOOL isDir;
+    NSError *error;
+    while ((currentpath = [enumerator nextObject]))
+    {
+        // make the filename |f| a fully qualifed filename
+        fqn = [fqn stringByAppendingPathComponent:currentpath];
+        
+        if (![fileM fileExistsAtPath:fqn isDirectory:&isDir])
+        {
+            // append a / to the end of all directory entries
+            if (!currentpath.pathExtension.length) {
+                [fileM createDirectoryAtPath:fqn withIntermediateDirectories:YES attributes:nil error:&error];
+            }
+        }
+    }
+}
 @end

@@ -106,5 +106,20 @@
     return [cal dateFromComponents:comps];
 }
 
++ (NSString*)documentPathWithPath:(NSString*)path {
+    NSString *pathWithUserId=path;
+    if (USERINFO.userId.length) {
+        if (path.length) {
+            pathWithUserId = [USERINFO.userId stringByAppendingPathComponent:path];
+        }
+        else {
+            pathWithUserId = USERINFO.userId;
+        }
+        
+    }
+    [pathWithUserId createFolderAtPath];
+    return [DOCUMENT_DIRECTORY stringByAppendingPathComponent:pathWithUserId];
+}
+
 
 @end

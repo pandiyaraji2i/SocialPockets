@@ -66,21 +66,28 @@
         repayCircleViewHeightConstraint.constant = 20;
     }
     else{
-        scoreBGHeightConstraint.constant = 100;
+        scoreBGHeightConstraint.constant = 90;
         scoreLabelTopConstraint.constant = 25;
-        pointsButtonTopConstraint.constant = 10;
-        circleViewHeightConstraint.constant = 50;
-        repayCircleViewHeightConstraint.constant = 50;
+        pointsButtonTopConstraint.constant = 30;
+        circleViewHeightConstraint.constant = 60;
+        repayCircleViewHeightConstraint.constant = 60;
 //        zerothLeadingConstraint.constant = hundredthTrailingConstraint.constant =30;
 //        buttonHeightConstraint.constant = 69;
 //        buttonWidthConstraint.constant = 100;
+        tenthDigitScoreButtonHeightConstraint.constant = 69;
+        tenthDigitScoreButtonWidthConstraint.constant = 62;
         
     }
     
     isVerificationCompleted = YES;
     if (isVerificationCompleted) {
         //#-- Show apply loan
-        [applyLoan setTitle:[NSString stringWithFormat:@"%@\nAPPLY LOAN",INDIANRUPEES_UNICODE] forState:UIControlStateNormal];
+        
+        [applyLoan setImage:[UIImage imageNamed:@"Rupees"] forState:UIControlStateNormal];
+        [applyLoan setImageEdgeInsets:UIEdgeInsetsMake(-25, 37.5, 0, 0)];
+        [applyLoan setTitleEdgeInsets:UIEdgeInsetsMake(30, -15, 0, 0)];
+        [applyLoan setTitle:[NSString stringWithFormat:@"APPLY LOAN"] forState:UIControlStateNormal];
+//        [applyLoan setTitle:[NSString stringWithFormat:@"%@\nAPPLY LOAN",INDIANRUPEES_UNICODE] forState:UIControlStateNormal];
         applyLoan.titleLabel.textAlignment = NSTextAlignmentCenter;
         applyLoan.titleLabel.numberOfLines = 0;
         applyLoan.hidden = NO;
@@ -97,7 +104,7 @@
     
     [self setupMenuBarButtonItems];
     
-//    [self getCreditScore];
+    [self getCreditScore];
     // Do any additional setup after loading the view.
 }
 
@@ -174,6 +181,9 @@
         else{
             loanObject = [obj lastObject];
             int loanStatus =[[loanObject valueForKey:@"USRLN_STATUS"] intValue];
+            if ([[loanObject valueForKey:@"loanrepayment"] isKindOfClass:[NSDictionary class]]) {
+                loanStatus = 4;
+            }
             switch (loanStatus) {
                 case 0: case 3: case 4: case 5:
                 {
@@ -204,8 +214,9 @@
             }
         }
         [[NSUserDefaults standardUserDefaults] synchronize];
-        [self updateButtons];
-        
+        dispatch_async(dispatch_get_main_queue(), ^{
+             [self updateButtons];
+        });        
         [ACTIVITY performSelectorOnMainThread:@selector(hideActivity) withObject:nil waitUntilDone:YES];
     }];
     
@@ -262,11 +273,12 @@
         //#-- User requested loan.. and it is processed
         applyLoan.hidden = NO;
         repayLoanButton.hidden = YES;
-//        [applyLoan setImage:[UIImage imageNamed:@"SandClock"] forState:UIControlStateNormal];
-//        [applyLoan setImageEdgeInsets:UIEdgeInsetsMake(-55, 37.5, 0, 0)];
-//        [applyLoan setTitleEdgeInsets:UIEdgeInsetsMake(55, -16, 0, 0)];
+        [applyLoan setImage:nil forState:UIControlStateNormal];
+        [applyLoan setImageEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
+        [applyLoan setTitleEdgeInsets:UIEdgeInsetsMake(0,  0, 0, 0)];
 //        [applyLoan setTitle:[NSString stringWithFormat:@"Your loan request is under process"] forState:UIControlStateNormal];
         [applyLoan setTitle:[NSString stringWithFormat:@"%@\nYour loan request is under process",SAND_CLOCK] forState:UIControlStateNormal];
+        applyLoan.titleLabel.font = [UIFont fontWithName:@"Roboto-Medium" size:13];
         applyLoan.userInteractionEnabled = NO;
     }
     

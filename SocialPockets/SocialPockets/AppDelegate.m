@@ -101,6 +101,7 @@
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
 {
     //#-- 611730a67c67df645fd30688dbf485906a274a9111e7483ac336d58851990e4d iPhone 5
+    //#-- b0c1b40bd9460d91febfd703b8ec0086cddb57a22d1963f31b1a3fa56b1eccc6 iPhone 6
     NSString * token = [NSString stringWithFormat:@"%@", deviceToken];
     //Format token as you need:
     token = [token stringByReplacingOccurrencesOfString:@" " withString:@""];

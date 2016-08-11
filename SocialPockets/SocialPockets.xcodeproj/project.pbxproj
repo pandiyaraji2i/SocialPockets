@@ -21,6 +21,14 @@
 		A3253D1B1D3C9DE90081A59C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3253D191D3C9DE90081A59C /* Main.storyboard */; };
 		A3253D1D1D3C9DE90081A59C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3253D1C1D3C9DE90081A59C /* Assets.xcassets */; };
 		A3253D201D3C9DE90081A59C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3253D1E1D3C9DE90081A59C /* LaunchScreen.storyboard */; };
+		A32FFAD41D5C9BBA00C1A519 /* SocialPockets.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A32FFAD21D5C9BBA00C1A519 /* SocialPockets.xcdatamodeld */; };
+		A32FFADE1D5C9D4700C1A519 /* UserDetails+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = A32FFAD71D5C9D4700C1A519 /* UserDetails+CoreDataProperties.m */; };
+		A32FFADF1D5C9D4700C1A519 /* UserDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = A32FFAD91D5C9D4700C1A519 /* UserDetails.m */; };
+		A32FFAE01D5C9D4700C1A519 /* TransactionHistory+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = A32FFADB1D5C9D4700C1A519 /* TransactionHistory+CoreDataProperties.m */; };
+		A32FFAE11D5C9D4700C1A519 /* TransactionHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = A32FFADD1D5C9D4700C1A519 /* TransactionHistory.m */; };
+		A32FFAE51D5C9D6E00C1A519 /* DatabaseObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A32FFAE41D5C9D6E00C1A519 /* DatabaseObject.m */; };
+		A32FFAE81D5C9F1600C1A519 /* TransactionObjectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A32FFAE71D5C9F1600C1A519 /* TransactionObjectModel.m */; };
+		A32FFAEB1D5CA2E500C1A519 /* UserProfileObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A32FFAEA1D5CA2E500C1A519 /* UserProfileObject.m */; };
 		A38823E61D5AF566008042D9 /* ActivityIndicatior.m in Sources */ = {isa = PBXBuildFile; fileRef = A38823E31D5AF566008042D9 /* ActivityIndicatior.m */; };
 		A38823E71D5AF566008042D9 /* MessagePopUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = A38823E51D5AF566008042D9 /* MessagePopUpView.m */; };
 		A38823ED1D5B7158008042D9 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A38823E91D5B7158008042D9 /* Roboto-Bold.ttf */; };
@@ -149,6 +157,21 @@
 		A3253D1C1D3C9DE90081A59C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A3253D1F1D3C9DE90081A59C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A3253D211D3C9DE90081A59C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A32FFAD31D5C9BBA00C1A519 /* SocialPockets.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SocialPockets.xcdatamodel; sourceTree = "<group>"; };
+		A32FFAD61D5C9D4700C1A519 /* UserDetails+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UserDetails+CoreDataProperties.h"; sourceTree = "<group>"; };
+		A32FFAD71D5C9D4700C1A519 /* UserDetails+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UserDetails+CoreDataProperties.m"; sourceTree = "<group>"; };
+		A32FFAD81D5C9D4700C1A519 /* UserDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDetails.h; sourceTree = "<group>"; };
+		A32FFAD91D5C9D4700C1A519 /* UserDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDetails.m; sourceTree = "<group>"; };
+		A32FFADA1D5C9D4700C1A519 /* TransactionHistory+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TransactionHistory+CoreDataProperties.h"; sourceTree = "<group>"; };
+		A32FFADB1D5C9D4700C1A519 /* TransactionHistory+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TransactionHistory+CoreDataProperties.m"; sourceTree = "<group>"; };
+		A32FFADC1D5C9D4700C1A519 /* TransactionHistory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransactionHistory.h; sourceTree = "<group>"; };
+		A32FFADD1D5C9D4700C1A519 /* TransactionHistory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransactionHistory.m; sourceTree = "<group>"; };
+		A32FFAE31D5C9D6E00C1A519 /* DatabaseObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatabaseObject.h; sourceTree = "<group>"; };
+		A32FFAE41D5C9D6E00C1A519 /* DatabaseObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatabaseObject.m; sourceTree = "<group>"; };
+		A32FFAE61D5C9F1600C1A519 /* TransactionObjectModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransactionObjectModel.h; sourceTree = "<group>"; };
+		A32FFAE71D5C9F1600C1A519 /* TransactionObjectModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransactionObjectModel.m; sourceTree = "<group>"; };
+		A32FFAE91D5CA2E500C1A519 /* UserProfileObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserProfileObject.h; sourceTree = "<group>"; };
+		A32FFAEA1D5CA2E500C1A519 /* UserProfileObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserProfileObject.m; sourceTree = "<group>"; };
 		A38823E21D5AF566008042D9 /* ActivityIndicatior.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityIndicatior.h; sourceTree = "<group>"; };
 		A38823E31D5AF566008042D9 /* ActivityIndicatior.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityIndicatior.m; sourceTree = "<group>"; };
 		A38823E41D5AF566008042D9 /* MessagePopUpView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessagePopUpView.h; sourceTree = "<group>"; };
@@ -365,6 +388,7 @@
 		A3253D0F1D3C9DE90081A59C /* SocialPockets */ = {
 			isa = PBXGroup;
 			children = (
+				A32FFAD51D5C9BFF00C1A519 /* Database */,
 				A38823F11D5B7161008042D9 /* RobotoFonts */,
 				FBB3A4ED1D4F55F9001A7408 /* ManageAccounts */,
 				A3C3C8511D3DFCA700C65B09 /* Categories */,
@@ -404,6 +428,36 @@
 				A3C3C84D1D3DF2A200C65B09 /* SocialPockets-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A32FFAD51D5C9BFF00C1A519 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				A32FFAD21D5C9BBA00C1A519 /* SocialPockets.xcdatamodeld */,
+				A32FFAE31D5C9D6E00C1A519 /* DatabaseObject.h */,
+				A32FFAE41D5C9D6E00C1A519 /* DatabaseObject.m */,
+				A32FFAE91D5CA2E500C1A519 /* UserProfileObject.h */,
+				A32FFAEA1D5CA2E500C1A519 /* UserProfileObject.m */,
+				A32FFAE61D5C9F1600C1A519 /* TransactionObjectModel.h */,
+				A32FFAE71D5C9F1600C1A519 /* TransactionObjectModel.m */,
+				A32FFAE21D5C9D4C00C1A519 /* Entities */,
+			);
+			name = Database;
+			sourceTree = "<group>";
+		};
+		A32FFAE21D5C9D4C00C1A519 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				A32FFAD61D5C9D4700C1A519 /* UserDetails+CoreDataProperties.h */,
+				A32FFAD71D5C9D4700C1A519 /* UserDetails+CoreDataProperties.m */,
+				A32FFAD81D5C9D4700C1A519 /* UserDetails.h */,
+				A32FFAD91D5C9D4700C1A519 /* UserDetails.m */,
+				A32FFADA1D5C9D4700C1A519 /* TransactionHistory+CoreDataProperties.h */,
+				A32FFADB1D5C9D4700C1A519 /* TransactionHistory+CoreDataProperties.m */,
+				A32FFADC1D5C9D4700C1A519 /* TransactionHistory.h */,
+				A32FFADD1D5C9D4700C1A519 /* TransactionHistory.m */,
+			);
+			name = Entities;
 			sourceTree = "<group>";
 		};
 		A38823E81D5AF569008042D9 /* Activity */ = {
@@ -945,13 +999,16 @@
 				FBFC66761D58A0480087F50B /* ForgotPasswordViewController.m in Sources */,
 				A3B529291D49E1F200603451 /* IQTextView.m in Sources */,
 				A3C3C89D1D3F837700C65B09 /* RegistrationViewController.m in Sources */,
+				A32FFADE1D5C9D4700C1A519 /* UserDetails+CoreDataProperties.m in Sources */,
 				A3B5292D1D49E1F200603451 /* IQToolbar.m in Sources */,
 				FBB3A4F11D4F56CA001A7408 /* CollectionTableViewCell.m in Sources */,
 				A3D65A8B1D4619AF00B47E46 /* DashBoardViewController.m in Sources */,
 				A3D65A941D461A5700B47E46 /* MFSideMenuShadow.m in Sources */,
 				A3C3C8491D3DF1E000C65B09 /* NSURLSession+SynchronousTask.m in Sources */,
+				A32FFADF1D5C9D4700C1A519 /* UserDetails.m in Sources */,
 				6777A4C51D4A008C00BF1EC3 /* RequestConfirmationViewController.m in Sources */,
 				A3C3C84A1D3DF1E000C65B09 /* Reachability.m in Sources */,
+				A32FFAE51D5C9D6E00C1A519 /* DatabaseObject.m in Sources */,
 				A3C3C89A1D3F837000C65B09 /* RegistrationModel.m in Sources */,
 				A389685D1D40DD3F00FA8F14 /* SharedMethods.m in Sources */,
 				A3C3C8501D3DF7D500C65B09 /* NSString+AdditionalMethods.m in Sources */,
@@ -960,19 +1017,24 @@
 				671C44471D4094CA000C94A0 /* BankAccHelper.m in Sources */,
 				A3EAA2B41D4762210013A952 /* AddBankAccountController.m in Sources */,
 				A3D65A951D461A5700B47E46 /* UIViewController+MFSideMenuAdditions.m in Sources */,
+				A32FFAD41D5C9BBA00C1A519 /* SocialPockets.xcdatamodeld in Sources */,
+				A32FFAE81D5C9F1600C1A519 /* TransactionObjectModel.m in Sources */,
 				A3C3C8A41D3F86EC00C65B09 /* ProfileModel.m in Sources */,
 				A3B529231D49E1F200603451 /* IQUITextFieldView+Additions.m in Sources */,
 				A3C3C83C1D3DF09F00C65B09 /* LoginHelper.m in Sources */,
 				A38968621D40DDF000FA8F14 /* SocialHelper.m in Sources */,
 				A3083F941D59E1C200476BA3 /* CircleProgressView.m in Sources */,
+				A32FFAE01D5C9D4700C1A519 /* TransactionHistory+CoreDataProperties.m in Sources */,
 				A3253D151D3C9DE90081A59C /* AppDelegate.m in Sources */,
 				A3C3C8A11D3F86CF00C65B09 /* ProfileViewController.m in Sources */,
 				A3B528F51D49E09B00603451 /* AboutUsViewController.m in Sources */,
 				A3B529241D49E1F200603451 /* IQUIView+Hierarchy.m in Sources */,
 				A38968631D40DDF000FA8F14 /* SocialSiteViewController.m in Sources */,
 				A3B529261D49E1F200603451 /* IQUIWindow+Hierarchy.m in Sources */,
+				A32FFAE11D5C9D4700C1A519 /* TransactionHistory.m in Sources */,
 				A3C3C8A71D3F928C00C65B09 /* OTPViewController.m in Sources */,
 				A3B529211D49E1F200603451 /* IQNSArray+Sort.m in Sources */,
+				A32FFAEB1D5CA2E500C1A519 /* UserProfileObject.m in Sources */,
 				A3D65A881D4619A200B47E46 /* RearViewController.m in Sources */,
 				A3B5292C1D49E1F200603451 /* IQTitleBarButtonItem.m in Sources */,
 				A39209751D48E0B600EBCC6F /* NotificationViewController.m in Sources */,
@@ -1213,6 +1275,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		A32FFAD21D5C9BBA00C1A519 /* SocialPockets.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				A32FFAD31D5C9BBA00C1A519 /* SocialPockets.xcdatamodel */,
+			);
+			currentVersion = A32FFAD31D5C9BBA00C1A519 /* SocialPockets.xcdatamodel */;
+			path = SocialPockets.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = A3253D051D3C9DE90081A59C /* Project object */;
 }
