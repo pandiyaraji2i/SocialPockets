@@ -115,7 +115,6 @@
     //    [self presentViewController:forgotPasswordVC animated:YES completion:nil];
     [self.navigationController pushViewController:forgotPasswordVC animated:YES];
 }
-
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     UITouch * touch = [touches anyObject];
     if(touch.phase == UITouchPhaseBegan) {

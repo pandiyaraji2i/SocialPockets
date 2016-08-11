@@ -27,21 +27,38 @@
 
 - (IBAction)nextButtonAction:(id)sender
 {
-    [ACTIVITY showActivity:@"Creating account..."];
-    [BANKACCHELPER createBankAccountForUserId:[[NSUserDefaults standardUserDefaults] valueForKey:USERID] bankName:self.bankNameTF.text ifscCode:self.IFSCCodeTF.text accountNumber:self.accountNoTF.text branchName:@"Guindy" createdBy:[[NSUserDefaults standardUserDefaults] valueForKey:USERID] completion:^(id obj) {
-        [ACTIVITY performSelectorOnMainThread:@selector(hideActivity) withObject:nil waitUntilDone:YES];
-        if ([obj isKindOfClass:[NSDictionary class]]) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self.navigationController popViewControllerAnimated:YES];
-                if (onCreate) {
-                    onCreate(obj);
-                }
-            });
-        }else{
-            ErrorMessageWithTitle(@"Message", obj);
-        }
-    }];
+    if (self.accountNoTF.text.length>0 && self.bankNameTF.text.length>0  &&self.IFSCCodeTF.text.length>0) {
+        [ACTIVITY showActivity:@"Creating account..."];
+        [BANKACCHELPER createBankAccountForUserId:[[NSUserDefaults standardUserDefaults] valueForKey:USERID] bankName:self.bankNameTF.text ifscCode:self.IFSCCodeTF.text accountNumber:self.accountNoTF.text branchName:@"Guindy" createdBy:[[NSUserDefaults standardUserDefaults] valueForKey:USERID] completion:^(id obj) {
+            [ACTIVITY performSelectorOnMainThread:@selector(hideActivity) withObject:nil waitUntilDone:YES];
+            if ([obj isKindOfClass:[NSDictionary class]]) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self.navigationController popViewControllerAnimated:YES];
+                    if (onCreate) {
+                        onCreate(obj);
+                    }
+                });
+            }else{
+                ErrorMessageWithTitle(@"Message", obj);
+            }
+        }];
+
+    }else{
+        ErrorMessageWithTitle(@"Message", @"Fields are empty");
+    }
     
+}
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    UITouch * touch = [touches anyObject];
+    if(touch.phase == UITouchPhaseBegan) {
+        [self.view endEditing:YES];
+    }
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [self.view endEditing:YES];
+    return YES;
 }
 
 #pragma mark StatusBar Style

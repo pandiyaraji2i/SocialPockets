@@ -21,6 +21,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *deductionAmtLbl;
 @property (weak, nonatomic) IBOutlet UILabel *handAmtLbl;
 @property (weak, nonatomic) IBOutlet UILabel *MainLoanAmt;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *proFeeHeightConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *proFeeWidthConstraint;
 
 @end
 
@@ -29,6 +31,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    if (IPHONE6_ZOOMED || IPHONE6_STANDARD || IPHONE6PLUS_ZOOMED || IPHONE6PLUS_STANDARD) {
+        self.proFeeWidthConstraint.constant = 160;
+        self.proFeeHeightConstraint.constant = 15;
+    }else{
+        self.proFeeWidthConstraint.constant = 105;
+        self.proFeeHeightConstraint.constant = 35;
+    }
     // Do any additional setup after loading the view.
     
     float maxLoanAmount = [[loanObject objectForKey:@"MAXIMUM_LOAN_AMOUNT"] floatValue];

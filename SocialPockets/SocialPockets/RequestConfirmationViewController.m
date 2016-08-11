@@ -58,6 +58,7 @@
     [self setNeedsStatusBarAppearanceUpdate];
     
     [self updateLabels];
+    self.accountTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
 }
 
@@ -93,17 +94,18 @@
     }
     if (indexPath.row == accountArray.count) {
         cell.textLabel.text = @"+ Add new account";
+        cell.textLabel.font = [UIFont fontWithName:@"Roboto-Medium" size:13];
         cell.textLabel.textColor =[UIColor colorWithRed:38.0/255.0 green:147.0/255.0 blue:255.0/255.0 alpha:1.0];
         cell.textLabel.textAlignment = NSTextAlignmentCenter;
     }
     else{
         UILabel *titlename = (UILabel *)[cell.contentView viewWithTag:999];
-        
+
         titlename.text = [[accountArray objectAtIndex:indexPath.row] objectForKey:@"USRMW_BANK_NAME"];
         UILabel *subtitlename = (UILabel *)[cell.contentView viewWithTag:888];
+
         
         subtitlename.text = [[accountArray objectAtIndex:indexPath.row] objectForKey:@"USRMW_ACCOUNT_NUMBER"];
-        
         cell.textLabel.textAlignment = NSTextAlignmentCenter;
         
         UIButton *check = (UIButton *)[cell.contentView viewWithTag:777];
@@ -112,6 +114,18 @@
     }
     return cell;
 }
+
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.accountTableView.frame.size.width, 40)];
+    UILabel *titleLbl = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, headerView.frame.size.width, headerView.frame.size.height)];
+    titleLbl.text = @"Pick an account to credit the Loan";
+    titleLbl.textColor = [UIColor grayColor];
+    titleLbl.font = [UIFont fontWithName:@"Roboto-Light" size:11];
+    titleLbl.textAlignment = NSTextAlignmentCenter;
+    [headerView addSubview:titleLbl];
+    return headerView;
+}
+
 //- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
 //    return YES;
 //}

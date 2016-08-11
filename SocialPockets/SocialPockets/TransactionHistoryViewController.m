@@ -9,7 +9,7 @@
 #import "TransactionHistoryViewController.h"
 
 @interface TransactionHistoryViewController ()<UITableViewDelegate,UITableViewDataSource>{
-    NSIndexPath *currentIndex;
+    NSIndexPath *currentIndex,*previousIndexpath;
    }
 @end
 
@@ -177,10 +177,15 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+    if (previousIndexpath!=indexPath) {
+        isShowingListsec = YES;
+    }else{
         isShowingListsec = !isShowingListsec;//makes value true or false
+    }
     selectedValueSection = indexPath.section;
-    [table reloadSections:[NSIndexSet indexSetWithIndex:(indexPath.item)] withRowAnimation:UITableViewRowAnimationFade];
+    previousIndexpath = indexPath;
+    [table reloadData];
+//    [table reloadSections:[NSIndexSet indexSetWithIndex:(indexPath.item)] withRowAnimation:UITableViewRowAnimationFade];
 }
 
 - (void)didReceiveMemoryWarning {

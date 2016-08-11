@@ -64,13 +64,15 @@
     
     UILabel *titleLabel = (id)[cell.contentView viewWithTag:1];
     titleLabel.text = @"You have earned 500 points";
+    titleLabel.font = [UIFont fontWithName:@"Roboto-Medium" size:15];
     
     UILabel *descriptionLabel  = (id)[cell.contentView viewWithTag:2];
     descriptionLabel.text = @"Repayed loan amount 13 days earlier to the tenure period.";
+    descriptionLabel.font = [UIFont fontWithName:@"Roboto-Light" size:12];
     
     UILabel *timeLabel = (id)[cell.contentView viewWithTag:3];
     timeLabel.text = @"5 mins ago";
-    
+    timeLabel.font = [UIFont fontWithName:@"Roboto-Light" size:12];
     
     cell.backgroundColor = [UIColor clearColor];
     return cell;
