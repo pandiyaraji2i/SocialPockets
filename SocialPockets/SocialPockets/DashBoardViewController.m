@@ -24,6 +24,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"Social Pocket";
+    //    //#-- Menu Button
+    
     
     
     //    //#-- Menu Button
@@ -105,6 +107,7 @@
 //    [self setupMenuBarButtonItems];
     
     [self getCreditScore];
+    [self setDeviceDetail];
     // Do any additional setup after loading the view.
 }
 
@@ -156,7 +159,13 @@
     [self updateButtons];
 }
 
+#pragma mark set device detail
 
+- (void)setDeviceDetail{
+    [LOGINMACRO setDeviceForId:USERID completion:^(id obj) {
+        NSLog(@"%@",obj);
+    }];
+}
 
 
 

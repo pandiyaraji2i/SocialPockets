@@ -76,6 +76,33 @@ static LoginHelper* _sharedInstance = nil;
         }
     }
 }
+/**
+ *  To Set Device Token & Device ID for the user
+ *
+ *  @param userId          User id
+ *  @param completionBlock sends the device id and token in the serverfor userid
+ */
+- (void)setDeviceForId:(NSString *)userId completion:(void (^)(id obj))completionBlock
+{
+    if ([NetworkHelperClass getInternetStatus:YES]) {
+        NSLog(@"user id %@",[[NSUserDefaults standardUserDefaults] valueForKey:USERID]);
+        NSLog(@"device Token  %@",[[NSUserDefaults standardUserDefaults] valueForKey:@"deviceId"]);
+
+        NSLog(@"app token  id %@",[[NSUserDefaults standardUserDefaults] valueForKey:@"appDeviceToken"]);
+        NSMutableDictionary *dict = [@{@"user_id":[[NSUserDefaults standardUserDefaults] valueForKey:USERID],@"device_type":@"1",@"device_id":[[NSUserDefaults standardUserDefaults] objectForKey:@"deviceId"],@"device_status":@"1",@"device_token":[[NSUserDefaults standardUserDefaults] objectForKey:@"appDeviceToken"],@"created_by":[[NSUserDefaults standardUserDefaults] valueForKey:USERID],@"modified_by":[[NSUserDefaults standardUserDefaults] valueForKey:USERID]} mutableCopy];
+        id successObject = [NetworkHelperClass sendSynchronousRequestToServer:@"createdevice" httpMethod:POST requestBody:dict contentType:JSONCONTENTTYPE];
+        if (successObject) {
+            if (completionBlock) {
+                completionBlock(successObject);
+            }
+        }
+    }
+    else{
+        if (completionBlock) {
+            completionBlock(nil);
+        }
+    }
+}
 
 /**
  *  Send Push Access token to server For PUSH NOTIFICAITONS

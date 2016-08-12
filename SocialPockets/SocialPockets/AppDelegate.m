@@ -112,7 +112,9 @@
     //[[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"apnsTokenSentSuccessfully"]; // set flag for request status
     [[NSUserDefaults standardUserDefaults] synchronize];
     
-    NSLog(@"Device ID %@",[[[UIDevice currentDevice]identifierForVendor]UUIDString]);
+    [[NSUserDefaults standardUserDefaults] setObject:[[[UIDevice currentDevice]identifierForVendor]UUIDString] forKey:@"deviceId"];
+    
+//    NSLog(@"Device ID %@",[[[UIDevice currentDevice]identifierForVendor]UUIDString]);
 }
 
 

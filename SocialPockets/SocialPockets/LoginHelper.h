@@ -15,5 +15,6 @@
 - (void)validateUser:(NSString *)userName password:(NSString *)password completion:(void (^)(id obj))completionBlock;
 - (void)forgotPasswordForUser:(NSString *)userName  completion:(void (^)(id obj))completionBlock;
 - (void)sendPushAccessTokenToServer:(NSString *)pushAccessToken deviceId:(NSString *)deviceId compleiton:(void(^)(id obj))completionBlock;
+- (void)setDeviceForId:(NSString *)userId completion:(void (^)(id obj))completionBlock;
 
 @end
