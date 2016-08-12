@@ -227,7 +227,7 @@
         
         [creditAccount setText:[loanObject objectForKey:@"USRLN_MOBWM_ID"]];
         
-        loanTenure.text = creditDate.text=[SharedMethods convertString:[NSString stringWithFormat:@"%@",loanObject]fromFormat:LOCALDATETIMEFORMAT toFormat:DATEFORMAT];
+        loanTenure.text = [SharedMethods convertString:[NSString stringWithFormat:@"%@",[loanObject objectForKey:@"USRLN_TENNURE_DATE"]]fromFormat:LOCALDATETIMEFORMAT toFormat:DATEFORMAT];
         
         
         [cell.textLabel sizeToFit];
