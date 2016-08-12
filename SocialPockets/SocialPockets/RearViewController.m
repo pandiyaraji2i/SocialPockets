@@ -63,6 +63,7 @@
     if (previousIndexPath && previousIndexPath != indexPath) {
         UITableViewCell *previousCell = [tableView cellForRowAtIndexPath:previousIndexPath];
         previousCell.textLabel.textColor = [UIColor grayColor];
+        previousCell.textLabel.font = [UIFont fontWithName:@"Roboto" size:14];
     }
     
     UITableViewCell *Cell = [tableView cellForRowAtIndexPath:indexPath];

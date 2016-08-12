@@ -110,8 +110,9 @@
         
         UIButton *check = (UIButton *)[cell.contentView viewWithTag:777];
         check.selected = [[[accountArray objectAtIndex:indexPath.row] valueForKey:@"Selected"] boolValue];
-        
+    
     }
+    cell.selectionStyle = UITableViewCellSeparatorStyleNone;
     return cell;
 }
 

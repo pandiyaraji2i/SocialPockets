@@ -36,27 +36,25 @@
 //    self.processingFeeAmount.text = [NSString stringWithFormat:@"%@%% Processing Fee Deduction",[self.repayObject valueForKey:@"PROCESSING_FEE"]];
 //    self.tenurePeriod.text = [NSString stringWithFormat:@"%@ Days Tenure Period",[self.repayObject valueForKey:@"TENURE_DATE"]];
     
-    self.processingFeePercentage.text = [NSString stringWithFormat:@"Penalty Amount"];
+    self.processingFeePercentage.text = [NSString stringWithFormat:@"6%% Processing Fee"];
     self.tenurePeriod.text = [NSString stringWithFormat:@"21 Days Tenure Period"];
     
     
 //    [LOANMACRO getIndividualLoan:repayLoanId completion:^(id obj) {
     repayLoanId = [NSString stringWithFormat:@"%@",[repayLoanObject valueForKey:@"USRLN_ID"]];
     mobileWalletId = [NSString stringWithFormat:@"%@",[repayLoanObject valueForKey:@"USRLN_MOBWM_ID"]];
-    loanRepayAmount = [NSString stringWithFormat:@"%@",[repayLoanObject valueForKey:@"USRLN_ACTION_AMOUNT"]];
-    
+    loanRepayAmount = [NSString stringWithFormat:@"%@",[repayLoanObject valueForKey:@"USRLN_AMOUNT"]];
+    int processingFee = [loanRepayAmount intValue];
+    processingFee = (processingFee * 6)/100;
         self.loanTakenDate.text = [SharedMethods convertString:[NSString stringWithFormat:@"%@",[repayLoanObject valueForKey:@"USRLN_TRANSFERRED_DATE"]] fromFormat:LOCALDATETIMEFORMAT toFormat:DATEFORMAT]; ;
         self.loanDueDate.text =[SharedMethods convertString:[NSString stringWithFormat:@"%@",[repayLoanObject valueForKey:@"USRLN_TENNURE_DATE"]] fromFormat:LOCALDATETIMEFORMAT toFormat:DATEFORMAT] ;
-        self.loanAmount.text = [[NSString stringWithFormat:@"%@",[repayLoanObject valueForKey:@"USRLN_ACTION_AMOUNT"]] rupeesFormat];
-    self.loanDetailAmount.text = [[NSString stringWithFormat:@"%@",[repayLoanObject valueForKey:@"USRLN_ACTION_AMOUNT"]] rupeesFormat];
-    int amt = 0; // temp value given for additional fee.
-    //int amt = [[repayLoanObject valueForKey:@"USRLN_ACTION_AMOUNT"] intValue];
-    //amt = (amt*6)/100;
-    int inHandAmt = [[repayLoanObject valueForKey:@"USRLN_ACTION_AMOUNT"] intValue];
-    //inHandAmt = inHandAmt-amt;
+        self.loanAmount.text = [[NSString stringWithFormat:@"Rs.%@",[repayLoanObject valueForKey:@"USRLN_AMOUNT"]] rupeesFormat];
+    self.loanDetailAmount.text = [[NSString stringWithFormat:@"Rs.%@",[repayLoanObject valueForKey:@"USRLN_ACTION_AMOUNT"]] rupeesFormat];
+
+    int inHandAmt = [[repayLoanObject valueForKey:@"USRLN_AMOUNT"] intValue];
     
-    self.inHandAmount.text =[[NSString stringWithFormat:@"%d",inHandAmt] rupeesFormat];
-    self.processingFeeAmount.text =[[NSString stringWithFormat:@"%d",amt] rupeesFormat];
+    self.inHandAmount.text =[[NSString stringWithFormat:@"Rs.%d",inHandAmt] rupeesFormat];
+    self.processingFeeAmount.text =[[NSString stringWithFormat:@"Rs.%d",processingFee] rupeesFormat];
 //    }];
     
 }
