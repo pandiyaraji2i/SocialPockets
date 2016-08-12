@@ -86,8 +86,13 @@
 }
 
 - (IBAction)RepayBtn:(id)sender {
-    
+    [ACTIVITY showActivity:@"Loading..."];
+    [self performSelector:@selector(repayLoan) withObject:nil afterDelay:0.2];
+}
+
+- (void)repayLoan{
     [LOANMACRO repayLoan:repayLoanId mobileWallet:mobileWalletId repayAmount:loanRepayAmount completion:^(id obj) {
+        [ACTIVITY performSelectorOnMainThread:@selector(hideActivity) withObject:nil waitUntilDone:YES];
         if ([obj isKindOfClass:[NSDictionary class]]) {
             self.blackoutview.hidden = NO;
             self.thanksview.hidden = NO;
@@ -97,7 +102,9 @@
     }];
     self.okButton.layer.borderColor = [UIColor grayColor].CGColor;
     self.okButton.layer.masksToBounds = YES;
+
 }
+
 
 #pragma mark StatusBar Style
 - (UIStatusBarStyle)preferredStatusBarStyle

@@ -77,6 +77,7 @@
     okButton.layer.borderWidth = 1.0;
 }
 #pragma mark tableview datasource methods
+
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return accountArray.count >= MAX_ACCOUNT ? accountArray.count:[accountArray count]+1;
 }
@@ -238,10 +239,21 @@
     if (!self.passwordTextField.text.length) {
         ErrorMessageWithTitle(@"Message", @"Please enter password");
     }else{
-        [PROFILEMACRO passWordValidation:self.passwordTextField.text completion:^(id obj) {
-            if ([obj isKindOfClass:[NSDictionary class]]) {
-                self.passwordView.hidden = YES;
-                [LOANMACRO requestLoanForUserId:[[NSUserDefaults standardUserDefaults] valueForKey:USERID] amount:self.loanAmount mobileWallerId:bankAccountId completion:^(id obj) {
+        [ACTIVITY showActivity:@"Validating password..."];
+        [self performSelector:@selector(validatePassword) withObject:nil afterDelay:0.2];
+    }
+}
+
+- (void)validatePassword
+{
+    [PROFILEMACRO passWordValidation:self.passwordTextField.text completion:^(id obj) {
+        [ACTIVITY performSelectorOnMainThread:@selector(hideActivity) withObject:nil waitUntilDone:YES];
+        if ([obj isKindOfClass:[NSDictionary class]]) {
+            [ACTIVITY showActivity:@"Processing loan..."];
+            self.passwordView.hidden = YES;
+            [LOANMACRO requestLoanForUserId:[[NSUserDefaults standardUserDefaults] valueForKey:USERID] amount:self.loanAmount mobileWallerId:bankAccountId completion:^(id obj) {
+                [ACTIVITY performSelectorOnMainThread:@selector(hideActivity) withObject:nil waitUntilDone:YES];
+                dispatch_async(dispatch_get_main_queue(), ^{
                     if ([obj isKindOfClass:[NSDictionary class]]) {
                         self.transprantView.hidden = NO;
                         self.thanksView.hidden = NO;
@@ -250,12 +262,12 @@
                         ErrorMessageWithTitle(@"Message", obj);
                         self.transprantView.hidden = YES;
                     }
-                }];
-            }else{
-                ErrorMessageWithTitle(@"Message", obj);
-            }
-        }];
-    }
+                });
+            }];
+        }else{
+            ErrorMessageWithTitle(@"Message", obj);
+        }
+    }];
 }
 
 - (IBAction)onPasswordCloseAction:(id)sender
