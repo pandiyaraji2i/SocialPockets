@@ -44,6 +44,11 @@ NSArray *HeaderArray;
     }
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    infoArray = [self generateImageArray];
+    [self.tableView reloadData];
+}
 
 
 
@@ -58,7 +63,8 @@ NSArray *HeaderArray;
     
     cell.imageArray = infoArray;
     cell.currentTableIndex = indexPath;
-
+    cell.baseVc = self;
+    
     [cell setInitialCollectionView];
     return cell;
 }
@@ -129,13 +135,43 @@ NSArray *HeaderArray;
                                                            ]
                                        },
                                      @{@"Money Account":@[@{@"ImageName":@"HDFCIcon",
-                                                            @"ImageText":@"HDFC"
+                                                            @"ImageText":@"HDFC",
+                                                            @"Account Number":@"1231231123"
                                                             },
                                                           @{@"ImageName":@"AddAccountIcon",
                                                             @"ImageText":@"ADD account"
                                                             },]
                                        }]mutableCopy];
     
+    NSMutableArray *accountArray = [[NSMutableArray alloc] init];
+    if ([NetworkHelperClass getInternetStatus:NO])
+    {
+        
+        dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+        
+        [BANKACCHELPER showAllAccountWithcompletion:^(id obj) {
+            
+            for (int i = 0; i<[obj count]; i++) {
+                NSMutableDictionary *temp = [[NSMutableDictionary alloc] init];
+                [temp setValue:[[obj objectAtIndex:i] valueForKey:@"USRMW_BANK_NAME"] forKey:@"ImageText"];
+                [temp setValue:@"BankWithoutACCNO" forKey:@"ImageName"];
+                [temp setValue:[[obj objectAtIndex:i] valueForKey:@"USRMW_ACCOUNT_NUMBER"] forKey:@"Account Number"];
+                [accountArray addObject:temp];
+            }
+            if ([obj count]<3) {
+                NSMutableDictionary *temp = [[NSMutableDictionary alloc] init];
+                [temp setValue:@"ADD account" forKey:@"ImageText"];
+                [temp setValue:@"AddAccountIcon" forKey:@"ImageName"];
+                [accountArray addObject:temp];
+                
+            }
+            NSDictionary *replacingDict = @{@"Money Account":accountArray
+                                            };
+            [imagesArray replaceObjectAtIndex:2 withObject:replacingDict];
+            dispatch_semaphore_signal(semaphore);
+        }];
+        dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
+    }
     return imagesArray;
 }
 

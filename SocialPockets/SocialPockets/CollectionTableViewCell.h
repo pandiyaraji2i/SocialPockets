@@ -10,6 +10,7 @@
 
 @interface CollectionTableViewCell : UITableViewCell<UICollectionViewDelegate, UICollectionViewDataSource>
 
+@property (nonatomic, weak)UIViewController *baseVc;
 @property (nonatomic , strong) NSMutableArray *imageArray;
 @property (nonatomic) NSIndexPath *currentTableIndex;
 

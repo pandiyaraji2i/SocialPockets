@@ -9,7 +9,7 @@
 #import "TableCollectionViewCell.h"
 
 @implementation TableCollectionViewCell
-@synthesize InfoLabel, ImageView, selectionImageView;
+@synthesize InfoLabel, ImageView, selectionImageView,accountNumber;
 
 
 
