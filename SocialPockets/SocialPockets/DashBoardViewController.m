@@ -27,11 +27,11 @@
     
     
     //    //#-- Menu Button
-    //    UIButton *hamburgerMenuButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    //    hamburgerMenuButton.frame = CGRectMake(0, 0, 22, 16);
-    //    [hamburgerMenuButton setImage:[UIImage imageNamed:@"HamburgerMenu"] forState:UIControlStateNormal];
-    //    [hamburgerMenuButton addTarget:self action:@selector(onMenuAction:) forControlEvents:UIControlEventTouchUpInside];
-    //    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:hamburgerMenuButton];
+    UIButton *hamburgerMenuButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    hamburgerMenuButton.frame = CGRectMake(0, 0, 22, 16);
+    [hamburgerMenuButton setImage:[UIImage imageNamed:@"HamburgerMenu"] forState:UIControlStateNormal];
+    [hamburgerMenuButton addTarget:self action:@selector(onMenuAction:) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:hamburgerMenuButton];
     
     //#-- Notification Button
     UIButton *notificationButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -102,7 +102,7 @@
     
     [self updateViewConstraints];
     
-    [self setupMenuBarButtonItems];
+//    [self setupMenuBarButtonItems];
     
     [self getCreditScore];
     // Do any additional setup after loading the view.
@@ -166,8 +166,6 @@
 {
     [ACTIVITY showActivity:@"Getting Credit score details"];
     [self performSelector:@selector(getCreditScoreDetails) withObject:nil afterDelay:0.2];
-    
-    
 }
 
 - (void)getCreditScoreDetails
@@ -376,7 +374,7 @@
     }
     else{
         [self.menuContainerViewController toggleLeftSideMenuCompletion:^{
-            [self setupMenuBarButtonItems];
+//            [self setupMenuBarButtonItems];
             //            [[(id)self.menuContainerViewController.leftMenuViewController tableView] reloadData];
         }];
     }

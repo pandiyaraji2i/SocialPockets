@@ -135,7 +135,7 @@ struct Constants {              // Default Values = Private
     self.centerLabel = [[UILabel alloc]init];
     self.centerLabel.text = self.centerText;
     self.centerLabel.textColor = [UIColor colorWithRed:32.0/255.0 green:170.0/255.0 blue:37.0/255.0 alpha:1.0];
-    
+    self.centerLabel.font = [UIFont fontWithName:@"Roboto-Medium" size:13];
     CGRect innerRect = CGRectInset(rect, self.trackBorderWidth, self.trackBorderWidth);
     
     self.internalProgress = (self.internalProgress/1.0) == 0.0 ? self.constants.minimumValue : self.progress;
@@ -196,7 +196,7 @@ struct Constants {              // Default Values = Private
         [self.centerLabel.textColor set];
         self.centerLabel.textAlignment = NSTextAlignmentCenter;
 //        [self.centerLabel.text drawInRect:CGRectMake(rect123.origin.x + 40, rect123.origin.y + 50, rect123.size.width - 60, rect123.size.height - 60) withAttributes:@{NSFontAttributeName : CGRectMake(rect123.origin.x + 40, rect123.origin.y + 50, rect123.size.width - 60, rect123.size.height - 60),ns}]
-        [self.centerLabel.text drawInRect:CGRectMake(rect123.origin.x + 10, rect123.origin.y+30, rect123.size.width - 20, rect123.size.height - 20)
+        [self.centerLabel.text drawInRect:CGRectMake(rect123.origin.x + 10, rect123.origin.y+47, rect123.size.width - 20, rect123.size.height - 20)
                                  withFont:self.centerLabel.font
                             lineBreakMode:self.centerLabel.lineBreakMode
                                 alignment:self.centerLabel.textAlignment];

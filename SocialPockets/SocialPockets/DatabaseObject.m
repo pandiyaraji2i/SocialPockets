@@ -144,6 +144,44 @@ static DatabaseObject * _sharedCoreDatabase = nil;
     
 }
 
++(NSArray *)searchObjectsForEntityChild:(NSString*)entityName withPredicate:(NSPredicate *)predicate andSortKey:(NSString*)sortKey andSortAscending:(BOOL)sortAscending context:(NSManagedObjectContext*)managedContext
+{
+    //    static NSString *fetchRequest = @"fetchRequest";
+    __block NSArray *mutableFetchResults;
+    //    @synchronized (fetchRequest){
+    // Create fetch request
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:entityName inManagedObjectContext:managedContext];
+    [request setEntity:entity];
+    [request setReturnsObjectsAsFaults:NO];  /// For faulting objects
+    [request setFetchBatchSize:1];
+    // If a predicate was specified then use it in the request
+    if (predicate != nil)
+        [request setPredicate:predicate];
+    
+    // If a sort key was passed then use it in the request
+    if (sortKey != nil) {
+        NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:sortKey ascending:sortAscending];
+        NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
+        [request setSortDescriptors:sortDescriptors];
+    }
+    
+    // Execute the fetch request
+    __block NSError *error = nil;
+    [managedContext performBlockAndWait:^{
+        mutableFetchResults = [managedContext executeFetchRequest:request error:&error];
+    }];
+    
+    
+    // If the returned array was nil then there was an error
+    if (mutableFetchResults == nil)
+        NSLog(@"Couldn't get objects for entity %@", entityName);
+    //    }
+    // Return the results
+    return mutableFetchResults;
+    
+}
+
 // ********************************** Database Transaction ************************************************** //
 
 //#-- Save Context

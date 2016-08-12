@@ -8,11 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TransactionHistoryViewController : UIViewController{
+@interface TransactionHistoryViewController : UIViewController<NSFetchedResultsControllerDelegate>{
     UITableView *table;
     NSInteger selectedValueSection;
     bool isShowingListsec;
     NSMutableArray *transData;
+    NSFetchedResultsController *transactionHistoryResultsController;
+    BOOL isLoadMoreShow;
 }
 
 @property (retain, nonatomic) IBOutlet UITableView *table;
@@ -20,7 +22,9 @@
 @property (nonatomic) bool isShowingListsec;
 @property (retain, nonatomic) NSMutableArray *transData;
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImage;
+@property (nonatomic,strong) NSArray *travelPlanArray;
 
+- (NSFetchedResultsController *)transactionHistoryResultsController;
 
 
 @end

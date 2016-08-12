@@ -19,7 +19,7 @@
 
 
 + (DatabaseObject *)sharedCoreDatabase;
-+(NSArray *)dbQuery:(NSString*)tableName withWhere:(NSPredicate *)where andSortKey:(NSString*)sortKey andSortAscending:(BOOL)sortAscending;
++ (NSArray *)dbQuery:(NSString*)tableName withWhere:(NSPredicate *)where andSortKey:(NSString*)sortKey andSortAscending:(BOOL)sortAscending;
 + (NSArray *)searchObjectsForEntityChild:(NSString*)entityName withPredicate:(NSPredicate *)predicate andSortKey:(NSString*)sortKey andSortAscending:(BOOL)sortAscending context:(NSManagedObjectContext*)managedContext;
 
 

@@ -11,5 +11,5 @@
 @interface TransactionObjectModel : NSObject
 + (TransactionObjectModel *)sharedTransactionHistory;
 - (NSArray *)getAllTransactionHistory;
-- (void)downloadTransactionHistory:(id)dict completion:(void (^)(id obj))completionBlock;
+- (void)downloadTransactionHistory:(id)dict completion:(void (^)(int value))completionBlock;
 @end
