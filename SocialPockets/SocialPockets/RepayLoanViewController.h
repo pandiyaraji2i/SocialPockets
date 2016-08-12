@@ -19,5 +19,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *processingFeeAmount;
 @property (weak, nonatomic) IBOutlet UILabel *processingFeePercentage;
 @property (weak, nonatomic) IBOutlet UIButton *okButton;
+@property (weak, nonatomic) IBOutlet UILabel *penaltyAmountlbl;
 
 @end

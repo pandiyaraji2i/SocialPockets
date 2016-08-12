@@ -11,6 +11,7 @@
 @interface RepayLoanViewController ()
 {
     NSString *repayLoanId,*mobileWalletId,*loanRepayAmount;
+    NSString *penaltyAmount;
     
 }
 - (IBAction)RepayBtn:(id)sender;
@@ -33,29 +34,40 @@
     self.title = @"Repay Loan";
     self.blackoutview.hidden = YES;
     self.thanksview.hidden = YES;
-//    self.processingFeeAmount.text = [NSString stringWithFormat:@"%@%% Processing Fee Deduction",[self.repayObject valueForKey:@"PROCESSING_FEE"]];
-//    self.tenurePeriod.text = [NSString stringWithFormat:@"%@ Days Tenure Period",[self.repayObject valueForKey:@"TENURE_DATE"]];
+    //    self.processingFeeAmount.text = [NSString stringWithFormat:@"%@%% Processing Fee Deduction",[self.repayObject valueForKey:@"PROCESSING_FEE"]];
+    //    self.tenurePeriod.text = [NSString stringWithFormat:@"%@ Days Tenure Period",[self.repayObject valueForKey:@"TENURE_DATE"]];
     
     self.processingFeePercentage.text = [NSString stringWithFormat:@"6%% Processing Fee"];
     self.tenurePeriod.text = [NSString stringWithFormat:@"21 Days Tenure Period"];
     
+    self.loanTakenDate.text = [SharedMethods convertString:[NSString stringWithFormat:@"%@",[repayLoanObject valueForKey:@"USRLN_TRANSFERRED_DATE"]] fromFormat:LOCALDATETIMEFORMAT toFormat:DATEFORMAT]; ;
+    self.loanDueDate.text =[SharedMethods convertString:[NSString stringWithFormat:@"%@",[repayLoanObject valueForKey:@"USRLN_TENNURE_DATE"]] fromFormat:LOCALDATETIMEFORMAT toFormat:DATEFORMAT] ;
     
-//    [LOANMACRO getIndividualLoan:repayLoanId completion:^(id obj) {
     repayLoanId = [NSString stringWithFormat:@"%@",[repayLoanObject valueForKey:@"USRLN_ID"]];
     mobileWalletId = [NSString stringWithFormat:@"%@",[repayLoanObject valueForKey:@"USRLN_MOBWM_ID"]];
-    loanRepayAmount = [NSString stringWithFormat:@"%@",[repayLoanObject valueForKey:@"USRLN_AMOUNT"]];
-    int processingFee = [loanRepayAmount intValue];
-    processingFee = (processingFee * 6)/100;
-        self.loanTakenDate.text = [SharedMethods convertString:[NSString stringWithFormat:@"%@",[repayLoanObject valueForKey:@"USRLN_TRANSFERRED_DATE"]] fromFormat:LOCALDATETIMEFORMAT toFormat:DATEFORMAT]; ;
-        self.loanDueDate.text =[SharedMethods convertString:[NSString stringWithFormat:@"%@",[repayLoanObject valueForKey:@"USRLN_TENNURE_DATE"]] fromFormat:LOCALDATETIMEFORMAT toFormat:DATEFORMAT] ;
-        self.loanAmount.text = [[NSString stringWithFormat:@"Rs.%@",[repayLoanObject valueForKey:@"USRLN_AMOUNT"]] rupeesFormat];
-    self.loanDetailAmount.text = [[NSString stringWithFormat:@"Rs.%@",[repayLoanObject valueForKey:@"USRLN_ACTION_AMOUNT"]] rupeesFormat];
-
-    int inHandAmt = [[repayLoanObject valueForKey:@"USRLN_AMOUNT"] intValue];
+    long long loanAmountValue = [[repayLoanObject valueForKey:@"USRLN_AMOUNT"] longLongValue];
+    long penaltyAmountValue = 600;//[[repayLoanObject valueForKey:@"PENALITY_AMOUNT"] longLongValue]
     
-    self.inHandAmount.text =[[NSString stringWithFormat:@"Rs.%d",inHandAmt] rupeesFormat];
-    self.processingFeeAmount.text =[[NSString stringWithFormat:@"Rs.%d",processingFee] rupeesFormat];
-//    }];
+    long long totalAmount = loanAmountValue + penaltyAmountValue;
+    
+    loanRepayAmount = [NSString stringWithFormat:@"%lld",totalAmount];
+    
+    penaltyAmount = @"0";
+    
+    int processingFee = (int)(loanAmountValue * 6)/100;
+    
+   
+    self.loanAmount.text = [loanRepayAmount rupeesFormat];
+    
+    self.loanDetailAmount.text = [NSString stringWithFormat:@"Rs. %@",[[NSString stringWithFormat:@"%@",[repayLoanObject valueForKey:@"USRLN_ACTION_AMOUNT"]] rupeesFormat]];
+    
+    self.processingFeeAmount.text =[NSString stringWithFormat:@"Rs. %@",[[NSString stringWithFormat:@"%d",processingFee] rupeesFormat]];
+    
+     self.penaltyAmountlbl.text =[NSString stringWithFormat:@"Rs. %@",[[NSString stringWithFormat:@"%ld",penaltyAmountValue] rupeesFormat]];
+    
+    self.inHandAmount.text = [NSString stringWithFormat:@"Rs. %@",[loanRepayAmount rupeesFormat]];
+    
+    
     
 }
 - (IBAction)DoneBtnTapped:(id)sender {
@@ -94,12 +106,12 @@
 }
 @end
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 

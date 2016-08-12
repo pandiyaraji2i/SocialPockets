@@ -290,7 +290,7 @@
         //        repayLoanCircleView.trackFillColor = [self interpolateRGBColorFrom:[UIColor orangeColor] to:[UIColor greenColor] withFraction:1.0];
         repayLoanCircleView.clockwise = YES;
         repayLoanCircleView.progress = 0.9;
-        NSString *loanAmount = [[NSString stringWithFormat:@"%@",[loanObject valueForKey:@"USRLN_ACTION_AMOUNT"]] rupeesFormat];
+        NSString *loanAmount = [[NSString stringWithFormat:@"%@",[loanObject valueForKey:@"USRLN_AMOUNT"]] rupeesFormat];
         repayLoanCircleView.centerText = [NSString stringWithFormat:@"%@ %@   Repay Loan 14 Days left",INDIANRUPEES_UNICODE,loanAmount];
         __weak DashBoardViewController *dashBoardVc= self;
         __block id loanBlockObject = loanObject;

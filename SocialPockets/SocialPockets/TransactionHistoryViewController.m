@@ -21,10 +21,13 @@
     
     self.navigationController.navigationBarHidden = NO;
     self.title = @"Transaction History";
+   
+    isShowingListsec = NO;
+    isLoadMoreShow = NO;
     self.table.backgroundColor = [UIColor yellowColor];
     self.table.layer.cornerRadius = 5;
     self.table.backgroundColor = [UIColor clearColor];
-    isShowingListsec = NO;
+    
     transData = [[NSMutableArray alloc]init];
     [self getTransactionHistory:YES];
     
@@ -50,7 +53,6 @@
         
     }
     
-    isLoadMoreShow = YES;
     
     // transData = [[NSMutableArray alloc] initWithObjects:@"Transation: Rs 3000\n\nTransation details\nIn hand amount\nCredited on\nCredited to acc",@"Transation: Rs 5000\n\nTransation details\nIn hand amount\nCredited on\nCredited to acc",@"Transation: Rs 4000\n\nTransation details\nIn hand amount\nCredited on\nCredited to acc",@"Transation: Rs 3000\n\nTransation details\nIn hand amount\nCredited on\nCredited to acc", nil];
     self.table.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
@@ -92,14 +94,17 @@
     {
         [TRANSACTHISTORY downloadTransactionHistory:postDict completion:^(int value) {
           
-            if (value == 1) {
-                isLoadMoreShow = YES;
-            }else{
-                isLoadMoreShow = NO;
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [table reloadData];
-                });
+            if (!isAfter) {
+                if (value == 1) {
+                    isLoadMoreShow = NO;
+                }else{
+                    isLoadMoreShow = YES;
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [table reloadData];
+                    });
+                }
             }
+           
         }];
     }
 }
@@ -115,7 +120,8 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     //    return [transData count];
     NSUInteger total =[self totalCount];
-    if (total>=5 && isLoadMoreShow) {
+    NSLog(@"toatl %ld",total);
+    if (total>=5 && !isLoadMoreShow) {
         return total+1;
     }
     return total;
@@ -151,7 +157,11 @@
         }
     }
     NSLog(@"last row == %ld",indexPath.section);
+    if (indexPath.section != [self totalCount]) {
     return 60;
+    }else{
+        return 44;
+    }
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
@@ -224,6 +234,7 @@
     }
     else{
         cell.textLabel.text = @"Load more";
+        cell.textLabel.textAlignment = NSTextAlignmentCenter;
         cell.textLabel.textColor = [UIColor colorWithRed:38.0/255.0 green:147.0/255.0 blue:255.0/255.0 alpha:1.0];
     }
     cell.layer.cornerRadius = 10;
