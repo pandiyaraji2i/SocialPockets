@@ -40,6 +40,12 @@
 		A38968631D40DDF000FA8F14 /* SocialSiteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A38968611D40DDF000FA8F14 /* SocialSiteViewController.m */; };
 		A38968671D40DE1A00FA8F14 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A38968661D40DE1A00FA8F14 /* LoginViewController.m */; };
 		A39209751D48E0B600EBCC6F /* NotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A39209741D48E0B600EBCC6F /* NotificationViewController.m */; };
+		A3AEDCFB1D5DCD4A007FE5C9 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3AEDCFA1D5DCD4A007FE5C9 /* CoreFoundation.framework */; };
+		A3AEDCFD1D5DCD52007FE5C9 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3AEDCFC1D5DCD52007FE5C9 /* CoreMotion.framework */; };
+		A3AEDCFF1D5DCD5A007FE5C9 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3AEDCFE1D5DCD5A007FE5C9 /* AVFoundation.framework */; };
+		A3AEDD011D5DCD63007FE5C9 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3AEDD001D5DCD63007FE5C9 /* SystemConfiguration.framework */; };
+		A3AEDD031D5DCD6C007FE5C9 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3AEDD021D5DCD6C007FE5C9 /* OpenGLES.framework */; };
+		A3AEDD061D5DCD97007FE5C9 /* libTestFairy.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3AEDD041D5DCD97007FE5C9 /* libTestFairy.a */; };
 		A3B528F21D49DE7200603451 /* ApplyLoanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3B528F11D49DE7200603451 /* ApplyLoanViewController.m */; };
 		A3B528F51D49E09B00603451 /* AboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3B528F41D49E09B00603451 /* AboutUsViewController.m */; };
 		A3B528FA1D49E13000603451 /* SignatureView.m in Sources */ = {isa = PBXBuildFile; fileRef = A3B528F71D49E13000603451 /* SignatureView.m */; };
@@ -190,6 +196,13 @@
 		A38968661D40DE1A00FA8F14 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		A39209731D48E0B600EBCC6F /* NotificationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationViewController.h; sourceTree = "<group>"; };
 		A39209741D48E0B600EBCC6F /* NotificationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationViewController.m; sourceTree = "<group>"; };
+		A3AEDCFA1D5DCD4A007FE5C9 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		A3AEDCFC1D5DCD52007FE5C9 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		A3AEDCFE1D5DCD5A007FE5C9 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		A3AEDD001D5DCD63007FE5C9 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		A3AEDD021D5DCD6C007FE5C9 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		A3AEDD041D5DCD97007FE5C9 /* libTestFairy.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFairy.a; sourceTree = "<group>"; };
+		A3AEDD051D5DCD97007FE5C9 /* TestFairy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFairy.h; sourceTree = "<group>"; };
 		A3B528F01D49DE7200603451 /* ApplyLoanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplyLoanViewController.h; sourceTree = "<group>"; };
 		A3B528F11D49DE7200603451 /* ApplyLoanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplyLoanViewController.m; sourceTree = "<group>"; };
 		A3B528F31D49E09B00603451 /* AboutUsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutUsViewController.h; sourceTree = "<group>"; };
@@ -314,8 +327,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3AEDD031D5DCD6C007FE5C9 /* OpenGLES.framework in Frameworks */,
+				A3AEDD011D5DCD63007FE5C9 /* SystemConfiguration.framework in Frameworks */,
+				A3AEDCFF1D5DCD5A007FE5C9 /* AVFoundation.framework in Frameworks */,
+				A3AEDCFD1D5DCD52007FE5C9 /* CoreMotion.framework in Frameworks */,
+				A3AEDCFB1D5DCD4A007FE5C9 /* CoreFoundation.framework in Frameworks */,
 				FBAAB8381D4239D7001C918B /* FBSDKShareKit.framework in Frameworks */,
 				802EDF43A49A32B470A0D8D8 /* libPods-SocialPockets.a in Frameworks */,
+				A3AEDD061D5DCD97007FE5C9 /* libTestFairy.a in Frameworks */,
 				A3D65A831D460BA100B47E46 /* CameraFrameWork.framework in Frameworks */,
 				FBAAB8361D4239D7001C918B /* FBSDKCoreKit.framework in Frameworks */,
 				FBAAB8371D4239D7001C918B /* FBSDKLoginKit.framework in Frameworks */,
@@ -353,6 +372,11 @@
 		8475099805C07C9E06A7A1F2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A3AEDD021D5DCD6C007FE5C9 /* OpenGLES.framework */,
+				A3AEDD001D5DCD63007FE5C9 /* SystemConfiguration.framework */,
+				A3AEDCFE1D5DCD5A007FE5C9 /* AVFoundation.framework */,
+				A3AEDCFC1D5DCD52007FE5C9 /* CoreMotion.framework */,
+				A3AEDCFA1D5DCD4A007FE5C9 /* CoreFoundation.framework */,
 				0455716A8E3A563761CB5AAC /* libPods-SocialPockets.a */,
 			);
 			name = Frameworks;
@@ -388,6 +412,9 @@
 		A3253D0F1D3C9DE90081A59C /* SocialPockets */ = {
 			isa = PBXGroup;
 			children = (
+				A3253D131D3C9DE90081A59C /* AppDelegate.h */,
+				A3253D141D3C9DE90081A59C /* AppDelegate.m */,
+				A3AEDD071D5DCD9B007FE5C9 /* Testfairy */,
 				A32FFAD51D5C9BFF00C1A519 /* Database */,
 				A38823F11D5B7161008042D9 /* RobotoFonts */,
 				FBB3A4ED1D4F55F9001A7408 /* ManageAccounts */,
@@ -396,8 +423,6 @@
 				A38968691D40DF1600FA8F14 /* SharedMethods */,
 				A38968681D40DF0400FA8F14 /* HeaderFiles */,
 				A3B528FC1D49E1F200603451 /* IQKeyboardManager */,
-				A3253D131D3C9DE90081A59C /* AppDelegate.h */,
-				A3253D141D3C9DE90081A59C /* AppDelegate.m */,
 				A32FFAEC1D5CC83D00C1A519 /* TransctionHistory */,
 				A3D65AB51D4652EF00B47E46 /* LaunchScreen */,
 				A3C3C83D1D3DF1AF00C65B09 /* Login */,
@@ -517,6 +542,15 @@
 				A389685C1D40DD3F00FA8F14 /* SharedMethods.m */,
 			);
 			name = SharedMethods;
+			sourceTree = "<group>";
+		};
+		A3AEDD071D5DCD9B007FE5C9 /* Testfairy */ = {
+			isa = PBXGroup;
+			children = (
+				A3AEDD041D5DCD97007FE5C9 /* libTestFairy.a */,
+				A3AEDD051D5DCD97007FE5C9 /* TestFairy.h */,
+			);
+			name = Testfairy;
 			sourceTree = "<group>";
 		};
 		A3B528FC1D49E1F200603451 /* IQKeyboardManager */ = {
@@ -1198,6 +1232,10 @@
 				INFOPLIST_FILE = SocialPockets/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SocialPockets",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ideas2it.SocialPocketsDev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -1222,6 +1260,10 @@
 				INFOPLIST_FILE = SocialPockets/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SocialPockets",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ideas2it.SocialPocketsDev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

@@ -26,6 +26,7 @@ NSArray *HeaderArray;
     self.navigationController.navigationBarHidden = NO;
     self.title = @"Manage Accounts";
     infoArray = [self generateImageArray];
+    self.tableView.scrollEnabled = NO;
     HeaderArray = @[@"Identification Proof", @"Social Account", @"Money Account"];
     [self.tableView registerNib:[UINib nibWithNibName:@"CollectionTableViewCell" bundle:nil] forCellReuseIdentifier:@"CollectionTableViewCell"];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -142,36 +143,32 @@ NSArray *HeaderArray;
                                                             @"ImageText":@"ADD account"
                                                             },]
                                        }]mutableCopy];
-    
-    NSMutableArray *accountArray = [[NSMutableArray alloc] init];
-    if ([NetworkHelperClass getInternetStatus:NO])
-    {
-        
-        dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
-        
-        [BANKACCHELPER showAllAccountWithcompletion:^(id obj) {
-            
-            for (int i = 0; i<[obj count]; i++) {
-                NSMutableDictionary *temp = [[NSMutableDictionary alloc] init];
-                [temp setValue:[[obj objectAtIndex:i] valueForKey:@"USRMW_BANK_NAME"] forKey:@"ImageText"];
-                [temp setValue:@"BankWithoutACCNO" forKey:@"ImageName"];
-                [temp setValue:[[obj objectAtIndex:i] valueForKey:@"USRMW_ACCOUNT_NUMBER"] forKey:@"Account Number"];
-                [accountArray addObject:temp];
-            }
-            if ([obj count]<3) {
-                NSMutableDictionary *temp = [[NSMutableDictionary alloc] init];
-                [temp setValue:@"ADD account" forKey:@"ImageText"];
-                [temp setValue:@"AddAccountIcon" forKey:@"ImageName"];
-                [accountArray addObject:temp];
-                
-            }
-            NSDictionary *replacingDict = @{@"Money Account":accountArray
-                                            };
-            [imagesArray replaceObjectAtIndex:2 withObject:replacingDict];
-            dispatch_semaphore_signal(semaphore);
-        }];
-        dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
-    }
+#warning Need to work
+//    NSMutableArray *accountArray = [[NSMutableArray alloc] init];
+//    if ([NetworkHelperClass getInternetStatus:NO])
+//    {
+////        [ACTIVITY showActivity:@"Fetching accounts..."];
+//        [BANKACCHELPER showAllAccountWithcompletion:^(id obj) {
+////            [ACTIVITY performSelectorOnMainThread:@selector(hideActivity) withObject:nil waitUntilDone:YES];
+//            for (int i = 0; i<[obj count]; i++) {
+//                NSMutableDictionary *temp = [[NSMutableDictionary alloc] init];
+//                [temp setValue:[[obj objectAtIndex:i] valueForKey:@"USRMW_BANK_NAME"] forKey:@"ImageText"];
+//                [temp setValue:@"BankWithoutACCNO" forKey:@"ImageName"];
+//                [temp setValue:[[obj objectAtIndex:i] valueForKey:@"USRMW_ACCOUNT_NUMBER"] forKey:@"Account Number"];
+//                [accountArray addObject:temp];
+//            }
+//            if ([obj count]<3) {
+//                NSMutableDictionary *temp = [[NSMutableDictionary alloc] init];
+//                [temp setValue:@"ADD account" forKey:@"ImageText"];
+//                [temp setValue:@"AddAccountIcon" forKey:@"ImageName"];
+//                [accountArray addObject:temp];
+//                
+//            }
+//            NSDictionary *replacingDict = @{@"Money Account":accountArray
+//                                            };
+//            [imagesArray replaceObjectAtIndex:2 withObject:replacingDict];
+//        }];
+//    }
     return imagesArray;
 }
 

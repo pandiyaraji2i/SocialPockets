@@ -46,7 +46,7 @@
     repayLoanId = [NSString stringWithFormat:@"%@",[repayLoanObject valueForKey:@"USRLN_ID"]];
     mobileWalletId = [NSString stringWithFormat:@"%@",[repayLoanObject valueForKey:@"USRLN_MOBWM_ID"]];
     long long loanAmountValue = [[repayLoanObject valueForKey:@"USRLN_AMOUNT"] longLongValue];
-    long penaltyAmountValue = 600;//[[repayLoanObject valueForKey:@"PENALITY_AMOUNT"] longLongValue]
+    long penaltyAmountValue = 0;//[[repayLoanObject valueForKey:@"PENALITY_AMOUNT"] longLongValue]
     
     long long totalAmount = loanAmountValue + penaltyAmountValue;
     
@@ -71,7 +71,7 @@
     
 }
 - (IBAction)DoneBtnTapped:(id)sender {
-    
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"isLoanRepaid"];
     self.blackoutview.hidden = YES;
     self.thanksview.hidden = YES;
     [self.navigationController popViewControllerAnimated:YES];

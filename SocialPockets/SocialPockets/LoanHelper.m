@@ -144,21 +144,7 @@ static LoanHelper* _sharedInstance = nil;
     }
 }
 
-/**
- *  Get individual loan details
- *
- *  @param loanId          loan id
- *  @param completionBlock response block
- */
-- (void)getIndividualLoan:(NSString *)loanId completion:(void(^)(id obj))completionBlock
-{
-    if ([NetworkHelperClass getInternetStatus:NO]) {
-        NSString *urlString = [NSString stringWithFormat:@"showloandetails?loan_id=%@",loanId];
-        [NetworkHelperClass sendAsynchronousRequestToServer:urlString httpMethod:GET requestBody:nil contentType:JSONCONTENTTYPE completion:^(id obj) {
-            
-        }];
-    }
-}
+
 
 /**
  *  Request For the Loan Extension

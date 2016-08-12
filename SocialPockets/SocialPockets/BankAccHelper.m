@@ -68,14 +68,12 @@ static BankAccHelper* _sharedInstance = nil;
 
 - (void)showAllAccountWithcompletion:(void (^)(id obj))completionBlock
 {
-    if ([NetworkHelperClass getInternetStatus:YES])
-    {
-        NSString *urlString = [NSString stringWithFormat:@"showAllCreditAccount?user_id=%@",[[NSUserDefaults standardUserDefaults] valueForKey:USERID]];
-        [NetworkHelperClass sendAsynchronousRequestToServer:urlString httpMethod:GET requestBody:nil contentType:JSONCONTENTTYPE completion:^(id obj) {
-            if (completionBlock) {
-                completionBlock(obj);
-            }
-        }];
+    NSString *urlString = [NSString stringWithFormat:@"showAllCreditAccount?user_id=%@",[[NSUserDefaults standardUserDefaults] valueForKey:USERID]];
+    [NetworkHelperClass sendAsynchronousRequestToServer:urlString httpMethod:GET requestBody:nil contentType:JSONCONTENTTYPE completion:^(id obj) {
+        if (completionBlock) {
+            completionBlock(obj);
+        }
+    }];
 //        id successObject = [NetworkHelperClass sendSynchronousRequestToServer: httpMethod:GET requestBody:nil contentType:JSONCONTENTTYPE];
 //        if (successObject)
 //        {
@@ -84,9 +82,6 @@ static BankAccHelper* _sharedInstance = nil;
 //                completionBlock(successObject);
 //            }
 //        }
-        
-    }
-    
 }
 
 @end

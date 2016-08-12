@@ -69,16 +69,16 @@
 }
 
 
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    if (currentTableIndex.section == 2 && [[currentSectionDictionary objectForKey:@"Money Account"] count]<=3 && indexPath.row == [[currentSectionDictionary objectForKey:@"Money Account"] count]-1 && [[[currentSectionDictionary objectForKey:@"Money Account"] objectAtIndex:2] valueForKey:@"Account Number"] == nil) {
-        NSLog(@"comein");
-        UIStoryboard *sB = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        AddBankAccountController *addBankAccount = [sB instantiateViewControllerWithIdentifier:@"AddBankAccount"];
-         [self.baseVc.navigationController pushViewController:addBankAccount animated:YES];
- 
-
-    }
-}
+//- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+//    if (currentTableIndex.section == 2 && [[currentSectionDictionary objectForKey:@"Money Account"] count]<=3 && indexPath.row == [[currentSectionDictionary objectForKey:@"Money Account"] count]-1 && [[[currentSectionDictionary objectForKey:@"Money Account"] objectAtIndex:2] valueForKey:@"Account Number"] == nil) {
+//        NSLog(@"comein");
+//        UIStoryboard *sB = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//        AddBankAccountController *addBankAccount = [sB instantiateViewControllerWithIdentifier:@"AddBankAccount"];
+//         [self.baseVc.navigationController pushViewController:addBankAccount animated:YES];
+// 
+//
+//    }
+//}
 
 -(NSString *)secureBankAccount:(NSString *)accNo{
     return [accNo stringByReplacingCharactersInRange:NSMakeRange(4, [accNo length]-8) withString:@"****"];

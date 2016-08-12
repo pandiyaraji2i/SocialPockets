@@ -85,17 +85,22 @@ static LoginHelper* _sharedInstance = nil;
 - (void)setDeviceForId:(NSString *)userId completion:(void (^)(id obj))completionBlock
 {
     if ([NetworkHelperClass getInternetStatus:YES]) {
-        NSLog(@"user id %@",[[NSUserDefaults standardUserDefaults] valueForKey:USERID]);
-        NSLog(@"device Token  %@",[[NSUserDefaults standardUserDefaults] valueForKey:@"deviceId"]);
-
-        NSLog(@"app token  id %@",[[NSUserDefaults standardUserDefaults] valueForKey:@"appDeviceToken"]);
-        NSMutableDictionary *dict = [@{@"user_id":[[NSUserDefaults standardUserDefaults] valueForKey:USERID],@"device_type":@"1",@"device_id":[[NSUserDefaults standardUserDefaults] objectForKey:@"deviceId"],@"device_status":@"1",@"device_token":[[NSUserDefaults standardUserDefaults] objectForKey:@"appDeviceToken"],@"created_by":[[NSUserDefaults standardUserDefaults] valueForKey:USERID],@"modified_by":[[NSUserDefaults standardUserDefaults] valueForKey:USERID]} mutableCopy];
-        id successObject = [NetworkHelperClass sendSynchronousRequestToServer:@"createdevice" httpMethod:POST requestBody:dict contentType:JSONCONTENTTYPE];
-        if (successObject) {
+        
+        NSString *appDeviceToken = NULL_TO_NIL([[NSUserDefaults standardUserDefaults] objectForKey:@"appDeviceToken"]);
+        NSString *deviceId = NULL_TO_NIL([[NSUserDefaults standardUserDefaults] objectForKey:@"deviceId"]);
+        
+        NSMutableDictionary *dict = [@{@"user_id":userId,@"device_type":@"1",@"device_id":(deviceId.length)?deviceId:@"",@"device_status":@"1",@"device_token":(appDeviceToken.length)?appDeviceToken:@"",@"created_by":userId,@"modified_by":userId} mutableCopy];
+        [NetworkHelperClass sendAsynchronousRequestToServer:@"createdevice" httpMethod:POST requestBody:dict contentType:JSONCONTENTTYPE completion:^(id obj) {
             if (completionBlock) {
-                completionBlock(successObject);
+                completionBlock(obj);
             }
-        }
+        }];
+//        id successObject = [NetworkHelperClass sendSynchronousRequestToServer:@"createdevice" httpMethod:POST requestBody:dict contentType:JSONCONTENTTYPE];
+//        if (successObject) {
+//            if (completionBlock) {
+//                completionBlock(successObject);
+//            }
+//        }
     }
     else{
         if (completionBlock) {

@@ -34,26 +34,13 @@
     
     // Do any additional setup after loading the view.
     accountArray = [[NSMutableArray alloc] init];    
-    if ([NetworkHelperClass getInternetStatus:NO])
-    {
-        [BANKACCHELPER showAllAccountWithcompletion:^(id obj) {
-            if ([obj isKindOfClass:[NSArray class]]/* && [obj count]*/) {
-                [accountArray removeAllObjects];
-//                  obj = [obj filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"USRMW_STATUS == %@", @"1"]];
-                obj = [obj filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"(%K = %@)", @"USRMW_STATUS", @"1"]];
-                [accountArray addObjectsFromArray:obj];
-                dispatch_async(dispatch_get_main_queue(), ^{
-                     [self.accountTableView reloadData];
-                });
-            }
-        }];
-    }
+    [self downloadAccounts];
     self.accountTableView.layer.cornerRadius = 7;
     
     self.title = @"Request Confirmation";
     previousIndexpath = nil;
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@" " style:UIBarButtonItemStylePlain target:self action:nil];
-    bankAccountId = @"1";
+//    bankAccountId = @"1";
     //#-- Status Bar Color Change
     [self setNeedsStatusBarAppearanceUpdate];
     
@@ -62,6 +49,25 @@
     
 }
 
+- (void)downloadAccounts
+{
+    if ([NetworkHelperClass getInternetStatus:NO])
+    {
+        [ACTIVITY showActivity:@"Fetching accounts..."];
+        [BANKACCHELPER showAllAccountWithcompletion:^(id obj) {
+            [ACTIVITY performSelectorOnMainThread:@selector(hideActivity) withObject:nil waitUntilDone:YES];
+            if ([obj isKindOfClass:[NSArray class]]/* && [obj count]*/) {
+                [accountArray removeAllObjects];
+                //                  obj = [obj filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"USRMW_STATUS == %@", @"1"]];
+                obj = [obj filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"(%K = %@)", @"USRMW_STATUS", @"1"]];
+                [accountArray addObjectsFromArray:obj];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self.accountTableView reloadData];
+                });
+            }
+        }];
+    }
+}
 
 - (void)updateLabels
 {
@@ -207,7 +213,7 @@
             }
             previousIndexpath = indexPath;
             [tableView reloadData];
-            bankAccountId = [[accountArray objectAtIndex:indexPath.row] valueForKey:@"USRMW_ID"];
+            bankAccountId = [NSString stringWithFormat:@"%@",[[accountArray objectAtIndex:indexPath.row] valueForKey:@"USRMW_ID"]];
         }
     }
 }
@@ -226,11 +232,16 @@
 }
 
 - (IBAction)doneButtonAction:(id)sender {
+    if (!bankAccountId ||!bankAccountId.length) {
+        ErrorMessageWithTitle(@"Message", @"Please select bank account");
+        return;
+    }
     if (self.acceptance.selected) {
         self.transprantView.hidden = NO;
         self.passwordView.hidden = NO;
-    }else{
-        ErrorMessageWithTitle(@"Warning", @"Please accept terms and conditions");
+    }
+    else{
+        ErrorMessageWithTitle(@"Message", @"Please accept terms and conditions");
     }
 }
 
@@ -279,7 +290,7 @@
 - (IBAction)closeButtonAction:(id)sender {
     self.transprantView.hidden = YES;
     self.thanksView.hidden = YES;
-    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"loanIsProcessed"];
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"isLoanProcessed"];
     for (UIViewController* viewController in self.navigationController.viewControllers) {
         if ([viewController isKindOfClass:[DashBoardViewController class]] ) {
             DashBoardViewController *dashboard = (DashBoardViewController*)viewController;

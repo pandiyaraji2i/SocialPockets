@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "LoginViewController.h"
-
+#import "TestFairy.h"
 @interface AppDelegate ()
 
 @end
@@ -34,6 +34,9 @@
         [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"isLoggedFirst"];
     }
     
+    
+//    [TestFairy begin:@"00f07f472a317d34c7b32c99a0e496b4247502ad"];
+    
     [[NSUserDefaults standardUserDefaults] synchronize];
     
     NSString *userId = [NSString stringWithFormat:@"%@",[[NSUserDefaults standardUserDefaults] valueForKey:USERID]];
@@ -44,9 +47,8 @@
     }else{
         // Not logged in
         self.window.rootViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateInitialViewController];
-
-      
     }
+    [application setApplicationIconBadgeNumber:0];
     
     UIUserNotificationSettings *settings =[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert |
                                            UIUserNotificationTypeBadge | UIUserNotificationTypeSound categories:nil];
@@ -121,7 +123,10 @@
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
 {
     NSLog(@"userInfo -- %@",userInfo);
-//     NSString *pushMessage = [[[userInfo valueForKey:@"aps"] valueForKey:@"alert"] valueForKey:@"loc-key"];
+     NSString *pushMessage = [[[userInfo valueForKey:@"aps"] valueForKey:@"alert"] valueForKey:@"body"];
+    id json = [NSJSONSerialization JSONObjectWithData:[pushMessage dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableContainers error:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ReceivedPushNotification" object:json];
+
 //    NSLog(@"message --- %@",pushMessage );
 }
 

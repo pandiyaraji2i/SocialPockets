@@ -46,7 +46,8 @@
     
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@" " style:UIBarButtonItemStylePlain target:self action:nil];
     
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receivePushNotification:) name:@"ReceivedPushNotification" object:nil];
+
     //#-- Status Bar Color Change
     [self setNeedsStatusBarAppearanceUpdate];
     
@@ -140,7 +141,20 @@
     //    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"isLoggedFirst"] ||  [[NSUserDefaults standardUserDefaults] boolForKey:@"loanIsCompleted"]) {
     //        [self performSelector:@selector(verifyDocumentsCompleted) withObject:nil afterDelay:2.0];
     //    }
+    
+    
     [self updateButtons];
+    
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"isLoanRepaid"]) {
+        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"isLoanRepaid"];
+        [self getUserLoanStatus];
+    }
+    
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"isLoanProcessed"]) {
+        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"isLoanProcessed"];
+        [self getUserLoanStatus];
+    }
+    
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -158,11 +172,50 @@
     [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"verificationCompleted"];
     [self updateButtons];
 }
+#pragma mark Receive Notifications
+
+- (void)receivePushNotification:(NSNotification *)notification
+{
+    NSLog(@"User Info %@",[notification object]);
+    NSDictionary *jsonObject = [notification object];
+    
+    if ([jsonObject isKindOfClass:[NSDictionary class]]) {
+        NSString *pushKey = [jsonObject valueForKey:@"LOC_KEY"];
+        NSString *loanId = [jsonObject valueForKey:@"USRLN_ID"];
+        if ([pushKey isEqualToString:@"PUSH_UA"]) {
+
+            
+        }else if ([pushKey isEqualToString:@"PUSH_UR"])
+        {
+            
+        }
+        else if ([pushKey isEqualToString:@"PUSH_ULR"])
+        {
+            
+        }
+        else if ([pushKey isEqualToString:@"PUSH_ULA"])
+        {
+
+        }
+        else if ([pushKey isEqualToString:@"PUSH_ULRPA"] || [pushKey isEqualToString:@"PUSH_ULRPR"])
+        {
+//            [TRANSACTHISTORY getIndividualLoan:loanId completion:^(id obj) {
+//                
+//            }];
+        }
+        
+        [self getUserLoanStatus];
+        [TRANSACTHISTORY getIndividualLoan:loanId completion:^(id obj) {
+            
+        }];
+        
+    }
+}
 
 #pragma mark set device detail
 
 - (void)setDeviceDetail{
-    [LOGINMACRO setDeviceForId:USERID completion:^(id obj) {
+    [LOGINMACRO setDeviceForId:[[NSUserDefaults standardUserDefaults] valueForKey:USERID] completion:^(id obj) {
         NSLog(@"%@",obj);
     }];
 }
@@ -179,6 +232,31 @@
 
 - (void)getCreditScoreDetails
 {
+    [self getUserLoanStatus];
+
+    if ([NetworkHelperClass getInternetStatus:NO]) {
+        [PROFILEMACRO getUserCreditScore:^(id obj) {
+            if ([obj isKindOfClass:[NSDictionary class]]) {
+                NSString *stringValue = [NSString stringWithFormat:@"%@",[obj valueForKey:@"USRCS_SCORE"]];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self updateCrediScore:stringValue];
+                    id messageObj = [obj valueForKey:@"messages"];
+                    pointsCountLabel.text = [NSString stringWithFormat:@"%@",[messageObj valueForKey:@"MESSAGE"]];
+                    [self.pointsButton setTitle:[NSString stringWithFormat:@"%@ Points",[messageObj valueForKey:@"NEEDED_CREDIT_SCORE"]] forState:UIControlStateNormal];
+                });
+            }else{
+                
+            }
+            
+        }];
+    }else{
+        
+    }
+}
+
+- (void)getUserLoanStatus
+{
+    
     [LOANMACRO getUserCurrentLoanStatusWithCompletionBlock:^(id obj) {
         if ([obj isKindOfClass:[NSString class]] || ![obj count]) {
             [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"loanIsProcessed"];
@@ -222,29 +300,11 @@
         }
         [[NSUserDefaults standardUserDefaults] synchronize];
         dispatch_async(dispatch_get_main_queue(), ^{
-             [self updateButtons];
-        });        
+            [self updateButtons];
+        });
         [ACTIVITY performSelectorOnMainThread:@selector(hideActivity) withObject:nil waitUntilDone:YES];
     }];
-    
-    if ([NetworkHelperClass getInternetStatus:NO]) {
-        [PROFILEMACRO getUserCreditScore:^(id obj) {
-            if ([obj isKindOfClass:[NSDictionary class]]) {
-                NSString *stringValue = [NSString stringWithFormat:@"%@",[obj valueForKey:@"USRCS_SCORE"]];
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [self updateCrediScore:stringValue];
-                    id messageObj = [obj valueForKey:@"messages"];
-                    pointsCountLabel.text = [NSString stringWithFormat:@"%@",[messageObj valueForKey:@"MESSAGE"]];
-                    [self.pointsButton setTitle:[NSString stringWithFormat:@"%@ Points",[messageObj valueForKey:@"NEEDED_CREDIT_SCORE"]] forState:UIControlStateNormal];
-                });
-            }else{
-                
-            }
-            
-        }];
-    }else{
-        
-    }
+
 }
 
 - (void)updateButtons
@@ -280,12 +340,12 @@
         //#-- User requested loan.. and it is processed
         applyLoan.hidden = NO;
         repayLoanButton.hidden = YES;
-        [applyLoan setImage:nil forState:UIControlStateNormal];
-        [applyLoan setImageEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
-        [applyLoan setTitleEdgeInsets:UIEdgeInsetsMake(0,  0, 0, 0)];
-//        [applyLoan setTitle:[NSString stringWithFormat:@"Your loan request is under process"] forState:UIControlStateNormal];
-        [applyLoan setTitle:[NSString stringWithFormat:@"%@\nYour loan request is under process",SAND_CLOCK] forState:UIControlStateNormal];
-        applyLoan.titleLabel.font = [UIFont fontWithName:@"Roboto-Medium" size:13];
+        [applyLoan setImage:[UIImage imageNamed:@"SandClock"] forState:UIControlStateNormal];
+        [applyLoan setImageEdgeInsets:UIEdgeInsetsMake(-40, 40, 0, 0)];
+        [applyLoan setTitleEdgeInsets:UIEdgeInsetsMake(35,  -15, 0, 0)];
+        [applyLoan setTitle:[NSString stringWithFormat:@"Your loan request is under process"] forState:UIControlStateNormal];
+//        [applyLoan setTitle:[NSString stringWithFormat:@"%@\nYour loan request is under process",SAND_CLOCK] forState:UIControlStateNormal];
+        applyLoan.titleLabel.font = [UIFont fontWithName:@"Roboto-Medium" size:12];
         applyLoan.userInteractionEnabled = NO;
     }
     

@@ -12,4 +12,5 @@
 + (TransactionObjectModel *)sharedTransactionHistory;
 - (NSArray *)getAllTransactionHistory;
 - (void)downloadTransactionHistory:(id)dict completion:(void (^)(int value))completionBlock;
+- (void)getIndividualLoan:(NSString *)loanId completion:(void(^)(id obj))completionBlock;
 @end

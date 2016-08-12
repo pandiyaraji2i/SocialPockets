@@ -333,14 +333,6 @@
         {
             // First figure out how many sections there are
             [table deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-            //            if (![self totalCount]) {
-            //                [table setEditing:NO];
-            //                self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]initWithCustomView:infoBtn];
-            //                self.navigationItem.leftBarButtonItem=nil;
-            //                [travelplanTable reloadData];
-            //            }else{
-            //                self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]initWithTitle:@"Edit" style:UIBarButtonItemStylePlain target:self action:@selector(editDoneAction:)];
-            //            }
         }
             break;
         case NSFetchedResultsChangeUpdate:
