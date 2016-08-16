@@ -105,6 +105,7 @@
         for (int i=0; i<array.count; i++) {
             NSDictionary *transactionHistoryDict = array[i];
             if ([transactionHistoryDict isKindOfClass:[NSDictionary class]]) {
+//                [self updateSingleLoanTransaction:transactionHistoryDict context:saveUpdateTravelPlanContext];
                 NSString *loanId = [NSString stringWithFormat:@"%@",transactionHistoryDict[@"USRLN_ID"]];
                 TransactionHistory *transHistoryDetails = [self transactionHistoryInfoFromId:loanId context:saveUpdateTravelPlanContext];
                 if (!transHistoryDetails) {
@@ -116,6 +117,16 @@
         [DATABASE dbSaveRecordChildContext:saveUpdateTravelPlanContext];
     }];
 }
+
+/*- (void)updateSingleLoanTransaction:(id)transactionHistoryDict context:(NSManagedObjectContext *)context
+{
+    NSString *loanId = [NSString stringWithFormat:@"%@",transactionHistoryDict[@"USRLN_ID"]];
+    TransactionHistory *transHistoryDetails = [self transactionHistoryInfoFromId:loanId context:context];
+    if (!transHistoryDetails) {
+        transHistoryDetails = [self transactionHistoryInfoFromId:loanId isAddToUser:YES context:context];
+    }
+    [self updateDetails:transHistoryDetails withDict:transactionHistoryDict context:context];
+}*/
 
 - (void)updateDetails:(TransactionHistory *)transactionHistory withDict:(NSDictionary *)transHistoryDict context:(NSManagedObjectContext *)context
 {

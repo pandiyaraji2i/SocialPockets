@@ -148,6 +148,10 @@
         TransactionHistory *transctionHistory= [self.transactionHistoryResultsController  objectAtIndexPath:indexPath];
         if(isShowingListsec && selectedValueSection == indexPath.section){
             id loanObject = transctionHistory.loanObject;
+            if ([[loanObject objectForKey:@"USRLN_STATUS"] intValue] == 0) {
+                return 60;
+            }
+            
             if([[loanObject objectForKey:@"USRLN_STATUS"] intValue] > 2 ){
                 return 265;
             }
@@ -156,7 +160,6 @@
             }
         }
     }
-    NSLog(@"last row == %ld",indexPath.section);
     if (indexPath.section != [self totalCount]) {
     return 60;
     }else{
@@ -223,7 +226,7 @@
         
         [amountInHand setText:[loanObject objectForKey:@"USRLN_ACTION_AMOUNT"]];
         
-        creditDate.text=[SharedMethods convertString:[NSString stringWithFormat:@"%@",[loanObject objectForKey:@"USRLN_CREATED_DATE"]]fromFormat:LOCALDATETIMEFORMAT toFormat:DATEFORMAT];
+        creditDate.text=[SharedMethods convertString:[NSString stringWithFormat:@"%@",[loanObject objectForKey:@"USRLN_TRANSFERRED_DATE"]]fromFormat:LOCALDATETIMEFORMAT toFormat:DATEFORMAT];
         
         [creditAccount setText:[loanObject objectForKey:@"USRLN_MOBWM_ID"]];
         

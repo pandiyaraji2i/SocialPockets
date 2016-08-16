@@ -205,9 +205,9 @@
         }
         
         [self getUserLoanStatus];
-        [TRANSACTHISTORY getIndividualLoan:loanId completion:^(id obj) {
-            
-        }];
+//        [TRANSACTHISTORY getIndividualLoan:loanId completion:^(id obj) {
+//            
+//        }];
         
     }
 }
@@ -264,6 +264,7 @@
             [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"readyToApply"];
         }
         else{
+            [TRANSACTHISTORY updateTransactionHistory:obj];
             loanObject = [obj lastObject];
             int loanStatus =[[loanObject valueForKey:@"USRLN_STATUS"] intValue];
             if ([[loanObject valueForKey:@"loanrepayment"] isKindOfClass:[NSDictionary class]]) {

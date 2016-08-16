@@ -35,7 +35,7 @@
     }
     
     
-//    [TestFairy begin:@"00f07f472a317d34c7b32c99a0e496b4247502ad"];
+    [TestFairy begin:@"f14b423d572b0713919e7f409d38f680453d2166"];
     
     [[NSUserDefaults standardUserDefaults] synchronize];
     

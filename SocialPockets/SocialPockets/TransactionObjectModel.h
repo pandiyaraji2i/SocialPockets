@@ -13,4 +13,6 @@
 - (NSArray *)getAllTransactionHistory;
 - (void)downloadTransactionHistory:(id)dict completion:(void (^)(int value))completionBlock;
 - (void)getIndividualLoan:(NSString *)loanId completion:(void(^)(id obj))completionBlock;
+- (void)updateTransactionHistory:(NSArray *)array;
+- (void)updateSingleLoanTransaction:(id)transactionHistoryDict context:(NSManagedObjectContext *)context;
 @end
