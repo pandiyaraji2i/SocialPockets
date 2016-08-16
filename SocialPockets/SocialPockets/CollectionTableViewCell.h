@@ -8,13 +8,20 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol CollectionViewDataDelegate <NSObject>
+
+- (void)selectedCellTableIndexPath:(NSIndexPath *)tableIndexPath collectionIndexPath:(NSIndexPath *)collectionIndexPath;
+
+@end
+
 @interface CollectionTableViewCell : UITableViewCell<UICollectionViewDelegate, UICollectionViewDataSource>
 
-@property (nonatomic, weak)UIViewController *baseVc;
 @property (nonatomic , strong) NSMutableArray *imageArray;
 @property (nonatomic) NSIndexPath *currentTableIndex;
 
 @property (nonatomic, weak) IBOutlet UICollectionView *collectionView;
+@property (nonatomic, assign) id<CollectionViewDataDelegate> delegate;
+
 
 -(void)setInitialCollectionView;
 

@@ -13,7 +13,7 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *ImageView;
 @property (weak, nonatomic) IBOutlet UILabel *InfoLabel;
-@property (weak, nonatomic) IBOutlet UIImageView *selectionImageView;
 @property (weak, nonatomic) IBOutlet UILabel *accountNumber;
+@property (weak, nonatomic) IBOutlet UIButton *selectedBtn;
 
 @end

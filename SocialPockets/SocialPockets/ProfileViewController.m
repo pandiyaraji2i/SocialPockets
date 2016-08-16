@@ -7,10 +7,9 @@
 //
 
 #import "ProfileViewController.h"
+#import "ChangePasswordController.h"
 
 @interface ProfileViewController ()
-@property (weak, nonatomic) IBOutlet UIButton *updateBtn;
-@property (weak, nonatomic) IBOutlet UIButton *eligibiltyBtn;
 
 @end
 
@@ -18,17 +17,37 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    if (IPHONE6PLUS_STANDARD){
+        self.backgroundImage.image = [UIImage imageNamed:@"NotificationBG6Splus.png"];
+        
+    }else if (IPHONE5){
+        self.backgroundImage.image = [UIImage imageNamed:@"NotificationBG.png"];
+        
+    }else if(IPHONE6_STANDARD){
+        self.backgroundImage.image = [UIImage imageNamed:@"NotificationBG6S.png"];
+        
+    }else{
+        self.backgroundImage.image = [UIImage imageNamed:@"NotificationBG4S.png"];
+        
+    }
+
     // Do any additional setup after loading the view.
 }
-- (IBAction)UpdateBtnTapped:(id)sender
+- (IBAction)editProfileAction:(id)sender
 {
+    UIButton *btn = sender;
+    if (btn.selected) {
+        
+    }else{
     [PROFILEMACRO updateUserProfileWithName:@"kovendhan" username:@"kovendhan" email:@"kovendhan@ideas2it.com" phoneNumber:@"1111111111" completion:^(id obj) {
         NSLog(@"profile update =%@",obj);
     }];
+    }
     
 }
-- (IBAction)onEligiblityCheck:(id)sender {
-  
+- (IBAction)changePasswordAction:(id)sender {
+    ChangePasswordController *changePasswordVc =[self.storyboard instantiateViewControllerWithIdentifier:@"ChangePasswordVc"];
+    [self.navigationController pushViewController:changePasswordVc animated:YES];
 }
 
 

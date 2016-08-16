@@ -9,5 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface ProfileViewController : UIViewController
+{
+    
+}
+@property (weak, nonatomic) IBOutlet UIImageView *backgroundImage;
+@property (weak, nonatomic) IBOutlet UIButton *editProfileBtn, *changePasswordBtn;
 
 @end

@@ -11,5 +11,10 @@
 @interface ChangePasswordController : UIViewController
 {
     IBOutlet UITextField *oldPasswordTxtField, *newPasswordTxtField, *confirmPasswordTxtField;
+    IBOutlet UIImageView *bgImageView;
+    IBOutlet UIButton *doneButton;
 }
+
+- (IBAction)onDoneAction:(id)sender;
+
 @end

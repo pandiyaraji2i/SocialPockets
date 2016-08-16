@@ -16,6 +16,7 @@
     NSArray *secTitle;
 }
 @synthesize imageArray,currentTableIndex;
+@synthesize delegate;
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -30,6 +31,7 @@
     [self.collectionView registerNib:[UINib nibWithNibName:@"TableCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"TableCollectionViewCell"];
     currentSectionDictionary = [[NSDictionary alloc] init];
     currentSectionDictionary = [imageArray objectAtIndex:currentTableIndex.section];
+    
     [self.collectionView reloadData];
 }
 
@@ -64,27 +66,23 @@
         cell.accountNumber.text = [self secureBankAccount:[[currentRowDetail objectAtIndex:indexPath.row] objectForKey:@"Account Number"]];
     }
     
+    if (indexPath.row %2 == 0) {
+        cell.selectedBtn.selected = YES;
+    }else{
+        cell.selectedBtn.selected = NO;
+
+    }
     return cell;
     
 }
 
 
-//- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-//    if (currentTableIndex.section == 2 && [[currentSectionDictionary objectForKey:@"Money Account"] count]<=3 && indexPath.row == [[currentSectionDictionary objectForKey:@"Money Account"] count]-1 && [[[currentSectionDictionary objectForKey:@"Money Account"] objectAtIndex:2] valueForKey:@"Account Number"] == nil) {
-//        NSLog(@"comein");
-//        UIStoryboard *sB = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-//        AddBankAccountController *addBankAccount = [sB instantiateViewControllerWithIdentifier:@"AddBankAccount"];
-//         [self.baseVc.navigationController pushViewController:addBankAccount animated:YES];
-// 
-//
-//    }
-//}
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    [delegate selectedCellTableIndexPath:currentTableIndex collectionIndexPath:indexPath];
+}
 
 -(NSString *)secureBankAccount:(NSString *)accNo{
     return [accNo stringByReplacingCharactersInRange:NSMakeRange(4, [accNo length]-8) withString:@"****"];
 
 }
-
-
-
 @end

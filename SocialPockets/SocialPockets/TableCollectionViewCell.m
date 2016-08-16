@@ -9,14 +9,13 @@
 #import "TableCollectionViewCell.h"
 
 @implementation TableCollectionViewCell
-@synthesize InfoLabel, ImageView, selectionImageView,accountNumber;
+@synthesize InfoLabel, ImageView,accountNumber;
 
 
 
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
-    
     ImageView.layer.cornerRadius = 5;
     ImageView.layer.masksToBounds = YES;
 }
