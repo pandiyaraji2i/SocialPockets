@@ -13,6 +13,7 @@
 		6777A4C81D4A125300BF1EC3 /* RepayLoanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6777A4C71D4A125300BF1EC3 /* RepayLoanViewController.m */; };
 		6777A4CA1D4A1EE100BF1EC3 /* Calendar_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6777A4C91D4A1EE100BF1EC3 /* Calendar_icon.png */; };
 		6777A4CC1D4A2FF600BF1EC3 /* close_round_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 6777A4CB1D4A2FF600BF1EC3 /* close_round_button.png */; };
+		677A83D61D6327F800CCF822 /* RRCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 677A83D41D6327F800CCF822 /* RRCircleView.m */; };
 		802EDF43A49A32B470A0D8D8 /* libPods-SocialPockets.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0455716A8E3A563761CB5AAC /* libPods-SocialPockets.a */; };
 		A3083F941D59E1C200476BA3 /* CircleProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = A3083F931D59E1C200476BA3 /* CircleProgressView.m */; };
 		A3253D121D3C9DE90081A59C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A3253D111D3C9DE90081A59C /* main.m */; };
@@ -150,6 +151,8 @@
 		6777A4C71D4A125300BF1EC3 /* RepayLoanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RepayLoanViewController.m; sourceTree = "<group>"; };
 		6777A4C91D4A1EE100BF1EC3 /* Calendar_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Calendar_icon.png; sourceTree = "<group>"; };
 		6777A4CB1D4A2FF600BF1EC3 /* close_round_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close_round_button.png; sourceTree = "<group>"; };
+		677A83D41D6327F800CCF822 /* RRCircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRCircleView.m; sourceTree = "<group>"; };
+		677A83D51D6327F800CCF822 /* RRCircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRCircleView.h; sourceTree = "<group>"; };
 		853DFEBFFD11370D4A6D76B8 /* Pods-SocialPockets.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialPockets.release.xcconfig"; path = "Pods/Target Support Files/Pods-SocialPockets/Pods-SocialPockets.release.xcconfig"; sourceTree = "<group>"; };
 		A3083F921D59E1C200476BA3 /* CircleProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleProgressView.h; sourceTree = "<group>"; };
 		A3083F931D59E1C200476BA3 /* CircleProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleProgressView.m; sourceTree = "<group>"; };
@@ -725,6 +728,8 @@
 		A3C3C8971D3F7E6100C65B09 /* AccountProfile */ = {
 			isa = PBXGroup;
 			children = (
+				677A83D41D6327F800CCF822 /* RRCircleView.m */,
+				677A83D51D6327F800CCF822 /* RRCircleView.h */,
 				A3C3C89F1D3F86CF00C65B09 /* ProfileViewController.h */,
 				A3C3C8A01D3F86CF00C65B09 /* ProfileViewController.m */,
 				A3C3C8A21D3F86EC00C65B09 /* ProfileModel.h */,
@@ -1048,6 +1053,7 @@
 				A3D65A941D461A5700B47E46 /* MFSideMenuShadow.m in Sources */,
 				A3C3C8491D3DF1E000C65B09 /* NSURLSession+SynchronousTask.m in Sources */,
 				A32FFADF1D5C9D4700C1A519 /* UserDetails.m in Sources */,
+				677A83D61D6327F800CCF822 /* RRCircleView.m in Sources */,
 				6777A4C51D4A008C00BF1EC3 /* RequestConfirmationViewController.m in Sources */,
 				A3C3C84A1D3DF1E000C65B09 /* Reachability.m in Sources */,
 				A32FFAE51D5C9D6E00C1A519 /* DatabaseObject.m in Sources */,
