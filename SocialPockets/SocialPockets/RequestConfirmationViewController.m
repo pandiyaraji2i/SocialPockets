@@ -109,10 +109,11 @@
         UILabel *titlename = (UILabel *)[cell.contentView viewWithTag:999];
 
         titlename.text = [[accountArray objectAtIndex:indexPath.row] objectForKey:@"USRMW_BANK_NAME"];
-        UILabel *subtitlename = (UILabel *)[cell.contentView viewWithTag:888];
-
         
+        
+        UILabel *subtitlename = (UILabel *)[cell.contentView viewWithTag:888];
         subtitlename.text = [[accountArray objectAtIndex:indexPath.row] objectForKey:@"USRMW_ACCOUNT_NUMBER"];
+        
         cell.textLabel.textAlignment = NSTextAlignmentCenter;
         
         UIButton *check = (UIButton *)[cell.contentView viewWithTag:777];

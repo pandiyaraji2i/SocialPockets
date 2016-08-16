@@ -31,7 +31,7 @@ static BankAccHelper* _sharedInstance = nil;
 - (void)createBankAccountForUserId:(NSString *)userId bankName:(NSString *)bankName ifscCode:(NSString *)ifscCode accountNumber:(NSString*)accountNumber branchName:(NSString *)branchName createdBy:(NSString *)createdBy completion:(void (^)(id obj))completionBlock
 {
     if([NetworkHelperClass getInternetStatus:YES]){
-        NSMutableDictionary *dict =[@{@"userid":userId,@"bank_name": bankName,@"ifsc_code":ifscCode,@"account_number":accountNumber,@"branch":branchName,@"created_by":createdBy}mutableCopy];
+        NSMutableDictionary *dict =[@{@"userid":userId,@"bank_name":bankName,@"ifsc_code":ifscCode,@"account_number":accountNumber,@"branch":branchName,@"created_by":createdBy}mutableCopy];
         [NetworkHelperClass sendAsynchronousRequestToServer:@"createCreditAccount" httpMethod:POST requestBody:dict contentType:JSONCONTENTTYPE completion:^(id obj) {
             if(completionBlock){
                 completionBlock(obj);

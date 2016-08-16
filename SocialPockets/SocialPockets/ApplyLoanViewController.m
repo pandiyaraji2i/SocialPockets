@@ -49,6 +49,12 @@
     UITapGestureRecognizer *gr = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(sliderTapped:)];
     [self.loanAmtSlider addGestureRecognizer:gr];
     
+    [_loanAmtSlider addTarget:self action:@selector(sliderValueChanged:) forControlEvents:UIControlEventValueChanged];
+    
+
+    
+
+    
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@" " style:UIBarButtonItemStylePlain target:self action:nil];
 
 
@@ -72,7 +78,9 @@
 }
 
 - (IBAction)sliderValueChanged:(UISlider*)sender {
+    self.loanAmtSlider.continuous= YES;
     double num = self.loanAmtSlider.value;
+    
     int intpart = (int)num;
     double decpart = num - intpart;
     if (decpart>0.5) {
