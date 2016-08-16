@@ -31,7 +31,6 @@
         
     }else{
         self.backgroundImage.image = [UIImage imageNamed:@"NotificationBG4S.png"];
-        
     }
 }
 

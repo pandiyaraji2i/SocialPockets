@@ -17,6 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"My Account";
     if (IPHONE6PLUS_STANDARD){
         self.backgroundImage.image = [UIImage imageNamed:@"NotificationBG6Splus.png"];
         
@@ -30,6 +31,16 @@
         self.backgroundImage.image = [UIImage imageNamed:@"NotificationBG4S.png"];
         
     }
+    
+    self.editProfileBtn.layer.borderColor = [UIColor colorWithRed:30.0/255.0 green:159.0/255.0 blue:39.0/255.0 alpha:1.0].CGColor;
+    self.changePasswordBtn.layer.borderColor = [UIColor colorWithRed:30.0/255.0 green:159.0/255.0 blue:39.0/255.0 alpha:1.0].CGColor;
+    self.editProfileBtn.layer.borderWidth = 1.5;
+    self.changePasswordBtn.layer.borderWidth = 1.5;
+    
+    self.editProfileBtn.titleLabel.adjustsFontSizeToFitWidth = YES;
+     self.changePasswordBtn.titleLabel.adjustsFontSizeToFitWidth = YES;
+    
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@" " style:UIBarButtonItemStylePlain target:self action:nil];
 
     // Do any additional setup after loading the view.
 }
@@ -54,6 +65,11 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
 }
 
 /*
