@@ -81,19 +81,21 @@
  *  @return A UIButton object
  */
 -(UIButton *)generateButtons:(int)i {
-    UIButton *element = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 45, 45)];
+    UIButton *element = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
     element.backgroundColor = [UIColor colorWithRed:31/255.0f green:144/255.0f blue:38/255.0f alpha:1.00];
     element.layer.cornerRadius = element.bounds.size.height/2.0;
     element.layer.borderColor = [UIColor whiteColor].CGColor;
     element.layer.borderWidth = 1;
     
     if (_imagesArray) {
-        [element setBackgroundImage:[_imagesArray objectAtIndex:i] forState:UIControlStateNormal];
+        [element setImage:[_imagesArray objectAtIndex:i] forState:UIControlStateNormal];
+
+       // [element setBackgroundImage:[_imagesArray objectAtIndex:i] forState:UIControlStateNormal];
     }else {
         [element setTitle:[NSString stringWithFormat:@"%d", i+1] forState:UIControlStateNormal];
     }
     
-    if (i <= self.progressNumber-2) {
+    if (i <= self.progressNumber-4) {
         element.layer.borderColor = self.highlightColor.CGColor;
     }
     if (i == 6 || i == 7) {
@@ -112,7 +114,7 @@
     _menuRadius = 50;
     
     // calculate the radius according to the screen width
-    _menuRadius = ([[UIScreen mainScreen] bounds].size.width - 80)/2;
+    _menuRadius = ([[UIScreen mainScreen] bounds].size.width - 100)/2;
     
     if (!_numberOfButtons) {
         _numberOfButtons = 8;
@@ -277,7 +279,7 @@
     CGFloat radius = _menuRadius+10;
     
     CGFloat _startAngle = 360 - ((360/8)*2);
-    CGFloat progressAngle = (360/8)*(self.progressNumber-2);
+    CGFloat progressAngle = (360/8)*(self.progressNumber-4);
     
     CGFloat barWidth = 20.0;
     

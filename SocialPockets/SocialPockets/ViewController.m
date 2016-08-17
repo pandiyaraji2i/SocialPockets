@@ -11,6 +11,7 @@
 #import "LoginViewController.h"
 #import "RegistrationViewController.h"
 #import "ManageAccountsViewController.h"
+#import "ProgressViewController.h"
 
 @interface ViewController ()<UIScrollViewDelegate>
 {
@@ -107,7 +108,11 @@
 
 - (IBAction)registerButtonAction:(id)sender
 {
-    ErrorMessageWithTitle(@"Message", @"In Progress");
+    
+        ProgressViewController *progressVc =[self.storyboard instantiateViewControllerWithIdentifier:@"ProgressVc"];
+        [self.navigationController pushViewController:progressVc animated:YES];
+    
+//    ErrorMessageWithTitle(@"Message", @"In Progress");
 //    RegistrationViewController *registerVc =[self.storyboard instantiateViewControllerWithIdentifier:@"registerVc"];
 //    [self.navigationController pushViewController:registerVc animated:YES];
 }

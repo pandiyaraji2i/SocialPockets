@@ -103,6 +103,7 @@
 		FB0342F41D54AE4C00C11019 /* NotificationBG4S.png in Resources */ = {isa = PBXBuildFile; fileRef = FB0342F01D54AE4C00C11019 /* NotificationBG4S.png */; };
 		FB0342F51D54AE4C00C11019 /* NotificationBG6S.png in Resources */ = {isa = PBXBuildFile; fileRef = FB0342F11D54AE4C00C11019 /* NotificationBG6S.png */; };
 		FB0342F61D54AE4C00C11019 /* NotificationBG6Splus.png in Resources */ = {isa = PBXBuildFile; fileRef = FB0342F21D54AE4C00C11019 /* NotificationBG6Splus.png */; };
+		FB06EF0E1D644D2C00ABF8FE /* ProgressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB06EF0D1D644D2C00ABF8FE /* ProgressViewController.m */; };
 		FBAAB8291D422888001C918B /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = FBAAB8281D422888001C918B /* Podfile */; };
 		FBAAB8361D4239D7001C918B /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBAAB8331D4239D7001C918B /* FBSDKCoreKit.framework */; };
 		FBAAB8371D4239D7001C918B /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBAAB8341D4239D7001C918B /* FBSDKLoginKit.framework */; };
@@ -309,6 +310,8 @@
 		FB0342F01D54AE4C00C11019 /* NotificationBG4S.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NotificationBG4S.png; sourceTree = "<group>"; };
 		FB0342F11D54AE4C00C11019 /* NotificationBG6S.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NotificationBG6S.png; sourceTree = "<group>"; };
 		FB0342F21D54AE4C00C11019 /* NotificationBG6Splus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NotificationBG6Splus.png; sourceTree = "<group>"; };
+		FB06EF0C1D644D2C00ABF8FE /* ProgressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressViewController.h; sourceTree = "<group>"; };
+		FB06EF0D1D644D2C00ABF8FE /* ProgressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressViewController.m; sourceTree = "<group>"; };
 		FBAAB8281D422888001C918B /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		FBAAB8331D4239D7001C918B /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		FBAAB8341D4239D7001C918B /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
@@ -392,6 +395,8 @@
 				FB0342F01D54AE4C00C11019 /* NotificationBG4S.png */,
 				FB0342F11D54AE4C00C11019 /* NotificationBG6S.png */,
 				FB0342F21D54AE4C00C11019 /* NotificationBG6Splus.png */,
+				FB06EF0C1D644D2C00ABF8FE /* ProgressViewController.h */,
+				FB06EF0D1D644D2C00ABF8FE /* ProgressViewController.m */,
 				A3D65A821D460BA100B47E46 /* CameraFrameWork.framework */,
 				FBAAB8281D422888001C918B /* Podfile */,
 				FBAAB82A1D422B81001C918B /* FrameWork */,
@@ -1079,6 +1084,7 @@
 				A3B529241D49E1F200603451 /* IQUIView+Hierarchy.m in Sources */,
 				A38968631D40DDF000FA8F14 /* SocialSiteViewController.m in Sources */,
 				A3B529261D49E1F200603451 /* IQUIWindow+Hierarchy.m in Sources */,
+				FB06EF0E1D644D2C00ABF8FE /* ProgressViewController.m in Sources */,
 				A32FFAE11D5C9D4700C1A519 /* TransactionHistory.m in Sources */,
 				A3C3C8A71D3F928C00C65B09 /* OTPViewController.m in Sources */,
 				A3B529211D49E1F200603451 /* IQNSArray+Sort.m in Sources */,
