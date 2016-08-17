@@ -10,6 +10,7 @@
 #import "SignatureViewController.h"
 #import "VerifyAadharViewController.h"
 #import "PANCardViewController.h"
+#import "ProgressViewController.h"
 @interface RegistrationViewController (){
 
 }
@@ -40,13 +41,18 @@
     [super viewDidLoad];
     self.title = @"Registration";
     
-#warning just for testing
-    firstNameTextField.text = @"kishore";
-    usernameTextField.text = @"kishore";
-    passwordTextField.text = @"kishore";
-    confirmPasswordTextField.text = @"kishore";
-    emailTextField.text = @"kishore@ideas2it.com";
-    phoneNumberTextField.text = @"9090909090";
+    self.navigationController.navigationBar.tintColor  =[UIColor whiteColor];
+    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor whiteColor]};
+    
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@" " style:UIBarButtonItemStylePlain target:self action:nil];
+    
+//#warning just for testing
+//    firstNameTextField.text = @"kishore";
+//    usernameTextField.text = @"kishore";
+//    passwordTextField.text = @"kishore";
+//    confirmPasswordTextField.text = @"kishore";
+//    emailTextField.text = @"kishore@ideas2it.com";
+//    phoneNumberTextField.text = @"9090909090";
 
     
     self.navigationController.navigationBarHidden = YES;
@@ -84,6 +90,13 @@
     
     self.nextBtn.layer.cornerRadius = 5;
     self.nextBtn.layer.masksToBounds = YES;
+    if (TARGET_OS_SIMULATOR) {
+        profileImage = [UIImage imageNamed:@"ProfileImage"];
+    }
+    
+    //#-- Status Bar Color Change
+    [self setNeedsStatusBarAppearanceUpdate];
+    
     // Do any additional setup after loading the view.
     
 }
@@ -111,7 +124,9 @@
 }
 
 - (IBAction)onRegisterAction:(id)sender {
-    
+    ProgressViewController *progressVc = [self.storyboard instantiateViewControllerWithIdentifier:@"ProgressVc"];
+    [self.navigationController pushViewController:progressVc animated:YES];
+    return;
     if(!firstNameTextField.text.length || !emailTextField.text.length || !phoneNumberTextField.text.length || !usernameTextField.text.length || !passwordTextField.text.length || !confirmPasswordTextField.text.length)
     {
         ErrorMessageWithTitle(@"Message",@"Please enter all fields");
@@ -132,24 +147,31 @@
     {
         ErrorMessageWithTitle(@"Message",@"Please read terms and conditions");
     }
-//    else if (!profileImage)
-//    {
-//         ErrorMessageWithTitle(@"Message",@"Please select image");
-//
-//    }
+    else if (!profileImage)
+    {
+         ErrorMessageWithTitle(@"Message",@"Please select image");
+    }
     else{
-//        [REGMACRO registerWithName:firstNameTextField.text userName:usernameTextField.text email:emailTextField.text password:passwordTextField.text phoneNumber:phoneNumberTextField.text completion:^(id obj) {
-//            
-//            
-//            // If success
-//            [NetworkHelperClass uploadImage:profileImage isUserOrLoan:1 userId:@"" sync:NO completion:^(id obj) {
-//                
-//            }];
-//            // Call Otp
-//            [REGMACRO createOTPForPhoneNumber:phoneNumberTextField.text createdBy:@"userid" completion:^(id obj) {
-//                
-//            }];
-//        }];
+        [REGMACRO registerWithName:firstNameTextField.text userName:usernameTextField.text email:emailTextField.text password:passwordTextField.text phoneNumber:phoneNumberTextField.text completion:^(id obj) {
+            if ([obj isKindOfClass:[NSDictionary class]]) {
+                // If success
+                [NetworkHelperClass uploadImage:profileImage isUserOrLoan:1 userId:@"" sync:NO completion:^(id obj) {
+                    if ([obj isKindOfClass:[NSDictionary class]]) {
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            ProgressViewController *progressVc = [self.storyboard instantiateViewControllerWithIdentifier:@"progressVc"];
+                            [self.navigationController pushViewController:progressVc animated:YES];
+                        });
+                    }
+                }];
+                //            // Call Otp
+                //            [REGMACRO createOTPForPhoneNumber:phoneNumberTextField.text createdBy:@"userid" completion:^(id obj) {
+                //                
+                //            }];
+            }
+            else{
+                ErrorMessageWithTitle(@"Message", obj);
+            }
+        }];
     }
 }
 - (IBAction)aadharBtnTapped:(id)sender {
@@ -163,7 +185,7 @@
         self.aadharViewHeightConstraimt.constant = 40;
 //        [self.view updateConstraints];
 //        [self.view layoutIfNeeded];
-
+        
     }
         self.aadharCardBtn.selected = !self.aadharCardBtn.selected;
 }
@@ -234,6 +256,12 @@
     if ([[NSUserDefaults standardUserDefaults] boolForKey:@"SignatureUpdate"]) {
                 [self.signatureBtn setImage:[UIImage imageNamed:@"circleChecked"] forState:UIControlStateNormal];
             }
+}
+
+#pragma mark Status Bar Style
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
 }
 
 

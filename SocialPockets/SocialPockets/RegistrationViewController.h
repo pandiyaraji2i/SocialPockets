@@ -12,7 +12,7 @@
 {
     IBOutlet UITextField *emailTextField, *usernameTextField, *phoneNumberTextField, *firstNameTextField, *passwordTextField, *confirmPasswordTextField;
     UIImage *profileImage;
-    
+    IBOutlet UIScrollView *listScrollView;
 }
 @property (weak, nonatomic) IBOutlet UIButton *profileImageBtn;
 @property (weak, nonatomic) IBOutlet UIView *userInfoView;

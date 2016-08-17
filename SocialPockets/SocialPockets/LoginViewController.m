@@ -70,10 +70,10 @@
         [profileContext performBlockAndWait:^{
             profileContext.parentContext = DATABASE.managedObjectContext;
             UserDetails *tempUser = (id)[profileContext objectWithID:USERINFO.objectID];
-            
             tempUser.userId = userId;
             [DBPROFILE generateUserInfo:obj forUser:tempUser.userId];
             [DATABASE dbSaveRecordChildContext:profileContext];
+            [DBPROFILE downloadImage];
             MFSideMenuContainerViewController *container = [LoginViewController loginSuccessForIOS8:YES userId:USERINFO.userId fromClass:@"LoginViewController"];
             [self.navigationController presentViewController:container animated:YES completion:nil];
         }];

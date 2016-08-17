@@ -149,14 +149,15 @@
 }
 - (void)openCamera
 {
-    [self uploadImage];
-    /*CameraViewController *vc =[[CameraViewController alloc]initwithController];
+//    [self uploadImage];
+   /* CameraViewController *vc =[[CameraViewController alloc]initwithController];
      [vc openCamera:0];
      [self.navigationController presentViewController:vc animated:NO completion:nil];
      vc.imageSelect = ^(id obj){
      if (obj && [obj isKindOfClass:[UIImage class]]) {
      profileImage = obj;
      [self.profileImageBtn setImage:profileImage forState:UIControlStateNormal];
+         [self uploadImage];
      }
      dispatch_async(dispatch_get_main_queue(), ^{
      [self dismissViewControllerAnimated:NO completion:nil];
@@ -166,7 +167,7 @@
 - (void)uploadImage
 {
     [DBPROFILE uploadImage:profileImage objectId:USERINFO.objectID withCompletionBlock:^{
-        
+        [DBPROFILE downloadImage];
     }];
 //    [NetworkHelperClass uploadImage:profileImage isUserOrLoan:1 userId:USERINFO.userId sync:NO completion:^(id obj) {
 //        

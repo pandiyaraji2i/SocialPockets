@@ -8,6 +8,7 @@
 
 #import "ProgressViewController.h"
 #import "RRCircleView.h"
+#import "LoginViewController.h"
 
 @interface ProgressViewController (){
     NSArray *imageNameArray;
@@ -23,7 +24,7 @@
     self.doneBtn.layer.cornerRadius = 5.0;
     self.doneBtn.layer.borderColor = [UIColor whiteColor].CGColor;
     self.doneBtn.layer.borderWidth = 1.5;
-    
+    self.navigationController.navigationBarHidden = YES;
     imageNameArray = [NSArray arrayWithObjects:@"FBProgress",@"BankProgress",@"TwitterProgress",@"InstagramProgress",@"LInkedInProgress",@"PanCardProgress",@"AccountProgress",@"AadharProgress", nil];
     RRCircleView *view = [[RRCircleView alloc] initFromPoint:self.view.center from:self.progressBG];
     [self.view setBackgroundColor:[UIColor clearColor]];
@@ -46,12 +47,21 @@
 // Done Btn tapped
 
 - (IBAction)doneBtnTapped:(id)sender {
-    [self.navigationController popToRootViewControllerAnimated:YES];
+//    [self.navigationController popToRootViewControllerAnimated:YES];
+    MFSideMenuContainerViewController *container = [LoginViewController loginSuccessForIOS8:YES userId:USERINFO.userId fromClass:@"ProgressViewController"];
+    [self.navigationController presentViewController:container animated:YES completion:nil];
     
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+#pragma mark Status Bar Style
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
 }
 
 /*

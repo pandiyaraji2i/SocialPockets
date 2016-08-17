@@ -312,8 +312,8 @@
 		FB0342F01D54AE4C00C11019 /* NotificationBG4S.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NotificationBG4S.png; sourceTree = "<group>"; };
 		FB0342F11D54AE4C00C11019 /* NotificationBG6S.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NotificationBG6S.png; sourceTree = "<group>"; };
 		FB0342F21D54AE4C00C11019 /* NotificationBG6Splus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NotificationBG6Splus.png; sourceTree = "<group>"; };
-		FB06EF0C1D644D2C00ABF8FE /* ProgressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressViewController.h; sourceTree = "<group>"; };
-		FB06EF0D1D644D2C00ABF8FE /* ProgressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressViewController.m; sourceTree = "<group>"; };
+		FB06EF0C1D644D2C00ABF8FE /* ProgressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProgressViewController.h; path = ../ProgressViewController.h; sourceTree = "<group>"; };
+		FB06EF0D1D644D2C00ABF8FE /* ProgressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProgressViewController.m; path = ../ProgressViewController.m; sourceTree = "<group>"; };
 		FB06EF0F1D64796400ABF8FE /* VerifyAadharViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VerifyAadharViewController.h; sourceTree = SOURCE_ROOT; };
 		FB06EF101D64796400ABF8FE /* VerifyAadharViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerifyAadharViewController.m; sourceTree = SOURCE_ROOT; };
 		FB06EF121D64798300ABF8FE /* PANCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PANCardViewController.h; sourceTree = SOURCE_ROOT; };
@@ -401,8 +401,6 @@
 				FB0342F01D54AE4C00C11019 /* NotificationBG4S.png */,
 				FB0342F11D54AE4C00C11019 /* NotificationBG6S.png */,
 				FB0342F21D54AE4C00C11019 /* NotificationBG6Splus.png */,
-				FB06EF0C1D644D2C00ABF8FE /* ProgressViewController.h */,
-				FB06EF0D1D644D2C00ABF8FE /* ProgressViewController.m */,
 				A3D65A821D460BA100B47E46 /* CameraFrameWork.framework */,
 				FBAAB8281D422888001C918B /* Podfile */,
 				FBAAB82A1D422B81001C918B /* FrameWork */,
@@ -428,6 +426,7 @@
 			children = (
 				A3253D131D3C9DE90081A59C /* AppDelegate.h */,
 				A3253D141D3C9DE90081A59C /* AppDelegate.m */,
+				A3B32C001D64AAAB00F54B84 /* AccountOverView */,
 				A3AEDD071D5DCD9B007FE5C9 /* Testfairy */,
 				A32FFAD51D5C9BFF00C1A519 /* Database */,
 				A38823F11D5B7161008042D9 /* RobotoFonts */,
@@ -565,6 +564,15 @@
 				A3AEDD051D5DCD97007FE5C9 /* TestFairy.h */,
 			);
 			name = Testfairy;
+			sourceTree = "<group>";
+		};
+		A3B32C001D64AAAB00F54B84 /* AccountOverView */ = {
+			isa = PBXGroup;
+			children = (
+				FB06EF0C1D644D2C00ABF8FE /* ProgressViewController.h */,
+				FB06EF0D1D644D2C00ABF8FE /* ProgressViewController.m */,
+			);
+			name = AccountOverView;
 			sourceTree = "<group>";
 		};
 		A3B528FC1D49E1F200603451 /* IQKeyboardManager */ = {
@@ -754,12 +762,12 @@
 		A3C3C89E1D3F837A00C65B09 /* Registration */ = {
 			isa = PBXGroup;
 			children = (
+				A3C3C89B1D3F837700C65B09 /* RegistrationViewController.h */,
+				A3C3C89C1D3F837700C65B09 /* RegistrationViewController.m */,
 				FB06EF121D64798300ABF8FE /* PANCardViewController.h */,
 				FB06EF131D64798300ABF8FE /* PANCardViewController.m */,
 				FB06EF0F1D64796400ABF8FE /* VerifyAadharViewController.h */,
 				FB06EF101D64796400ABF8FE /* VerifyAadharViewController.m */,
-				A3C3C89B1D3F837700C65B09 /* RegistrationViewController.h */,
-				A3C3C89C1D3F837700C65B09 /* RegistrationViewController.m */,
 				A3C3C8A51D3F928C00C65B09 /* OTPViewController.h */,
 				A3C3C8A61D3F928C00C65B09 /* OTPViewController.m */,
 				A3C3C8981D3F837000C65B09 /* RegistrationModel.h */,
