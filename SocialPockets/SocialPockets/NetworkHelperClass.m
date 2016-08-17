@@ -196,6 +196,36 @@ static Reachability *reachability;
 
 }
 
+#pragma mark download image
+/**
+ *  Download image from the server
+ *
+ *  @param url             URL
+ *  @param userId          userid description
+ *  @param completionBlock response block
+ */
++ (void)downloadImage:(NSURL *)url withUserId:(NSString *)userId completionBlock:(void (^)(id obj))completionBlock
+{
+    if ([self getInternetStatus:NO]) {
+        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+        [NSURLConnection sendAsynchronousRequest:request
+                                           queue:[NSOperationQueue mainQueue]
+                               completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+                                   if ( !error  && [(NSHTTPURLResponse *)response statusCode]==200)
+                                   {
+                                       if (completionBlock) {
+                                           completionBlock(data);
+                                       }
+                                   }
+                                   else {
+                                       if (completionBlock) {
+                                           completionBlock(nil);
+                                       }
+                                   }
+                               }];
+    }
+}
+
 /**
  *  Checking Network Connection
  *

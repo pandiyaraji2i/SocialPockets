@@ -24,6 +24,13 @@
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.tableView.frame.size.width, 10.0f)];
 //    self.tableView.separatorStyle=UITableViewCellSeparatorStyleNone;
     // Do any additional setup after loading the view.
+//
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadAccount) name:@"ReloadAccountScreen" object:nil];
+}
+
+- (void)reloadAccount
+{
+    [self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -90,7 +97,7 @@
     UIImageView *tempImage =[[UIImageView alloc]initWithFrame:CGRectMake(17.5, 10, 69,69)];
     [tempImage.layer setCornerRadius:tempImage.frame.size.width/2.0f];
     [tempImage.layer setMasksToBounds:YES];
-    tempImage.image = [UIImage imageNamed:@"ProfileImage"];
+    tempImage.image = [DBPROFILE getImageForUser];
     tempImage.layer.borderColor = [UIColor lightGrayColor].CGColor;
     tempImage.layer.borderWidth = 1.0;
     tempImage.layer.shadowColor = [UIColor redColor].CGColor;

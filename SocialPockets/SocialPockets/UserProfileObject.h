@@ -16,4 +16,7 @@
 + (UserProfileObject *)sharedProfile;
 - (void)clearForNewUser;
 - (void)generateUserInfo:(NSDictionary*)userDictionary forUser:(NSString*)userId;
+- (void)uploadImage:(UIImage *)image objectId:(NSManagedObjectID *)objectId withCompletionBlock:(void(^)(void))completionBlock;
+- (void)downloadImage;
+- (UIImage *)getImageForUser;
 @end

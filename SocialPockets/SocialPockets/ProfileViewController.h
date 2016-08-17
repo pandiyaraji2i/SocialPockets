@@ -12,6 +12,8 @@
 {
     IBOutlet NSLayoutConstraint *nameTextFieldTopConstraint, *btnBottomConstraint;
     IBOutlet UITextField *nameTextField, *emailTextField, *phoneNumberTextField, *userNameTextField;
+    UIImage *profileImage;
+    BOOL isImageEdit;
 }
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImage;
 @property (weak, nonatomic) IBOutlet UIButton *editProfileBtn, *changePasswordBtn,*profileImageBtn;

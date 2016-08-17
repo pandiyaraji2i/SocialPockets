@@ -18,6 +18,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"My Account";
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadAccount) name:@"ReloadAccountScreen" object:nil];
+
     if (IPHONE6PLUS_STANDARD){
         self.backgroundImage.image = [UIImage imageNamed:@"NotificationBG6Splus.png"];
         
@@ -50,12 +52,19 @@
     self.editProfileBtn.titleLabel.adjustsFontSizeToFitWidth = YES;
      self.changePasswordBtn.titleLabel.adjustsFontSizeToFitWidth = YES;
     
-    self.profileImageBtn.layer.cornerRadius = self.profileImageBtn.frame.size.width/2;
+    self.profileImageBtn.layer.cornerRadius = 57.5;
     self.profileImageBtn.layer.masksToBounds =YES;
+    [self.profileImageBtn setImage:[DBPROFILE getImageForUser] forState:UIControlStateNormal];
+    
+    profileImage = [UIImage imageNamed:@"TrackImage"];
     
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@" " style:UIBarButtonItemStylePlain target:self action:nil];
 
     // Do any additional setup after loading the view.
+}
+- (void)reloadAccount
+{
+    [self.profileImageBtn setImage:[DBPROFILE getImageForUser] forState:UIControlStateNormal];
 }
 - (void)updateUserFields
 {
@@ -74,6 +83,8 @@
          nameTextField.clearButtonMode = userNameTextField.clearButtonMode = emailTextField.clearButtonMode = phoneNumberTextField.clearButtonMode = UITextFieldViewModeNever;
     }
 }
+
+#pragma mark UIButton Actions
 - (IBAction)editProfileAction:(id)sender
 {
     UIButton *btn = sender;
@@ -112,6 +123,54 @@
 - (IBAction)changePasswordAction:(id)sender {
     ChangePasswordController *changePasswordVc =[self.storyboard instantiateViewControllerWithIdentifier:@"ChangePasswordVc"];
     [self.navigationController pushViewController:changePasswordVc animated:YES];
+}
+
+- (IBAction)profileImageAction:(id)sender
+{
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Ope"
+                                                                             message:@"Do you want to change your profile picture"
+                                                                      preferredStyle:UIAlertControllerStyleAlert];
+    //We add buttons to the alert controller by creating UIAlertActions:
+    UIAlertAction *actionOk = [UIAlertAction actionWithTitle:@"Ok"
+                                                       style:UIAlertActionStyleDefault
+                                                     handler:^(UIAlertAction * _Nonnull action){
+                                                         [self openCamera];
+                                                     }] ;
+    
+    UIAlertAction *actionCancel = [UIAlertAction actionWithTitle:@"Cancel"
+                                                       style:UIAlertActionStyleCancel
+                                                     handler:^(UIAlertAction * _Nonnull action){
+                                                     }] ;
+    [alertController addAction:actionOk];
+    [alertController addAction:actionCancel];
+    [self presentViewController:alertController animated:YES completion:nil];
+
+    
+}
+- (void)openCamera
+{
+    [self uploadImage];
+    /*CameraViewController *vc =[[CameraViewController alloc]initwithController];
+     [vc openCamera:0];
+     [self.navigationController presentViewController:vc animated:NO completion:nil];
+     vc.imageSelect = ^(id obj){
+     if (obj && [obj isKindOfClass:[UIImage class]]) {
+     profileImage = obj;
+     [self.profileImageBtn setImage:profileImage forState:UIControlStateNormal];
+     }
+     dispatch_async(dispatch_get_main_queue(), ^{
+     [self dismissViewControllerAnimated:NO completion:nil];
+     });
+     };*/
+}
+- (void)uploadImage
+{
+    [DBPROFILE uploadImage:profileImage objectId:USERINFO.objectID withCompletionBlock:^{
+        
+    }];
+//    [NetworkHelperClass uploadImage:profileImage isUserOrLoan:1 userId:USERINFO.userId sync:NO completion:^(id obj) {
+//        
+//    }];
 }
 
 

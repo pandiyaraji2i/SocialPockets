@@ -27,11 +27,29 @@
     }
     else {
         [LOGINMACRO forgotPasswordForUser:userEmailAddressField.text completion:^(id obj) {
-            [self.navigationController popViewControllerAnimated:true];
-            ErrorMessageWithTitle(@"Message", @"Please check your mail for new password");
+            if ([obj isKindOfClass:[NSDictionary class]]) {
+                [self showAlertView:[obj valueForKey:@"Message"]];
+            }else{
+                ErrorMessageWithTitle(@"Message", obj);
+            }
         }];
-        
     }
+}
+
+- (void)showAlertView:(NSString *)message
+{
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Message"
+                                                                             message:message
+                                                                      preferredStyle:UIAlertControllerStyleAlert];
+    //We add buttons to the alert controller by creating UIAlertActions:
+    UIAlertAction *actionOk = [UIAlertAction actionWithTitle:@"Ok"
+                                                       style:UIAlertActionStyleDefault
+                                                     handler:^(UIAlertAction * _Nonnull action){
+                                                         [self.navigationController popViewControllerAnimated:YES];
+                                                     }] ;
+    [alertController addAction:actionOk];
+    [self presentViewController:alertController animated:YES completion:nil];
+
 }
 
 

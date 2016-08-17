@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BnU-aH-d6h">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BnU-aH-d6h">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -163,6 +163,7 @@
                         <viewControllerLayoutGuide type="bottom" id="HQ9-R2-l4X"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="HiW-xK-WMu">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PogressView_BG" translatesAutoresizingMaskIntoConstraints="NO" id="kxG-pg-yjL">
@@ -255,19 +256,19 @@
                                 <exclude reference="htK-37-peW"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="Uwr-2S-SHp"/>
-                                <exclude reference="tpI-wI-erq"/>
-                                <exclude reference="xL0-lF-dLq"/>
-                                <exclude reference="4UZ-PT-KBx"/>
-                                <exclude reference="P8J-Af-Wv0"/>
-                                <exclude reference="xvI-XW-VE9"/>
+                                <exclude reference="1mf-ar-hm9"/>
+                                <exclude reference="fu1-cT-Atq"/>
+                                <exclude reference="umU-ha-RLJ"/>
                                 <exclude reference="7L9-fi-AFD"/>
                                 <exclude reference="BPx-D3-K2I"/>
                                 <exclude reference="YAg-Rw-BMj"/>
                                 <exclude reference="hTw-4y-wLU"/>
-                                <exclude reference="umU-ha-RLJ"/>
-                                <exclude reference="1mf-ar-hm9"/>
-                                <exclude reference="fu1-cT-Atq"/>
+                                <exclude reference="4UZ-PT-KBx"/>
+                                <exclude reference="P8J-Af-Wv0"/>
+                                <exclude reference="xvI-XW-VE9"/>
+                                <exclude reference="Uwr-2S-SHp"/>
+                                <exclude reference="tpI-wI-erq"/>
+                                <exclude reference="xL0-lF-dLq"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -278,19 +279,19 @@
                                 <include reference="htK-37-peW"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="Uwr-2S-SHp"/>
-                                <include reference="tpI-wI-erq"/>
-                                <include reference="xL0-lF-dLq"/>
-                                <include reference="4UZ-PT-KBx"/>
-                                <include reference="P8J-Af-Wv0"/>
-                                <include reference="xvI-XW-VE9"/>
+                                <include reference="1mf-ar-hm9"/>
+                                <include reference="fu1-cT-Atq"/>
+                                <include reference="umU-ha-RLJ"/>
                                 <include reference="7L9-fi-AFD"/>
                                 <include reference="BPx-D3-K2I"/>
                                 <include reference="YAg-Rw-BMj"/>
                                 <include reference="hTw-4y-wLU"/>
-                                <include reference="umU-ha-RLJ"/>
-                                <include reference="1mf-ar-hm9"/>
-                                <include reference="fu1-cT-Atq"/>
+                                <include reference="4UZ-PT-KBx"/>
+                                <include reference="P8J-Af-Wv0"/>
+                                <include reference="xvI-XW-VE9"/>
+                                <include reference="Uwr-2S-SHp"/>
+                                <include reference="tpI-wI-erq"/>
+                                <include reference="xL0-lF-dLq"/>
                             </mask>
                         </variation>
                     </view>
@@ -2664,8 +2665,7 @@
                                         <exclude reference="NQb-Cz-WSH"/>
                                     </mask>
                                 </variation>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="105" y="30" width="190" height="38"/>
+                                <variation key="heightClass=regular-widthClass=compact">
                                     <mask key="constraints">
                                         <include reference="NQb-Cz-WSH"/>
                                     </mask>
@@ -2676,9 +2676,6 @@
                                 <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="16"/>
                                 <color key="textColor" red="0.32549019610000002" green="0.32549019610000002" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="20" y="686" width="360" height="38"/>
-                                </variation>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QYw-mZ-KnA">
                                 <rect key="frame" x="399" y="550" width="166" height="30"/>
@@ -2732,8 +2729,7 @@
                                         <exclude reference="eUS-YK-MFF"/>
                                     </mask>
                                 </variation>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="0.0" y="665" width="400" height="1"/>
+                                <variation key="heightClass=regular-widthClass=compact">
                                     <mask key="constraints">
                                         <include reference="eUS-YK-MFF"/>
                                     </mask>
@@ -2742,9 +2738,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="raD-L2-ALH" customClass="SignatureView">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="0.0" y="88" width="400" height="557"/>
-                                </variation>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2950,8 +2943,7 @@
                                                 <exclude reference="UIz-3u-L0M"/>
                                             </mask>
                                         </variation>
-                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                            <rect key="frame" x="271" y="53" width="49" height="15"/>
+                                        <variation key="heightClass=regular-widthClass=compact">
                                             <mask key="constraints">
                                                 <include reference="UIz-3u-L0M"/>
                                             </mask>
@@ -2970,8 +2962,7 @@
                                                 <exclude reference="ZU8-wj-VmG"/>
                                             </mask>
                                         </variation>
-                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                            <rect key="frame" x="10" y="83" width="102" height="17"/>
+                                        <variation key="heightClass=regular-widthClass=compact">
                                             <mask key="constraints">
                                                 <include reference="ZU8-wj-VmG"/>
                                             </mask>
@@ -3011,8 +3002,7 @@
                                                 <exclude reference="xuv-Go-dGS"/>
                                             </mask>
                                         </variation>
-                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                            <rect key="frame" x="260" y="84" width="60" height="15"/>
+                                        <variation key="heightClass=regular-widthClass=compact">
                                             <mask key="constraints">
                                                 <include reference="03q-j9-zKK"/>
                                                 <include reference="xuv-Go-dGS"/>
@@ -4424,8 +4414,7 @@ Tenure Period</string>
                                                 <exclude reference="dFD-Xx-4KP"/>
                                             </mask>
                                         </variation>
-                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                            <rect key="frame" x="10" y="65" width="170" height="15"/>
+                                        <variation key="heightClass=regular-widthClass=compact">
                                             <mask key="constraints">
                                                 <include reference="dFD-Xx-4KP"/>
                                             </mask>
@@ -4690,9 +4679,6 @@ Tenure Period</string>
                                 <state key="normal" title="What if I fail to repay?">
                                     <color key="titleColor" red="0.14901960780000001" green="0.57647058819999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="127" y="684" width="146" height="30"/>
-                                </variation>
                             </button>
                             <view alpha="0.59999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4uu-Ie-42D" userLabel="Blackout View">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
@@ -5311,6 +5297,9 @@ Tenure Period</string>
                                                 <include reference="tJi-cg-tN0"/>
                                             </mask>
                                         </variation>
+                                        <connections>
+                                            <action selector="profileImageAction:" destination="XbS-XL-HvY" eventType="touchUpInside" id="shI-Dw-5Nr"/>
+                                        </connections>
                                     </button>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Pandiyaraj" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CC1-h3-deY">
                                         <rect key="frame" x="-25" y="-30" width="97" height="30"/>
@@ -5813,7 +5802,7 @@ Tenure Period</string>
                                                         </mask>
                                                     </variation>
                                                     <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="5" y="95" width="230" height="2"/>
+                                                        <rect key="frame" x="5" y="97" width="230" height="2"/>
                                                         <mask key="constraints">
                                                             <include reference="Q7R-qj-oaR"/>
                                                         </mask>
@@ -5833,7 +5822,7 @@ Tenure Period</string>
                                                         </mask>
                                                     </variation>
                                                     <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="45" y="77" width="151" height="13"/>
+                                                        <rect key="frame" x="45" y="77" width="151" height="15"/>
                                                         <mask key="constraints">
                                                             <include reference="s4y-fs-wLN"/>
                                                         </mask>
@@ -5853,7 +5842,7 @@ Tenure Period</string>
                                                         </mask>
                                                     </variation>
                                                     <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="113" y="105" width="120" height="20"/>
+                                                        <rect key="frame" x="113" y="107" width="120" height="20"/>
                                                         <mask key="constraints">
                                                             <include reference="7N5-5Q-Uol"/>
                                                         </mask>
@@ -5865,7 +5854,7 @@ Tenure Period</string>
                                                     <color key="textColor" red="0.32941176470588235" green="0.32941176470588235" blue="0.32941176470588235" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="113" y="148" width="120" height="13"/>
+                                                        <rect key="frame" x="113" y="152" width="120" height="15"/>
                                                     </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="6" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loan Tenure" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z7M-f4-VS5">
@@ -5874,7 +5863,7 @@ Tenure Period</string>
                                                     <color key="textColor" red="0.32941176470588235" green="0.32941176470588235" blue="0.32941176470588235" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="113" y="166" width="120" height="13"/>
+                                                        <rect key="frame" x="113" y="172" width="120" height="15"/>
                                                     </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="7" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Repay amount" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VWs-zF-MHx">
@@ -5883,7 +5872,7 @@ Tenure Period</string>
                                                     <color key="textColor" red="0.32941176470588235" green="0.32941176470588235" blue="0.32941176470588235" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="113" y="184" width="120" height="13"/>
+                                                        <rect key="frame" x="113" y="192" width="120" height="15"/>
                                                     </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="8" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Repaid date" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6cO-oR-svy">
@@ -5892,7 +5881,7 @@ Tenure Period</string>
                                                     <color key="textColor" red="0.32941176470588235" green="0.32941176470588235" blue="0.32941176470588235" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="113" y="202" width="120" height="13"/>
+                                                        <rect key="frame" x="113" y="212" width="120" height="15"/>
                                                     </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Receipt number:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ma0-vM-f68">
@@ -5900,9 +5889,6 @@ Tenure Period</string>
                                                     <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="11"/>
                                                     <color key="textColor" red="0.52941176470588236" green="0.52941176470588236" blue="0.52941176470588236" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
-                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="7" y="220" width="120" height="13"/>
-                                                    </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="9" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Receipt id" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lwq-qo-ary">
                                                     <rect key="frame" x="-42" y="-21" width="42" height="21"/>
@@ -5910,7 +5896,7 @@ Tenure Period</string>
                                                     <color key="textColor" red="0.32941176470588235" green="0.32941176470588235" blue="0.32941176470588235" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="113" y="220" width="120" height="13"/>
+                                                        <rect key="frame" x="113" y="232" width="120" height="15"/>
                                                     </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="4" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="on date" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xTM-xW-g6n">
@@ -5919,7 +5905,7 @@ Tenure Period</string>
                                                     <color key="textColor" red="0.32941176470588235" green="0.32941176470588235" blue="0.32941176470588235" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="113" y="130" width="120" height="13"/>
+                                                        <rect key="frame" x="113" y="132" width="120" height="15"/>
                                                     </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Credited to Acc:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HcA-y6-MiQ">
@@ -5927,36 +5913,24 @@ Tenure Period</string>
                                                     <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="11"/>
                                                     <color key="textColor" red="0.52941176470588236" green="0.52941176470588236" blue="0.52941176470588236" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
-                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="7" y="148" width="120" height="13"/>
-                                                    </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tenure Date:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JUR-Cd-wYF">
                                                     <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="11"/>
                                                     <color key="textColor" red="0.52941176470588236" green="0.52941176470588236" blue="0.52941176470588236" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
-                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="7" y="166" width="120" height="13"/>
-                                                    </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Repayment Amount :" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Die-Zk-29C">
                                                     <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="11"/>
                                                     <color key="textColor" red="0.52941176470588236" green="0.52941176470588236" blue="0.52941176470588236" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
-                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="7" y="184" width="120" height="13"/>
-                                                    </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Repaid on :" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v26-5j-T5R">
                                                     <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="11"/>
                                                     <color key="textColor" red="0.52941176470588236" green="0.52941176470588236" blue="0.52941176470588236" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
-                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="7" y="202" width="120" height="13"/>
-                                                    </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="In Hand Amount:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ve-vq-2hD">
                                                     <rect key="frame" x="-42" y="-21" width="42" height="21"/>
@@ -5973,8 +5947,7 @@ Tenure Period</string>
                                                             <exclude reference="crP-Bw-bZ7"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="7" y="105" width="120" height="20"/>
+                                                    <variation key="heightClass=regular-widthClass=compact">
                                                         <mask key="constraints">
                                                             <include reference="A2X-KI-jtI"/>
                                                             <include reference="crP-Bw-bZ7"/>
@@ -5986,9 +5959,6 @@ Tenure Period</string>
                                                     <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="11"/>
                                                     <color key="textColor" red="0.52941176470588236" green="0.52941176470588236" blue="0.52941176470588236" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
-                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="7" y="130" width="120" height="13"/>
-                                                    </variation>
                                                 </label>
                                             </subviews>
                                             <constraints>
@@ -6741,18 +6711,12 @@ Tenure Period</string>
                                         <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="18"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
-                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                            <rect key="frame" x="80" y="188" width="74" height="21"/>
-                                        </variation>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="31 Jul,16" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l3a-Ww-3TM">
                                         <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                         <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="18"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
-                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                            <rect key="frame" x="246" y="188" width="74" height="21"/>
-                                        </variation>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="15000" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cdg-RA-lVL">
                                         <rect key="frame" x="42" y="47" width="85" height="22"/>
@@ -6885,7 +6849,7 @@ Tenure Period</string>
                                                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="11"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="48" y="6" width="182" height="13"/>
+                                                        <rect key="frame" x="48" y="5" width="182" height="15"/>
                                                     </variation>
                                                 </label>
                                                 <button opaque="NO" userInteractionEnabled="NO" tag="777" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Om-AY-Zvd">
@@ -6919,7 +6883,7 @@ Tenure Period</string>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="48" y="24" width="182" height="23"/>
+                                                        <rect key="frame" x="48" y="25" width="182" height="22"/>
                                                     </variation>
                                                 </label>
                                             </subviews>
@@ -7117,8 +7081,7 @@ Tenure Period</string>
                                                 <exclude reference="CLF-fT-EYu"/>
                                             </mask>
                                         </variation>
-                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                            <rect key="frame" x="70" y="82" width="200" height="33"/>
+                                        <variation key="heightClass=regular-widthClass=compact">
                                             <mask key="constraints">
                                                 <include reference="CLF-fT-EYu"/>
                                             </mask>
@@ -7139,8 +7102,7 @@ Tenure Period</string>
                                                 <exclude reference="9ZD-Uo-Fl1"/>
                                             </mask>
                                         </variation>
-                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                            <rect key="frame" x="45" y="135" width="250" height="49"/>
+                                        <variation key="heightClass=regular-widthClass=compact">
                                             <mask key="constraints">
                                                 <include reference="9ZD-Uo-Fl1"/>
                                             </mask>
@@ -7169,8 +7131,7 @@ Tenure Period</string>
                                                 <exclude reference="uCv-FW-smk"/>
                                             </mask>
                                         </variation>
-                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                            <rect key="frame" x="145" y="204" width="50" height="30"/>
+                                        <variation key="heightClass=regular-widthClass=compact">
                                             <mask key="constraints">
                                                 <include reference="qoy-4u-O5i"/>
                                                 <include reference="uCv-FW-smk"/>
@@ -7259,8 +7220,7 @@ Tenure Period</string>
                                         <exclude reference="hjb-9t-Wp5"/>
                                     </mask>
                                 </variation>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="30" y="273" width="340" height="254"/>
+                                <variation key="heightClass=regular-widthClass=compact">
                                     <mask key="subviews">
                                         <include reference="fy5-4M-dLh"/>
                                         <include reference="ze4-w9-98F"/>
@@ -7341,8 +7301,7 @@ Tenure Period</string>
                                                 <exclude reference="8cE-aY-HEK"/>
                                             </mask>
                                         </variation>
-                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                            <rect key="frame" x="45" y="121" width="250" height="30"/>
+                                        <variation key="heightClass=regular-widthClass=compact">
                                             <mask key="constraints">
                                                 <include reference="8cE-aY-HEK"/>
                                             </mask>
@@ -7389,8 +7348,7 @@ Tenure Period</string>
                                                 <exclude reference="Zg6-Gx-GbQ"/>
                                             </mask>
                                         </variation>
-                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                            <rect key="frame" x="45" y="154" width="250" height="1"/>
+                                        <variation key="heightClass=regular-widthClass=compact">
                                             <mask key="constraints">
                                                 <include reference="Zg6-Gx-GbQ"/>
                                             </mask>
@@ -7409,8 +7367,7 @@ Tenure Period</string>
                                                 <exclude reference="5X3-PH-lg7"/>
                                             </mask>
                                         </variation>
-                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                            <rect key="frame" x="45" y="82" width="250" height="31"/>
+                                        <variation key="heightClass=regular-widthClass=compact">
                                             <mask key="constraints">
                                                 <include reference="5X3-PH-lg7"/>
                                             </mask>
@@ -8309,7 +8266,7 @@ Tenure Period</string>
         <image name="UncheckedImage" width="16" height="16"/>
         <image name="UpArrow" width="11" height="10"/>
         <image name="Verification" width="44" height="54"/>
-        <image name="WhiteBorderImage" width="414" height="736"/>
+        <image name="WhiteBorderImage" width="149" height="150"/>
         <image name="camera" width="22" height="22"/>
         <image name="circleSelected" width="20" height="20"/>
         <image name="close_round_button.png" width="512" height="512"/>

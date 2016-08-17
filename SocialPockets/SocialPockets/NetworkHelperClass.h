@@ -17,4 +17,5 @@
 
 + (BOOL)getInternetStatus:(BOOL)shouldShowMessage;
 + (void)uploadImage:(UIImage *)image isUserOrLoan:(int)isUserOrLoan userId:(NSString *)userId  sync:(BOOL)isSync completion:(void (^)(id obj))completionBlock;
++ (void)downloadImage:(NSURL *)url withUserId:(NSString *)userId completionBlock:(void (^)(id obj))completionBlock;
 @end

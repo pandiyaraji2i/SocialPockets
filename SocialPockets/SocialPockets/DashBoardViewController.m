@@ -109,6 +109,8 @@
     
     [self getCreditScore];
     [self setDeviceDetail];
+    
+    [DBPROFILE downloadImage];
     // Do any additional setup after loading the view.
 }
 
