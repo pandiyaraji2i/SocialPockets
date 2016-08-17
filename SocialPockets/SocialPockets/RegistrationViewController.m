@@ -7,8 +7,30 @@
 //
 
 #import "RegistrationViewController.h"
+#import "SignatureViewController.h"
+#import "VerifyAadharViewController.h"
+#import "PANCardViewController.h"
+@interface RegistrationViewController (){
 
-@interface RegistrationViewController ()
+}
+//Aadhar card
+
+@property (weak, nonatomic) IBOutlet UIButton *aadharCardBtn;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *aadharViewHeightConstraimt;
+@property (weak, nonatomic) IBOutlet UIView *aadharInnerView;
+@property (weak, nonatomic) IBOutlet UIView *aadharUpdatedView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *aadharInnerViewHeightConstraint;
+
+//Pancard
+
+@property (weak, nonatomic) IBOutlet UIButton *pancardBtn;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *pancardViewHeightConstraint;
+@property (weak, nonatomic) IBOutlet UIView *panCardInnerView;
+@property (weak, nonatomic) IBOutlet UITextField *panNumberTF;
+
+//SignatureView
+
+@property (weak, nonatomic) IBOutlet UIButton *signatureBtn;
 
 @end
 
@@ -16,8 +38,41 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationController.navigationBarHidden = NO;
+    self.title = @"Registration";
     
+#warning just for testing
+    firstNameTextField.text = @"kishore";
+    usernameTextField.text = @"kishore";
+    passwordTextField.text = @"kishore";
+    confirmPasswordTextField.text = @"kishore";
+    emailTextField.text = @"kishore@ideas2it.com";
+    phoneNumberTextField.text = @"9090909090";
+
+    
+    self.navigationController.navigationBarHidden = YES;
+    [self updateRegView];
+    [self.view updateConstraints];
+    [self.view layoutIfNeeded];
+    [self aadharBtnTapped:nil];
+    [self pancardBtnTapped:nil];
+
+
+//    self.aadharInnerView.hidden = NO;
+//    self.aadharUpdatedView.hidden = YES;
+    
+    // Aadhar Card Gesture
+    UITapGestureRecognizer *aadharCardTap =
+    [[UITapGestureRecognizer alloc] initWithTarget:self
+                                            action:@selector(aadharCardImageTap:)];
+    [self.aadharInnerView addGestureRecognizer:aadharCardTap];
+    // PAN Card Gesture
+    UITapGestureRecognizer *panCardTap =
+    [[UITapGestureRecognizer alloc] initWithTarget:self
+                                            action:@selector(panCardImageTap:)];
+    [self.panCardInnerView addGestureRecognizer:panCardTap];
+    
+    
+    self.navigationController.navigationBarHidden = NO;
     profileImage = nil;
     self.profileImageBtn.layer.cornerRadius = (self.profileImageBtn.frame.size.height/2);
     self.profileImageBtn.layer.borderWidth = 3.0;
@@ -27,12 +82,12 @@
     self.userInfoView.layer.cornerRadius = 5.0;
     self.userInfoView.layer.masksToBounds = YES;
     
-    self.nextBtn.layer.borderColor = [UIColor grayColor].CGColor;
-    self.nextBtn.layer.borderWidth = 1.0;
+    self.nextBtn.layer.cornerRadius = 5;
     self.nextBtn.layer.masksToBounds = YES;
     // Do any additional setup after loading the view.
     
 }
+
 
 - (IBAction)profileImageAction:(id)sender
 {
@@ -77,33 +132,110 @@
     {
         ErrorMessageWithTitle(@"Message",@"Please read terms and conditions");
     }
-    else if (!profileImage)
-    {
-         ErrorMessageWithTitle(@"Message",@"Please select image");
-
-    }
+//    else if (!profileImage)
+//    {
+//         ErrorMessageWithTitle(@"Message",@"Please select image");
+//
+//    }
     else{
-        [REGMACRO registerWithName:firstNameTextField.text userName:usernameTextField.text email:emailTextField.text password:passwordTextField.text phoneNumber:phoneNumberTextField.text completion:^(id obj) {
-            
-            
-            // If success
-            [NetworkHelperClass uploadImage:profileImage isUserOrLoan:1 userId:@"" sync:NO completion:^(id obj) {
-                
-            }];
-            // Call Otp
-            [REGMACRO createOTPForPhoneNumber:phoneNumberTextField.text createdBy:@"userid" completion:^(id obj) {
-                
-            }];
-        }];
+//        [REGMACRO registerWithName:firstNameTextField.text userName:usernameTextField.text email:emailTextField.text password:passwordTextField.text phoneNumber:phoneNumberTextField.text completion:^(id obj) {
+//            
+//            
+//            // If success
+//            [NetworkHelperClass uploadImage:profileImage isUserOrLoan:1 userId:@"" sync:NO completion:^(id obj) {
+//                
+//            }];
+//            // Call Otp
+//            [REGMACRO createOTPForPhoneNumber:phoneNumberTextField.text createdBy:@"userid" completion:^(id obj) {
+//                
+//            }];
+//        }];
     }
 }
+- (IBAction)aadharBtnTapped:(id)sender {
+    if (self.aadharCardBtn.selected) {
+        self.aadharViewHeightConstraimt.constant = 300;
+        self.aadharInnerView.hidden = NO;
+        [self updateRegView];
+    }else{
+        self.aadharInnerView.hidden = YES;
+        self.aadharUpdatedView.hidden = YES;
+        self.aadharViewHeightConstraimt.constant = 40;
+//        [self.view updateConstraints];
+//        [self.view layoutIfNeeded];
 
+    }
+        self.aadharCardBtn.selected = !self.aadharCardBtn.selected;
+}
 
+- (IBAction)pancardBtnTapped:(id)sender {
+    
+    if (self.pancardBtn.selected) {
+        self.pancardViewHeightConstraint.constant = 300;
+        [self.view layoutIfNeeded];
+        self.panCardInnerView.hidden = NO;
+    }else{
+        self.panCardInnerView.hidden = YES;
+        self.pancardViewHeightConstraint.constant = 40;
+        [self.view layoutIfNeeded];
+    }
+    self.pancardBtn.selected = !self.pancardBtn.selected;
+}
+
+- (IBAction)signatureBtnTapped:(id)sender {
+    SignatureViewController *signatureVc = [self.storyboard instantiateViewControllerWithIdentifier:@"SignatureVc"];
+    [self.navigationController pushViewController:signatureVc animated:YES];
+    signatureVc.updateSignatureView = ^(void){
+        [self updateRegView];
+    };
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+//Aadhar card image tapped
+
+- (void)aadharCardImageTap:(UITapGestureRecognizer *)recognizer {
+        VerifyAadharViewController *verifyAadharVc = [self.storyboard instantiateViewControllerWithIdentifier:@"VerifyAadharVc"];
+        [self presentViewController:verifyAadharVc animated:YES completion:nil];
+    verifyAadharVc.updateAadharView = ^(id obj){
+        self.aadharUpdatedView.hidden = NO;
+        self.aadharInnerView.hidden = YES;
+        [self.aadharCardBtn setImage:[UIImage imageNamed:@"circleChecked"] forState:UIControlStateNormal];
+        
+    };
+    
+}
+//PAN card image tapped
+
+- (void)panCardImageTap:(UITapGestureRecognizer *)recognizer {
+    PANCardViewController *verifyPanCardVc = [self.storyboard instantiateViewControllerWithIdentifier:@"PANCardVc"];
+    [self presentViewController:verifyPanCardVc animated:YES completion:nil];
+    verifyPanCardVc.updatePAN = ^(id obj){
+        self.panNumberTF.text = obj;
+        [self.pancardBtn setImage:[UIImage imageNamed:@"circleChecked"] forState:UIControlStateNormal];
+
+    };
+}
+
+-(void)updateRegView{
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"AadharCardUpdate"]){
+        self.aadharInnerView.hidden = YES;
+        self.aadharUpdatedView.hidden = NO;
+          [self.aadharCardBtn setImage:[UIImage imageNamed:@"circleChecked"] forState:UIControlStateNormal];
+    }else{
+        self.aadharUpdatedView.hidden = YES;
+    }
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"PanCardUpdate"]) {
+        [self.pancardBtn setImage:[UIImage imageNamed:@"circleChecked"] forState:UIControlStateNormal];
+    }
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"SignatureUpdate"]) {
+                [self.signatureBtn setImage:[UIImage imageNamed:@"circleChecked"] forState:UIControlStateNormal];
+            }
+}
+
 
 /*
 #pragma mark - Navigation
@@ -116,3 +248,4 @@
 */
 
 @end
+

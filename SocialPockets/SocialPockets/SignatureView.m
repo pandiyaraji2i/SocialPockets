@@ -155,7 +155,9 @@
         
         UIImage *signatureImage = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext();
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"SignatureUpdate"];
         return signatureImage;
+        
     }else{
         
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert"

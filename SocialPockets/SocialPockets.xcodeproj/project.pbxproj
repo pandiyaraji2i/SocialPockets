@@ -104,6 +104,8 @@
 		FB0342F51D54AE4C00C11019 /* NotificationBG6S.png in Resources */ = {isa = PBXBuildFile; fileRef = FB0342F11D54AE4C00C11019 /* NotificationBG6S.png */; };
 		FB0342F61D54AE4C00C11019 /* NotificationBG6Splus.png in Resources */ = {isa = PBXBuildFile; fileRef = FB0342F21D54AE4C00C11019 /* NotificationBG6Splus.png */; };
 		FB06EF0E1D644D2C00ABF8FE /* ProgressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB06EF0D1D644D2C00ABF8FE /* ProgressViewController.m */; };
+		FB06EF111D64796400ABF8FE /* VerifyAadharViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB06EF101D64796400ABF8FE /* VerifyAadharViewController.m */; };
+		FB06EF141D64798300ABF8FE /* PANCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB06EF131D64798300ABF8FE /* PANCardViewController.m */; };
 		FBAAB8291D422888001C918B /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = FBAAB8281D422888001C918B /* Podfile */; };
 		FBAAB8361D4239D7001C918B /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBAAB8331D4239D7001C918B /* FBSDKCoreKit.framework */; };
 		FBAAB8371D4239D7001C918B /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBAAB8341D4239D7001C918B /* FBSDKLoginKit.framework */; };
@@ -312,6 +314,10 @@
 		FB0342F21D54AE4C00C11019 /* NotificationBG6Splus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NotificationBG6Splus.png; sourceTree = "<group>"; };
 		FB06EF0C1D644D2C00ABF8FE /* ProgressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressViewController.h; sourceTree = "<group>"; };
 		FB06EF0D1D644D2C00ABF8FE /* ProgressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressViewController.m; sourceTree = "<group>"; };
+		FB06EF0F1D64796400ABF8FE /* VerifyAadharViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VerifyAadharViewController.h; sourceTree = SOURCE_ROOT; };
+		FB06EF101D64796400ABF8FE /* VerifyAadharViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerifyAadharViewController.m; sourceTree = SOURCE_ROOT; };
+		FB06EF121D64798300ABF8FE /* PANCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PANCardViewController.h; sourceTree = SOURCE_ROOT; };
+		FB06EF131D64798300ABF8FE /* PANCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PANCardViewController.m; sourceTree = SOURCE_ROOT; };
 		FBAAB8281D422888001C918B /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		FBAAB8331D4239D7001C918B /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		FBAAB8341D4239D7001C918B /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
@@ -748,6 +754,10 @@
 		A3C3C89E1D3F837A00C65B09 /* Registration */ = {
 			isa = PBXGroup;
 			children = (
+				FB06EF121D64798300ABF8FE /* PANCardViewController.h */,
+				FB06EF131D64798300ABF8FE /* PANCardViewController.m */,
+				FB06EF0F1D64796400ABF8FE /* VerifyAadharViewController.h */,
+				FB06EF101D64796400ABF8FE /* VerifyAadharViewController.m */,
 				A3C3C89B1D3F837700C65B09 /* RegistrationViewController.h */,
 				A3C3C89C1D3F837700C65B09 /* RegistrationViewController.m */,
 				A3C3C8A51D3F928C00C65B09 /* OTPViewController.h */,
@@ -1043,6 +1053,7 @@
 				A3B529281D49E1F200603451 /* IQKeyboardReturnKeyHandler.m in Sources */,
 				A3B5292A1D49E1F200603451 /* IQBarButtonItem.m in Sources */,
 				A3B529251D49E1F200603451 /* IQUIViewController+Additions.m in Sources */,
+				FB06EF141D64798300ABF8FE /* PANCardViewController.m in Sources */,
 				A3B529221D49E1F200603451 /* IQUIScrollView+Additions.m in Sources */,
 				A3C3C8AA1D3FB4AF00C65B09 /* LoanHelper.m in Sources */,
 				A3D65A991D461AD100B47E46 /* CustomNavigationController.m in Sources */,
@@ -1103,6 +1114,7 @@
 				A38823E71D5AF566008042D9 /* MessagePopUpView.m in Sources */,
 				A3B529271D49E1F200603451 /* IQKeyboardManager.m in Sources */,
 				A3D65A931D461A5700B47E46 /* MFSideMenuContainerViewController.m in Sources */,
+				FB06EF111D64796400ABF8FE /* VerifyAadharViewController.m in Sources */,
 				A3B528FB1D49E13000603451 /* SignatureViewController.m in Sources */,
 				A38823E61D5AF566008042D9 /* ActivityIndicatior.m in Sources */,
 			);

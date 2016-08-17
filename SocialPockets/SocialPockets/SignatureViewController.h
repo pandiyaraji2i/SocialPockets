@@ -9,9 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "SignatureView.h"
 typedef void  (^MyActionBlockType)(UIImage *);
+typedef void (^UpdateSignature) (void);
+
 
 @interface SignatureViewController : UIViewController
 @property (nonatomic, copy) MyActionBlockType myActionBlock;
+@property(nonatomic, copy)UpdateSignature updateSignatureView;
 @property (weak, nonatomic) IBOutlet SignatureView *signatureView;
 
 - (IBAction)getImageBtnPressed:(id)sender;
