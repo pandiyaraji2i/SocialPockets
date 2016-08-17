@@ -10,9 +10,10 @@
 
 @interface ProfileViewController : UIViewController
 {
-    
+    IBOutlet NSLayoutConstraint *nameTextFieldTopConstraint, *btnBottomConstraint;
+    IBOutlet UITextField *nameTextField, *emailTextField, *phoneNumberTextField, *userNameTextField;
 }
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImage;
-@property (weak, nonatomic) IBOutlet UIButton *editProfileBtn, *changePasswordBtn;
+@property (weak, nonatomic) IBOutlet UIButton *editProfileBtn, *changePasswordBtn,*profileImageBtn;
 
 @end

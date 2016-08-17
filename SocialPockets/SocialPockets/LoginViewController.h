@@ -14,5 +14,6 @@
 
 }
 
-+(MFSideMenuContainerViewController*)loginSuccessForIOS8:(BOOL)animated  userId:(NSString *)userId fromClass:(NSString*)className;
++ (MFSideMenuContainerViewController*)loginSuccessForIOS8:(BOOL)animated  userId:(NSString *)userId fromClass:(NSString*)className;
+- (void)updateObjectToDatabase:(id)obj;
 @end

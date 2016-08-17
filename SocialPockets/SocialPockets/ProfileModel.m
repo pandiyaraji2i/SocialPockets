@@ -42,12 +42,18 @@ static ProfileModel* _sharedInstance = nil;
 -(void)updateUserProfileWithName:(NSString *)name username:(NSString *)userName email:(NSString *)email phoneNumber:(NSString *)phoneNumber completion:(void (^)(id obj))completionBlock
 {
     NSMutableDictionary *dict = [@{@"id":[[NSUserDefaults standardUserDefaults] valueForKey:USERID],@"name":name,@"username":userName,@"email":email,@"phone":phoneNumber} mutableCopy];
-    id successObject = [NetworkHelperClass sendSynchronousRequestToServer:@"userregistration/updateProfile" httpMethod:POST requestBody:dict contentType:JSONCONTENTTYPE];
+    
+    [NetworkHelperClass sendAsynchronousRequestToServer:@"userregistration/updateProfile" httpMethod:POST requestBody:dict contentType:JSONCONTENTTYPE completion:^(id obj) {
+        if (completionBlock) {
+            completionBlock(obj);
+        }
+    }];
+   /* id successObject = [NetworkHelperClass sendSynchronousRequestToServer: httpMethod:POST requestBody:dict contentType:JSONCONTENTTYPE];
     if (successObject) {
         if (completionBlock) {
             completionBlock(successObject);
         }
-    }
+    }*/
 
 }
 

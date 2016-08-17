@@ -728,8 +728,8 @@
 		A3C3C8971D3F7E6100C65B09 /* AccountProfile */ = {
 			isa = PBXGroup;
 			children = (
-				677A83D41D6327F800CCF822 /* RRCircleView.m */,
 				677A83D51D6327F800CCF822 /* RRCircleView.h */,
+				677A83D41D6327F800CCF822 /* RRCircleView.m */,
 				A3C3C89F1D3F86CF00C65B09 /* ProfileViewController.h */,
 				A3C3C8A01D3F86CF00C65B09 /* ProfileViewController.m */,
 				A3C3C8A21D3F86EC00C65B09 /* ProfileModel.h */,

@@ -97,12 +97,12 @@
     [sectionView addSubview:tempImage];
     
     UILabel *nameLabel =[[UILabel alloc]initWithFrame:CGRectMake(20, CGRectGetMaxY(tempImage.frame), sectionView.frame.size.width-tempImage.frame.size.width-20, 30)];
-    nameLabel.text=[[NSUserDefaults standardUserDefaults] valueForKey:USERNAME];
+    nameLabel.text=USERINFO.name;// [[NSUserDefaults standardUserDefaults] valueForKey:USERNAME];
     nameLabel.textColor=[UIColor blackColor];
     nameLabel.font=[UIFont fontWithName:@"Roboto-Light" size:15];
     
     UILabel *emailIdLabel =[[UILabel alloc]initWithFrame:CGRectMake(20, CGRectGetMaxY(nameLabel.frame)-10, sectionView.frame.size.width-tempImage.frame.size.width, 30)];
-    emailIdLabel.text=[[NSUserDefaults standardUserDefaults] valueForKey:USEREMAIL];
+    emailIdLabel.text=USERINFO.user_email;// [[NSUserDefaults standardUserDefaults] valueForKey:USEREMAIL];
     emailIdLabel.font=[UIFont fontWithName:@"Roboto-Medium" size:11];
     emailIdLabel.textColor=[UIColor grayColor];
     [sectionView addSubview:emailIdLabel];
