@@ -11,7 +11,7 @@
 #import "VerifyAadharViewController.h"
 #import "PANCardViewController.h"
 #import "ProgressViewController.h"
-@interface RegistrationViewController (){
+@interface RegistrationViewController ()<UITextFieldDelegate>{
 
 }
 //Aadhar card
@@ -39,7 +39,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     self.title = @"Registration";
+    
     
     self.navigationController.navigationBar.tintColor  =[UIColor whiteColor];
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor whiteColor]};
@@ -316,6 +318,36 @@
                 [self.signatureBtn setImage:[UIImage imageNamed:@"circleChecked"] forState:UIControlStateNormal];
             }
 }
+# pragma Textfield validation
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    
+    // verify the text field you wanna validate
+    if (!(textField == NULL)) {
+        
+        // do not allow the first character to be space | do not allow more than one space
+        if ([string isEqualToString:@" "]) {
+            if (!textField.text.length)
+                return NO;
+            if ([[textField.text stringByReplacingCharactersInRange:range withString:string] rangeOfString:@"  "].length)
+                return NO;
+        }
+        
+        // allow backspace
+        if ([textField.text stringByReplacingCharactersInRange:range withString:string].length < textField.text.length) {
+            return YES;
+        }
+        
+        // in case you need to limit the max number of characters
+        if ([textField.text stringByReplacingCharactersInRange:range withString:string].length > 10) {
+            return NO;
+        }
+        return YES;
+    }
+    
+    return YES;
+}
+
 
 #pragma mark Status Bar Style
 - (UIStatusBarStyle)preferredStatusBarStyle
