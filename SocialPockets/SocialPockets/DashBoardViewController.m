@@ -114,7 +114,7 @@
 }
 
 #pragma mark barbutton items
-- (void)setupMenuBarButtonItems {
+/*- (void)setupMenuBarButtonItems {
     if(self.menuContainerViewController.menuState == MFSideMenuStateLeftMenuOpen) {
         [[(id)self.menuContainerViewController.leftMenuViewController tableView] reloadData];
         //        self.navigationItem.leftBarButtonItem = [self leftMenuBarButtonItem:YES];
@@ -122,7 +122,7 @@
          [[(id)self.menuContainerViewController.leftMenuViewController tableView] reloadData];
 //        self.navigationItem.leftBarButtonItem = [self leftMenuBarButtonItem:NO];
     }
-}
+}*/
 - (UIBarButtonItem *)leftMenuBarButtonItem : (BOOL)isClose{
     
     NSString *imgName;
@@ -443,13 +443,13 @@
     [self.navigationController.view endEditing:YES];
     if (!sender) {
         [self.menuContainerViewController closeSlideMenuCompletion:^{
-            [[(id)self.menuContainerViewController.leftMenuViewController tableView] reloadData];
+//            [[(id)self.menuContainerViewController.leftMenuViewController tableView] reloadData];
         }];
     }
     else{
         [self.menuContainerViewController toggleLeftSideMenuCompletion:^{
 //            [self setupMenuBarButtonItems];
-            [[(id)self.menuContainerViewController.leftMenuViewController tableView] reloadData];
+//            [[(id)self.menuContainerViewController.leftMenuViewController tableView] reloadData];
         }];
     }
 }

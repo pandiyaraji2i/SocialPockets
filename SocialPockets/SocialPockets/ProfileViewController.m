@@ -108,6 +108,7 @@
                 [ACTIVITY performSelectorOnMainThread:@selector(hideActivity) withObject:nil waitUntilDone:YES];
                 if ([obj isKindOfClass:[NSDictionary class]]) {
                     [DBPROFILE generateUserInfo:[obj valueForKey:@"user"] forUser:USERINFO.userId];
+                    [[NSNotificationCenter defaultCenter] postNotificationName:@"ReloadAccountScreen" object:nil];
                 }else{
                     ErrorMessageWithTitle(@"Message", obj);
                 }
@@ -150,7 +151,7 @@
 - (void)openCamera
 {
 //    [self uploadImage];
-     CameraViewController *vc =[[CameraViewController alloc]initwithController];
+     /*CameraViewController *vc =[[CameraViewController alloc]initwithController];
      [vc openCamera:0];
      [self.navigationController presentViewController:vc animated:NO completion:nil];
      vc.imageSelect = ^(id obj){
@@ -162,7 +163,7 @@
      dispatch_async(dispatch_get_main_queue(), ^{
      [self dismissViewControllerAnimated:NO completion:nil];
      });
-     };
+     };*/
 }
 - (void)uploadImage
 {
