@@ -127,7 +127,7 @@
 
 - (IBAction)profileImageAction:(id)sender
 {
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Ope"
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Open camera"
                                                                              message:@"Do you want to change your profile picture"
                                                                       preferredStyle:UIAlertControllerStyleAlert];
     //We add buttons to the alert controller by creating UIAlertActions:
@@ -150,7 +150,7 @@
 - (void)openCamera
 {
 //    [self uploadImage];
-   /* CameraViewController *vc =[[CameraViewController alloc]initwithController];
+     CameraViewController *vc =[[CameraViewController alloc]initwithController];
      [vc openCamera:0];
      [self.navigationController presentViewController:vc animated:NO completion:nil];
      vc.imageSelect = ^(id obj){
@@ -162,7 +162,7 @@
      dispatch_async(dispatch_get_main_queue(), ^{
      [self dismissViewControllerAnimated:NO completion:nil];
      });
-     };*/
+     };
 }
 - (void)uploadImage
 {

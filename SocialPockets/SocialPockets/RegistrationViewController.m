@@ -91,31 +91,43 @@
     self.nextBtn.layer.cornerRadius = 5;
     self.nextBtn.layer.masksToBounds = YES;
     if (TARGET_OS_SIMULATOR) {
-        profileImage = [UIImage imageNamed:@"ProfileImage"];
+        profileImage = [UIImage imageNamed:@"rating.jpg"];
     }
     
+    [self setStatusBarBackgroundColor:[UIColor blackColor]];
+
     //#-- Status Bar Color Change
     [self setNeedsStatusBarAppearanceUpdate];
-    
     // Do any additional setup after loading the view.
     
 }
 
+- (void)setStatusBarBackgroundColor:(UIColor *)color {
+    
+    UIView *statusBar = [[[UIApplication sharedApplication] valueForKey:@"statusBarWindow"] valueForKey:@"statusBar"];
+    
+    if ([statusBar respondsToSelector:@selector(setBackgroundColor:)]) {
+        statusBar.backgroundColor = color;
+    }
+    [[UIApplication  sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+}
+
+
 
 - (IBAction)profileImageAction:(id)sender
 {
-//    CameraViewController *vc =[[CameraViewController alloc]initwithController];
-//    [vc openCamera:0];
-//    [self.navigationController presentViewController:vc animated:NO completion:nil];
-//    vc.imageSelect = ^(id obj){
-//        if (obj && [obj isKindOfClass:[UIImage class]]) {
-//            profileImage = obj;
-//            [self.profileImageBtn setImage:profileImage forState:UIControlStateNormal];
-//        }
-//        dispatch_async(dispatch_get_main_queue(), ^{
-//            [self dismissViewControllerAnimated:NO completion:nil];
-//        });
-//    };
+    CameraViewController *vc =[[CameraViewController alloc]initwithController];
+    [vc openCamera:0];
+    [self.navigationController presentViewController:vc animated:NO completion:nil];
+    vc.imageSelect = ^(id obj){
+        if (obj && [obj isKindOfClass:[UIImage class]]) {
+            profileImage = obj;
+            [self.profileImageBtn setImage:profileImage forState:UIControlStateNormal];
+        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self dismissViewControllerAnimated:NO completion:nil];
+        });
+    };
 }
 
 - (IBAction)termsCheckBoxTapped:(id)sender {
@@ -124,9 +136,6 @@
 }
 
 - (IBAction)onRegisterAction:(id)sender {
-    ProgressViewController *progressVc = [self.storyboard instantiateViewControllerWithIdentifier:@"ProgressVc"];
-    [self.navigationController pushViewController:progressVc animated:YES];
-    return;
     if(!firstNameTextField.text.length || !emailTextField.text.length || !phoneNumberTextField.text.length || !usernameTextField.text.length || !passwordTextField.text.length || !confirmPasswordTextField.text.length)
     {
         ErrorMessageWithTitle(@"Message",@"Please enter all fields");
@@ -152,16 +161,23 @@
          ErrorMessageWithTitle(@"Message",@"Please select image");
     }
     else{
+        [ACTIVITY showActivity:@"Loading..."];
         [REGMACRO registerWithName:firstNameTextField.text userName:usernameTextField.text email:emailTextField.text password:passwordTextField.text phoneNumber:phoneNumberTextField.text completion:^(id obj) {
             if ([obj isKindOfClass:[NSDictionary class]]) {
                 // If success
-                [NetworkHelperClass uploadImage:profileImage isUserOrLoan:1 userId:@"" sync:NO completion:^(id obj) {
+                [self updateObjectToDatabase:obj];
+                [NetworkHelperClass uploadImage:profileImage isUserOrLoan:1 userId:[obj valueForKey:@"USER_ID"] sync:NO completion:^(id obj) {
                     if ([obj isKindOfClass:[NSDictionary class]]) {
+#warning need to change user.
+                        [self updateObjectToDatabase:[obj valueForKey:@"user"]];
                         dispatch_async(dispatch_get_main_queue(), ^{
-                            ProgressViewController *progressVc = [self.storyboard instantiateViewControllerWithIdentifier:@"progressVc"];
+                            ProgressViewController *progressVc = [self.storyboard instantiateViewControllerWithIdentifier:@"ProgressVc"];
                             [self.navigationController pushViewController:progressVc animated:YES];
                         });
+                    }else{
+                        ErrorMessageWithTitle(@"Message", obj);
                     }
+                    [ACTIVITY performSelectorOnMainThread:@selector(hideActivity) withObject:nil waitUntilDone:YES];
                 }];
                 //            // Call Otp
                 //            [REGMACRO createOTPForPhoneNumber:phoneNumberTextField.text createdBy:@"userid" completion:^(id obj) {
@@ -169,8 +185,36 @@
                 //            }];
             }
             else{
+                [ACTIVITY performSelectorOnMainThread:@selector(hideActivity) withObject:nil waitUntilDone:NO];
                 ErrorMessageWithTitle(@"Message", obj);
             }
+        }];
+    }
+}
+- (void)updateObjectToDatabase:(id)obj
+{
+    [[NSUserDefaults standardUserDefaults] setObject:obj forKey:@"USERINFO"];
+    [[NSUserDefaults standardUserDefaults] setObject:[obj valueForKey:@"USER_ID"] forKey:USERID];
+    [[NSUserDefaults standardUserDefaults] setObject:[obj valueForKey:@"USER_NAME"] forKey:USERNAME];
+    [[NSUserDefaults standardUserDefaults] setObject:[obj valueForKey:@"USER_EMAIL"] forKey:USEREMAIL];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    NSString *userId = [NSString stringWithFormat:@"%@",[obj valueForKey:@"USER_ID"]];
+    if (userId.length)
+    {
+        if (USERINFO.userId.length && ![USERINFO.userId isEqualToString:userId]) {
+            [DBPROFILE clearForNewUser];
+            [DATABASE.managedObjectContext deleteObject:USERINFO];
+            DBPROFILE.userInfo=nil;
+        }
+        USERINFO;
+        NSManagedObjectContext *profileContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
+        [profileContext performBlockAndWait:^{
+            profileContext.parentContext = DATABASE.managedObjectContext;
+            UserDetails *tempUser = (id)[profileContext objectWithID:USERINFO.objectID];
+            tempUser.userId = userId;
+            [DBPROFILE generateUserInfo:obj forUser:tempUser.userId];
+            [DATABASE dbSaveRecordChildContext:profileContext];
+            [DBPROFILE downloadImage];
         }];
     }
 }

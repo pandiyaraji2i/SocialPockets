@@ -85,7 +85,6 @@
     isVerificationCompleted = YES;
     if (isVerificationCompleted) {
         //#-- Show apply loan
-        
         [applyLoan setImage:[UIImage imageNamed:@"Rupees"] forState:UIControlStateNormal];
         [applyLoan setImageEdgeInsets:UIEdgeInsetsMake(-25, 37.5, 0, 0)];
         [applyLoan setTitleEdgeInsets:UIEdgeInsetsMake(30, -15, 0, 0)];
