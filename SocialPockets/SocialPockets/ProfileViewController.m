@@ -151,7 +151,7 @@
 - (void)openCamera
 {
 //    [self uploadImage];
-     /*CameraViewController *vc =[[CameraViewController alloc]initwithController];
+     CameraViewController *vc =[[CameraViewController alloc]initwithController];
      [vc openCamera:0];
      [self.navigationController presentViewController:vc animated:NO completion:nil];
      vc.imageSelect = ^(id obj){
@@ -163,7 +163,7 @@
      dispatch_async(dispatch_get_main_queue(), ^{
      [self dismissViewControllerAnimated:NO completion:nil];
      });
-     };*/
+     };
 }
 - (void)uploadImage
 {

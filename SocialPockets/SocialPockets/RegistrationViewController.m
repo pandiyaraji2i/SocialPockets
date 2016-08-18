@@ -99,6 +99,16 @@
     //#-- Status Bar Color Change
     [self setNeedsStatusBarAppearanceUpdate];
     // Do any additional setup after loading the view.
+    if (IPHONE6_STANDARD || IPHONE6_ZOOMED || IPHONE6PLUS_STANDARD || IPHONE6PLUS_ZOOMED) {
+        [self.aadharCardBtn setTitleEdgeInsets:UIEdgeInsetsMake(0,-245, 0, 0)];
+        [self.aadharCardBtn setImageEdgeInsets:UIEdgeInsetsMake(0,280, 0, 0)];
+        
+        [self.pancardBtn setTitleEdgeInsets:UIEdgeInsetsMake(0,-260, 0, 0)];
+        [self.pancardBtn setImageEdgeInsets:UIEdgeInsetsMake(0,280, 0, 0)];
+        
+        [self.signatureBtn setTitleEdgeInsets:UIEdgeInsetsMake(0,-246, 0, 0)];
+        [self.signatureBtn setImageEdgeInsets:UIEdgeInsetsMake(0,280, 0, 0)];
+    }
     
 }
 

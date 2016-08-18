@@ -12,6 +12,7 @@
 {
     NSArray *listArray;
     NSIndexPath *previousIndexPath;
+    BOOL highlightAccountText;
 }
 @end
 
@@ -30,6 +31,8 @@
 
 - (void)reloadAccount
 {
+    highlightAccountText = YES;
+
     [self.tableView reloadData];
 }
 
@@ -61,6 +64,12 @@
     cell.textLabel.textColor = [UIColor grayColor];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.textLabel.font = [UIFont fontWithName:@"Roboto" size:14];
+    if (highlightAccountText && indexPath.row == 1) {
+        cell.textLabel.textColor = [UIColor colorWithRed:32.0/255.0 green:132.0/255.0 blue:37.0/255.0 alpha:1.0];
+        cell.textLabel.font = [UIFont fontWithName:@"Roboto-Medium" size:14];
+        highlightAccountText = NO;
+    }
+
 
     return cell;
 }
