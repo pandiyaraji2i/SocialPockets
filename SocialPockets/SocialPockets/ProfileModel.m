@@ -28,6 +28,23 @@ static ProfileModel* _sharedInstance = nil;
     
     return nil;
 }
+/**
+ *  Get User Information
+ *
+ *  @param completionBlock response block
+ */
+- (void)getUserInformation:(void(^)(id obj))completionBlock
+{
+    if ([NetworkHelperClass getInternetStatus:NO]) {
+        NSString *urlString = [NSString stringWithFormat:@"userregistration/%@",[[NSUserDefaults standardUserDefaults] valueForKey:USERID]];
+        [NetworkHelperClass sendAsynchronousRequestToServer:urlString httpMethod:POST requestBody:nil contentType:JSONCONTENTTYPE completion:^(id obj) {
+            if (completionBlock) {
+                completionBlock(obj);
+            }
+            
+        }];
+    }
+}
 
 /**
  *  Update Profile Data

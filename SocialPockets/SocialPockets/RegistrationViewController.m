@@ -162,34 +162,39 @@
     }
     else{
         [ACTIVITY showActivity:@"Loading..."];
-        [REGMACRO registerWithName:firstNameTextField.text userName:usernameTextField.text email:emailTextField.text password:passwordTextField.text phoneNumber:phoneNumberTextField.text completion:^(id obj) {
-            if ([obj isKindOfClass:[NSDictionary class]]) {
-                // If success
-                [self updateObjectToDatabase:obj];
-                [NetworkHelperClass uploadImage:profileImage isUserOrLoan:1 userId:[obj valueForKey:@"USER_ID"] sync:NO completion:^(id obj) {
-                    if ([obj isKindOfClass:[NSDictionary class]]) {
-#warning need to change user.
-                        [self updateObjectToDatabase:[obj valueForKey:@"user"]];
-                        dispatch_async(dispatch_get_main_queue(), ^{
-                            ProgressViewController *progressVc = [self.storyboard instantiateViewControllerWithIdentifier:@"ProgressVc"];
-                            [self.navigationController pushViewController:progressVc animated:YES];
-                        });
-                    }else{
-                        ErrorMessageWithTitle(@"Message", obj);
-                    }
-                    [ACTIVITY performSelectorOnMainThread:@selector(hideActivity) withObject:nil waitUntilDone:YES];
-                }];
-                //            // Call Otp
-                //            [REGMACRO createOTPForPhoneNumber:phoneNumberTextField.text createdBy:@"userid" completion:^(id obj) {
-                //                
-                //            }];
-            }
-            else{
-                [ACTIVITY performSelectorOnMainThread:@selector(hideActivity) withObject:nil waitUntilDone:NO];
-                ErrorMessageWithTitle(@"Message", obj);
-            }
-        }];
+        [self performSelector:@selector(registerAction) withObject:nil afterDelay:1.0];
     }
+}
+- (void)registerAction
+{
+    [REGMACRO registerWithName:firstNameTextField.text userName:usernameTextField.text email:emailTextField.text password:passwordTextField.text phoneNumber:phoneNumberTextField.text completion:^(id obj) {
+        if ([obj isKindOfClass:[NSDictionary class]]) {
+            // If success
+            [self updateObjectToDatabase:obj];
+            [NetworkHelperClass uploadImage:profileImage isUserOrLoan:1 userId:[obj valueForKey:@"USER_ID"] sync:NO completion:^(id obj) {
+                if ([obj isKindOfClass:[NSDictionary class]]) {
+#warning need to change user.
+                    [self updateObjectToDatabase:[obj valueForKey:@"user"]];
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        ProgressViewController *progressVc = [self.storyboard instantiateViewControllerWithIdentifier:@"ProgressVc"];
+                        [self.navigationController pushViewController:progressVc animated:YES];
+                    });
+                }else{
+                    ErrorMessageWithTitle(@"Message", obj);
+                }
+                [ACTIVITY performSelectorOnMainThread:@selector(hideActivity) withObject:nil waitUntilDone:YES];
+            }];
+            //            // Call Otp
+            //            [REGMACRO createOTPForPhoneNumber:phoneNumberTextField.text createdBy:@"userid" completion:^(id obj) {
+            //
+            //            }];
+        }
+        else{
+            [ACTIVITY performSelectorOnMainThread:@selector(hideActivity) withObject:nil waitUntilDone:NO];
+            ErrorMessageWithTitle(@"Message", obj);
+        }
+    }];
+
 }
 - (void)updateObjectToDatabase:(id)obj
 {

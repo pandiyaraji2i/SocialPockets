@@ -185,11 +185,13 @@
     if ([jsonObject isKindOfClass:[NSDictionary class]]) {
         NSString *pushKey = [jsonObject valueForKey:@"LOC_KEY"];
         NSString *loanId = [jsonObject valueForKey:@"USRLN_ID"];
-        if ([pushKey isEqualToString:@"PUSH_UA"]) {
-
-            
-        }else if ([pushKey isEqualToString:@"PUSH_UR"])
-        {
+        if ([pushKey isEqualToString:@"PUSH_UA"] || [pushKey isEqualToString:@"PUSH_UR"]) {
+            [PROFILEMACRO getUserInformation:^(id obj) {
+                if ([obj isKindOfClass:[NSDictionary class]]) {
+                    [DBPROFILE generateUserInfo:obj forUser:USERINFO.userId];
+                    [self updateButtons];
+                }
+            }];
             
         }
         else if ([pushKey isEqualToString:@"PUSH_ULR"])
@@ -265,7 +267,14 @@
         if ([obj isKindOfClass:[NSString class]] || ![obj count]) {
             [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"loanIsProcessed"];
             [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"loanIsApproved"];
-            [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"readyToApply"];
+            if ([USERINFO.user_eligible_status integerValue] == 1) {
+                [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"readyToApply"];
+                [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"documentsVerificationProcess"];
+
+            }else{
+                [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"readyToApply"];
+                [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"documentsVerificationProcess"];
+            }
         }
         else{
             [TRANSACTHISTORY updateTransactionHistory:obj];
@@ -281,6 +290,8 @@
                     [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"readyToApply"];
                     [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"loanIsApproved"];
                     [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"loanIsProcessed"];
+                    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"documentsVerificationProcess"];
+
                     break;
                 }
                 case 1:
@@ -289,6 +300,8 @@
                     [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"loanIsProcessed"];
                     [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"readyToApply"];
                     [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"loanIsApproved"];
+                    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"documentsVerificationProcess"];
+
                     break;
                 }
                 case 2:
@@ -296,6 +309,7 @@
                     [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"loanIsApproved"];
                     [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"loanIsProcessed"];
                     [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"readyToApply"];
+                    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"documentsVerificationProcess"];
                     //#-- Loan is approved
                     break;
                 }
@@ -322,7 +336,7 @@
     applyLoan.titleLabel.textAlignment = NSTextAlignmentCenter;
     applyLoan.titleLabel.numberOfLines = 0;
     
-    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"documentsVerificationProcess"]) {
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"documentsVerificationProcess"] || [USERINFO.user_eligible_status integerValue] == 1) {
         //#-- Documents verification process
         verifyLabel.hidden = NO;
         timeLabel.hidden = NO;
