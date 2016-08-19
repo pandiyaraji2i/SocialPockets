@@ -8,7 +8,10 @@
 
 #import "AddBankAccountController.h"
 
-@interface AddBankAccountController ()
+@interface AddBankAccountController()<UITextFieldDelegate>{
+    
+}
+
 
 @end
 
@@ -58,6 +61,34 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [self.view endEditing:YES];
+    return YES;
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    
+    // verify the text field you wanna validate
+    if (!(textField == NULL)) {
+        
+        // do not allow the first character to be space | do not allow more than one space
+        if ([string isEqualToString:@" "]) {
+            if (!textField.text.length)
+                return NO;
+            if ([[textField.text stringByReplacingCharactersInRange:range withString:string] rangeOfString:@"  "].length)
+                return NO;
+        }
+        
+        // allow backspace
+        if ([textField.text stringByReplacingCharactersInRange:range withString:string].length < textField.text.length) {
+            return YES;
+        }
+        
+        // in case you need to limit the max number of characters
+        if ([textField.text stringByReplacingCharactersInRange:range withString:string].length > 18) {
+            return NO;
+        }
+        return YES;
+    }
+    
     return YES;
 }
 
