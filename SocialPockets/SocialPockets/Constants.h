@@ -29,7 +29,7 @@
 
 #define DATEFORMAT @"dd MMM, yy"
 #define LOCALDATETIMEFORMAT @"yyyy-MM-dd HH:mm:ss +0000"
-#define FONT [UIFont fontWithName:@"Gill Sans" size:16.0]
+#define FONT [UIFont fontWithName:@"Roboto-Regular" size:15.0]
 
 // ***** Document Directory Constants ***** //
 #define DOCUMENT_DIRECTORY NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0]

@@ -9,7 +9,9 @@
 #import "RequestConfirmationViewController.h"
 #import "DashBoardViewController.h"
 #import "AddBankAccountController.h"
-@interface RequestConfirmationViewController ()<UITableViewDataSource,UITableViewDelegate>{
+#import "SwipeTableCell.h"
+#import "SwipeButton.h"
+@interface RequestConfirmationViewController ()<UITableViewDataSource,UITableViewDelegate,SwipeTableCellDelegate>{
     NSMutableArray *accountArray;
     NSMutableDictionary *accountDict;
     NSIndexPath *previousIndexpath;
@@ -29,7 +31,7 @@
     [super viewDidLoad];
     self.transprantView.hidden = YES;
     self.thanksView.hidden = YES;
-    self.accountTableView.allowsMultipleSelectionDuringEditing = NO;
+    self.accountTableView.allowsMultipleSelectionDuringEditing = YES;
     
     
     // Do any additional setup after loading the view.
@@ -95,10 +97,12 @@
     if (indexPath.row == accountArray.count) {
         CellId = nil;
     }
-    UITableViewCell *cell =(CellId!=nil)?[tableView dequeueReusableCellWithIdentifier:CellId forIndexPath:indexPath]:[tableView dequeueReusableCellWithIdentifier:CellId];
+    SwipeTableCell *cell =(CellId!=nil)?[tableView dequeueReusableCellWithIdentifier:CellId forIndexPath:indexPath]:[tableView dequeueReusableCellWithIdentifier:CellId];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellId];
+        cell = [[SwipeTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellId];
     }
+    cell.delegate = self;
+    cell.backgroundColor  =[UIColor clearColor];
     if (indexPath.row == accountArray.count) {
         cell.textLabel.text = @"+ Add new account";
         cell.textLabel.font = [UIFont fontWithName:@"Roboto-Medium" size:13];
@@ -138,7 +142,7 @@
 //- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
 //    return YES;
 //}
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+/*- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row == accountArray.count) {
         return NO;
@@ -170,7 +174,7 @@
     [alertController addAction:actionCancel];
     [self presentViewController:alertController animated:YES completion:nil];
     }
-}
+}*/
 
 - (void)deleteBankAccount:(NSString *)bankAccount withIndex:(NSIndexPath *)indexPath
 {
@@ -188,6 +192,55 @@
     }];
 
 }
+
+#pragma mark Swipe Delegate
+
+-(BOOL) swipeTableCell:(SwipeTableCell*) cell canSwipe:(SwipeDirection) direction;
+{
+    //To assign index from the swiped table view indexpath
+    NSIndexPath *indexPath = [self.accountTableView indexPathForCell:cell];
+    if (indexPath.row == accountArray.count) {
+        return NO;
+    }
+    return YES;
+}
+
+-(NSArray*) swipeTableCell:(SwipeTableCell*) cell swipeButtonsForDirection:(SwipeDirection)direction
+             swipeSettings:(SwipeSettings*) swipeSettings expansionSettings:(SwipeExpansionSettings*) expansionSettings
+{
+    swipeSettings.transition = SwipeTransitionBorder;
+    UITableView *tableView = (UITableView *)cell.superview.superview;
+    
+    //Check for direction
+    if (direction == SwipeDirectionRightToLeft)
+    {
+        expansionSettings.fillOnTrigger = NO;
+        //For delete action
+        
+        SwipeButton *deleteButton =[SwipeButton buttonWithTitle:@"Delete" backgroundColor:[UIColor redColor] callback:^BOOL(SwipeTableCell *sender) {
+            NSIndexPath * indexPath = [tableView indexPathForCell:sender];
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Message"
+                                                                                     message:@"Are you sure want to delete"
+                                                                              preferredStyle:UIAlertControllerStyleAlert];
+            //We add buttons to the alert controller by creating UIAlertActions:
+            UIAlertAction *actionOk = [UIAlertAction actionWithTitle:@"Ok"
+                                                               style:UIAlertActionStyleDefault
+                                                             handler:^(UIAlertAction * _Nonnull action){
+                                                                 NSString *selectedBankAccountId = [[accountArray objectAtIndex:indexPath.row] valueForKey:@"USRMW_ID"];
+                                                                 [self deleteBankAccount:selectedBankAccountId withIndex:indexPath];
+                                                             }] ;
+            UIAlertAction *actionCancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+            }];
+            [alertController addAction:actionOk];
+            [alertController addAction:actionCancel];
+            [self presentViewController:alertController animated:YES completion:nil];
+            return YES;
+        }];
+        return @[deleteButton];
+    }
+    
+    return nil;
+}
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 60;
 }
@@ -201,7 +254,8 @@
         [self.navigationController pushViewController:addBankAccount animated:YES];
         addBankAccount.onCreate = ^(id obj)
         {
-            [accountArray addObject:obj];
+//            [accountArray addObject:obj];
+            [accountArray addObject:[obj objectForKey:@"userCreditDetails"]]; // Ask murugan to change the process
             [tableView reloadData];
         };
     }

@@ -82,7 +82,7 @@
 }
 
 -(NSString *)secureBankAccount:(NSString *)accNo{
-    return [accNo stringByReplacingCharactersInRange:NSMakeRange(4, [accNo length]-8) withString:@"****"];
+    return [accNo stringByReplacingCharactersInRange:NSMakeRange(2, [accNo length]-2) withString:@"*******"];
 
 }
 @end

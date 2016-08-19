@@ -66,6 +66,8 @@
 		A3B5292D1D49E1F200603451 /* IQToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = A3B5291C1D49E1F200603451 /* IQToolbar.m */; };
 		A3B5292E1D49E1F200603451 /* IQUIView+IQKeyboardToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = A3B5291E1D49E1F200603451 /* IQUIView+IQKeyboardToolbar.m */; };
 		A3B5292F1D49E1F200603451 /* IQKeyboardManager.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A3B529201D49E1F200603451 /* IQKeyboardManager.bundle */; };
+		A3B7F51D1D66E2F9002E83FF /* SwipeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A3B7F51A1D66E2F9002E83FF /* SwipeButton.m */; };
+		A3B7F51E1D66E2F9002E83FF /* SwipeTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A3B7F51C1D66E2F9002E83FF /* SwipeTableCell.m */; };
 		A3BFCB5B1D48B02400D99D78 /* bg@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A3BFCB5A1D48B02400D99D78 /* bg@3x.png */; };
 		A3C3C83C1D3DF09F00C65B09 /* LoginHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C3C83B1D3DF09F00C65B09 /* LoginHelper.m */; };
 		A3C3C8471D3DF1E000C65B09 /* NetworkHelperClass.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C3C8401D3DF1E000C65B09 /* NetworkHelperClass.m */; };
@@ -248,6 +250,10 @@
 		A3B5291D1D49E1F200603451 /* IQUIView+IQKeyboardToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IQUIView+IQKeyboardToolbar.h"; sourceTree = "<group>"; };
 		A3B5291E1D49E1F200603451 /* IQUIView+IQKeyboardToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "IQUIView+IQKeyboardToolbar.m"; sourceTree = "<group>"; };
 		A3B529201D49E1F200603451 /* IQKeyboardManager.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = IQKeyboardManager.bundle; sourceTree = "<group>"; };
+		A3B7F5191D66E2F9002E83FF /* SwipeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwipeButton.h; sourceTree = "<group>"; };
+		A3B7F51A1D66E2F9002E83FF /* SwipeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwipeButton.m; sourceTree = "<group>"; };
+		A3B7F51B1D66E2F9002E83FF /* SwipeTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwipeTableCell.h; sourceTree = "<group>"; };
+		A3B7F51C1D66E2F9002E83FF /* SwipeTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwipeTableCell.m; sourceTree = "<group>"; };
 		A3BFCB5A1D48B02400D99D78 /* bg@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg@3x.png"; sourceTree = "<group>"; };
 		A3C3C83A1D3DF09F00C65B09 /* LoginHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginHelper.h; sourceTree = "<group>"; };
 		A3C3C83B1D3DF09F00C65B09 /* LoginHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginHelper.m; sourceTree = "<group>"; };
@@ -426,6 +432,10 @@
 			children = (
 				A3253D131D3C9DE90081A59C /* AppDelegate.h */,
 				A3253D141D3C9DE90081A59C /* AppDelegate.m */,
+				A3B7F5191D66E2F9002E83FF /* SwipeButton.h */,
+				A3B7F51A1D66E2F9002E83FF /* SwipeButton.m */,
+				A3B7F51B1D66E2F9002E83FF /* SwipeTableCell.h */,
+				A3B7F51C1D66E2F9002E83FF /* SwipeTableCell.m */,
 				A3B32C001D64AAAB00F54B84 /* AccountOverView */,
 				A3AEDD071D5DCD9B007FE5C9 /* Testfairy */,
 				A32FFAD51D5C9BFF00C1A519 /* Database */,
@@ -1055,8 +1065,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3B7F51D1D66E2F9002E83FF /* SwipeButton.m in Sources */,
 				6777A4C81D4A125300BF1EC3 /* RepayLoanViewController.m in Sources */,
 				A3253D181D3C9DE90081A59C /* ViewController.m in Sources */,
+				A3B7F51E1D66E2F9002E83FF /* SwipeTableCell.m in Sources */,
 				A3DB484C1D4F8B180047EDF2 /* TransactionHistoryViewController.m in Sources */,
 				A3B529281D49E1F200603451 /* IQKeyboardReturnKeyHandler.m in Sources */,
 				A3B5292A1D49E1F200603451 /* IQBarButtonItem.m in Sources */,
