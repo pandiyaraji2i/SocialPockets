@@ -12,6 +12,7 @@
 #import "PANCardViewController.h"
 #import "ProgressViewController.h"
 #import "QRScanViewController.h"
+#import "SocialSiteViewController.h"
 @interface RegistrationViewController ()<UITextFieldDelegate>{
     
 }
@@ -131,18 +132,18 @@
 
 - (IBAction)profileImageAction:(id)sender
 {
-    CameraViewController *vc =[[CameraViewController alloc]initwithController];
-    [vc openCamera:0];
-    [self.navigationController presentViewController:vc animated:NO completion:nil];
-    vc.imageSelect = ^(id obj){
-        if (obj && [obj isKindOfClass:[UIImage class]]) {
-            profileImage = obj;
-            [self.profileImageBtn setImage:profileImage forState:UIControlStateNormal];
-        }
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self dismissViewControllerAnimated:NO completion:nil];
-        });
-    };
+//    CameraViewController *vc =[[CameraViewController alloc]initwithController];
+//    [vc openCamera:0];
+//    [self.navigationController presentViewController:vc animated:NO completion:nil];
+//    vc.imageSelect = ^(id obj){
+//        if (obj && [obj isKindOfClass:[UIImage class]]) {
+//            profileImage = obj;
+//            [self.profileImageBtn setImage:profileImage forState:UIControlStateNormal];
+//        }
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            [self dismissViewControllerAnimated:NO completion:nil];
+//        });
+//    };
 }
 
 - (IBAction)termsCheckBoxTapped:(id)sender {
@@ -151,6 +152,10 @@
 }
 
 - (IBAction)onRegisterAction:(id)sender {
+    SocialSiteViewController *socialVc =[self.storyboard instantiateViewControllerWithIdentifier:@"SocialVc"];
+    [self.navigationController pushViewController:socialVc animated:YES];
+    return;
+    
     if(!firstNameTextField.text.length || !emailTextField.text.length || !phoneNumberTextField.text.length || !usernameTextField.text.length || !passwordTextField.text.length || !confirmPasswordTextField.text.length)
     {
         ErrorMessageWithTitle(@"Message",@"Please enter all fields");
@@ -182,6 +187,7 @@
 }
 - (void)registerAction
 {
+    
     [REGMACRO registerWithName:firstNameTextField.text userName:usernameTextField.text email:emailTextField.text password:passwordTextField.text phoneNumber:phoneNumberTextField.text completion:^(id obj) {
         if ([obj isKindOfClass:[NSDictionary class]]) {
             // If success

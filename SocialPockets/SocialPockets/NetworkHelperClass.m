@@ -120,7 +120,6 @@ static Reachability *reachability;
     {
         //#-- Request is successful but error in response
         id responseJson = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingMutableContainers error:nil removingNulls:YES ignoreArrays:NO];
-
         NSString *errorMessageTitle = [responseJson valueForKey:@"message"];
         if (!errorMessageTitle.length) {
             errorMessageTitle = [responseJson valueForKey:@"errmessage"];
@@ -151,7 +150,8 @@ static Reachability *reachability;
 
 + (void)uploadImage:(UIImage *)image isUserOrLoan:(int)isUserOrLoan userId:(NSString *)userId  sync:(BOOL)isSync completion:(void (^)(id obj))completionBlock
 {
-    NSData *imageData = UIImageJPEGRepresentation(image, 1.0);
+    
+    NSData *imageData = UIImageJPEGRepresentation(image, 0.75);
     NSString *urlString,*fileName;
     fileName = @"image";
     if (isUserOrLoan == 1) {

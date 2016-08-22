@@ -136,10 +136,7 @@ static SocialHelper* _sharedInstance = nil;
 -(void)loginButtonClickedWithCompletion:(void (^)(id obj))completionBlock
 {
     FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
-    [login
-     logInWithReadPermissions: @[@"public_profile"]
-     fromViewController:self
-     handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
+    [login logInWithReadPermissions: @[@"public_profile"] fromViewController:self handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
          if (error) {
              NSLog(@"Process error");
          } else if (result.isCancelled) {
@@ -157,9 +154,6 @@ static SocialHelper* _sharedInstance = nil;
 #pragma Twitter Methods
 
 -(void)TwitterLoginBtnClickedWithCompletion:(void (^)(id obj))completionBlock{
-    
-    
-    
     [[Twitter sharedInstance] logInWithCompletion:^(TWTRSession *session, NSError *error) {
         if (session) {
             NSLog(@"signed in as %@", [session userName]);

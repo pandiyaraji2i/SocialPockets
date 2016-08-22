@@ -12,7 +12,7 @@
 
 @interface QRScanViewController (){
     NSDictionary *userDict;
-    QRCodeReader *qrCodeView;
+//    QRCodeReader *qrCodeView;
     UILabel *statusLbl;
 }
 
@@ -27,7 +27,7 @@
     self.verifyAadharView.hidden = YES;
     // Do any additional setup after loading the view.
     self.navigationController.navigationBarHidden = YES;
-    qrCodeView = [[QRCodeReader alloc]initWithFrame:CGRectMake(0, 70, self.view.frame.size.width, self.view.frame.size.height-120)];
+//    qrCodeView = [[QRCodeReader alloc]initWithFrame:CGRectMake(0, 70, self.view.frame.size.width, self.view.frame.size.height-120)];
     UILabel *QRTitleLbl = [[UILabel alloc] initWithFrame:CGRectMake(0, 20, self.view.frame.size.width, 50)];
     QRTitleLbl.text = @"Scan your QR code";
     QRTitleLbl.textAlignment = NSTextAlignmentCenter;
@@ -37,10 +37,10 @@
     statusLbl.text = @"Scanning.....";
     statusLbl.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:statusLbl];
-    [qrCodeView setDelegate:self];
+//    [qrCodeView setDelegate:self];
     statusLbl.text = @"Please focus your QR Code";
-    [qrCodeView startReading];
-    [self.view addSubview:qrCodeView];
+//    [qrCodeView startReading];
+//    [self.view addSubview:qrCodeView];
     self.yesBtn.layer.cornerRadius = 5.0;
     self.noBtn.layer.cornerRadius = 5.0;
     self.noBtn.layer.borderWidth = 1.0;
@@ -69,7 +69,7 @@
 - (IBAction)noBtnTapped:(id)sender {
     self.transprantView.hidden = YES;
     self.verifyAadharView.hidden = YES;
-    [qrCodeView startReading];
+//    [qrCodeView startReading];
 }
 
 #pragma mark Response from QR code

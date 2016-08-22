@@ -22,6 +22,8 @@
 		A3253D1B1D3C9DE90081A59C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3253D191D3C9DE90081A59C /* Main.storyboard */; };
 		A3253D1D1D3C9DE90081A59C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3253D1C1D3C9DE90081A59C /* Assets.xcassets */; };
 		A3253D201D3C9DE90081A59C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3253D1E1D3C9DE90081A59C /* LaunchScreen.storyboard */; };
+		A32F17BA1D6B00FC00B06327 /* IGRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A32F17B71D6B00FC00B06327 /* IGRequest.m */; };
+		A32F17BB1D6B00FC00B06327 /* Instagram.m in Sources */ = {isa = PBXBuildFile; fileRef = A32F17B91D6B00FC00B06327 /* Instagram.m */; };
 		A32FFAD41D5C9BBA00C1A519 /* SocialPockets.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A32FFAD21D5C9BBA00C1A519 /* SocialPockets.xcdatamodeld */; };
 		A32FFADE1D5C9D4700C1A519 /* UserDetails+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = A32FFAD71D5C9D4700C1A519 /* UserDetails+CoreDataProperties.m */; };
 		A32FFADF1D5C9D4700C1A519 /* UserDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = A32FFAD91D5C9D4700C1A519 /* UserDetails.m */; };
@@ -176,6 +178,11 @@
 		A3253D1C1D3C9DE90081A59C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A3253D1F1D3C9DE90081A59C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A3253D211D3C9DE90081A59C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A32F17B51D6B00FC00B06327 /* IGConnect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGConnect.h; sourceTree = "<group>"; };
+		A32F17B61D6B00FC00B06327 /* IGRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGRequest.h; sourceTree = "<group>"; };
+		A32F17B71D6B00FC00B06327 /* IGRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGRequest.m; sourceTree = "<group>"; };
+		A32F17B81D6B00FC00B06327 /* Instagram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Instagram.h; sourceTree = "<group>"; };
+		A32F17B91D6B00FC00B06327 /* Instagram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Instagram.m; sourceTree = "<group>"; };
 		A32FFAD31D5C9BBA00C1A519 /* SocialPockets.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SocialPockets.xcdatamodel; sourceTree = "<group>"; };
 		A32FFAD61D5C9D4700C1A519 /* UserDetails+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UserDetails+CoreDataProperties.h"; sourceTree = "<group>"; };
 		A32FFAD71D5C9D4700C1A519 /* UserDetails+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UserDetails+CoreDataProperties.m"; sourceTree = "<group>"; };
@@ -425,7 +432,7 @@
 				FB0342F21D54AE4C00C11019 /* NotificationBG6Splus.png */,
 				A3D65A821D460BA100B47E46 /* CameraFrameWork.framework */,
 				FBAAB8281D422888001C918B /* Podfile */,
-				FBAAB82A1D422B81001C918B /* FrameWork */,
+				FBAAB82A1D422B81001C918B /* SocialFrameworks */,
 				A3253D0F1D3C9DE90081A59C /* SocialPockets */,
 				A3C3C8891D3F4AE300C65B09 /* SocialPocketsTests */,
 				A3253D0E1D3C9DE90081A59C /* Products */,
@@ -491,6 +498,18 @@
 				A3C3C84D1D3DF2A200C65B09 /* SocialPockets-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A32F17B41D6B00E400B06327 /* Instagram */ = {
+			isa = PBXGroup;
+			children = (
+				A32F17B51D6B00FC00B06327 /* IGConnect.h */,
+				A32F17B61D6B00FC00B06327 /* IGRequest.h */,
+				A32F17B71D6B00FC00B06327 /* IGRequest.m */,
+				A32F17B81D6B00FC00B06327 /* Instagram.h */,
+				A32F17B91D6B00FC00B06327 /* Instagram.m */,
+			);
+			name = Instagram;
 			sourceTree = "<group>";
 		};
 		A32FFAD51D5C9BFF00C1A519 /* Database */ = {
@@ -863,13 +882,14 @@
 			name = Dashboard;
 			sourceTree = "<group>";
 		};
-		FBAAB82A1D422B81001C918B /* FrameWork */ = {
+		FBAAB82A1D422B81001C918B /* SocialFrameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A32F17B41D6B00E400B06327 /* Instagram */,
 				FBAAB82C1D422B97001C918B /* Facebook */,
 				FBAAB82B1D422B90001C918B /* Twitter */,
 			);
-			name = FrameWork;
+			name = SocialFrameworks;
 			path = SocialPockets;
 			sourceTree = "<group>";
 		};
@@ -1136,6 +1156,7 @@
 				A32FFAE11D5C9D4700C1A519 /* TransactionHistory.m in Sources */,
 				A3C3C8A71D3F928C00C65B09 /* OTPViewController.m in Sources */,
 				A3B529211D49E1F200603451 /* IQNSArray+Sort.m in Sources */,
+				A32F17BA1D6B00FC00B06327 /* IGRequest.m in Sources */,
 				A32FFAEB1D5CA2E500C1A519 /* UserProfileObject.m in Sources */,
 				FB58C6DA1D67008100279AEF /* XMLParser.m in Sources */,
 				A3D65A881D4619A200B47E46 /* RearViewController.m in Sources */,
@@ -1148,6 +1169,7 @@
 				A38968671D40DE1A00FA8F14 /* LoginViewController.m in Sources */,
 				A3C3C8481D3DF1E000C65B09 /* NSJSONSerialization+RemovingNulls.m in Sources */,
 				A3B528F21D49DE7200603451 /* ApplyLoanViewController.m in Sources */,
+				A32F17BB1D6B00FC00B06327 /* Instagram.m in Sources */,
 				FBB3A4FA1D4F570B001A7408 /* ManageAccountsViewController.m in Sources */,
 				A38823E71D5AF566008042D9 /* MessagePopUpView.m in Sources */,
 				A3B529271D49E1F200603451 /* IQKeyboardManager.m in Sources */,

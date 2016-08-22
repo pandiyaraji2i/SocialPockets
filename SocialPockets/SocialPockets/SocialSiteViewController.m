@@ -23,12 +23,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.title = @"Social Accounts";
     // Do any additional setup after loading the view.
-    tableData = [[NSArray alloc] initWithObjects:@"FaceBook",@"Twitter",@"Instagram",@"googlePlus", nil];
+    tableData = [[NSArray alloc] initWithObjects:@"FaceBook",@"Twitter",@"Instagram",@"LinkedIn", nil];
     self.socialTableView.delegate = self;
     self.socialTableView.dataSource = self;
-    self.socialTableView.layer.borderWidth = 2.0;
-    self.socialTableView.layer.borderColor = [UIColor grayColor].CGColor;
+    self.socialTableView.layer.cornerRadius = 5.0;
+    self.socialTableView.layer.masksToBounds = YES;
     
     NSDictionary *attribs = @{
                               NSForegroundColorAttributeName:[UIColor whiteColor],
@@ -64,6 +66,23 @@
     UILabel *lblname = (UILabel *)[cell.contentView viewWithTag:99];
     
     lblname.text = [tableData objectAtIndex:indexPath.row];
+    switch (indexPath.row) {
+        case 0:
+            lblname.textColor = [UIColor colorWithRed:71.0/255.0 green:89.0/255.0 blue:147.0/255.0 alpha:1.0];
+            break;
+        case 1:
+            lblname.textColor = [UIColor colorWithRed:62.0/255.0 green:163.0/255.0 blue:230.0/255.0 alpha:1.0];
+            break;
+        case 2:
+            lblname.textColor = [UIColor colorWithRed:194.0/255.0 green:33.0/255.0 blue:112.0/255.0 alpha:1.0];
+            break;
+        case 3:
+            lblname.textColor = [UIColor colorWithRed:0.0/255.0 green:119.0/255.0 blue:183.0/255.0 alpha:1.0];
+            break;
+            
+        default:
+            break;
+    }
     
     UIImageView *imgname = (UIImageView *)[cell.contentView viewWithTag:1];
     
@@ -77,32 +96,27 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
+    
     // Button click for facebook
     if (indexPath.row == 0) {
-     [self loginButtonClicked];
-//        [SharedMethods showAlertActionWithTitle:@"Alert" message:@"Are you want to add FaceBook" completion:^(id obj) {
-//            NSLog(@"just test");
-//            [self CreateSocialSiteWithSocialSite:@"1"];
-//        }];
+        [SOCIALMACRO loginButtonClickedWithCompletion:^(id obj) {
+            [self CreateSocialSiteWithSocialSite:@"1"];
+        }];
     }
-        // Button click for Twitter
-    if (indexPath.row == 1) {
-        [self TwitterLoginBtnClicked];
-//        [SharedMethods showAlertActionWithTitle:@"Alert" message:@"Are you want to add Twitter" completion:^(id obj) {
-//            NSLog(@"just test");
-//            [self CreateSocialSiteWithSocialSite:@"2"];
-//        }];
+    else if (indexPath.row == 1) {         // Button click for Twitter
+        [SOCIALMACRO TwitterLoginBtnClickedWithCompletion:^(id obj) {
+            [self CreateSocialSiteWithSocialSite:@"2"];
+
+        }];
     }
-        // Button click for Instagram
-    if (indexPath.row == 2) {
+   else if (indexPath.row == 2) { // Button click for Instagram
         [SharedMethods showAlertActionWithTitle:@"Alert" message:@"Are you want to add Instagram" completion:^(id obj) {
             NSLog(@"just test");
             [self CreateSocialSiteWithSocialSite:@"3"];
         }];
         
     }
-        // Button click for LinkedIn
-    if (indexPath.row == 3) {
+   else if (indexPath.row == 3) { // Button click for LinkedIn
         [SharedMethods showAlertActionWithTitle:@"Alert" message:@"Are you want to add Linkedin" completion:^(id obj) {
             NSLog(@"just test");
             [self CreateSocialSiteWithSocialSite:@"4"];
@@ -136,47 +150,6 @@
     }];
 }
 
-#pragma mark FaceBook Methods
-
--(void)loginButtonClicked
-{
-    FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
-    [login
-     logInWithReadPermissions: @[@"public_profile"]
-     fromViewController:self
-     handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
-         if (error) {
-             NSLog(@"Process error");
-         } else if (result.isCancelled) {
-             NSLog(@"Cancelled");
-         } else {
-             NSLog(@"Logged in");
-             [self CreateSocialSiteWithSocialSite:@"1"];
-         }
-     }];
-}
-
-#pragma Twitter Methods
-
--(void)TwitterLoginBtnClicked{
-   
-    
-    
-    [[Twitter sharedInstance] logInWithCompletion:^(TWTRSession *session, NSError *error) {
-        if (session) {
-            NSLog(@"signed in as %@", [session userName]);
-            [self CreateSocialSiteWithSocialSite:@"2"];
-
-        } else {
-            NSLog(@"error: %@", [error localizedDescription]);
-        }
-    }];
-    
-
-    // TODO: Change where the log in button is positioned in your view
-   // logInButton.center = self.view.center;
-   // [self.view addSubview:logInButton];
-}
 
 
 - (void)didReceiveMemoryWarning {

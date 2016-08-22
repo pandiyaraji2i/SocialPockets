@@ -141,11 +141,6 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    //    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"isLoggedFirst"] ||  [[NSUserDefaults standardUserDefaults] boolForKey:@"loanIsCompleted"]) {
-    //        [self performSelector:@selector(verifyDocumentsCompleted) withObject:nil afterDelay:2.0];
-    //    }
-    
-    
     [self updateButtons];
     
     if ([[NSUserDefaults standardUserDefaults] boolForKey:@"isLoanRepaid"]) {
@@ -170,11 +165,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)verifyDocumentsCompleted
-{
-    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"verificationCompleted"];
-    [self updateButtons];
-}
 #pragma mark Receive Notifications
 
 - (void)receivePushNotification:(NSNotification *)notification
@@ -189,6 +179,7 @@
             [PROFILEMACRO getUserInformation:^(id obj) {
                 if ([obj isKindOfClass:[NSDictionary class]]) {
                     [DBPROFILE generateUserInfo:obj forUser:USERINFO.userId];
+                    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"documentsVerificationProcess"];
                     [self updateButtons];
                 }
             }];
@@ -343,7 +334,7 @@
         applyLoan.hidden  = repayLoanButton.hidden = YES;
     }
     
-    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"readyToApply"]) {
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"readyToApply"] || [USERINFO.user_eligible_status integerValue] == 2) {
         //#-- Ready to apply loan
         applyLoan.hidden = NO;
         repayLoanButton.hidden = YES;

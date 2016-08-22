@@ -37,7 +37,7 @@ static ProfileModel* _sharedInstance = nil;
 {
     if ([NetworkHelperClass getInternetStatus:NO]) {
         NSString *urlString = [NSString stringWithFormat:@"userregistration/%@",[[NSUserDefaults standardUserDefaults] valueForKey:USERID]];
-        [NetworkHelperClass sendAsynchronousRequestToServer:urlString httpMethod:POST requestBody:nil contentType:JSONCONTENTTYPE completion:^(id obj) {
+        [NetworkHelperClass sendAsynchronousRequestToServer:urlString httpMethod:GET requestBody:nil contentType:JSONCONTENTTYPE completion:^(id obj) {
             if (completionBlock) {
                 completionBlock(obj);
             }

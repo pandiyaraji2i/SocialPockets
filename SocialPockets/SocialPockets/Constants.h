@@ -60,4 +60,10 @@
 #define USERNAME @"User_Name"
 #define USEREMAIL @"User_Email"
 
+
+//#-- APP Ids
+
+#define INSTAGRAM_APPID @"15ee4b177c6d4817aa9a82fac4b6b955"
+#define FACEBOOK_APPID @"1543324899307513"
+#define TWITTER_APPID @""
 #endif /* Constants_h */
