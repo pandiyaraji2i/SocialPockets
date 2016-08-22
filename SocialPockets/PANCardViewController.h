@@ -12,5 +12,7 @@ typedef void(^updatePANNumber)(NSString*);
 @interface PANCardViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UITextField *panNumberTF;
 @property (nonatomic,copy) updatePANNumber updatePAN;
+@property (weak, nonatomic) IBOutlet UIButton *yesBtn;
+@property (weak, nonatomic) IBOutlet UIButton *noBtn;
 
 @end

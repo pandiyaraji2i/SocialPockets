@@ -18,4 +18,9 @@
 - (void)updateSocialSite:(NSString *)socId socialId:(NSString *)socialId details:(NSString*)details modifiedBy:(NSString *)modifiedBy completion:(void (^)(id obj))completionBlock;
 
 - (void)viewSocialSiteWithCompletion:(void (^)(id obj))completionBlock;
+
+-(void)loginButtonClickedWithCompletion:(void (^)(id obj))completionBlock;
+
+-(void)TwitterLoginBtnClickedWithCompletion:(void (^)(id obj))completionBlock;
+
 @end

@@ -29,6 +29,8 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *pancardViewHeightConstraint;
 @property (weak, nonatomic) IBOutlet UIView *panCardInnerView;
 @property (weak, nonatomic) IBOutlet UITextField *panNumberTF;
+@property (weak, nonatomic) IBOutlet UIView *panCardUpdateView;
+@property (weak, nonatomic) IBOutlet UILabel *typeYourPANLbl;
 
 //SignatureView
 
@@ -260,6 +262,8 @@
         self.panCardInnerView.hidden = NO;
     }else{
         self.panCardInnerView.hidden = YES;
+        self.panCardUpdateView.hidden = YES;
+        self.typeYourPANLbl.hidden = NO;
         self.pancardViewHeightConstraint.constant = 40;
         [self.view layoutIfNeeded];
     }
@@ -270,6 +274,7 @@
     SignatureViewController *signatureVc = [self.storyboard instantiateViewControllerWithIdentifier:@"SignatureVc"];
     [self.navigationController pushViewController:signatureVc animated:YES];
     signatureVc.updateSignatureView = ^(void){
+        self.aadharCardBtn.selected = !self.aadharCardBtn.selected;
         [self updateRegView];
     };
 }
@@ -283,16 +288,16 @@
 
 - (void)aadharCardImageTap:(UITapGestureRecognizer *)recognizer {
     
-    QRScanViewController *QRScanVc = [self.storyboard instantiateViewControllerWithIdentifier:@"QRScanVc"];
-    [self.navigationController pushViewController:QRScanVc animated:YES];
+//    QRScanViewController *QRScanVc = [self.storyboard instantiateViewControllerWithIdentifier:@"QRScanVc"];
+//    [self.navigationController pushViewController:QRScanVc animated:YES];
     
-    QRScanVc.updateAadharView = ^(id obj){
-        self.aadharUpdatedView.hidden = NO;
-        self.aadharInnerView.hidden = YES;
-        [self updateLabelsWithDict:obj];
-        [self.aadharCardBtn setImage:[UIImage imageNamed:@"circleChecked"] forState:UIControlStateNormal];
-        
-    };
+//    QRScanVc.updateAadharView = ^(id obj){
+//        self.aadharUpdatedView.hidden = NO;
+//        self.aadharInnerView.hidden = YES;
+//        [self updateLabelsWithDict:obj];
+//        [self.aadharCardBtn setImage:[UIImage imageNamed:@"circleChecked"] forState:UIControlStateNormal];
+//        
+//    };
     
     //    [self presentViewController:QRScanVc animated:YES completion:nil];
     
@@ -315,12 +320,17 @@
     [self presentViewController:verifyPanCardVc animated:YES completion:nil];
     verifyPanCardVc.updatePAN = ^(id obj){
         self.panNumberTF.text = obj;
+        self.panCardUpdateView.hidden = NO;
+        self.typeYourPANLbl.hidden  = YES;
         [self.pancardBtn setImage:[UIImage imageNamed:@"circleChecked"] forState:UIControlStateNormal];
         
     };
 }
 
 -(void)updateRegView{
+    if (self.aadharCardBtn.selected) {
+        self.aadharViewHeightConstraimt.constant = 300;
+        self.aadharInnerView.hidden = NO;
     if ([[NSUserDefaults standardUserDefaults] boolForKey:@"AadharCardUpdate"]){
         self.aadharInnerView.hidden = YES;
         self.aadharUpdatedView.hidden = NO;
@@ -328,7 +338,16 @@
     }else{
         self.aadharUpdatedView.hidden = YES;
     }
+    }else{
+        self.aadharInnerView.hidden = YES;
+        self.aadharUpdatedView.hidden = YES;
+        self.aadharViewHeightConstraimt.constant = 40;
+    }
+    
+        
     if ([[NSUserDefaults standardUserDefaults] boolForKey:@"PanCardUpdate"]) {
+        self.panCardUpdateView.hidden = NO;
+        self.typeYourPANLbl.hidden = YES;
         [self.pancardBtn setImage:[UIImage imageNamed:@"circleChecked"] forState:UIControlStateNormal];
     }
     if ([[NSUserDefaults standardUserDefaults] boolForKey:@"SignatureUpdate"]) {

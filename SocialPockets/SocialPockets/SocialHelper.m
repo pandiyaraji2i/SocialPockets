@@ -7,6 +7,9 @@
 //
 
 #import "SocialHelper.h"
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
+#import <TwitterKit/TwitterKit.h>
 static SocialHelper* _sharedInstance = nil;
 
 @implementation SocialHelper
@@ -126,5 +129,56 @@ static SocialHelper* _sharedInstance = nil;
         }
     }
 }
+
+#pragma mark Helper Login Methods For Social Sites
+#pragma mark FaceBook Methods
+
+-(void)loginButtonClickedWithCompletion:(void (^)(id obj))completionBlock
+{
+    FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
+    [login
+     logInWithReadPermissions: @[@"public_profile"]
+     fromViewController:self
+     handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
+         if (error) {
+             NSLog(@"Process error");
+         } else if (result.isCancelled) {
+             NSLog(@"Cancelled");
+         } else {
+             NSLog(@"Logged in");
+             if (completionBlock) {
+                 completionBlock(nil);
+             }
+             //[self CreateSocialSiteWithSocialSite:@"1"];
+         }
+     }];
+}
+
+#pragma Twitter Methods
+
+-(void)TwitterLoginBtnClickedWithCompletion:(void (^)(id obj))completionBlock{
+    
+    
+    
+    [[Twitter sharedInstance] logInWithCompletion:^(TWTRSession *session, NSError *error) {
+        if (session) {
+            NSLog(@"signed in as %@", [session userName]);
+            if (completionBlock) {
+                completionBlock(nil);
+            }
+            //[self CreateSocialSiteWithSocialSite:@"2"];
+            
+        } else {
+            NSLog(@"error: %@", [error localizedDescription]);
+        }
+    }];
+    
+    
+    // TODO: Change where the log in button is positioned in your view
+    // logInButton.center = self.view.center;
+    // [self.view addSubview:logInButton];
+}
+
+
 
 @end

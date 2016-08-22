@@ -136,6 +136,7 @@
     }];
 }
 
+#pragma mark FaceBook Methods
 
 -(void)loginButtonClicked
 {

@@ -18,15 +18,23 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.yesBtn.layer.cornerRadius = 5.0;
+
+    self.noBtn.layer.cornerRadius = 5.0;
+    self.noBtn.layer.borderWidth = 1.0;
+    self.noBtn.layer.borderColor = [UIColor grayColor].CGColor;
 }
 - (IBAction)yesBtnTApped:(id)sender {
     if (self.panNumberTF.text.length>0) {
-        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"PanCardUpdate"];
-        [self dismissViewControllerAnimated:YES completion:nil];
-        if (updatePAN) {
-            updatePAN(self.panNumberTF.text);
+        if ([self.panNumberTF.text isValidPanNumber]) {
+            [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"PanCardUpdate"];
+            [self dismissViewControllerAnimated:YES completion:nil];
+            if (updatePAN) {
+                updatePAN([self.panNumberTF.text uppercaseString]);
+            }
+        }else{
+            ErrorMessageWithTitle(@"Message", @"please enter the valid PAN number");
         }
-
     }
     else{
         ErrorMessageWithTitle(@"Message", @"please enter the number and then proceed");
