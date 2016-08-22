@@ -19,5 +19,13 @@
 @property (weak, nonatomic) IBOutlet UIButton *nextBtn;
 @property (weak, nonatomic) IBOutlet UIButton *termsCheckBoxButton;
 
+
+@property (weak, nonatomic) IBOutlet UILabel *nameLbl;
+@property (weak, nonatomic) IBOutlet UILabel *fatherLbl;
+@property (weak, nonatomic) IBOutlet UILabel *dobLbl;
+@property (weak, nonatomic) IBOutlet UILabel *genderLbl;
+@property (weak, nonatomic) IBOutlet UILabel *addressLbl;
+@property (weak, nonatomic) IBOutlet UILabel *aadharNumderLbl;
+
 - (IBAction)onRegisterAction:(id)sender;
 @end

@@ -11,8 +11,9 @@
 #import "VerifyAadharViewController.h"
 #import "PANCardViewController.h"
 #import "ProgressViewController.h"
+#import "QRScanViewController.h"
 @interface RegistrationViewController ()<UITextFieldDelegate>{
-
+    
 }
 //Aadhar card
 
@@ -48,14 +49,14 @@
     
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@" " style:UIBarButtonItemStylePlain target:self action:nil];
     
-//#warning just for testing
-//    firstNameTextField.text = @"kishore";
-//    usernameTextField.text = @"kishore";
-//    passwordTextField.text = @"kishore";
-//    confirmPasswordTextField.text = @"kishore";
-//    emailTextField.text = @"kishore@ideas2it.com";
-//    phoneNumberTextField.text = @"9090909090";
-
+    //#warning just for testing
+    //    firstNameTextField.text = @"kishore";
+    //    usernameTextField.text = @"kishore";
+    //    passwordTextField.text = @"kishore";
+    //    confirmPasswordTextField.text = @"kishore";
+    //    emailTextField.text = @"kishore@ideas2it.com";
+    //    phoneNumberTextField.text = @"9090909090";
+    
     
     self.navigationController.navigationBarHidden = YES;
     [self updateRegView];
@@ -63,10 +64,10 @@
     [self.view layoutIfNeeded];
     [self aadharBtnTapped:nil];
     [self pancardBtnTapped:nil];
-
-
-//    self.aadharInnerView.hidden = NO;
-//    self.aadharUpdatedView.hidden = YES;
+    
+    
+    //    self.aadharInnerView.hidden = NO;
+    //    self.aadharUpdatedView.hidden = YES;
     
     // Aadhar Card Gesture
     UITapGestureRecognizer *aadharCardTap =
@@ -86,7 +87,7 @@
     self.profileImageBtn.layer.borderWidth = 3.0;
     self.profileImageBtn.layer.borderColor = [UIColor whiteColor].CGColor;
     self.profileImageBtn.layer.masksToBounds = YES;
- 
+    
     self.userInfoView.layer.cornerRadius = 5.0;
     self.userInfoView.layer.masksToBounds = YES;
     
@@ -97,7 +98,7 @@
     }
     
     [self setStatusBarBackgroundColor:[UIColor blackColor]];
-
+    
     //#-- Status Bar Color Change
     [self setNeedsStatusBarAppearanceUpdate];
     // Do any additional setup after loading the view.
@@ -128,7 +129,7 @@
 
 - (IBAction)profileImageAction:(id)sender
 {
-    /*CameraViewController *vc =[[CameraViewController alloc]initwithController];
+    CameraViewController *vc =[[CameraViewController alloc]initwithController];
     [vc openCamera:0];
     [self.navigationController presentViewController:vc animated:NO completion:nil];
     vc.imageSelect = ^(id obj){
@@ -139,12 +140,12 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             [self dismissViewControllerAnimated:NO completion:nil];
         });
-    };*/
+    };
 }
 
 - (IBAction)termsCheckBoxTapped:(id)sender {
     _termsCheckBoxButton.selected = !_termsCheckBoxButton.selected;
-  
+    
 }
 
 - (IBAction)onRegisterAction:(id)sender {
@@ -170,7 +171,7 @@
     }
     else if (!profileImage)
     {
-         ErrorMessageWithTitle(@"Message",@"Please select image");
+        ErrorMessageWithTitle(@"Message",@"Please select image");
     }
     else{
         [ACTIVITY showActivity:@"Loading..."];
@@ -206,7 +207,7 @@
             ErrorMessageWithTitle(@"Message", obj);
         }
     }];
-
+    
 }
 - (void)updateObjectToDatabase:(id)obj
 {
@@ -244,11 +245,11 @@
         self.aadharInnerView.hidden = YES;
         self.aadharUpdatedView.hidden = YES;
         self.aadharViewHeightConstraimt.constant = 40;
-//        [self.view updateConstraints];
-//        [self.view layoutIfNeeded];
+        //        [self.view updateConstraints];
+        //        [self.view layoutIfNeeded];
         
     }
-        self.aadharCardBtn.selected = !self.aadharCardBtn.selected;
+    self.aadharCardBtn.selected = !self.aadharCardBtn.selected;
 }
 
 - (IBAction)pancardBtnTapped:(id)sender {
@@ -281,14 +282,30 @@
 //Aadhar card image tapped
 
 - (void)aadharCardImageTap:(UITapGestureRecognizer *)recognizer {
-        VerifyAadharViewController *verifyAadharVc = [self.storyboard instantiateViewControllerWithIdentifier:@"VerifyAadharVc"];
-        [self presentViewController:verifyAadharVc animated:YES completion:nil];
-    verifyAadharVc.updateAadharView = ^(id obj){
+    
+    QRScanViewController *QRScanVc = [self.storyboard instantiateViewControllerWithIdentifier:@"QRScanVc"];
+    [self.navigationController pushViewController:QRScanVc animated:YES];
+    
+    QRScanVc.updateAadharView = ^(id obj){
         self.aadharUpdatedView.hidden = NO;
         self.aadharInnerView.hidden = YES;
+        [self updateLabelsWithDict:obj];
         [self.aadharCardBtn setImage:[UIImage imageNamed:@"circleChecked"] forState:UIControlStateNormal];
         
     };
+    
+    //    [self presentViewController:QRScanVc animated:YES completion:nil];
+    
+    
+    
+    //        VerifyAadharViewController *verifyAadharVc = [self.storyboard instantiateViewControllerWithIdentifier:@"VerifyAadharVc"];
+    //        [self presentViewController:verifyAadharVc animated:YES completion:nil];
+    //    verifyAadharVc.updateAadharView = ^(id obj){
+    //        self.aadharUpdatedView.hidden = NO;
+    //        self.aadharInnerView.hidden = YES;
+    //        [self.aadharCardBtn setImage:[UIImage imageNamed:@"circleChecked"] forState:UIControlStateNormal];
+    //
+    //    };
     
 }
 //PAN card image tapped
@@ -299,7 +316,7 @@
     verifyPanCardVc.updatePAN = ^(id obj){
         self.panNumberTF.text = obj;
         [self.pancardBtn setImage:[UIImage imageNamed:@"circleChecked"] forState:UIControlStateNormal];
-
+        
     };
 }
 
@@ -307,7 +324,7 @@
     if ([[NSUserDefaults standardUserDefaults] boolForKey:@"AadharCardUpdate"]){
         self.aadharInnerView.hidden = YES;
         self.aadharUpdatedView.hidden = NO;
-          [self.aadharCardBtn setImage:[UIImage imageNamed:@"circleChecked"] forState:UIControlStateNormal];
+        [self.aadharCardBtn setImage:[UIImage imageNamed:@"circleChecked"] forState:UIControlStateNormal];
     }else{
         self.aadharUpdatedView.hidden = YES;
     }
@@ -315,8 +332,8 @@
         [self.pancardBtn setImage:[UIImage imageNamed:@"circleChecked"] forState:UIControlStateNormal];
     }
     if ([[NSUserDefaults standardUserDefaults] boolForKey:@"SignatureUpdate"]) {
-                [self.signatureBtn setImage:[UIImage imageNamed:@"circleChecked"] forState:UIControlStateNormal];
-            }
+        [self.signatureBtn setImage:[UIImage imageNamed:@"circleChecked"] forState:UIControlStateNormal];
+    }
 }
 # pragma Textfield validation
 
@@ -348,6 +365,39 @@
     return YES;
 }
 
+-(void)updateLabelsWithDict:(NSDictionary *)dict{
+    self.nameLbl.text = [[[dict objectForKey:@"_name"] componentsSeparatedByString:@" "] objectAtIndex:0];
+    self.fatherLbl.text = [[[dict objectForKey:@"_co"] componentsSeparatedByString:@" "] objectAtIndex:1];
+    if ([[dict objectForKey:@"_gender"] isEqualToString:@"M"]) {
+        self.genderLbl.text = @"Male";
+    }else{
+        self.genderLbl.text = @"Female";
+    }
+    self.genderLbl.text = [dict objectForKey:@"_gender"];
+    self.dobLbl.text = [dict objectForKey:@"_yob"];
+    self.addressLbl.text = [NSString stringWithFormat:@"%@,%@,%@,%@,%@,%@",[dict objectForKey:@"_street"],[dict objectForKey:@"_lm"],[dict objectForKey:@"_loc"],[dict objectForKey:@"_dist"],[dict objectForKey:@"_state"],[dict objectForKey:@"_pc"]];
+    
+    self.aadharNumderLbl.text = [self aadharNumberWithFormat: [dict objectForKey:@"_uid"]];
+    
+}
+- (NSString *)aadharNumberWithFormat:(NSString*)originalString {
+    NSMutableString *resultString = [NSMutableString string];
+    
+    for(int i = 0; i<[originalString length]/4; i++)
+    {
+        NSUInteger fromIndex = i * 4;
+        NSUInteger len = [originalString length] - fromIndex;
+        if (len > 4) {
+            len = 4;
+        }
+        
+        [resultString appendFormat:@"%@    ",[originalString substringWithRange:NSMakeRange(fromIndex, len)]];
+    }
+    return resultString;
+}
+
+
+
 
 #pragma mark Status Bar Style
 - (UIStatusBarStyle)preferredStatusBarStyle
@@ -357,14 +407,14 @@
 
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end
 

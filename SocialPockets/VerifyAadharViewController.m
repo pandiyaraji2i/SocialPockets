@@ -28,10 +28,40 @@
            @"address" : @"no :1 , fourth cross street , Krishna nagar, Pammal, Chennai "
            
            };
+    self.nameLbl.text = [[[self.userDetails objectForKey:@"_name"] componentsSeparatedByString:@" "] objectAtIndex:0];
+    self.fatherLbl.text = [[[self.userDetails objectForKey:@"_co"] componentsSeparatedByString:@" "] objectAtIndex:1];
+    if ([[self.userDetails objectForKey:@"_gender"] isEqualToString:@"M"]) {
+        self.genderLbl.text = @"Male";
+    }else{
+        self.genderLbl.text = @"Female";
+    }
+    self.genderLbl.text = [self.userDetails objectForKey:@"_gender"];
+    self.dobLbl.text = [self.userDetails objectForKey:@"_yob"];
+    self.addressLbl.text = [NSString stringWithFormat:@"%@,%@,%@,%@,%@,%@",[self.userDetails objectForKey:@"_street"],[self.userDetails objectForKey:@"_lm"],[self.userDetails objectForKey:@"_loc"],[self.userDetails objectForKey:@"_dist"],[self.userDetails objectForKey:@"_state"],[self.userDetails objectForKey:@"_pc"]];
+    
+    //self.aadharNumderLbl.text = [self.userDetails objectForKey:@"_uid"];
+    self.aadharNumderLbl.text = [self resetCardNumberAsVisa: [self.userDetails objectForKey:@"_uid"]];
+
+}
+
+- (NSString *)resetCardNumberAsVisa:(NSString*)originalString {
+    NSMutableString *resultString = [NSMutableString string];
+    
+    for(int i = 0; i<[originalString length]/4; i++)
+    {
+        NSUInteger fromIndex = i * 4;
+        NSUInteger len = [originalString length] - fromIndex;
+        if (len > 4) {
+            len = 4;
+        }
+        
+        [resultString appendFormat:@"%@    ",[originalString substringWithRange:NSMakeRange(fromIndex, len)]];
+    }
+    return resultString;
 }
 - (IBAction)cancelBtnTapped:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
-    //[self.navigationController popToRootViewControllerAnimated:YES];
+    //[self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 - (IBAction)yesBtntapped:(id)sender {
     [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"AadharCardUpdate"];
@@ -39,9 +69,7 @@
     if (updateAadharView) {
         updateAadharView(obj);
     }
-    
     // [self.navigationController popToRootViewControllerAnimated:YES];
-    
 }
 - (IBAction)noBtnTapped:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];

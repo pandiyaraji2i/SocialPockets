@@ -108,6 +108,10 @@
 		FB06EF0E1D644D2C00ABF8FE /* ProgressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB06EF0D1D644D2C00ABF8FE /* ProgressViewController.m */; };
 		FB06EF111D64796400ABF8FE /* VerifyAadharViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB06EF101D64796400ABF8FE /* VerifyAadharViewController.m */; };
 		FB06EF141D64798300ABF8FE /* PANCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB06EF131D64798300ABF8FE /* PANCardViewController.m */; };
+		FB58C6D11D66F11500279AEF /* QRScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB58C6D01D66F11500279AEF /* QRScanViewController.m */; };
+		FB58C6D21D66FAAE00279AEF /* QRCodeReaderFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB58C6CD1D66F0B600279AEF /* QRCodeReaderFramework.framework */; };
+		FB58C6D41D66FB6500279AEF /* QRCodeReaderFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FB58C6CD1D66F0B600279AEF /* QRCodeReaderFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FB58C6DA1D67008100279AEF /* XMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = FB58C6D91D67008100279AEF /* XMLParser.m */; };
 		FBAAB8291D422888001C918B /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = FBAAB8281D422888001C918B /* Podfile */; };
 		FBAAB8361D4239D7001C918B /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBAAB8331D4239D7001C918B /* FBSDKCoreKit.framework */; };
 		FBAAB8371D4239D7001C918B /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBAAB8341D4239D7001C918B /* FBSDKLoginKit.framework */; };
@@ -137,6 +141,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				FB58C6D41D66FB6500279AEF /* QRCodeReaderFramework.framework in Embed Frameworks */,
 				A3D65A841D460BA100B47E46 /* CameraFrameWork.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -324,6 +329,11 @@
 		FB06EF101D64796400ABF8FE /* VerifyAadharViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerifyAadharViewController.m; sourceTree = SOURCE_ROOT; };
 		FB06EF121D64798300ABF8FE /* PANCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PANCardViewController.h; sourceTree = SOURCE_ROOT; };
 		FB06EF131D64798300ABF8FE /* PANCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PANCardViewController.m; sourceTree = SOURCE_ROOT; };
+		FB58C6CD1D66F0B600279AEF /* QRCodeReaderFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = QRCodeReaderFramework.framework; sourceTree = "<group>"; };
+		FB58C6CF1D66F11500279AEF /* QRScanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRScanViewController.h; sourceTree = "<group>"; };
+		FB58C6D01D66F11500279AEF /* QRScanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRScanViewController.m; sourceTree = "<group>"; };
+		FB58C6D81D67008100279AEF /* XMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLParser.h; sourceTree = "<group>"; };
+		FB58C6D91D67008100279AEF /* XMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLParser.m; sourceTree = "<group>"; };
 		FBAAB8281D422888001C918B /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		FBAAB8331D4239D7001C918B /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		FBAAB8341D4239D7001C918B /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
@@ -345,6 +355,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB58C6D21D66FAAE00279AEF /* QRCodeReaderFramework.framework in Frameworks */,
 				A3AEDD031D5DCD6C007FE5C9 /* OpenGLES.framework in Frameworks */,
 				A3AEDD011D5DCD63007FE5C9 /* SystemConfiguration.framework in Frameworks */,
 				A3AEDCFF1D5DCD5A007FE5C9 /* AVFoundation.framework in Frameworks */,
@@ -403,9 +414,14 @@
 		A3253D041D3C9DE90081A59C = {
 			isa = PBXGroup;
 			children = (
+				FB58C6D81D67008100279AEF /* XMLParser.h */,
+				FB58C6D91D67008100279AEF /* XMLParser.m */,
+				FB58C6CD1D66F0B600279AEF /* QRCodeReaderFramework.framework */,
 				FB0342EF1D54AE4C00C11019 /* NotificationBG.png */,
 				FB0342F01D54AE4C00C11019 /* NotificationBG4S.png */,
 				FB0342F11D54AE4C00C11019 /* NotificationBG6S.png */,
+				FB58C6CF1D66F11500279AEF /* QRScanViewController.h */,
+				FB58C6D01D66F11500279AEF /* QRScanViewController.m */,
 				FB0342F21D54AE4C00C11019 /* NotificationBG6Splus.png */,
 				A3D65A821D460BA100B47E46 /* CameraFrameWork.framework */,
 				FBAAB8281D422888001C918B /* Podfile */,
@@ -1102,6 +1118,7 @@
 				A3EAA2B41D4762210013A952 /* AddBankAccountController.m in Sources */,
 				A3D65A951D461A5700B47E46 /* UIViewController+MFSideMenuAdditions.m in Sources */,
 				A32FFAD41D5C9BBA00C1A519 /* SocialPockets.xcdatamodeld in Sources */,
+				FB58C6D11D66F11500279AEF /* QRScanViewController.m in Sources */,
 				A32FFAE81D5C9F1600C1A519 /* TransactionObjectModel.m in Sources */,
 				A3C3C8A41D3F86EC00C65B09 /* ProfileModel.m in Sources */,
 				A3B529231D49E1F200603451 /* IQUITextFieldView+Additions.m in Sources */,
@@ -1120,6 +1137,7 @@
 				A3C3C8A71D3F928C00C65B09 /* OTPViewController.m in Sources */,
 				A3B529211D49E1F200603451 /* IQNSArray+Sort.m in Sources */,
 				A32FFAEB1D5CA2E500C1A519 /* UserProfileObject.m in Sources */,
+				FB58C6DA1D67008100279AEF /* XMLParser.m in Sources */,
 				A3D65A881D4619A200B47E46 /* RearViewController.m in Sources */,
 				A3B5292C1D49E1F200603451 /* IQTitleBarButtonItem.m in Sources */,
 				A39209751D48E0B600EBCC6F /* NotificationViewController.m in Sources */,
