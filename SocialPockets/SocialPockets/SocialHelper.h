@@ -19,7 +19,7 @@
 
 - (void)viewSocialSiteWithCompletion:(void (^)(id obj))completionBlock;
 
--(void)loginButtonClickedWithCompletion:(void (^)(id obj))completionBlock;
+-(void)faceBookLoginButtonClickedWithCompletion:(void (^)(id obj))completionBlock;
 
 -(void)TwitterLoginBtnClickedWithCompletion:(void (^)(id obj))completionBlock;
 

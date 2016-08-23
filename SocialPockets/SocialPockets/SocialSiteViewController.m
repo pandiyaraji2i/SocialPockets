@@ -99,13 +99,15 @@
     
     // Button click for facebook
     if (indexPath.row == 0) {
-        [SOCIALMACRO loginButtonClickedWithCompletion:^(id obj) {
-            [self CreateSocialSiteWithSocialSite:@"1"];
+        [SOCIALMACRO faceBookLoginButtonClickedWithCompletion:^(id obj) {
+            [self dataFetchForUser:obj];
+            //[self CreateSocialSiteWithSocialSite:@"1"];
         }];
     }
     else if (indexPath.row == 1) {         // Button click for Twitter
         [SOCIALMACRO TwitterLoginBtnClickedWithCompletion:^(id obj) {
-            [self CreateSocialSiteWithSocialSite:@"2"];
+            [self getTwitterFollowersListForUserID:[obj userID]];
+            //[self CreateSocialSiteWithSocialSite:@"2"];
 
         }];
     }
@@ -149,6 +151,52 @@
         NSLog(@"updated social sites: %@",obj);
     }];
 }
+
+# pragma Mark Get followers list
+
+-(void)getTwitterFollowersListForUserID:(NSString *)userid{
+    //NSString *statusesShowEndpoint = @"https://api.twitter.com/1.1/followers/list.json";
+    NSString *statusesShowEndpoint = @"https://api.twitter.com/1.1/friends/list.json";
+    NSDictionary *params = @{@"id" : userid};
+    NSError *clientError;
+    TWTRAPIClient *client = [[TWTRAPIClient alloc] initWithUserID:userid];
+    NSURLRequest *request = [client URLRequestWithMethod:@"GET" URL:statusesShowEndpoint parameters:params error:&clientError];
+    // if (request) {
+    [client sendTwitterRequest:request completion:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+        if (data) {
+            // handle the response data e.g.
+            NSError *jsonError;
+            NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonError];
+            NSLog(@"%@",json);
+            NSLog(@"followers List %lu",(unsigned long)[[json valueForKey:@"users"] count]);
+            
+        }
+        else {
+            NSLog(@"Error: %@", connectionError);
+        }
+    }];
+}
+
+# pragma Mark Get FaceBook list Details
+
+-(void)dataFetchForUser:(id)obj{
+    if ([FBSDKAccessToken currentAccessToken]) {
+        [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:@{@"fields": @"picture.type(large), email, name"}]
+         startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
+             if (!error) {
+                 NSString *pictureURL = [NSString stringWithFormat:@"%@",[[[result objectForKey:@"picture"] objectForKey:@"data"] objectForKey:@"url"]];
+                 
+                 NSLog(@"email is %@", [result objectForKey:@"email"]);
+                 
+                 NSData  *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:pictureURL]];
+//                 self.profileImageView.image = [UIImage imageWithData:data];
+//                 self.nameLbl.text = [NSString stringWithFormat:@"Welcome %@",[result objectForKey:@"name"]];
+                 
+             }
+         }];
+    }
+}
+
 
 
 

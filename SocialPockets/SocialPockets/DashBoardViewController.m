@@ -24,6 +24,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"Social Pocket";
+    [SOCIALMACRO faceBookLoginButtonClickedWithCompletion:^(id obj) {
+        [self dataFetchForUser:obj];
+        //[self CreateSocialSiteWithSocialSite:@"1"];
+    }];
+    
     //    //#-- Menu Button
     
     
@@ -489,6 +494,42 @@
 {
     return UIStatusBarStyleLightContent;
 }
+
+# pragma Mark Get FaceBook list Details
+
+-(void)dataFetchForUser:(id)obj{
+    if ([FBSDKAccessToken currentAccessToken]) {
+        [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:@{@"fields": @"picture, email, name,likes"}]
+         startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
+             if (!error) {
+                 FBSDKGraphRequest *requestp = [[FBSDKGraphRequest alloc]
+                                               initWithGraphPath:@"/{photo-id}/likes"
+                                               parameters:nil
+                                               HTTPMethod:@"GET"];
+                 [requestp startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection,
+                                                       id result,
+                                                       NSError *error) {
+                     if (!error){
+                         NSLog(@"result: %@",result);}
+                     else {
+                         NSLog(@"result: %@",[error description]);
+                     }}];
+                 
+                 NSString *pictureURL = [NSString stringWithFormat:@"%@",[[[result objectForKey:@"picture"] objectForKey:@"data"] objectForKey:@"url"]];
+                 
+                 NSLog(@"email is %@", [result objectForKey:@"email"]);
+                 
+                 NSData  *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:pictureURL]];
+                 UIImage*profileimage = [UIImage imageWithData:data];
+                 //                 self.profileImageView.image = [UIImage imageWithData:data];
+                 //                 self.nameLbl.text = [NSString stringWithFormat:@"Welcome %@",[result objectForKey:@"name"]];
+                 
+             }
+         }];
+    }
+}
+
+
 
 /*
  #pragma mark - Navigation

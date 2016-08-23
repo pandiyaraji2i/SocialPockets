@@ -133,10 +133,10 @@ static SocialHelper* _sharedInstance = nil;
 #pragma mark Helper Login Methods For Social Sites
 #pragma mark FaceBook Methods
 
--(void)loginButtonClickedWithCompletion:(void (^)(id obj))completionBlock
+-(void)faceBookLoginButtonClickedWithCompletion:(void (^)(id obj))completionBlock
 {
     FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
-    [login logInWithReadPermissions: @[@"public_profile"] fromViewController:self handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
+    [login logInWithReadPermissions: @[@"public_profile"] fromViewController:[SharedMethods topMostController] handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
          if (error) {
              NSLog(@"Process error");
          } else if (result.isCancelled) {
@@ -144,7 +144,7 @@ static SocialHelper* _sharedInstance = nil;
          } else {
              NSLog(@"Logged in");
              if (completionBlock) {
-                 completionBlock(nil);
+                 completionBlock(result);
              }
              //[self CreateSocialSiteWithSocialSite:@"1"];
          }
@@ -158,7 +158,7 @@ static SocialHelper* _sharedInstance = nil;
         if (session) {
             NSLog(@"signed in as %@", [session userName]);
             if (completionBlock) {
-                completionBlock(nil);
+                completionBlock(session);
             }
             //[self CreateSocialSiteWithSocialSite:@"2"];
             
