@@ -149,6 +149,9 @@
         UINavigationController *navVc = [[UINavigationController alloc]initWithRootViewController:IGloginVc];
         [self presentViewController:navVc animated:YES completion:NULL];
         IGloginVc.onLogin = ^(id obj){
+            [[NSUserDefaults standardUserDefaults] setObject:obj forKey:@"InstagramAccessToken"];
+            [tableView reloadData];
+
             NSLog(@"Auth Token %@",obj);
             [SOCIALMACRO instagramLoginWithUserToken:obj WithCompletion:^(id obj) {
                 //NSLog(@"Fetch Data %@",obj);
@@ -162,6 +165,8 @@
     }
     else if (indexPath.row == 3) { //  for LinkedIn
         [SOCIALMACRO linkedInLoginWithCompletion:^(id obj) {
+            [[NSUserDefaults standardUserDefaults] setObject:obj forKey:@"LinkedInAccessToken"];
+            [tableView reloadData];
           //  [self CreateSocialSiteWithSocialSite:@"4"];
         }];
     }

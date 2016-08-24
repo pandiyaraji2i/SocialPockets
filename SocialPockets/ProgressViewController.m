@@ -66,8 +66,6 @@
         [imageUpdatedArray addObject:@"BankProgress"];
 //    }
     view.progressNumber = [imageUpdatedArray count];
-    view.progressNumber = 6;
-
     NSLog(@"%lu",(unsigned long)[imageUpdatedArray count]);
     for (NSString*type in imageNameArray) {
     if (![imageUpdatedArray containsObject:type]) {

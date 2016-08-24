@@ -2936,7 +2936,7 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <action selector="nextBtnTapped:" destination="Q3Z-xm-x5l" eventType="touchDragInside" id="qjY-IE-6FT"/>
+                                    <action selector="nextBtnTapped:" destination="Q3Z-xm-x5l" eventType="touchUpInside" id="TsE-ak-bsS"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hf7-ri-RwU">
@@ -2976,8 +2976,7 @@
                                                             <exclude reference="sY5-N7-46K"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="170" y="20" width="60" height="20"/>
+                                                    <variation key="heightClass=regular-widthClass=compact">
                                                         <mask key="constraints">
                                                             <include reference="WAY-eM-G7S"/>
                                                             <include reference="sY5-N7-46K"/>
@@ -2999,8 +2998,7 @@
                                                             <exclude reference="JdC-PV-8Ch"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="66" y="8" width="84" height="43"/>
+                                                    <variation key="heightClass=regular-widthClass=compact">
                                                         <mask key="constraints">
                                                             <exclude reference="2q8-yl-IwW"/>
                                                             <exclude reference="JdC-PV-8Ch"/>
@@ -11362,12 +11360,36 @@ Tenure Period</string>
                             </webView>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="GSm-1c-SUJ">
                                 <rect key="frame" x="150" y="248" width="20" height="20"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                </variation>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.1058823529" green="0.45098039220000002" blue="0.062745098040000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="HoS-YH-P6F" firstAttribute="top" secondItem="e1b-Aj-wZY" secondAttribute="bottom" id="Hhr-fC-Q5A"/>
+                            <constraint firstAttribute="trailing" secondItem="e1b-Aj-wZY" secondAttribute="trailing" id="RrB-Pu-po0"/>
+                            <constraint firstItem="e1b-Aj-wZY" firstAttribute="leading" secondItem="4LM-iX-DhO" secondAttribute="leading" id="T1m-5f-wpB"/>
+                            <constraint firstItem="e1b-Aj-wZY" firstAttribute="top" secondItem="Jtx-JS-huV" secondAttribute="bottom" id="xqF-Ok-aaj"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="RrB-Pu-po0"/>
+                                <exclude reference="T1m-5f-wpB"/>
+                                <exclude reference="xqF-Ok-aaj"/>
+                                <exclude reference="Hhr-fC-Q5A"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="RrB-Pu-po0"/>
+                                <include reference="T1m-5f-wpB"/>
+                                <include reference="xqF-Ok-aaj"/>
+                                <include reference="Hhr-fC-Q5A"/>
+                            </mask>
+                        </variation>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="loginIndicator" destination="GSm-1c-SUJ" id="adU-5Y-fBk"/>
                         <outlet property="loginWebView" destination="e1b-Aj-wZY" id="k1w-fx-bLE"/>
