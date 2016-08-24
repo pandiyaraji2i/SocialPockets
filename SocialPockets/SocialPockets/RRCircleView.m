@@ -81,24 +81,40 @@
  *  @return A UIButton object
  */
 -(UIButton *)generateButtons:(int)i {
-    UIButton *element = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
+    UIButton *element =[UIButton buttonWithType:UIButtonTypeCustom];
+    element.frame = CGRectMake(0, 0, 40, 40);
     element.backgroundColor = [UIColor colorWithRed:31/255.0f green:144/255.0f blue:38/255.0f alpha:1.00];
     element.layer.cornerRadius = element.bounds.size.height/2.0;
     element.layer.borderColor = [UIColor whiteColor].CGColor;
     element.layer.borderWidth = 1;
     
     if (_imagesArray) {
-        [element setImage:[_imagesArray objectAtIndex:i] forState:UIControlStateNormal];
+        UIImage *image;
+        if (i == 8 ) {
+            image = [[_imagesArray objectAtIndex:0] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+            [element setTintColor:self.highlightColor];
+        }else if (i == 9 ) {
+            image = [[_imagesArray objectAtIndex:1] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+            [element setTintColor:self.highlightColor];
+        }else{
+            image = [[_imagesArray objectAtIndex:i] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+            [element setTintColor:[UIColor whiteColor]];
+            if (i <= (self.progressNumber-1)) {
+                [element setTintColor:self.highlightColor];
+            }
+        }
+        [element setImage:image forState:UIControlStateNormal];
+       
 
        // [element setBackgroundImage:[_imagesArray objectAtIndex:i] forState:UIControlStateNormal];
     }else {
         [element setTitle:[NSString stringWithFormat:@"%d", i+1] forState:UIControlStateNormal];
     }
     
-    if (i <= self.progressNumber-4) {
+    if (i <= (self.progressNumber-1)) {
         element.layer.borderColor = self.highlightColor.CGColor;
     }
-    if (i == 6 || i == 7) {
+    if (i == 8 || i == 9) {
         element.layer.borderColor = self.highlightColor.CGColor;
     }
     
@@ -124,7 +140,7 @@
     radialMenuView = [[UIView alloc] init];
     
     self.maxW = 0;
-    for(int i = 0; i < _numberOfButtons; i++){
+    for(int i = 2; i < _numberOfButtons+2; i++){
         UIButton *element = [self generateButtons:i];
         if(self.maxW < element.frame.size.width) self.maxW = element.frame.size.width;
         element.userInteractionEnabled = YES;
@@ -279,7 +295,17 @@
     CGFloat radius = _menuRadius+10;
     
     CGFloat _startAngle = 360 - ((360/8)*2);
-    CGFloat progressAngle = (360/8)*(self.progressNumber-4);
+    int num = self.progressNumber-1 ;
+    if(num<=1){
+        num =1;
+    }
+    CGFloat progressAngle = ((360/8)*num)-90;
+    if (self.progressNumber == 8) {
+        progressAngle =269;
+
+    }
+//    CGFloat _startAngle = 270;
+//    CGFloat progressAngle = (360/8)*1;
     
     CGFloat barWidth = 20.0;
     

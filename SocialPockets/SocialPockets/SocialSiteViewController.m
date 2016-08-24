@@ -13,10 +13,11 @@
 #import <linkedin-sdk/LISDK.h>
 #import "AppDelegate.h"
 #import "IGLoginViewController.h"
+#import "ProgressViewController.h"
 
 
 @interface SocialSiteViewController ()<UITableViewDataSource,UITableViewDelegate>{
-        NSArray *tableData;
+    NSArray *tableData;
 }
 @property IBOutlet UITableView *socialTableView;
 @property (weak, nonatomic) IBOutlet UILabel *attLabel;
@@ -90,12 +91,35 @@
     }
     
     UIImageView *imgname = (UIImageView *)[cell.contentView viewWithTag:1];
-    
-    
     imgname.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@.png",[tableData objectAtIndex:indexPath.row]]];
-    
-    
     cell.textLabel.textAlignment = NSTextAlignmentCenter;
+    UIButton *linkedBtn = (UIButton *)[cell.contentView viewWithTag:3];
+    switch (indexPath.row) {
+        case 0:
+            if ([[NSUserDefaults standardUserDefaults] objectForKey:@"FacebookAccessToken"]) {
+                linkedBtn.backgroundColor = [UIColor colorWithRed:32.0/255.0 green:160.0/255.0 blue:18.0/255.0 alpha:1.0];
+            }
+            break;
+        case 1:
+            if ([[NSUserDefaults standardUserDefaults] objectForKey:@"TwitterAccessToken"]) {
+                linkedBtn.backgroundColor = [UIColor colorWithRed:32.0/255.0 green:160.0/255.0 blue:18.0/255.0 alpha:1.0];
+            }
+            break;
+        case 2:
+            if ([[NSUserDefaults standardUserDefaults] objectForKey:@"InstagramAccessToken"]) {
+                linkedBtn.backgroundColor = [UIColor colorWithRed:32.0/255.0 green:160.0/255.0 blue:18.0/255.0 alpha:1.0];
+            }
+            break;
+        case 3:
+            if ([[NSUserDefaults standardUserDefaults] objectForKey:@"LinkedInAccessToken"]) {
+                linkedBtn.backgroundColor = [UIColor colorWithRed:32.0/255.0 green:160.0/255.0 blue:18.0/255.0 alpha:1.0];
+            }
+            break;
+            
+        default:
+            break;
+    }
+    
     //[cell.textLabel setText:[tableData objectAtIndex:indexPath.row]];
     return cell;
 }
@@ -103,39 +127,44 @@
     // for facebook
     if (indexPath.row == 0) {
         [SOCIALMACRO facebookLoginWithCompletion:^(id obj) {
+            [[NSUserDefaults standardUserDefaults] setObject:[[obj token] tokenString] forKey:@"FacebookAccessToken"];
+            NSLog(@"fb token ==%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"FacebookAccessToken"]);
+            [tableView reloadData];
             [self dataFetchForUser:obj];
             //[self CreateSocialSiteWithSocialSite:@"1"];
         }];
     }
     else if (indexPath.row == 1) {         //  for Twitter
         [SOCIALMACRO twitterLoginWithCompletion:^(id obj) {
+            [[NSUserDefaults standardUserDefaults] setObject:[obj authTokenSecret] forKey:@"TwitterAccessToken"];
+            [tableView reloadData];
             [self getTwitterFollowersListForUserID:[obj userID]];
             //[self CreateSocialSiteWithSocialSite:@"2"];
-
+            
         }];
     }
-   else if (indexPath.row == 2) { //  for Instagram
-       
-       IGLoginViewController *IGloginVc = [self.storyboard instantiateViewControllerWithIdentifier:@"IGLoginView"];
-       UINavigationController *navVc = [[UINavigationController alloc]initWithRootViewController:IGloginVc];
-       [self presentViewController:navVc animated:YES completion:NULL];
-       IGloginVc.onLogin = ^(id obj){
-           NSLog(@"Auth Token %@",obj);
-           [SOCIALMACRO instagramLoginWithUserToken:obj WithCompletion:^(id obj) {
-               //NSLog(@"Fetch Data %@",obj);
-               NSString *followedby = [NSString stringWithFormat:@"%@",[[[obj objectForKey:@"data"] objectForKey:@"counts"]objectForKey:@"followed_by"]];
-               NSString *follows = [NSString stringWithFormat:@"%@",[[[obj objectForKey:@"data"] objectForKey:@"counts"]objectForKey:@"follows"]];
-               NSLog(@"Followed by = %@ \n Follows = %@",followedby,follows);
-           }];
-//           [self CreateSocialSiteWithSocialSite:@"3"];
-       };
-       
+    else if (indexPath.row == 2) { //  for Instagram
+        
+        IGLoginViewController *IGloginVc = [self.storyboard instantiateViewControllerWithIdentifier:@"IGLoginView"];
+        UINavigationController *navVc = [[UINavigationController alloc]initWithRootViewController:IGloginVc];
+        [self presentViewController:navVc animated:YES completion:NULL];
+        IGloginVc.onLogin = ^(id obj){
+            NSLog(@"Auth Token %@",obj);
+            [SOCIALMACRO instagramLoginWithUserToken:obj WithCompletion:^(id obj) {
+                //NSLog(@"Fetch Data %@",obj);
+                NSString *followedby = [NSString stringWithFormat:@"%@",[[[obj objectForKey:@"data"] objectForKey:@"counts"]objectForKey:@"followed_by"]];
+                NSString *follows = [NSString stringWithFormat:@"%@",[[[obj objectForKey:@"data"] objectForKey:@"counts"]objectForKey:@"follows"]];
+                NSLog(@"Followed by = %@ \n Follows = %@",followedby,follows);
+            }];
+            //           [self CreateSocialSiteWithSocialSite:@"3"];
+        };
+        
     }
-   else if (indexPath.row == 3) { //  for LinkedIn
-       [SOCIALMACRO linkedInLoginWithCompletion:^(id obj) {
-           
-       }];
-   }
+    else if (indexPath.row == 3) { //  for LinkedIn
+        [SOCIALMACRO linkedInLoginWithCompletion:^(id obj) {
+          //  [self CreateSocialSiteWithSocialSite:@"4"];
+        }];
+    }
     
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -199,14 +228,18 @@
                  NSString *pictureURL = [NSString stringWithFormat:@"%@",[[[result objectForKey:@"picture"] objectForKey:@"data"] objectForKey:@"url"]];
                  NSLog(@"email is %@", [result objectForKey:@"email"]);
                  NSData  *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:pictureURL]];
-//                 self.profileImageView.image = [UIImage imageWithData:data];
-//                 self.nameLbl.text = [NSString stringWithFormat:@"Welcome %@",[result objectForKey:@"name"]];
+                 //                 self.profileImageView.image = [UIImage imageWithData:data];
+                 //                 self.nameLbl.text = [NSString stringWithFormat:@"Welcome %@",[result objectForKey:@"name"]];
                  
              }
          }];
     }
 }
 
+- (IBAction)nextBtnTapped:(id)sender {
+    ProgressViewController *progressVc =[self.storyboard instantiateViewControllerWithIdentifier:@"ProgressVc"];
+    [self.navigationController pushViewController:progressVc animated:YES];
+}
 
 
 
@@ -216,13 +249,13 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

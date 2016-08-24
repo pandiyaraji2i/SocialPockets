@@ -211,7 +211,7 @@
 #pragma mark set device detail
 
 - (void)setDeviceDetail{
-    [LOGINMACRO setDeviceForId:[[NSUserDefaults standardUserDefaults] valueForKey:USERID] completion:^(id obj) {
+    [LOGINMACRO setDeviceForId:NULL_TO_NIL([[NSUserDefaults standardUserDefaults] valueForKey:USERID]) completion:^(id obj) {
         NSLog(@"%@",obj);
     }];
 }
