@@ -12,6 +12,8 @@
 #import "RegistrationViewController.h"
 #import "ManageAccountsViewController.h"
 #import "ProgressViewController.h"
+#import "SocialSiteViewController.h" // to check the social site
+
 
 @interface ViewController ()<UIScrollViewDelegate>
 {
@@ -113,8 +115,12 @@
 //        [self.navigationController pushViewController:progressVc animated:YES];
     
 //    ErrorMessageWithTitle(@"Message", @"In Progress");
-    RegistrationViewController *registerVc =[self.storyboard instantiateViewControllerWithIdentifier:@"registerVc"];
-    [self.navigationController pushViewController:registerVc animated:YES];
+//    RegistrationViewController *registerVc =[self.storyboard instantiateViewControllerWithIdentifier:@"registerVc"];
+//    [self.navigationController pushViewController:registerVc animated:YES];
+    
+    SocialSiteViewController *socialVc =[self.storyboard instantiateViewControllerWithIdentifier:@"SocialVc"];
+    [self.navigationController pushViewController:socialVc animated:YES];
+
 }
 
 #pragma mark Status Bar Style

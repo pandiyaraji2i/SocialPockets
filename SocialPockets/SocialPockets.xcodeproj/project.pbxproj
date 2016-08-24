@@ -14,6 +14,7 @@
 		6777A4CA1D4A1EE100BF1EC3 /* Calendar_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6777A4C91D4A1EE100BF1EC3 /* Calendar_icon.png */; };
 		6777A4CC1D4A2FF600BF1EC3 /* close_round_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 6777A4CB1D4A2FF600BF1EC3 /* close_round_button.png */; };
 		677A83D61D6327F800CCF822 /* RRCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 677A83D41D6327F800CCF822 /* RRCircleView.m */; };
+		679CCAE01D6C29D3003EBAF5 /* linkedin-sdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 679CCADF1D6C29D3003EBAF5 /* linkedin-sdk.framework */; };
 		802EDF43A49A32B470A0D8D8 /* libPods-SocialPockets.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0455716A8E3A563761CB5AAC /* libPods-SocialPockets.a */; };
 		A3083F941D59E1C200476BA3 /* CircleProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = A3083F931D59E1C200476BA3 /* CircleProgressView.m */; };
 		A3253D121D3C9DE90081A59C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A3253D111D3C9DE90081A59C /* main.m */; };
@@ -165,6 +166,7 @@
 		6777A4CB1D4A2FF600BF1EC3 /* close_round_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close_round_button.png; sourceTree = "<group>"; };
 		677A83D41D6327F800CCF822 /* RRCircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRCircleView.m; sourceTree = "<group>"; };
 		677A83D51D6327F800CCF822 /* RRCircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRCircleView.h; sourceTree = "<group>"; };
+		679CCADF1D6C29D3003EBAF5 /* linkedin-sdk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = "linkedin-sdk.framework"; sourceTree = "<group>"; };
 		853DFEBFFD11370D4A6D76B8 /* Pods-SocialPockets.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialPockets.release.xcconfig"; path = "Pods/Target Support Files/Pods-SocialPockets/Pods-SocialPockets.release.xcconfig"; sourceTree = "<group>"; };
 		A3083F921D59E1C200476BA3 /* CircleProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleProgressView.h; sourceTree = "<group>"; };
 		A3083F931D59E1C200476BA3 /* CircleProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleProgressView.m; sourceTree = "<group>"; };
@@ -371,6 +373,7 @@
 				FBAAB8381D4239D7001C918B /* FBSDKShareKit.framework in Frameworks */,
 				802EDF43A49A32B470A0D8D8 /* libPods-SocialPockets.a in Frameworks */,
 				A3AEDD061D5DCD97007FE5C9 /* libTestFairy.a in Frameworks */,
+				679CCAE01D6C29D3003EBAF5 /* linkedin-sdk.framework in Frameworks */,
 				A3D65A831D460BA100B47E46 /* CameraFrameWork.framework in Frameworks */,
 				FBAAB8361D4239D7001C918B /* FBSDKCoreKit.framework in Frameworks */,
 				FBAAB8371D4239D7001C918B /* FBSDKLoginKit.framework in Frameworks */,
@@ -403,6 +406,14 @@
 				671C44461D4094CA000C94A0 /* BankAccHelper.m */,
 			);
 			name = "Mobile Wallet";
+			sourceTree = "<group>";
+		};
+		679CCADE1D6C131D003EBAF5 /* LinkedIn */ = {
+			isa = PBXGroup;
+			children = (
+				679CCADF1D6C29D3003EBAF5 /* linkedin-sdk.framework */,
+			);
+			name = LinkedIn;
 			sourceTree = "<group>";
 		};
 		8475099805C07C9E06A7A1F2 /* Frameworks */ = {
@@ -885,6 +896,7 @@
 		FBAAB82A1D422B81001C918B /* SocialFrameworks */ = {
 			isa = PBXGroup;
 			children = (
+				679CCADE1D6C131D003EBAF5 /* LinkedIn */,
 				A32F17B41D6B00E400B06327 /* Instagram */,
 				FBAAB82C1D422B97001C918B /* Facebook */,
 				FBAAB82B1D422B90001C918B /* Twitter */,

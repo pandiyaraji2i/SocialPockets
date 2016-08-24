@@ -10,12 +10,16 @@
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import <TwitterKit/TwitterKit.h>
+#import <linkedin-sdk/LISDK.h>
+#import "AppDelegate.h"
+
 
 @interface SocialSiteViewController ()<UITableViewDataSource,UITableViewDelegate>{
         NSArray *tableData;
 }
 @property IBOutlet UITableView *socialTableView;
 @property (weak, nonatomic) IBOutlet UILabel *attLabel;
+@property (nonatomic,weak) IBOutlet UITextView *bodyResult;
 
 @end
 
@@ -119,11 +123,43 @@
         
     }
    else if (indexPath.row == 3) { // Button click for LinkedIn
-        [SharedMethods showAlertActionWithTitle:@"Alert" message:@"Are you want to add Linkedin" completion:^(id obj) {
-            NSLog(@"just test");
-            [self CreateSocialSiteWithSocialSite:@"4"];
-        }];
-    }
+       
+       
+       
+       [LISDKSessionManager clearSession];
+       __block NSString *reqURL = [NSString stringWithFormat:@"https://www.linkedin.com/v1/people/~:(id,first-name,last-name,headline,picture-url,industry,summary,specialties,positions:(id,title,summary,start-date,end-date,is-current,company:(id,name,type,size,industry,ticker)),skills:(id,skill:(name)),three-current-positions,three-past-positions,volunteer)?format=json"];
+       NSLog(@"%@    blank",[[[LISDKSessionManager sharedInstance] session].accessToken accessTokenValue]);
+       [LISDKSessionManager createSessionWithAuth:[NSArray arrayWithObjects:LISDK_BASIC_PROFILE_PERMISSION,LISDK_EMAILADDRESS_PERMISSION,nil]
+                                            state:@"some state"
+                           showGoToAppStoreDialog:YES
+                                     successBlock:^(NSString *returnState) {
+                                         
+                                         NSLog(@"%s","success called!");
+                                         LISDKSession *session = [[LISDKSessionManager sharedInstance] session];
+                                         NSString *authtoken = [[[LISDKSessionManager sharedInstance] session].accessToken accessTokenValue];
+                                         NSLog(@"%@",authtoken);
+                                         if(session)
+                                         {
+                                             [[LISDKAPIHelper sharedInstance] apiRequest:reqURL
+                                                                                  method:@"GET"
+                                                                                    body:[_bodyResult.text dataUsingEncoding:NSUTF8StringEncoding]
+                                                                                 success:^(LISDKAPIResponse *response) {
+                                                                                     //NSLog(@"2nd success called %@", response.data);
+                                                                                     [self CreateSocialSiteWithSocialSite:@"4"];
+                                                                                     
+                                                                                 }
+                                                                                   error:^(LISDKAPIError *apiError) {
+                                                                                       
+                                                                                   }];
+                                         }
+                                     }
+                                       errorBlock:^(NSError *error) {
+                                           NSLog(@"%s %@","error called! ", [error description]);
+                                           
+                                       }
+        ];
+       
+   }
     
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
