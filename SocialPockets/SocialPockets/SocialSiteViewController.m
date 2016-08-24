@@ -12,6 +12,7 @@
 #import <TwitterKit/TwitterKit.h>
 #import <linkedin-sdk/LISDK.h>
 #import "AppDelegate.h"
+#import "IGLoginViewController.h"
 
 
 @interface SocialSiteViewController ()<UITableViewDataSource,UITableViewDelegate>{
@@ -114,15 +115,25 @@
         }];
     }
    else if (indexPath.row == 2) { //  for Instagram
-        [SharedMethods showAlertActionWithTitle:@"Alert" message:@"Are you want to add Instagram" completion:^(id obj) {
-            NSLog(@"just test");
-            [self CreateSocialSiteWithSocialSite:@"3"];
-        }];
-        
+       
+       IGLoginViewController *IGloginVc = [self.storyboard instantiateViewControllerWithIdentifier:@"IGLoginView"];
+       UINavigationController *navVc = [[UINavigationController alloc]initWithRootViewController:IGloginVc];
+       [self presentViewController:navVc animated:YES completion:NULL];
+       IGloginVc.onLogin = ^(id obj){
+           NSLog(@"Auth Token %@",obj);
+           [SOCIALMACRO instagramLoginWithUserToken:obj WithCompletion:^(id obj) {
+               //NSLog(@"Fetch Data %@",obj);
+               NSString *followedby = [NSString stringWithFormat:@"%@",[[[obj objectForKey:@"data"] objectForKey:@"counts"]objectForKey:@"followed_by"]];
+               NSString *follows = [NSString stringWithFormat:@"%@",[[[obj objectForKey:@"data"] objectForKey:@"counts"]objectForKey:@"follows"]];
+               NSLog(@"Followed by = %@ \n Follows = %@",followedby,follows);
+           }];
+//           [self CreateSocialSiteWithSocialSite:@"3"];
+       };
+       
     }
    else if (indexPath.row == 3) { //  for LinkedIn
        [SOCIALMACRO linkedInLoginWithCompletion:^(id obj) {
-           [self CreateSocialSiteWithSocialSite:@"4"];
+           
        }];
    }
     

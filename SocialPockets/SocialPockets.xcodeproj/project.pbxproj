@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6710F0831D6DB0710026E535 /* IGLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6710F0821D6DB0700026E535 /* IGLoginViewController.m */; };
 		671C44431D4091E4000C94A0 /* LoanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 671C44421D4091E4000C94A0 /* LoanViewController.m */; };
 		671C44471D4094CA000C94A0 /* BankAccHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 671C44461D4094CA000C94A0 /* BankAccHelper.m */; };
 		6777A4C51D4A008C00BF1EC3 /* RequestConfirmationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6777A4C41D4A008C00BF1EC3 /* RequestConfirmationViewController.m */; };
@@ -152,6 +153,8 @@
 
 /* Begin PBXFileReference section */
 		0455716A8E3A563761CB5AAC /* libPods-SocialPockets.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SocialPockets.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6710F0811D6DB0700026E535 /* IGLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGLoginViewController.h; sourceTree = "<group>"; };
+		6710F0821D6DB0700026E535 /* IGLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGLoginViewController.m; sourceTree = "<group>"; };
 		671C44411D4091E4000C94A0 /* LoanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoanViewController.h; sourceTree = "<group>"; };
 		671C44421D4091E4000C94A0 /* LoanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoanViewController.m; sourceTree = "<group>"; };
 		671C44451D4094CA000C94A0 /* BankAccHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BankAccHelper.h; sourceTree = "<group>"; };
@@ -390,6 +393,15 @@
 				853DFEBFFD11370D4A6D76B8 /* Pods-SocialPockets.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		6710F0801D6DB05D0026E535 /* Instagram */ = {
+			isa = PBXGroup;
+			children = (
+				6710F0811D6DB0700026E535 /* IGLoginViewController.h */,
+				6710F0821D6DB0700026E535 /* IGLoginViewController.m */,
+			);
+			name = Instagram;
 			sourceTree = "<group>";
 		};
 		671C44441D4093C3000C94A0 /* Mobile Wallet */ = {
@@ -893,6 +905,7 @@
 		FBAAB82A1D422B81001C918B /* SocialFrameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6710F0801D6DB05D0026E535 /* Instagram */,
 				679CCADE1D6C131D003EBAF5 /* LinkedIn */,
 				A32F17B41D6B00E400B06327 /* Instagram */,
 				FBAAB82C1D422B97001C918B /* Facebook */,
@@ -1120,6 +1133,7 @@
 				A3C3C89D1D3F837700C65B09 /* RegistrationViewController.m in Sources */,
 				A32FFADE1D5C9D4700C1A519 /* UserDetails+CoreDataProperties.m in Sources */,
 				A3B5292D1D49E1F200603451 /* IQToolbar.m in Sources */,
+				6710F0831D6DB0710026E535 /* IGLoginViewController.m in Sources */,
 				FBB3A4F11D4F56CA001A7408 /* CollectionTableViewCell.m in Sources */,
 				A3D65A8B1D4619AF00B47E46 /* DashBoardViewController.m in Sources */,
 				A3D65A941D461A5700B47E46 /* MFSideMenuShadow.m in Sources */,

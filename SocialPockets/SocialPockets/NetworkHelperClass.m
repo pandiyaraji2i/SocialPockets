@@ -26,7 +26,13 @@ static Reachability *reachability;
 
 + (NSMutableURLRequest *)getUrlRequest:(NSString *)actionName httpMethod:(NSString *)httpMethod requestBody:(id)body contentType:(NSString *)contentType
 {
-    NSString *urlString = [NSString stringWithFormat:@"%@/%@",BASEURL,actionName];
+    NSString *urlString;
+    if (![actionName rangeOfString:@"http"].length) {
+        urlString = [NSString stringWithFormat:@"%@/%@",BASEURL,actionName];
+    }else
+    {
+        urlString = actionName;
+    }
     NSURL *requestUrl=[NSURL URLWithString:urlString]; // encode url if + or some symbols occurs in action name
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:requestUrl];
     request.HTTPMethod = httpMethod;
@@ -35,7 +41,7 @@ static Reachability *reachability;
     NSError *error;
     if ([contentType isEqualToString:URLENCODEDCONTENTTYPE]) {
     }
-    else
+    else if ([contentType isEqualToString:JSONCONTENTTYPE]) 
     {
         if (body) {
            NSData *jsonData = [NSJSONSerialization dataWithJSONObject:body

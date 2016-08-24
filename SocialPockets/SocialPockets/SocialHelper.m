@@ -11,6 +11,9 @@
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import <TwitterKit/TwitterKit.h>
 #import <linkedin-sdk/LISDK.h>
+#import "AppDelegate.h"
+
+
 static SocialHelper* _sharedInstance = nil;
 
 @implementation SocialHelper
@@ -152,9 +155,20 @@ static SocialHelper* _sharedInstance = nil;
     }];
 }
 #pragma mark Instagram Methods
-- (void)instagramLoginWithCompletion:(void (^)(id obj))completionBlock
+- (void)instagramLoginWithUserToken:(id)token WithCompletion:(void (^)(id obj))completionBlock
 {
-    
+    if ([NetworkHelperClass getInternetStatus:YES]) {
+        NSString *urlString = [NSString stringWithFormat:@"%@%@",INSTAGRAM_FETCHURL,token];
+        [NetworkHelperClass sendAsynchronousRequestToServer:urlString httpMethod:GET requestBody:nil contentType:JSONCONTENTTYPE completion:^(id obj) {
+            if(completionBlock){
+                completionBlock(obj);
+            }
+        }];
+    }else{
+        if (completionBlock) {
+            completionBlock(nil);
+        }
+    }
 }
 
 #pragma mark LinkedIn Methods

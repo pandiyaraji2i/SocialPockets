@@ -11341,6 +11341,39 @@ Tenure Period</string>
             </objects>
             <point key="canvasLocation" x="2832" y="1002.75"/>
         </scene>
+        <!--IGLoginViewController-->
+        <scene sceneID="Qr6-rh-mjs">
+            <objects>
+                <viewController storyboardIdentifier="IGLoginView" title="IGLoginViewController" id="4bl-Oy-jqW" customClass="IGLoginViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Jtx-JS-huV"/>
+                        <viewControllerLayoutGuide type="bottom" id="HoS-YH-P6F"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4LM-iX-DhO">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e1b-Aj-wZY">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </webView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="GSm-1c-SUJ">
+                                <rect key="frame" x="150" y="248" width="20" height="20"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.1058823529" green="0.45098039220000002" blue="0.062745098040000002" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="loginIndicator" destination="GSm-1c-SUJ" id="adU-5Y-fBk"/>
+                        <outlet property="loginWebView" destination="e1b-Aj-wZY" id="k1w-fx-bLE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jvr-3u-IWP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4405.5" y="-676.5"/>
+        </scene>
     </scenes>
     <resources>
         <image name="AadharBGIcon" width="379" height="320"/>
