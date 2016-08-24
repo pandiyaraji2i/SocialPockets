@@ -107,7 +107,7 @@
             [PROFILEMACRO updateUserProfileWithName:nameTextField.text username:userNameTextField.text email:emailTextField.text phoneNumber:phoneNumberTextField.text completion:^(id obj) {
                 [ACTIVITY performSelectorOnMainThread:@selector(hideActivity) withObject:nil waitUntilDone:YES];
                 if ([obj isKindOfClass:[NSDictionary class]]) {
-                    [DBPROFILE generateUserInfo:[obj valueForKey:@"user"] forUser:USERINFO.userId];
+                    [DBPROFILE generateUserInfo:obj forUser:USERINFO.userId];
                     [[NSNotificationCenter defaultCenter] postNotificationName:@"ReloadAccountScreen" object:nil];
                 }else{
                     ErrorMessageWithTitle(@"Message", obj);

@@ -110,17 +110,8 @@
 
 - (IBAction)registerButtonAction:(id)sender
 {
-    
-//        ProgressViewController *progressVc =[self.storyboard instantiateViewControllerWithIdentifier:@"ProgressVc"];
-//        [self.navigationController pushViewController:progressVc animated:YES];
-    
-//    ErrorMessageWithTitle(@"Message", @"In Progress");
-//    RegistrationViewController *registerVc =[self.storyboard instantiateViewControllerWithIdentifier:@"registerVc"];
-//    [self.navigationController pushViewController:registerVc animated:YES];
-    
-    SocialSiteViewController *socialVc =[self.storyboard instantiateViewControllerWithIdentifier:@"SocialVc"];
-    [self.navigationController pushViewController:socialVc animated:YES];
-
+    RegistrationViewController *registerVc =[self.storyboard instantiateViewControllerWithIdentifier:@"registerVc"];
+    [self.navigationController pushViewController:registerVc animated:YES];
 }
 
 #pragma mark Status Bar Style

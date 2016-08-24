@@ -449,6 +449,7 @@
 			children = (
 				A3253D131D3C9DE90081A59C /* AppDelegate.h */,
 				A3253D141D3C9DE90081A59C /* AppDelegate.m */,
+				A3D65AB51D4652EF00B47E46 /* LaunchScreen */,
 				A3C3C89E1D3F837A00C65B09 /* Registration */,
 				A3C3C83D1D3DF1AF00C65B09 /* Login */,
 				A3D65AB61D46530000B47E46 /* Dashboard */,
@@ -465,7 +466,6 @@
 				A38968681D40DF0400FA8F14 /* HeaderFiles */,
 				A3B528FC1D49E1F200603451 /* IQKeyboardManager */,
 				A32FFAEC1D5CC83D00C1A519 /* TransctionHistory */,
-				A3D65AB51D4652EF00B47E46 /* LaunchScreen */,
 				A3B529331D49E21F00603451 /* AboutView */,
 				A3B529321D49E21400603451 /* Notifications */,
 				A3B529301D49E1FC00603451 /* Signature */,

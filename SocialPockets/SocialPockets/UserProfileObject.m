@@ -87,8 +87,8 @@
     [NetworkHelperClass uploadImage:image isUserOrLoan:1 userId:USERINFO.userId sync:NO completion:^(id obj) {
         if ([obj isKindOfClass:[NSDictionary class]])
         {
-            if ([[obj valueForKey:@"user"] isKindOfClass:[NSDictionary class]]) {
-                [self generateUserInfo:[obj valueForKey:@"user"] forUser:userObj.userId];
+            if ([obj isKindOfClass:[NSDictionary class]]) {
+                [self generateUserInfo:obj forUser:userObj.userId];
             }
             dispatch_async(dispatch_get_main_queue(), ^{
                 [[NSNotificationCenter defaultCenter] postNotificationName:@"ReloadAccountScreen" object:nil];

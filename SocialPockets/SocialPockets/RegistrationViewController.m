@@ -51,15 +51,16 @@
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor whiteColor]};
     
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@" " style:UIBarButtonItemStylePlain target:self action:nil];
-    
-    //#warning just for testing
-    //    firstNameTextField.text = @"kishore";
-    //    usernameTextField.text = @"kishore";
-    //    passwordTextField.text = @"kishore";
-    //    confirmPasswordTextField.text = @"kishore";
-    //    emailTextField.text = @"kishore@ideas2it.com";
-    //    phoneNumberTextField.text = @"9090909090";
-    
+    profileImage = nil;
+   
+//#warning just for testing
+//        firstNameTextField.text = @"kishore";
+//        usernameTextField.text = @"kishore";
+//        passwordTextField.text = @"kishore";
+//        confirmPasswordTextField.text = @"kishore";
+//        emailTextField.text = @"kishore@ideas2it.com";
+//        phoneNumberTextField.text = @"9090909090";
+        profileImage = [UIImage imageNamed:@"ProfileImage"];
     
     self.navigationController.navigationBarHidden = YES;
     [self updateRegView];
@@ -85,7 +86,7 @@
     
     
     self.navigationController.navigationBarHidden = NO;
-    profileImage = nil;
+   
     self.profileImageBtn.layer.cornerRadius = (self.profileImageBtn.frame.size.height/2);
     self.profileImageBtn.layer.borderWidth = 3.0;
     self.profileImageBtn.layer.borderColor = [UIColor whiteColor].CGColor;
@@ -194,11 +195,10 @@
             [self updateObjectToDatabase:obj];
             [NetworkHelperClass uploadImage:profileImage isUserOrLoan:1 userId:[obj valueForKey:@"USER_ID"] sync:NO completion:^(id obj) {
                 if ([obj isKindOfClass:[NSDictionary class]]) {
-#warning need to change user.
-                    [self updateObjectToDatabase:[obj valueForKey:@"user"]];
+                    [self updateObjectToDatabase:obj];
                     dispatch_async(dispatch_get_main_queue(), ^{
-                        ProgressViewController *progressVc = [self.storyboard instantiateViewControllerWithIdentifier:@"ProgressVc"];
-                        [self.navigationController pushViewController:progressVc animated:YES];
+                        SocialSiteViewController *socialVc =[self.storyboard instantiateViewControllerWithIdentifier:@"SocialVc"];
+                        [self.navigationController pushViewController:socialVc animated:YES];
                     });
                 }else{
                     ErrorMessageWithTitle(@"Message", obj);
