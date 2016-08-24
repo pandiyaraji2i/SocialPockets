@@ -19,8 +19,8 @@
 
 - (void)viewSocialSiteWithCompletion:(void (^)(id obj))completionBlock;
 
--(void)faceBookLoginButtonClickedWithCompletion:(void (^)(id obj))completionBlock;
-
--(void)TwitterLoginBtnClickedWithCompletion:(void (^)(id obj))completionBlock;
-
+- (void)facebookLoginWithCompletion:(void (^)(id obj))completionBlock;
+- (void)twitterLoginWithCompletion:(void (^)(id obj))completionBlock;
+- (void)linkedInLoginWithCompletion:(void (^)(id obj))completionBlock;
+- (void)instagramLoginWithCompletion:(void (^)(id obj))completionBlock;
 @end

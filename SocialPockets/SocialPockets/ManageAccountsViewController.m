@@ -252,14 +252,14 @@
         switch (collectionIndexPath.row) {
             case 0:
             {
-                [SOCIALMACRO faceBookLoginButtonClickedWithCompletion:^(id obj) {
+                [SOCIALMACRO facebookLoginWithCompletion:^(id obj) {
                     NSLog(@"FaceBook login Success");
                     [self CreateSocialSiteWithSocialSite:@"1"];
                 } ];
             }
                 break;
             case 1:{
-                [SOCIALMACRO TwitterLoginBtnClickedWithCompletion:^(id obj) {
+                [SOCIALMACRO twitterLoginWithCompletion:^(id obj) {
                     NSLog(@"Twitter login Success");
                     [self CreateSocialSiteWithSocialSite:@"2"];
                 }];

@@ -10,6 +10,7 @@
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import <TwitterKit/TwitterKit.h>
+#import <linkedin-sdk/LISDK.h>
 static SocialHelper* _sharedInstance = nil;
 
 @implementation SocialHelper
@@ -32,26 +33,6 @@ static SocialHelper* _sharedInstance = nil;
     return nil;
 }
 
-#warning Need to remove this code.
-- (void)createCreditScore:(void(^)(id obj))completionBlock
-{
-    if ([NetworkHelperClass getInternetStatus:NO]) {
-        
-        NSMutableDictionary *dict = [@{@"user_id":@"16",@"credit_score":@"99s",@"status":@"0",@"created_by":@"4",@"modified_by":@"3"} mutableCopy];
-        id successObject = [NetworkHelperClass sendSynchronousRequestToServer:@"creditsave" httpMethod:POST requestBody:dict contentType:JSONCONTENTTYPE];
-        if (successObject) {
-            if (completionBlock) {
-                completionBlock(successObject);
-            }
-        }
-    }
-    else{
-        if (completionBlock) {
-            completionBlock(nil);
-        }
-    }
-}
-
 /**
  *  create social site for userId
  *
@@ -64,8 +45,8 @@ static SocialHelper* _sharedInstance = nil;
 - (void)createSocialSite:(NSString *)socialId details:(NSString*)details createdBy:(NSString *)createdBy completion:(void (^)(id obj))completionBlock
 {
     if ([NetworkHelperClass getInternetStatus:YES]) {
-         NSMutableDictionary *dict = [@{@"user_id":[[NSUserDefaults standardUserDefaults] valueForKey:USERID],@"social_id":socialId,@"details":details,@"created_by":createdBy} mutableCopy];
-//        NSMutableDictionary *dict = [@{@"user_id":[[NSUserDefaults standardUserDefaults]valueForKey:@"userid"],@"social_id":socialId,@"details":details,@"created_by":createdBy} mutableCopy];
+        NSMutableDictionary *dict = [@{@"user_id":[[NSUserDefaults standardUserDefaults] valueForKey:USERID],@"social_id":socialId,@"details":details,@"created_by":createdBy} mutableCopy];
+        //        NSMutableDictionary *dict = [@{@"user_id":[[NSUserDefaults standardUserDefaults]valueForKey:@"userid"],@"social_id":socialId,@"details":details,@"created_by":createdBy} mutableCopy];
         id successObject = [NetworkHelperClass sendSynchronousRequestToServer:@"createsocialsites" httpMethod:POST requestBody:dict contentType:JSONCONTENTTYPE];
         if (successObject) {
             if (completionBlock) {
@@ -133,27 +114,27 @@ static SocialHelper* _sharedInstance = nil;
 #pragma mark Helper Login Methods For Social Sites
 #pragma mark FaceBook Methods
 
--(void)faceBookLoginButtonClickedWithCompletion:(void (^)(id obj))completionBlock
+- (void)facebookLoginWithCompletion:(void (^)(id obj))completionBlock
 {
     FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
     [login logInWithReadPermissions: @[@"public_profile"] fromViewController:[SharedMethods topMostController] handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
-         if (error) {
-             NSLog(@"Process error");
-         } else if (result.isCancelled) {
-             NSLog(@"Cancelled");
-         } else {
-             NSLog(@"Logged in");
-             if (completionBlock) {
-                 completionBlock(result);
-             }
-             //[self CreateSocialSiteWithSocialSite:@"1"];
-         }
-     }];
+        if (error) {
+            NSLog(@"Process error");
+        } else if (result.isCancelled) {
+            NSLog(@"Cancelled");
+        } else {
+            NSLog(@"Logged in");
+            if (completionBlock) {
+                completionBlock(result);
+            }
+            //[self CreateSocialSiteWithSocialSite:@"1"];
+        }
+    }];
 }
 
 #pragma Twitter Methods
 
--(void)TwitterLoginBtnClickedWithCompletion:(void (^)(id obj))completionBlock{
+- (void)twitterLoginWithCompletion:(void (^)(id obj))completionBlock{
     [[Twitter sharedInstance] logInWithCompletion:^(TWTRSession *session, NSError *error) {
         if (session) {
             NSLog(@"signed in as %@", [session userName]);
@@ -164,15 +145,58 @@ static SocialHelper* _sharedInstance = nil;
             
         } else {
             NSLog(@"error: %@", [error localizedDescription]);
+            if (completionBlock) {
+                completionBlock(nil);
+            }
         }
     }];
+}
+#pragma mark Instagram Methods
+- (void)instagramLoginWithCompletion:(void (^)(id obj))completionBlock
+{
     
-    
-    // TODO: Change where the log in button is positioned in your view
-    // logInButton.center = self.view.center;
-    // [self.view addSubview:logInButton];
 }
 
+#pragma mark LinkedIn Methods
 
+- (void)linkedInLoginWithCompletion:(void (^)(id obj))completionBlock
+{
+    __block NSString *reqURL = [NSString stringWithFormat:@"https://www.linkedin.com/v1/people/~:(id,first-name,last-name,headline,num-connections,picture-url,industry,summary,specialties,positions:(id,title,summary,start-date,end-date,is-current,company:(id,name,type,size,industry,ticker)),skills:(id,skill:(name)),three-current-positions,three-past-positions,volunteer)?format=json"];
+    [LISDKSessionManager createSessionWithAuth:[NSArray arrayWithObjects:LISDK_BASIC_PROFILE_PERMISSION,LISDK_EMAILADDRESS_PERMISSION,nil]
+                                         state:@"some state"
+                        showGoToAppStoreDialog:YES
+                                  successBlock:^(NSString *returnState) {
+                                      
+                                      NSLog(@"%s","success called!");
+                                      LISDKSession *session = [[LISDKSessionManager sharedInstance] session];
+                                      NSString *authtoken = [[[LISDKSessionManager sharedInstance] session].accessToken accessTokenValue];
+                                      NSLog(@"%@",authtoken);
+                                      if(session)
+                                      {
+                                          [[LISDKAPIHelper sharedInstance] apiRequest:reqURL
+                                                                               method:@"GET"
+                                                                                 body:[@"" dataUsingEncoding:NSUTF8StringEncoding]
+                                                                              success:^(LISDKAPIResponse *response) {
+                                                                                  //NSLog(@"2nd success called %@", response.data);
+                                                                                  if (completionBlock) {
+                                                                                      completionBlock(response.data);
+                                                                                  }
+                                                                              }
+                                                                                error:^(LISDKAPIError *apiError) {
+                                                                                    if (completionBlock) {
+                                                                                        completionBlock(nil);
+                                                                                    }
+                                                                                }];
+                                      }
+                                  }
+                                    errorBlock:^(NSError *error) {
+                                        NSLog(@"%s %@","error called! ", [error description]);
+                                        if (completionBlock) {
+                                            completionBlock(nil);
+                                        }
+                                        
+                                    }
+     ];
+}
 
 @end

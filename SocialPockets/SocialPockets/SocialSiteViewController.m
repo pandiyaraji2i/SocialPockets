@@ -99,66 +99,31 @@
     return cell;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    
-    // Button click for facebook
+    // for facebook
     if (indexPath.row == 0) {
-        [SOCIALMACRO faceBookLoginButtonClickedWithCompletion:^(id obj) {
+        [SOCIALMACRO facebookLoginWithCompletion:^(id obj) {
             [self dataFetchForUser:obj];
             //[self CreateSocialSiteWithSocialSite:@"1"];
         }];
     }
-    else if (indexPath.row == 1) {         // Button click for Twitter
-        [SOCIALMACRO TwitterLoginBtnClickedWithCompletion:^(id obj) {
+    else if (indexPath.row == 1) {         //  for Twitter
+        [SOCIALMACRO twitterLoginWithCompletion:^(id obj) {
             [self getTwitterFollowersListForUserID:[obj userID]];
             //[self CreateSocialSiteWithSocialSite:@"2"];
 
         }];
     }
-   else if (indexPath.row == 2) { // Button click for Instagram
+   else if (indexPath.row == 2) { //  for Instagram
         [SharedMethods showAlertActionWithTitle:@"Alert" message:@"Are you want to add Instagram" completion:^(id obj) {
             NSLog(@"just test");
             [self CreateSocialSiteWithSocialSite:@"3"];
         }];
         
     }
-   else if (indexPath.row == 3) { // Button click for LinkedIn
-       
-       
-       
-       [LISDKSessionManager clearSession];
-       __block NSString *reqURL = [NSString stringWithFormat:@"https://www.linkedin.com/v1/people/~:(id,first-name,last-name,headline,picture-url,industry,summary,specialties,positions:(id,title,summary,start-date,end-date,is-current,company:(id,name,type,size,industry,ticker)),skills:(id,skill:(name)),three-current-positions,three-past-positions,volunteer)?format=json"];
-       NSLog(@"%@    blank",[[[LISDKSessionManager sharedInstance] session].accessToken accessTokenValue]);
-       [LISDKSessionManager createSessionWithAuth:[NSArray arrayWithObjects:LISDK_BASIC_PROFILE_PERMISSION,LISDK_EMAILADDRESS_PERMISSION,nil]
-                                            state:@"some state"
-                           showGoToAppStoreDialog:YES
-                                     successBlock:^(NSString *returnState) {
-                                         
-                                         NSLog(@"%s","success called!");
-                                         LISDKSession *session = [[LISDKSessionManager sharedInstance] session];
-                                         NSString *authtoken = [[[LISDKSessionManager sharedInstance] session].accessToken accessTokenValue];
-                                         NSLog(@"%@",authtoken);
-                                         if(session)
-                                         {
-                                             [[LISDKAPIHelper sharedInstance] apiRequest:reqURL
-                                                                                  method:@"GET"
-                                                                                    body:[_bodyResult.text dataUsingEncoding:NSUTF8StringEncoding]
-                                                                                 success:^(LISDKAPIResponse *response) {
-                                                                                     //NSLog(@"2nd success called %@", response.data);
-                                                                                     [self CreateSocialSiteWithSocialSite:@"4"];
-                                                                                     
-                                                                                 }
-                                                                                   error:^(LISDKAPIError *apiError) {
-                                                                                       
-                                                                                   }];
-                                         }
-                                     }
-                                       errorBlock:^(NSError *error) {
-                                           NSLog(@"%s %@","error called! ", [error description]);
-                                           
-                                       }
-        ];
-       
+   else if (indexPath.row == 3) { //  for LinkedIn
+       [SOCIALMACRO linkedInLoginWithCompletion:^(id obj) {
+           [self CreateSocialSiteWithSocialSite:@"4"];
+       }];
    }
     
 }
@@ -221,9 +186,7 @@
          startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
              if (!error) {
                  NSString *pictureURL = [NSString stringWithFormat:@"%@",[[[result objectForKey:@"picture"] objectForKey:@"data"] objectForKey:@"url"]];
-                 
                  NSLog(@"email is %@", [result objectForKey:@"email"]);
-                 
                  NSData  *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:pictureURL]];
 //                 self.profileImageView.image = [UIImage imageWithData:data];
 //                 self.nameLbl.text = [NSString stringWithFormat:@"Welcome %@",[result objectForKey:@"name"]];

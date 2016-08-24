@@ -24,11 +24,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"Social Pocket";
-    [SOCIALMACRO faceBookLoginButtonClickedWithCompletion:^(id obj) {
-        [self dataFetchForUser:obj];
-        //[self CreateSocialSiteWithSocialSite:@"1"];
-    }];
-    
     //    //#-- Menu Button
     
     
