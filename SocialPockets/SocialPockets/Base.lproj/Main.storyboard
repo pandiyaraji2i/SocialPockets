@@ -7743,6 +7743,107 @@ Tenure Period</string>
                                                     <outlet property="delegate" destination="dVA-x8-oCJ" id="t1d-sZ-4U2"/>
                                                 </connections>
                                             </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone  Number" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="mRu-QG-n7F">
+                                                <rect key="frame" x="-25" y="-30" width="97" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="JyW-Yd-OkO"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="phonePad" returnKeyType="done"/>
+                                                <variation key="default">
+                                                    <mask key="constraints">
+                                                        <exclude reference="JyW-Yd-OkO"/>
+                                                    </mask>
+                                                </variation>
+                                                <variation key="heightClass=regular-widthClass=compact">
+                                                    <mask key="constraints">
+                                                        <include reference="JyW-Yd-OkO"/>
+                                                    </mask>
+                                                </variation>
+                                                <connections>
+                                                    <outlet property="delegate" destination="dVA-x8-oCJ" id="lvu-Ll-1pV"/>
+                                                </connections>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="UserName" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="dL6-r0-JkK">
+                                                <rect key="frame" x="-25" y="-30" width="97" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="zd9-XA-Hln"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="alphabet" returnKeyType="done"/>
+                                                <variation key="default">
+                                                    <mask key="constraints">
+                                                        <exclude reference="zd9-XA-Hln"/>
+                                                    </mask>
+                                                </variation>
+                                                <variation key="heightClass=regular-widthClass=compact">
+                                                    <mask key="constraints">
+                                                        <include reference="zd9-XA-Hln"/>
+                                                    </mask>
+                                                </variation>
+                                                <connections>
+                                                    <outlet property="delegate" destination="dVA-x8-oCJ" id="5zi-lG-XRN"/>
+                                                </connections>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="New Password" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="WKt-uZ-IWI">
+                                                <rect key="frame" x="-25" y="-30" width="97" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="YD2-Vi-ZWn"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
+                                                <variation key="default">
+                                                    <mask key="constraints">
+                                                        <exclude reference="YD2-Vi-ZWn"/>
+                                                    </mask>
+                                                </variation>
+                                                <variation key="heightClass=regular-widthClass=compact">
+                                                    <mask key="constraints">
+                                                        <include reference="YD2-Vi-ZWn"/>
+                                                    </mask>
+                                                </variation>
+                                                <connections>
+                                                    <outlet property="delegate" destination="dVA-x8-oCJ" id="cT1-4Z-FcN"/>
+                                                </connections>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Hy8-Dc-f0r">
+                                                <rect key="frame" x="-25" y="-30" width="97" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="orj-Vc-Vnm"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
+                                                <variation key="default">
+                                                    <mask key="constraints">
+                                                        <exclude reference="orj-Vc-Vnm"/>
+                                                    </mask>
+                                                </variation>
+                                                <variation key="heightClass=regular-widthClass=compact">
+                                                    <mask key="constraints">
+                                                        <include reference="orj-Vc-Vnm"/>
+                                                    </mask>
+                                                </variation>
+                                                <connections>
+                                                    <outlet property="delegate" destination="dVA-x8-oCJ" id="Ex2-z2-CV0"/>
+                                                </connections>
+                                            </textField>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Smh-PX-QLl">
+                                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="1" id="rRB-eJ-z4o"/>
+                                                </constraints>
+                                                <variation key="default">
+                                                    <mask key="constraints">
+                                                        <exclude reference="rRB-eJ-z4o"/>
+                                                    </mask>
+                                                </variation>
+                                                <variation key="heightClass=regular-widthClass=compact">
+                                                    <mask key="constraints">
+                                                        <include reference="rRB-eJ-z4o"/>
+                                                    </mask>
+                                                </variation>
+                                            </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MGa-qs-CRA">
                                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -7811,27 +7912,6 @@ Tenure Period</string>
                                                     </mask>
                                                 </variation>
                                             </view>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="UserName" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="dL6-r0-JkK">
-                                                <rect key="frame" x="-25" y="-30" width="97" height="30"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="30" id="zd9-XA-Hln"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
-                                                <textInputTraits key="textInputTraits" keyboardType="alphabet" returnKeyType="done"/>
-                                                <variation key="default">
-                                                    <mask key="constraints">
-                                                        <exclude reference="zd9-XA-Hln"/>
-                                                    </mask>
-                                                </variation>
-                                                <variation key="heightClass=regular-widthClass=compact">
-                                                    <mask key="constraints">
-                                                        <include reference="zd9-XA-Hln"/>
-                                                    </mask>
-                                                </variation>
-                                                <connections>
-                                                    <outlet property="delegate" destination="dVA-x8-oCJ" id="5zi-lG-XRN"/>
-                                                </connections>
-                                            </textField>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FvG-n2-0JY">
                                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -7849,65 +7929,6 @@ Tenure Period</string>
                                                     </mask>
                                                 </variation>
                                             </view>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="New Password" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="WKt-uZ-IWI">
-                                                <rect key="frame" x="-25" y="-30" width="97" height="30"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="30" id="YD2-Vi-ZWn"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
-                                                <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
-                                                <variation key="default">
-                                                    <mask key="constraints">
-                                                        <exclude reference="YD2-Vi-ZWn"/>
-                                                    </mask>
-                                                </variation>
-                                                <variation key="heightClass=regular-widthClass=compact">
-                                                    <mask key="constraints">
-                                                        <include reference="YD2-Vi-ZWn"/>
-                                                    </mask>
-                                                </variation>
-                                                <connections>
-                                                    <outlet property="delegate" destination="dVA-x8-oCJ" id="cT1-4Z-FcN"/>
-                                                </connections>
-                                            </textField>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Smh-PX-QLl">
-                                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="1" id="rRB-eJ-z4o"/>
-                                                </constraints>
-                                                <variation key="default">
-                                                    <mask key="constraints">
-                                                        <exclude reference="rRB-eJ-z4o"/>
-                                                    </mask>
-                                                </variation>
-                                                <variation key="heightClass=regular-widthClass=compact">
-                                                    <mask key="constraints">
-                                                        <include reference="rRB-eJ-z4o"/>
-                                                    </mask>
-                                                </variation>
-                                            </view>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Hy8-Dc-f0r">
-                                                <rect key="frame" x="-25" y="-30" width="97" height="30"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="30" id="orj-Vc-Vnm"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
-                                                <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
-                                                <variation key="default">
-                                                    <mask key="constraints">
-                                                        <exclude reference="orj-Vc-Vnm"/>
-                                                    </mask>
-                                                </variation>
-                                                <variation key="heightClass=regular-widthClass=compact">
-                                                    <mask key="constraints">
-                                                        <include reference="orj-Vc-Vnm"/>
-                                                    </mask>
-                                                </variation>
-                                                <connections>
-                                                    <outlet property="delegate" destination="dVA-x8-oCJ" id="Ex2-z2-CV0"/>
-                                                </connections>
-                                            </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="* OTP will be sent  to this number" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2zM-Yu-T7v">
                                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                                 <constraints>
@@ -7929,27 +7950,6 @@ Tenure Period</string>
                                                     </mask>
                                                 </variation>
                                             </label>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone  Number" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="mRu-QG-n7F">
-                                                <rect key="frame" x="-25" y="-30" width="97" height="30"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="30" id="JyW-Yd-OkO"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
-                                                <textInputTraits key="textInputTraits" keyboardType="phonePad" returnKeyType="done"/>
-                                                <variation key="default">
-                                                    <mask key="constraints">
-                                                        <exclude reference="JyW-Yd-OkO"/>
-                                                    </mask>
-                                                </variation>
-                                                <variation key="heightClass=regular-widthClass=compact">
-                                                    <mask key="constraints">
-                                                        <include reference="JyW-Yd-OkO"/>
-                                                    </mask>
-                                                </variation>
-                                                <connections>
-                                                    <outlet property="delegate" destination="dVA-x8-oCJ" id="lvu-Ll-1pV"/>
-                                                </connections>
-                                            </textField>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -7999,17 +7999,17 @@ Tenure Period</string>
                                             <mask key="subviews">
                                                 <exclude reference="al9-cR-egW"/>
                                                 <exclude reference="FOe-Yz-eJT"/>
+                                                <exclude reference="mRu-QG-n7F"/>
+                                                <exclude reference="dL6-r0-JkK"/>
+                                                <exclude reference="WKt-uZ-IWI"/>
+                                                <exclude reference="Hy8-Dc-f0r"/>
+                                                <exclude reference="Smh-PX-QLl"/>
                                                 <exclude reference="MGa-qs-CRA"/>
                                                 <exclude reference="Xjs-2U-UXe"/>
                                                 <exclude reference="IMN-fK-3W3"/>
                                                 <exclude reference="YUr-md-nZC"/>
-                                                <exclude reference="dL6-r0-JkK"/>
                                                 <exclude reference="FvG-n2-0JY"/>
-                                                <exclude reference="WKt-uZ-IWI"/>
-                                                <exclude reference="Smh-PX-QLl"/>
-                                                <exclude reference="Hy8-Dc-f0r"/>
                                                 <exclude reference="2zM-Yu-T7v"/>
-                                                <exclude reference="mRu-QG-n7F"/>
                                             </mask>
                                             <mask key="constraints">
                                                 <exclude reference="0qq-CF-H2b"/>
@@ -8057,17 +8057,17 @@ Tenure Period</string>
                                             <mask key="subviews">
                                                 <include reference="al9-cR-egW"/>
                                                 <include reference="FOe-Yz-eJT"/>
+                                                <include reference="mRu-QG-n7F"/>
+                                                <include reference="dL6-r0-JkK"/>
+                                                <include reference="WKt-uZ-IWI"/>
+                                                <include reference="Hy8-Dc-f0r"/>
+                                                <include reference="Smh-PX-QLl"/>
                                                 <include reference="MGa-qs-CRA"/>
                                                 <include reference="Xjs-2U-UXe"/>
                                                 <include reference="IMN-fK-3W3"/>
                                                 <include reference="YUr-md-nZC"/>
-                                                <include reference="dL6-r0-JkK"/>
                                                 <include reference="FvG-n2-0JY"/>
-                                                <include reference="WKt-uZ-IWI"/>
-                                                <include reference="Smh-PX-QLl"/>
-                                                <include reference="Hy8-Dc-f0r"/>
                                                 <include reference="2zM-Yu-T7v"/>
-                                                <include reference="mRu-QG-n7F"/>
                                             </mask>
                                             <mask key="constraints">
                                                 <include reference="0qq-CF-H2b"/>

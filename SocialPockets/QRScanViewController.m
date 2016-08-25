@@ -99,18 +99,7 @@
         
     
     }
-        //[self updateLabels];
-  //    [self presentViewController:verifyAadharVc animated:YES completion:nil];
-//    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"QR Code" message:qRCodeData preferredStyle:UIAlertControllerStyleAlert];
-//    
-//    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Close" style:UIAlertActionStyleDefault handler:nil];
-//    [alertController addAction:cancel];
-//    
-//    UIAlertAction *reScan = [UIAlertAction actionWithTitle:@"Rescan" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-//        [qrCodeView startReading];
-//    }];
-//    [alertController addAction:reScan];
-//    [self presentViewController:alertController animated:YES completion:nil];
+        
 }
 #pragma mark Helper Methods
 
