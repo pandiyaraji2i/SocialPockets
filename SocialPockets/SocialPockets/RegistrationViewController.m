@@ -52,26 +52,20 @@
     
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@" " style:UIBarButtonItemStylePlain target:self action:nil];
     profileImage = nil;
-   
-//#warning just for testing
-//        firstNameTextField.text = @"kishore";
-//        usernameTextField.text = @"kishore";
-//        passwordTextField.text = @"kishore";
-//        confirmPasswordTextField.text = @"kishore";
-//        emailTextField.text = @"kishore@ideas2it.com";
-//        phoneNumberTextField.text = @"9090909090";
-        profileImage = [UIImage imageNamed:@"ProfileImage"];
+    
+    //#warning just for testing
+    //        firstNameTextField.text = @"kishore";
+    //        usernameTextField.text = @"kishore";
+    //        passwordTextField.text = @"kishore";
+    //        confirmPasswordTextField.text = @"kishore";
+    //        emailTextField.text = @"kishore@ideas2it.com";
+    //        phoneNumberTextField.text = @"9090909090";
+    profileImage = [UIImage imageNamed:@"ProfileImage"];
     
     self.navigationController.navigationBarHidden = YES;
-    [self updateRegView];
     [self.view updateConstraints];
     [self.view layoutIfNeeded];
-    [self aadharBtnTapped:nil];
-    [self pancardBtnTapped:nil];
-    
-    
-    //    self.aadharInnerView.hidden = NO;
-    //    self.aadharUpdatedView.hidden = YES;
+    [self updateRegView];
     
     // Aadhar Card Gesture
     UITapGestureRecognizer *aadharCardTap =
@@ -86,7 +80,7 @@
     
     
     self.navigationController.navigationBarHidden = NO;
-   
+    
     self.profileImageBtn.layer.cornerRadius = (self.profileImageBtn.frame.size.height/2);
     self.profileImageBtn.layer.borderWidth = 3.0;
     self.profileImageBtn.layer.borderColor = [UIColor whiteColor].CGColor;
@@ -153,6 +147,7 @@
 }
 
 - (IBAction)onRegisterAction:(id)sender {
+#warning need to remove
     SocialSiteViewController *socialVc =[self.storyboard instantiateViewControllerWithIdentifier:@"SocialVc"];
     [self.navigationController pushViewController:socialVc animated:YES];
     return;
@@ -245,42 +240,19 @@
     }
 }
 - (IBAction)aadharBtnTapped:(id)sender {
-    if (self.aadharCardBtn.selected) {
-        self.aadharViewHeightConstraimt.constant = 300;
-        self.aadharInnerView.hidden = NO;
-        [self updateRegView];
-    }else{
-        self.aadharInnerView.hidden = YES;
-        self.aadharUpdatedView.hidden = YES;
-        self.aadharViewHeightConstraimt.constant = 40;
-        //        [self.view updateConstraints];
-        //        [self.view layoutIfNeeded];
-        
-    }
     self.aadharCardBtn.selected = !self.aadharCardBtn.selected;
+    [self updateRegView];
 }
 
 - (IBAction)pancardBtnTapped:(id)sender {
-    
-    if (self.pancardBtn.selected) {
-        self.pancardViewHeightConstraint.constant = 300;
-        [self.view layoutIfNeeded];
-        self.panCardInnerView.hidden = NO;
-    }else{
-        self.panCardInnerView.hidden = YES;
-        self.panCardUpdateView.hidden = YES;
-        self.typeYourPANLbl.hidden = NO;
-        self.pancardViewHeightConstraint.constant = 40;
-        [self.view layoutIfNeeded];
-    }
     self.pancardBtn.selected = !self.pancardBtn.selected;
+    [self updateRegView];
 }
 
 - (IBAction)signatureBtnTapped:(id)sender {
     SignatureViewController *signatureVc = [self.storyboard instantiateViewControllerWithIdentifier:@"SignatureVc"];
     [self.navigationController pushViewController:signatureVc animated:YES];
     signatureVc.updateSignatureView = ^(void){
-        self.aadharCardBtn.selected = !self.aadharCardBtn.selected;
         [self updateRegView];
     };
 }
@@ -303,20 +275,7 @@
         [self updateLabelsWithDict:obj];
         [self.aadharCardBtn setImage:[UIImage imageNamed:@"circleChecked"] forState:UIControlStateNormal];
         
-   };
-    
-       // [self presentViewController:QRScanVc animated:YES completion:nil];
-    
-    
-    
-//            VerifyAadharViewController *verifyAadharVc = [self.storyboard instantiateViewControllerWithIdentifier:@"VerifyAadharVc"];
-//            [self presentViewController:verifyAadharVc animated:YES completion:nil];
-//        verifyAadharVc.updateAadharView = ^(id obj){
-//            self.aadharUpdatedView.hidden = NO;
-//            self.aadharInnerView.hidden = YES;
-//            [self.aadharCardBtn setImage:[UIImage imageNamed:@"circleChecked"] forState:UIControlStateNormal];
-//    
-//        };
+    };
     
 }
 //PAN card image tapped
@@ -334,28 +293,52 @@
 }
 
 -(void)updateRegView{
+    
+    //Aadhar Card Update
     if (self.aadharCardBtn.selected) {
         self.aadharViewHeightConstraimt.constant = 300;
         self.aadharInnerView.hidden = NO;
-    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"AadharCardUpdate"]){
-        self.aadharInnerView.hidden = YES;
-        self.aadharUpdatedView.hidden = NO;
-        [self.aadharCardBtn setImage:[UIImage imageNamed:@"circleChecked"] forState:UIControlStateNormal];
+        if ([[NSUserDefaults standardUserDefaults] boolForKey:@"AadharCardUpdate"]){
+            self.aadharInnerView.hidden = YES;
+            self.aadharUpdatedView.hidden = NO;
+            [self.aadharCardBtn setImage:[UIImage imageNamed:@"circleChecked"] forState:UIControlStateNormal];
+        }else{
+            self.aadharUpdatedView.hidden = YES;
+            self.aadharInnerView.hidden = NO;
+        }
     }else{
-        self.aadharUpdatedView.hidden = YES;
-    }
-    }else{
+        if ([[NSUserDefaults standardUserDefaults] boolForKey:@"AadharCardUpdate"]){
+            [self.aadharCardBtn setImage:[UIImage imageNamed:@"circleChecked"] forState:UIControlStateNormal];
+        }
         self.aadharInnerView.hidden = YES;
         self.aadharUpdatedView.hidden = YES;
         self.aadharViewHeightConstraimt.constant = 40;
     }
-    
-        
-    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"PanCardUpdate"]) {
-        self.panCardUpdateView.hidden = NO;
-        self.typeYourPANLbl.hidden = YES;
-        [self.pancardBtn setImage:[UIImage imageNamed:@"circleChecked"] forState:UIControlStateNormal];
+    //PAN Card Update
+    if (self.pancardBtn.selected) {
+        self.pancardViewHeightConstraint.constant = 300;
+        [self.view layoutIfNeeded];
+        self.panCardInnerView.hidden = NO;
+        if ([[NSUserDefaults standardUserDefaults] boolForKey:@"PanCardUpdate"]) {
+            self.panCardUpdateView.hidden = NO;
+            self.typeYourPANLbl.hidden = YES;
+            [self.pancardBtn setImage:[UIImage imageNamed:@"circleChecked"] forState:UIControlStateNormal];
+        }else{
+            self.panCardUpdateView.hidden = YES;
+            self.typeYourPANLbl.hidden = NO;
+        }
+    }else{
+        if ([[NSUserDefaults standardUserDefaults] boolForKey:@"PanCardUpdate"]) {
+            [self.pancardBtn setImage:[UIImage imageNamed:@"circleChecked"] forState:UIControlStateNormal];
+        }
+        self.panCardInnerView.hidden = YES;
+        self.panCardUpdateView.hidden = YES;
+        self.typeYourPANLbl.hidden = NO;
+        self.pancardViewHeightConstraint.constant = 40;
+        [self.view layoutIfNeeded];
     }
+    
+    //Signature Update
     if ([[NSUserDefaults standardUserDefaults] boolForKey:@"SignatureUpdate"]) {
         [self.signatureBtn setImage:[UIImage imageNamed:@"circleChecked"] forState:UIControlStateNormal];
     }
@@ -381,8 +364,10 @@
         }
         
         // in case you need to limit the max number of characters
-        if ([textField.text stringByReplacingCharactersInRange:range withString:string].length > 10) {
-            return NO;
+        if (textField == phoneNumberTextField) {
+            if ([textField.text stringByReplacingCharactersInRange:range withString:string].length > 10) {
+                return NO;
+            }
         }
         return YES;
     }

@@ -8,7 +8,9 @@
 
 #import "SignatureViewController.h"
 
-@interface SignatureViewController ()
+@interface SignatureViewController (){
+    UIBarButtonItem *clearButton;
+}
 @property (weak, nonatomic) IBOutlet UIButton *getSignatureImage;
 @property (weak, nonatomic) IBOutlet UIImageView *signatureImageView;
 @property (weak, nonatomic) IBOutlet UIView *SignView;
@@ -22,18 +24,17 @@
     [super viewDidLoad];
     self.title = @"Signature";
     // Do any additional setup after loading the view from its nib.
-    NSLog(@" image data -- %@",[[NSUserDefaults standardUserDefaults] valueForKey:@"SignatureImage"]);
+    clearButton = [[UIBarButtonItem alloc]
+                   initWithTitle:@"Clear"
+                   style:UIBarButtonItemStyleDone
+                   target:self
+                   action:@selector(clearImageBtnPressed:)];
     if ([[NSUserDefaults standardUserDefaults] valueForKey:@"SignatureImage"]) {
         self.SignView.hidden = NO;
         NSData* imageData = [[NSUserDefaults standardUserDefaults] objectForKey:@"SignatureImage"];
         self.signatureImageView.image = [UIImage imageWithData:imageData];
     }else{
         self.SignView.hidden  = YES;
-        UIBarButtonItem *clearButton = [[UIBarButtonItem alloc]
-                                        initWithTitle:@"Clear"
-                                        style:UIBarButtonItemStyleDone
-                                        target:self
-                                        action:@selector(clearImageBtnPressed:)];
         self.navigationItem.rightBarButtonItem = clearButton;
     }
 }
@@ -71,6 +72,7 @@
 }
 - (IBAction)editBtnTapped:(id)sender {
     self.SignView.hidden = YES;
+    self.navigationItem.rightBarButtonItem = clearButton;
 }
 - (IBAction)closeBtnTapped:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];

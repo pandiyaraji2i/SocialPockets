@@ -23,12 +23,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"QRCode Scanner";
     self.transprantView.hidden = YES;
     self.verifyAadharView.hidden = YES;
     // Do any additional setup after loading the view.
-    self.navigationController.navigationBarHidden = YES;
-    qrCodeView = [[QRCodeReader alloc]initWithFrame:CGRectMake(0, 70, self.view.frame.size.width, self.view.frame.size.height-120)];
-    UILabel *QRTitleLbl = [[UILabel alloc] initWithFrame:CGRectMake(0, 20, self.view.frame.size.width, 50)];
+    qrCodeView = [[QRCodeReader alloc]initWithFrame:CGRectMake(0, 114, self.view.frame.size.width, self.view.frame.size.height-178)];
+    UILabel *QRTitleLbl = [[UILabel alloc] initWithFrame:CGRectMake(0, 64, self.view.frame.size.width, 50)];
     QRTitleLbl.text = @"Scan your QR code";
     QRTitleLbl.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:QRTitleLbl];
@@ -45,9 +45,9 @@
     self.noBtn.layer.cornerRadius = 5.0;
     self.noBtn.layer.borderWidth = 1.0;
     self.noBtn.layer.borderColor = [UIColor grayColor].CGColor;
-
+    
     self.noBtn.layer.borderColor = [UIColor colorWithRed:136/255 green:136/255 blue:136/255 alpha:1].CGColor;
-
+    
 }
 
 
@@ -63,7 +63,7 @@
         updateAadharView(userDict);
     }
     [self.navigationController popViewControllerAnimated:YES];
-   
+    
     // [self.navigationController popToRootViewControllerAnimated:YES];
 }
 - (IBAction)noBtnTapped:(id)sender {
@@ -81,7 +81,7 @@
         statusLbl.text = @"Scanning process completed";
         [ACTIVITY showActivity:@"Getting Data..."];
         [self performSelector:@selector(updateLabels) withObject:self afterDelay:2.0];
-
+        
     }else{
         
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Error"
@@ -91,15 +91,15 @@
                                                            style:UIAlertActionStyleDefault
                                                          handler:^(UIAlertAction * _Nonnull action){
                                                              [qrCodeView startReading];
-
+                                                             
                                                          }] ;
         [alertController addAction:actionOk];
         [self presentViewController:alertController animated:YES completion:nil];
         
         
-    
-    }
         
+    }
+    
 }
 #pragma mark Helper Methods
 
@@ -115,7 +115,7 @@
     self.dobLbl.text = [userDict objectForKey:@"_yob"];
     self.addressLbl.text = [NSString stringWithFormat:@"%@,%@,%@,%@,%@,%@",[userDict objectForKey:@"_street"],[userDict objectForKey:@"_lm"],[userDict objectForKey:@"_loc"],[userDict objectForKey:@"_dist"],[userDict objectForKey:@"_state"],[userDict objectForKey:@"_pc"]];
     [self.addressLbl sizeToFit];
-
+    
     
     //self.aadharNumderLbl.text = [self.userDetails objectForKey:@"_uid"];
     self.aadharNumderLbl.text = [self aadharNumberWithFormat: [userDict objectForKey:@"_uid"]];
@@ -148,13 +148,13 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end
