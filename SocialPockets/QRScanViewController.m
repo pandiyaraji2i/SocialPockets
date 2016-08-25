@@ -12,7 +12,7 @@
 
 @interface QRScanViewController (){
     NSDictionary *userDict;
-//    QRCodeReader *qrCodeView;
+    QRCodeReader *qrCodeView;
     UILabel *statusLbl;
 }
 
@@ -27,7 +27,7 @@
     self.verifyAadharView.hidden = YES;
     // Do any additional setup after loading the view.
     self.navigationController.navigationBarHidden = YES;
-//    qrCodeView = [[QRCodeReader alloc]initWithFrame:CGRectMake(0, 70, self.view.frame.size.width, self.view.frame.size.height-120)];
+    qrCodeView = [[QRCodeReader alloc]initWithFrame:CGRectMake(0, 70, self.view.frame.size.width, self.view.frame.size.height-120)];
     UILabel *QRTitleLbl = [[UILabel alloc] initWithFrame:CGRectMake(0, 20, self.view.frame.size.width, 50)];
     QRTitleLbl.text = @"Scan your QR code";
     QRTitleLbl.textAlignment = NSTextAlignmentCenter;
@@ -37,16 +37,16 @@
     statusLbl.text = @"Scanning.....";
     statusLbl.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:statusLbl];
-//    [qrCodeView setDelegate:self];
+    [qrCodeView setDelegate:self];
     statusLbl.text = @"Please focus your QR Code";
-//    [qrCodeView startReading];
-//    [self.view addSubview:qrCodeView];
+    [qrCodeView startReading];
+    [self.view addSubview:qrCodeView];
     self.yesBtn.layer.cornerRadius = 5.0;
     self.noBtn.layer.cornerRadius = 5.0;
     self.noBtn.layer.borderWidth = 1.0;
     self.noBtn.layer.borderColor = [UIColor grayColor].CGColor;
 
-//    self.noBtn.layer.borderColor = [UIColor colorWithRed:136/255 green:136/255 blue:136/255 alpha:1].CGColor;
+    self.noBtn.layer.borderColor = [UIColor colorWithRed:136/255 green:136/255 blue:136/255 alpha:1].CGColor;
 
 }
 
@@ -69,18 +69,37 @@
 - (IBAction)noBtnTapped:(id)sender {
     self.transprantView.hidden = YES;
     self.verifyAadharView.hidden = YES;
-//    [qrCodeView startReading];
+    [qrCodeView startReading];
 }
 
 #pragma mark Response from QR code
 
 - (void)getQRCodeData:(id)qRCodeData {
-    userDict = [NSDictionary dictionaryWithXMLString:qRCodeData];
-    NSLog(@"userDict ====%@",userDict);
-    statusLbl.text = @"Scanning process completed";
-    [ACTIVITY showActivity:@"Getting Data..."];
-    [self performSelector:@selector(updateLabels) withObject:self afterDelay:2.0];
-    //[self updateLabels];
+    if ([[qRCodeData substringToIndex:1] isEqualToString:@"<"]) {
+        userDict = [NSDictionary dictionaryWithXMLString:qRCodeData];
+        NSLog(@"userDict ====%@",userDict);
+        statusLbl.text = @"Scanning process completed";
+        [ACTIVITY showActivity:@"Getting Data..."];
+        [self performSelector:@selector(updateLabels) withObject:self afterDelay:2.0];
+
+    }else{
+        
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Error"
+                                                                                 message:@"Please scan Aadhar QR code only"
+                                                                          preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *actionOk = [UIAlertAction actionWithTitle:@"Ok"
+                                                           style:UIAlertActionStyleDefault
+                                                         handler:^(UIAlertAction * _Nonnull action){
+                                                             [qrCodeView startReading];
+
+                                                         }] ;
+        [alertController addAction:actionOk];
+        [self presentViewController:alertController animated:YES completion:nil];
+        
+        
+    
+    }
+        //[self updateLabels];
   //    [self presentViewController:verifyAadharVc animated:YES completion:nil];
 //    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"QR Code" message:qRCodeData preferredStyle:UIAlertControllerStyleAlert];
 //    

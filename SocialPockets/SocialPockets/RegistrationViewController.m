@@ -133,18 +133,18 @@
 
 - (IBAction)profileImageAction:(id)sender
 {
-//    CameraViewController *vc =[[CameraViewController alloc]initwithController];
-//    [vc openCamera:0];
-//    [self.navigationController presentViewController:vc animated:NO completion:nil];
-//    vc.imageSelect = ^(id obj){
-//        if (obj && [obj isKindOfClass:[UIImage class]]) {
-//            profileImage = obj;
-//            [self.profileImageBtn setImage:profileImage forState:UIControlStateNormal];
-//        }
-//        dispatch_async(dispatch_get_main_queue(), ^{
-//            [self dismissViewControllerAnimated:NO completion:nil];
-//        });
-//    };
+    CameraViewController *vc =[[CameraViewController alloc]initwithController];
+    [vc openCamera:0];
+    [self.navigationController presentViewController:vc animated:NO completion:nil];
+    vc.imageSelect = ^(id obj){
+        if (obj && [obj isKindOfClass:[UIImage class]]) {
+            profileImage = obj;
+            [self.profileImageBtn setImage:profileImage forState:UIControlStateNormal];
+        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self dismissViewControllerAnimated:NO completion:nil];
+        });
+    };
 }
 
 - (IBAction)termsCheckBoxTapped:(id)sender {
@@ -294,29 +294,29 @@
 
 - (void)aadharCardImageTap:(UITapGestureRecognizer *)recognizer {
     
-//    QRScanViewController *QRScanVc = [self.storyboard instantiateViewControllerWithIdentifier:@"QRScanVc"];
-//    [self.navigationController pushViewController:QRScanVc animated:YES];
+    QRScanViewController *QRScanVc = [self.storyboard instantiateViewControllerWithIdentifier:@"QRScanVc"];
+    [self.navigationController pushViewController:QRScanVc animated:YES];
     
-//    QRScanVc.updateAadharView = ^(id obj){
-//        self.aadharUpdatedView.hidden = NO;
-//        self.aadharInnerView.hidden = YES;
-//        [self updateLabelsWithDict:obj];
-//        [self.aadharCardBtn setImage:[UIImage imageNamed:@"circleChecked"] forState:UIControlStateNormal];
-//        
-//    };
+    QRScanVc.updateAadharView = ^(id obj){
+        self.aadharUpdatedView.hidden = NO;
+        self.aadharInnerView.hidden = YES;
+        [self updateLabelsWithDict:obj];
+        [self.aadharCardBtn setImage:[UIImage imageNamed:@"circleChecked"] forState:UIControlStateNormal];
+        
+   };
     
-    //    [self presentViewController:QRScanVc animated:YES completion:nil];
+       // [self presentViewController:QRScanVc animated:YES completion:nil];
     
     
     
-    //        VerifyAadharViewController *verifyAadharVc = [self.storyboard instantiateViewControllerWithIdentifier:@"VerifyAadharVc"];
-    //        [self presentViewController:verifyAadharVc animated:YES completion:nil];
-    //    verifyAadharVc.updateAadharView = ^(id obj){
-    //        self.aadharUpdatedView.hidden = NO;
-    //        self.aadharInnerView.hidden = YES;
-    //        [self.aadharCardBtn setImage:[UIImage imageNamed:@"circleChecked"] forState:UIControlStateNormal];
-    //
-    //    };
+//            VerifyAadharViewController *verifyAadharVc = [self.storyboard instantiateViewControllerWithIdentifier:@"VerifyAadharVc"];
+//            [self presentViewController:verifyAadharVc animated:YES completion:nil];
+//        verifyAadharVc.updateAadharView = ^(id obj){
+//            self.aadharUpdatedView.hidden = NO;
+//            self.aadharInnerView.hidden = YES;
+//            [self.aadharCardBtn setImage:[UIImage imageNamed:@"circleChecked"] forState:UIControlStateNormal];
+//    
+//        };
     
 }
 //PAN card image tapped
@@ -421,7 +421,18 @@
     return resultString;
 }
 
+#pragma mark keyboard dismiss method
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    UITouch * touch = [touches anyObject];
+    if(touch.phase == UITouchPhaseBegan) {
+        [self.view endEditing:YES];
+    }
+}
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [self.view endEditing:YES];
+    return YES;
+}
 
 
 #pragma mark Status Bar Style

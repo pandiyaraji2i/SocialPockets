@@ -138,7 +138,7 @@
         [SOCIALMACRO twitterLoginWithCompletion:^(id obj) {
             [[NSUserDefaults standardUserDefaults] setObject:[obj authTokenSecret] forKey:@"TwitterAccessToken"];
             [tableView reloadData];
-            [self getTwitterFollowersListForUserID:[obj userID]];
+           // [self getTwitterFollowersListForUserID:[obj userID]];
             //[self CreateSocialSiteWithSocialSite:@"2"];
             
         }];

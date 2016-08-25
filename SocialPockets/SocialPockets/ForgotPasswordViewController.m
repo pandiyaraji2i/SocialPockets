@@ -58,6 +58,20 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+#pragma mark keyboard dismiss method
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    UITouch * touch = [touches anyObject];
+    if(touch.phase == UITouchPhaseBegan) {
+        [self.view endEditing:YES];
+    }
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [self.view endEditing:YES];
+    return YES;
+}
+
 /*
 #pragma mark - Navigation
 
