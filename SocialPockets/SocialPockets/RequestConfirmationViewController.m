@@ -228,6 +228,11 @@
                                                              handler:^(UIAlertAction * _Nonnull action){
                                                                  NSString *selectedBankAccountId = [[accountArray objectAtIndex:indexPath.row] valueForKey:@"USRMW_ID"];
                                                                  [self deleteBankAccount:selectedBankAccountId withIndex:indexPath];
+                                                                 if ([selectedBankAccountId intValue] == [bankAccountId intValue]) {
+                                                                     previousIndexpath = nil;
+                                                                     bankAccountId = nil;
+
+                                                                 }
                                                              }] ;
             UIAlertAction *actionCancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
             }];
