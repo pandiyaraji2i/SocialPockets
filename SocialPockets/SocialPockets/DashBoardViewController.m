@@ -367,9 +367,26 @@
         applyLoanCircleView.hidden = YES;
         //        repayLoanCircleView.trackFillColor = [self interpolateRGBColorFrom:[UIColor orangeColor] to:[UIColor greenColor] withFraction:1.0];
         repayLoanCircleView.clockwise = YES;
-        repayLoanCircleView.progress = 0.9;
+        repayLoanCircleView.progress = 0.3;
         NSString *loanAmount = [[NSString stringWithFormat:@"%@",[loanObject valueForKey:@"USRLN_AMOUNT"]] rupeesFormat];
-        repayLoanCircleView.centerText = [NSString stringWithFormat:@"%@ %@   Repay Loan 14 Days left",INDIANRUPEES_UNICODE,loanAmount];
+        
+//        NSString *loanStart =[NSString stringWithFormat:@"%@",[SharedMethods convertString:[loanObject valueForKey:@"USRLN_REQUESTED_DATE"] fromFormat:LOCALDATETIMEFORMAT toFormat:DATEFORMAT]];
+//
+//        NSString *loanEnd =[NSString stringWithFormat:@"%@",[SharedMethods convertString:[loanObject valueForKey:@"USRLN_TENNURE_DATE"] fromFormat:LOCALDATETIMEFORMAT toFormat:DATEFORMAT]];
+//        
+        NSDate *loanSdate = [SharedMethods dateFromGivenString:[loanObject valueForKey:@"USRLN_REQUESTED_DATE"] formatType:LOCALDATETIMEFORMAT];
+        NSDate *loanEdate = [SharedMethods dateFromGivenString:[loanObject valueForKey:@"USRLN_TENNURE_DATE"] formatType:LOCALDATETIMEFORMAT];
+
+        NSTimeInterval secondsBetween = [loanEdate timeIntervalSinceDate:loanSdate];
+        NSLog(@"%f",secondsBetween);
+        double numberOfDays = secondsBetween / 86400;
+        int daysLeft = (int)numberOfDays;
+        
+        repayLoanCircleView.centerText = [NSString stringWithFormat:@"%@ %@   Repay Loan %d Days left",INDIANRUPEES_UNICODE,loanAmount,daysLeft];
+        if ((numberOfDays/21) >= 1) {
+            repayLoanCircleView.progress = 0.999999;
+        }else
+        repayLoanCircleView.progress = (numberOfDays/21);
         __weak DashBoardViewController *dashBoardVc= self;
         __block id loanBlockObject = loanObject;
         repayLoanCircleView.onClick = ^(NSString* menuTitle)
