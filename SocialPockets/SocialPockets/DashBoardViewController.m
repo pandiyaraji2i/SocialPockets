@@ -370,10 +370,7 @@
         repayLoanCircleView.progress = 0.3;
         NSString *loanAmount = [[NSString stringWithFormat:@"%@",[loanObject valueForKey:@"USRLN_AMOUNT"]] rupeesFormat];
         
-//        NSString *loanStart =[NSString stringWithFormat:@"%@",[SharedMethods convertString:[loanObject valueForKey:@"USRLN_REQUESTED_DATE"] fromFormat:LOCALDATETIMEFORMAT toFormat:DATEFORMAT]];
-//
-//        NSString *loanEnd =[NSString stringWithFormat:@"%@",[SharedMethods convertString:[loanObject valueForKey:@"USRLN_TENNURE_DATE"] fromFormat:LOCALDATETIMEFORMAT toFormat:DATEFORMAT]];
-//        
+       
         NSDate *loanSdate = [SharedMethods dateFromGivenString:[loanObject valueForKey:@"USRLN_REQUESTED_DATE"] formatType:LOCALDATETIMEFORMAT];
         NSDate *loanEdate = [SharedMethods dateFromGivenString:[loanObject valueForKey:@"USRLN_TENNURE_DATE"] formatType:LOCALDATETIMEFORMAT];
 
@@ -382,11 +379,20 @@
         double numberOfDays = secondsBetween / 86400;
         int daysLeft = (int)numberOfDays;
         
-        repayLoanCircleView.centerText = [NSString stringWithFormat:@"%@ %@   Repay Loan %d Days left",INDIANRUPEES_UNICODE,loanAmount,daysLeft];
+        if(numberOfDays>0){
+            repayLoanCircleView.centerText = [NSString stringWithFormat:@"%@ %@   Repay Loan %d Days left",INDIANRUPEES_UNICODE,loanAmount,daysLeft];
+        }
+        else{
+            repayLoanCircleView.centerText = [NSString stringWithFormat:@"%@ %@   Repay Loan 0 Days left",INDIANRUPEES_UNICODE,loanAmount];
+        }
+        
+        repayLoanCircleView.progress = (numberOfDays/21);
+
         if ((numberOfDays/21) >= 1) {
             repayLoanCircleView.progress = 0.999999;
-        }else
-        repayLoanCircleView.progress = (numberOfDays/21);
+        }else if (numberOfDays/21 < 0){
+            repayLoanCircleView.progress = 0.0;
+        }
         __weak DashBoardViewController *dashBoardVc= self;
         __block id loanBlockObject = loanObject;
         repayLoanCircleView.onClick = ^(NSString* menuTitle)
