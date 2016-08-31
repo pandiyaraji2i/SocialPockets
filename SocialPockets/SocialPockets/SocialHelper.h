@@ -23,4 +23,5 @@
 - (void)twitterLoginWithCompletion:(void (^)(id obj))completionBlock;
 - (void)linkedInLoginWithCompletion:(void (^)(id obj))completionBlock;
 - (void)instagramLoginWithUserToken:(id)token WithCompletion:(void (^)(id obj))completionBlock;
+- (void)getTwitterListFor:(NSString *)list WIthUserID:(NSString *)userid;
 @end

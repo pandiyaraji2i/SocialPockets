@@ -140,10 +140,10 @@
             [[NSUserDefaults standardUserDefaults] setObject:[obj authTokenSecret] forKey:@"TwitterAccessToken"];
             [tableView reloadData];
             NSLog(@" userid === %@",[obj userID]);
-            [self getTwitterListFor:@"friendsList" WIthUserID:[obj userID]];
+            [SOCIALMACRO getTwitterListFor:@"friendsList" WIthUserID:[obj userID]];
             //[self getTwitterListFor:@"followersList" WIthUserID:[obj userID]];
             
-            //[self CreateSocialSiteWithSocialSite:@"2"];
+            [self CreateSocialSiteWithSocialSite:@"2"];
             
         }];
     }
@@ -202,55 +202,7 @@
     }];
 }
 
-# pragma Mark Get followers list
 
--(void)getTwitterListFor:(NSString *)list WIthUserID:(NSString *)userid{
-    NSString *statusesShowEndpoint;
-    NSString *userDefaultsKey;
-    int updateFollower;
-    
-    if ([list isEqualToString:@"friendsList"]) {
-        statusesShowEndpoint = @"https://api.twitter.com/1.1/friends/list.json";
-        userDefaultsKey = @"twitterFriendsCount";
-        updateFollower = 1;
-    }else if([list isEqualToString:@"followersList"]){
-        statusesShowEndpoint = @"https://api.twitter.com/1.1/followers/list.json";
-        userDefaultsKey = @"twitterFollowersCount";
-        updateFollower = 2;
-    }
-    NSDictionary *params = @{@"id" : userid};
-    NSError *clientError;
-    TWTRAPIClient *client = [[TWTRAPIClient alloc] initWithUserID:userid];
-    NSURLRequest *request = [client URLRequestWithMethod:@"GET" URL:statusesShowEndpoint parameters:params error:&clientError];
-    // if (request) {
-    [client sendTwitterRequest:request completion:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
-        if (data) {
-            NSError *jsonError;
-            NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonError];
-            int twitterFriendsCount = [[json valueForKey:@"users"] count];
-            int  serverSentValue;
-            if ([[NSUserDefaults standardUserDefaults] integerForKey:userDefaultsKey]) {
-                int oldValue = [[NSUserDefaults standardUserDefaults] integerForKey:userDefaultsKey];
-                serverSentValue = twitterFriendsCount - oldValue;
-                if (serverSentValue>0) {
-                    //server API call
-                }else{
-                    
-                }
-            }else{
-                //API call with twitter friends Count
-            }
-            [[NSUserDefaults standardUserDefaults] setInteger:twitterFriendsCount forKey:userDefaultsKey];
-            if (updateFollower == 1) {
-                [self getTwitterListFor:@"followersList" WIthUserID:userid];
-                
-            }
-        }
-        else {
-            NSLog(@"Error: %@", connectionError);
-        }
-    }];
-}
 
 # pragma Mark Get FaceBook list Details
 

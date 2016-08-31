@@ -103,22 +103,6 @@ static ProfileModel* _sharedInstance = nil;
     }
 }
 
-
-/**
- *  Get user credit score
- *
- *  @param completionBlock response block
- */
-- (void)getUserCreditScore:(void (^)(id))completionBlock
-{
-    NSString *urlString =[NSString stringWithFormat:@"creditshow?user_id=%@",[[NSUserDefaults standardUserDefaults] valueForKey:USERID]];
-    [NetworkHelperClass sendAsynchronousRequestToServer:urlString httpMethod:GET requestBody:nil contentType:JSONCONTENTTYPE completion:^(id obj) {
-        if (completionBlock) {
-            completionBlock(obj);
-        }
-    }];
-}
-
 /**
  *  Password validation
  *
@@ -134,5 +118,31 @@ static ProfileModel* _sharedInstance = nil;
         }
     }
 }
+
+#pragma mark credid score
+/**
+ *  Get user credit score
+ *
+ *  @param completionBlock response block
+ */
+- (void)getUserCreditScore:(void (^)(id))completionBlock
+{
+    NSString *urlString =[NSString stringWithFormat:@"creditshow?user_id=%@",[[NSUserDefaults standardUserDefaults] valueForKey:USERID]];
+    [NetworkHelperClass sendAsynchronousRequestToServer:urlString httpMethod:GET requestBody:nil contentType:JSONCONTENTTYPE completion:^(id obj) {
+        if (completionBlock) {
+            completionBlock(obj);
+        }
+    }];
+}
+
+- (void)saveCreditScore:(NSDictionary *)dict completion:(void(^)(id obj))completionBlock
+{
+    [NetworkHelperClass sendAsynchronousRequestToServer:@"creditsave" httpMethod:POST requestBody:dict contentType:JSONCONTENTTYPE completion:^(id obj) {
+        if (completionBlock) {
+            completionBlock(obj);
+        }
+    }];
+}
+
 
 @end

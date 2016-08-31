@@ -50,12 +50,17 @@ static SocialHelper* _sharedInstance = nil;
     if ([NetworkHelperClass getInternetStatus:YES]) {
         NSMutableDictionary *dict = [@{@"user_id":[[NSUserDefaults standardUserDefaults] valueForKey:USERID],@"social_id":socialId,@"details":details,@"created_by":createdBy} mutableCopy];
         //        NSMutableDictionary *dict = [@{@"user_id":[[NSUserDefaults standardUserDefaults]valueForKey:@"userid"],@"social_id":socialId,@"details":details,@"created_by":createdBy} mutableCopy];
-        id successObject = [NetworkHelperClass sendSynchronousRequestToServer:@"createsocialsites" httpMethod:POST requestBody:dict contentType:JSONCONTENTTYPE];
+        [NetworkHelperClass sendAsynchronousRequestToServer:@"createsocialsites" httpMethod:POST requestBody:dict contentType:JSONCONTENTTYPE completion:^(id obj) {
+            if (completionBlock) {
+                completionBlock(obj);
+            }
+        }];
+       /* id successObject = [NetworkHelperClass sendSynchronousRequestToServer:@"createsocialsites" httpMethod:POST requestBody:dict contentType:JSONCONTENTTYPE];
         if (successObject) {
             if (completionBlock) {
                 completionBlock(successObject);
             }
-        }
+        }*/
     }else{
         if (completionBlock) {
             completionBlock(nil);
@@ -145,7 +150,6 @@ static SocialHelper* _sharedInstance = nil;
                 completionBlock(session);
             }
             //[self CreateSocialSiteWithSocialSite:@"2"];
-            
         } else {
             NSLog(@"error: %@", [error localizedDescription]);
             if (completionBlock) {
@@ -212,5 +216,117 @@ static SocialHelper* _sharedInstance = nil;
                                     }
      ];
 }
+
+
+#pragma mark TWITTER FOLLOWERS LIST
+
+# pragma Mark Get followers list
+
+- (void)getTwitterListFor:(NSString *)list WIthUserID:(NSString *)userid
+{
+    NSString *statusesShowEndpoint;
+    NSString *userDefaultsKey,*serverUserDefaultsKey;
+    int updateFollower;
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    if ([list isEqualToString:@"friendsList"]) {
+        statusesShowEndpoint = @"https://api.twitter.com/1.1/friends/list.json";
+        userDefaultsKey = TWITTER_FRIENDS;
+        serverUserDefaultsKey = TWITTER_NEW_FRIENDS;
+        updateFollower = 1;
+    }else if([list isEqualToString:@"followersList"]){
+        statusesShowEndpoint = @"https://api.twitter.com/1.1/followers/list.json";
+        userDefaultsKey = TWITTER_FOLLOWERS;
+        serverUserDefaultsKey = TWITTER_NEW_FOLLOWERS;
+        updateFollower = 2;
+    }
+    NSDictionary *params = @{@"id" : userid};
+    NSError *clientError;
+    TWTRAPIClient *client = [[TWTRAPIClient alloc] initWithUserID:userid];
+    NSURLRequest *request = [client URLRequestWithMethod:@"GET" URL:statusesShowEndpoint parameters:params error:&clientError];
+    // if (request) {
+    [client sendTwitterRequest:request completion:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+        if (data) {
+            NSError *jsonError;
+            NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonError];
+            NSInteger twitterFriendsCount = [[json valueForKey:@"users"] count];
+            NSInteger   serverSentValue  =0;
+            if ([userDefaults integerForKey:userDefaultsKey]) {
+                NSInteger oldValue = [userDefaults integerForKey:userDefaultsKey];
+                serverSentValue = twitterFriendsCount - oldValue;
+                if (serverSentValue>0) {
+                    //server API call
+                    [userDefaults setInteger:twitterFriendsCount forKey:userDefaultsKey];
+                    [userDefaults setInteger:serverSentValue forKey:serverUserDefaultsKey];
+                }else{
+                    [userDefaults setInteger:serverSentValue forKey:serverUserDefaultsKey];
+                }
+            }else{
+                //API call with twitter friends Count
+                [userDefaults setInteger:serverSentValue forKey:serverUserDefaultsKey];
+                [userDefaults setInteger:twitterFriendsCount forKey:userDefaultsKey];
+            }
+            [userDefaults synchronize];
+            
+            if (updateFollower == 1) {
+                [self getTwitterListFor:@"followersList" WIthUserID:userid];
+            }else{
+                [self saveCreditScore:2];
+            }
+        }
+        else {
+            NSLog(@"Error: %@", connectionError);
+        }
+    }];
+}
+
+/**
+ *  save and send credit score to server
+ *
+ *  @param socialMediaType social media type 1 - Facebook, 2 -  Twitter , 3 - Instagram , 4 - Linkedin
+ */
+- (void)saveCreditScore:(int)socialMediaType
+{
+    NSMutableDictionary *dict = [@{@"user_id":USERINFO.userId,@"modified_by":USERINFO.userId,@"created_by":USERINFO.userId} mutableCopy];
+    NSMutableDictionary *socialDict;
+    NSString *socialKey;
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    switch (socialMediaType) {
+        case 1:
+        {
+            socialDict = [@{@"photolikes":[NSNumber numberWithInt:10],@"photocomments":[NSNumber numberWithInt:15],@"newfriends":[NSNumber numberWithInt:15],@"newallpost":[NSNumber numberWithInt:15]}mutableCopy];
+            socialKey = @"facebook";
+            break;
+        }
+        case 2:
+        {
+            socialDict = [@{@"newfriends":[NSNumber numberWithInteger:[userDefaults integerForKey:TWITTER_NEW_FRIENDS]],@"newfollowers":[NSNumber numberWithInteger:[userDefaults integerForKey:TWITTER_NEW_FOLLOWERS]]}mutableCopy];
+            socialKey = @"twitter";
+            break;
+        }
+        case 3:
+        {
+            socialDict = [@{@"newfollowers":[NSNumber numberWithInt:10],@"photolikes":[NSNumber numberWithInt:15],@"photocomments":[NSNumber numberWithInt:15]}mutableCopy];
+            socialKey = @"instagram";
+            break;
+        }
+        case 4:
+        {
+            socialDict = [@{@"totalconnection":[NSNumber numberWithInt:10],@"jobs":[NSNumber numberWithInt:15]}mutableCopy];
+            socialKey = @"linkedin";
+            break;
+        }
+        default:
+            break;
+    }
+    [dict setValue:socialDict forKey:socialKey];
+    [PROFILEMACRO saveCreditScore:dict completion:^(id obj) {
+        if ([obj isKindOfClass:[NSDictionary class]]) {
+            //#-- send post notification to update credit score
+        }else{
+            
+        }
+    }];
+}
+
 
 @end

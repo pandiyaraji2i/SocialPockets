@@ -59,6 +59,11 @@
 #define USERID @"User_ID"
 #define USERNAME @"User_Name"
 #define USEREMAIL @"User_Email"
+#define TWITTER_FOLLOWERS @"twitterFollowersCount"
+#define TWITTER_FRIENDS @"twitterFriendsCount"
+#define TWITTER_NEW_FOLLOWERS @"followersServerListCount"
+#define TWITTER_NEW_FRIENDS @"friendsServerListCount"
+
 
 
 //#-- APP Ids
