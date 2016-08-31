@@ -59,12 +59,19 @@
 #define USERID                         @"User_ID"
 #define USERNAME                       @"User_Name"
 #define USEREMAIL                      @"User_Email"
+
 #define TWITTER_FOLLOWERS              @"twitterFollowersCount"
 #define TWITTER_FRIENDS                @"twitterFriendsCount"
 #define TWITTER_NEW_FOLLOWERS          @"followersServerListCount"
 #define TWITTER_NEW_FRIENDS            @"friendsServerListCount"
 
+#define INSTAGRAM_FOLLOWERS            @"Instagramfollows"
+#define INSTAGRAM_FOLLOWEDBY           @"Instagramfollowedby"
+#define INSTAGRAM_COMMENTS             @"InstagramCommentsCount"
+#define INSTAGRAM_LIKES                @"InstagramLikesCount"
 
+#define LINKEDIN_CONNECTIONS           @"LiConnections"
+#define LINKEDIN_JOBS                  @"LiPositions"
 
 //#-- Constant Variables
 

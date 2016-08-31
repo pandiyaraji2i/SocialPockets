@@ -154,22 +154,24 @@
             [SOCIALMACRO instagramLoginWithUserToken:obj WithCompletion:^(id obj) {
                 //NSLog(@"Fetch Data %@",obj);
                 NSString *followedby = [NSString stringWithFormat:@"%@",[[[obj objectForKey:@"data"] objectForKey:@"counts"]objectForKey:@"followed_by"]];
+                [[NSUserDefaults standardUserDefaults] setObject:followedby forKey:@"Instagramfollowedby"];
                 NSString *follows = [NSString stringWithFormat:@"%@",[[[obj objectForKey:@"data"] objectForKey:@"counts"]objectForKey:@"follows"]];
-                NSLog(@"Followed by = %@ \n Follows = %@",followedby,follows);
+                [[NSUserDefaults standardUserDefaults] setObject:follows forKey:@"Instagramfollows"];
+//                NSLog(@"Followed by = %@ \n Follows = %@",followedby,follows);
                 
-                [[NSUserDefaults standardUserDefaults] setObject:obj forKey:@"InstagramAccessToken"];
-                [[NSUserDefaults standardUserDefaults]synchronize];
-                NSLog(@"Auth Token %@",obj);
                 
-                [SOCIALMACRO instagramDetailWithUserToken:obj WithCompletion:^(id obj) {
+                [SOCIALMACRO instagramDetailWithUserToken:[[NSUserDefaults standardUserDefaults] valueForKey:@"InstagramAccessToken"] WithCompletion:^(id obj) {
                     NSArray *aray = [obj valueForKey:@"data"];
                     if(aray){
                         
                         id recentObj = aray[0];
                         NSString *commentCount = [NSString stringWithFormat:@"%@",[[recentObj valueForKey:@"comments"]valueForKey:@"count"]];
+                        [[NSUserDefaults standardUserDefaults] setObject:commentCount forKey:@"InstagramCommentsCount"];
                         
                         NSString *likesCount = [NSString stringWithFormat:@"%@",[[recentObj valueForKey:@"likes"]valueForKey:@"count"]];
-                        NSLog(@"comment = %@ , \n likes = %@",commentCount,likesCount);
+                        [[NSUserDefaults standardUserDefaults] setObject:likesCount forKey:@"InstagramLikesCount"];
+                        
+//                        NSLog(@"comment = %@ , \n likes = %@",commentCount,likesCount);
                     }
                 }];
                 
@@ -186,10 +188,11 @@
                                                                   options:kNilOptions
                                                                     error:&error];
             
-            [[NSUserDefaults standardUserDefaults] setInteger:[[jDict objectForKey:@"numConnections"] intValue] forKey:@"LiConnections"];
+            [[NSUserDefaults standardUserDefaults] setInteger:[[jDict objectForKey:@"numConnections"] integerValue] forKey:@"LiConnections"];
+//            NSLog(@"%ld",(long)[[NSUserDefaults standardUserDefaults] integerForKey:@"LiConnections"]);
             
-            [[NSUserDefaults standardUserDefaults] setInteger:[[[jDict objectForKey:@"positions"] objectForKey:@"_total"] intValue] forKey:@"LiPositions"];
-            
+            [[NSUserDefaults standardUserDefaults] setInteger:[[[jDict objectForKey:@"positions"] objectForKey:@"_total"] integerValue] forKey:@"LiPositions"];
+//            NSLog(@"%ld",(long)[[NSUserDefaults standardUserDefaults] integerForKey:@"LiPositions"]);
             
             
             [[NSUserDefaults standardUserDefaults] setObject:obj forKey:@"LinkedInAccessToken"];
