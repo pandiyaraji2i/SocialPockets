@@ -72,6 +72,8 @@
 
 #define LINKEDIN_CONNECTIONS           @"LiConnections"
 #define LINKEDIN_JOBS                  @"LiPositions"
+#define LINKEDIN_NEW_CONNECTIONS       @"LiConnectionsNew"
+#define LINKEDIN_NEW_JOBS              @"LiPositionsNew"
 
 //#-- Constant Variables
 

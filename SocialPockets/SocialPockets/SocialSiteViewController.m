@@ -182,22 +182,7 @@
     }
     else if (indexPath.row == 3) { //  for LinkedIn
         [SOCIALMACRO linkedInLoginWithCompletion:^(id obj) {
-            NSData* datum = [obj dataUsingEncoding:NSUTF8StringEncoding];
-            NSError* error;
-            NSDictionary* jDict = [NSJSONSerialization JSONObjectWithData:datum
-                                                                  options:kNilOptions
-                                                                    error:&error];
-            
-            [[NSUserDefaults standardUserDefaults] setInteger:[[jDict objectForKey:@"numConnections"] integerValue] forKey:@"LiConnections"];
-//            NSLog(@"%ld",(long)[[NSUserDefaults standardUserDefaults] integerForKey:@"LiConnections"]);
-            
-            [[NSUserDefaults standardUserDefaults] setInteger:[[[jDict objectForKey:@"positions"] objectForKey:@"_total"] integerValue] forKey:@"LiPositions"];
-//            NSLog(@"%ld",(long)[[NSUserDefaults standardUserDefaults] integerForKey:@"LiPositions"]);
-            
-            
-            [[NSUserDefaults standardUserDefaults] setObject:obj forKey:@"LinkedInAccessToken"];
             [tableView reloadData];
-            //  [self CreateSocialSiteWithSocialSite:@"4"];
         }];
     }
     

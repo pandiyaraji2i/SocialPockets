@@ -222,6 +222,10 @@ static SocialHelper* _sharedInstance = nil;
                                                                                  body:[@"" dataUsingEncoding:NSUTF8StringEncoding]
                                                                               success:^(LISDKAPIResponse *response) {
                                                                                   //NSLog(@"2nd success called %@", response.data);
+                                            [[NSUserDefaults standardUserDefaults] setObject:authtoken forKey:@"LinkedInAccessToken"];
+                                                                                
+
+                                                                                  [self saveLinkedinConnections:response.data];
                                                                                   if (completionBlock) {
                                                                                       completionBlock(response.data);
                                                                                   }
@@ -305,6 +309,64 @@ static SocialHelper* _sharedInstance = nil;
     }];
 }
 
+#pragma mark INSTAGRAM METHODS
+
+
+
+#pragma mark LINKEDIN METHODS
+
+- (void)saveLinkedinConnections:(id)obj
+{
+    if (![[NSUserDefaults standardUserDefaults]boolForKey:@"LinkedInLogged"]) {
+        [SOCIALMACRO createSocialSite:@"4" details:@"Linkedin" completion:^(id obj) {
+            [[NSUserDefaults standardUserDefaults]setBool:YES forKey:@"LinkedInLogged"];
+        }];
+    }
+    
+    NSData* datum = [obj dataUsingEncoding:NSUTF8StringEncoding];
+    NSError *error;
+    NSDictionary* jDict = [NSJSONSerialization JSONObjectWithData:datum
+                                                          options:kNilOptions
+                                                            error:&error];
+    NSInteger totalConnections = [[jDict objectForKey:@"numConnections"] integerValue];
+    NSInteger totalPositions = [[[jDict objectForKey:@"positions"] objectForKey:@"_total"] integerValue];
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSInteger   serverSentValue  =0;
+
+    if ([userDefaults integerForKey:LINKEDIN_CONNECTIONS]>0) {
+        NSInteger   serverSentValue  =0;
+
+        NSInteger oldValue = [userDefaults integerForKey:LINKEDIN_CONNECTIONS];
+        serverSentValue = totalConnections - oldValue;
+        if (serverSentValue>0) {
+            [userDefaults setInteger:totalConnections forKey:LINKEDIN_CONNECTIONS];
+            [userDefaults setInteger:serverSentValue forKey:LINKEDIN_NEW_CONNECTIONS];
+        }else{
+            [userDefaults setInteger:serverSentValue forKey:LINKEDIN_NEW_CONNECTIONS];
+        }
+    }else{
+        [userDefaults setInteger:serverSentValue forKey:LINKEDIN_NEW_CONNECTIONS];
+        [userDefaults setInteger:totalConnections forKey:LINKEDIN_CONNECTIONS];
+    }
+    
+    serverSentValue = 0;
+    if ([userDefaults integerForKey:LINKEDIN_JOBS]>0) {
+        
+        NSInteger oldValue = [userDefaults integerForKey:LINKEDIN_JOBS];
+        serverSentValue = totalPositions - oldValue;
+        if (serverSentValue>0) {
+            [userDefaults setInteger:totalPositions forKey:LINKEDIN_JOBS];
+            [userDefaults setInteger:serverSentValue forKey:LINKEDIN_NEW_JOBS];
+        }else{
+            [userDefaults setInteger:serverSentValue forKey:LINKEDIN_NEW_JOBS];
+        }
+    }else{
+        [userDefaults setInteger:serverSentValue forKey:LINKEDIN_NEW_CONNECTIONS];
+        [userDefaults setInteger:totalPositions forKey:LINKEDIN_JOBS];
+    }
+    [self saveCreditScore:4];
+}
+
 /**
  *  save and send credit score to server
  *
@@ -337,7 +399,7 @@ static SocialHelper* _sharedInstance = nil;
         }
         case 4:
         {
-            socialDict = [@{@"totalconnection":[NSNumber numberWithInt:10],@"jobs":[NSNumber numberWithInt:15]}mutableCopy];
+            socialDict = [@{@"totalconnection":[NSNumber numberWithInteger:[userDefaults integerForKey:LINKEDIN_NEW_CONNECTIONS]],@"jobs":[NSNumber numberWithInteger:[userDefaults integerForKey:LINKEDIN_NEW_JOBS]]}mutableCopy];
             socialKey = @"linkedin";
             break;
         }
