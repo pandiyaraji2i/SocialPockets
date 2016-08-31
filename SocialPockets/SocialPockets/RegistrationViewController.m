@@ -127,18 +127,18 @@
 
 - (IBAction)profileImageAction:(id)sender
 {
-    CameraViewController *vc =[[CameraViewController alloc]initwithController];
-    [vc openCamera:0];
-    [self.navigationController presentViewController:vc animated:NO completion:nil];
-    vc.imageSelect = ^(id obj){
-        if (obj && [obj isKindOfClass:[UIImage class]]) {
-            profileImage = obj;
-            [self.profileImageBtn setImage:profileImage forState:UIControlStateNormal];
-        }
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self dismissViewControllerAnimated:NO completion:nil];
-        });
-    };
+//    CameraViewController *vc =[[CameraViewController alloc]initwithController];
+//    [vc openCamera:0];
+//    [self.navigationController presentViewController:vc animated:NO completion:nil];
+//    vc.imageSelect = ^(id obj){
+//        if (obj && [obj isKindOfClass:[UIImage class]]) {
+//            profileImage = obj;
+//            [self.profileImageBtn setImage:profileImage forState:UIControlStateNormal];
+//        }
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            [self dismissViewControllerAnimated:NO completion:nil];
+//        });
+//    };
 }
 
 - (IBAction)termsCheckBoxTapped:(id)sender {
@@ -148,9 +148,9 @@
 
 - (IBAction)onRegisterAction:(id)sender {
 #warning need to remove
-//    SocialSiteViewController *socialVc =[self.storyboard instantiateViewControllerWithIdentifier:@"SocialVc"];
-//    [self.navigationController pushViewController:socialVc animated:YES];
-//    return;
+    SocialSiteViewController *socialVc =[self.storyboard instantiateViewControllerWithIdentifier:@"SocialVc"];
+    [self.navigationController pushViewController:socialVc animated:YES];
+    return;
     
     if(!firstNameTextField.text.length || !emailTextField.text.length || !phoneNumberTextField.text.length || !usernameTextField.text.length || !passwordTextField.text.length || !confirmPasswordTextField.text.length)
     {
@@ -276,6 +276,8 @@
         [self.aadharCardBtn setImage:[UIImage imageNamed:@"circleChecked"] forState:UIControlStateNormal];
         
     };
+    
+        
     
 }
 //PAN card image tapped

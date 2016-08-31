@@ -130,7 +130,8 @@
             [[NSUserDefaults standardUserDefaults] setObject:[[obj token] tokenString] forKey:@"FacebookAccessToken"];
             NSLog(@"fb token ==%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"FacebookAccessToken"]);
             [tableView reloadData];
-            [self dataFetchForUser:obj];
+            [self getLikesCount];
+            //[self dataFetchForUser:obj];
             //[self CreateSocialSiteWithSocialSite:@"1"];
         }];
     }
@@ -138,7 +139,10 @@
         [SOCIALMACRO twitterLoginWithCompletion:^(id obj) {
             [[NSUserDefaults standardUserDefaults] setObject:[obj authTokenSecret] forKey:@"TwitterAccessToken"];
             [tableView reloadData];
-           // [self getTwitterFollowersListForUserID:[obj userID]];
+            NSLog(@" userid === %@",[obj userID]);
+            [self getTwitterListFor:@"friendsList" WIthUserID:[obj userID]];
+            //[self getTwitterListFor:@"followersList" WIthUserID:[obj userID]];
+            
             //[self CreateSocialSiteWithSocialSite:@"2"];
             
         }];
@@ -151,7 +155,7 @@
         IGloginVc.onLogin = ^(id obj){
             [[NSUserDefaults standardUserDefaults] setObject:obj forKey:@"InstagramAccessToken"];
             [tableView reloadData];
-
+            
             NSLog(@"Auth Token %@",obj);
             [SOCIALMACRO instagramLoginWithUserToken:obj WithCompletion:^(id obj) {
                 //NSLog(@"Fetch Data %@",obj);
@@ -167,7 +171,7 @@
         [SOCIALMACRO linkedInLoginWithCompletion:^(id obj) {
             [[NSUserDefaults standardUserDefaults] setObject:obj forKey:@"LinkedInAccessToken"];
             [tableView reloadData];
-          //  [self CreateSocialSiteWithSocialSite:@"4"];
+            //  [self CreateSocialSiteWithSocialSite:@"4"];
         }];
     }
     
@@ -200,9 +204,20 @@
 
 # pragma Mark Get followers list
 
--(void)getTwitterFollowersListForUserID:(NSString *)userid{
-    //NSString *statusesShowEndpoint = @"https://api.twitter.com/1.1/followers/list.json";
-    NSString *statusesShowEndpoint = @"https://api.twitter.com/1.1/friends/list.json";
+-(void)getTwitterListFor:(NSString *)list WIthUserID:(NSString *)userid{
+    NSString *statusesShowEndpoint;
+    NSString *userDefaultsKey;
+    int updateFollower;
+    
+    if ([list isEqualToString:@"friendsList"]) {
+        statusesShowEndpoint = @"https://api.twitter.com/1.1/friends/list.json";
+        userDefaultsKey = @"twitterFriendsCount";
+        updateFollower = 1;
+    }else if([list isEqualToString:@"followersList"]){
+        statusesShowEndpoint = @"https://api.twitter.com/1.1/followers/list.json";
+        userDefaultsKey = @"twitterFollowersCount";
+        updateFollower = 2;
+    }
     NSDictionary *params = @{@"id" : userid};
     NSError *clientError;
     TWTRAPIClient *client = [[TWTRAPIClient alloc] initWithUserID:userid];
@@ -210,12 +225,26 @@
     // if (request) {
     [client sendTwitterRequest:request completion:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
         if (data) {
-            // handle the response data e.g.
             NSError *jsonError;
             NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonError];
-            NSLog(@"%@",json);
-            NSLog(@"followers List %lu",(unsigned long)[[json valueForKey:@"users"] count]);
-            
+            int twitterFriendsCount = [[json valueForKey:@"users"] count];
+            int  serverSentValue;
+            if ([[NSUserDefaults standardUserDefaults] integerForKey:userDefaultsKey]) {
+                int oldValue = [[NSUserDefaults standardUserDefaults] integerForKey:userDefaultsKey];
+                serverSentValue = twitterFriendsCount - oldValue;
+                if (serverSentValue>0) {
+                    //server API call
+                }else{
+                    
+                }
+            }else{
+                //API call with twitter friends Count
+            }
+            [[NSUserDefaults standardUserDefaults] setInteger:twitterFriendsCount forKey:userDefaultsKey];
+            if (updateFollower == 1) {
+                [self getTwitterListFor:@"followersList" WIthUserID:userid];
+                
+            }
         }
         else {
             NSLog(@"Error: %@", connectionError);
@@ -240,6 +269,95 @@
          }];
     }
 }
+
+-(void)getLikesCount{
+    FBSDKGraphRequest *request = [[FBSDKGraphRequest alloc]
+                                  initWithGraphPath:@"/me"
+                                  parameters:@{ @"fields": @"albums,friends",}
+                                  HTTPMethod:@"GET"];
+    [request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
+        
+        //code to get friends count
+        int friendsCount = [[[[result objectForKey:@"friends"] objectForKey:@"summary"] objectForKey:@"total_count"] intValue];
+        
+        int  serverSentFriendsCount;
+        
+        //code for likes Count
+        if ([[NSUserDefaults standardUserDefaults] integerForKey:@"FBFriendsCount"]) {
+            int oldValue = [[NSUserDefaults standardUserDefaults] integerForKey:@"FBFriendsCount"];
+            serverSentFriendsCount = friendsCount - oldValue;
+            if (serverSentFriendsCount>0) {
+                //server API call
+            }else{
+                
+            }
+        }else{
+            //API call with twitter friends Count
+        }
+        [[NSUserDefaults standardUserDefaults] setInteger:friendsCount forKey:@"FBFriendsCount"];
+
+        
+
+        FBSDKGraphRequest *request = [[FBSDKGraphRequest alloc]
+                                      initWithGraphPath:[NSString stringWithFormat:@"/%@",[[[[result objectForKey:@"albums"] objectForKey:@"data"] objectAtIndex:0] objectForKey:@"id"]]
+                                      parameters:@{ @"fields": @"photos",}
+                                      HTTPMethod:@"GET"];
+        [request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
+            // Insert your code here
+            FBSDKGraphRequest *request = [[FBSDKGraphRequest alloc]
+                                          initWithGraphPath:[NSString stringWithFormat:@"/%@",[[[[result objectForKey:@"photos"] objectForKey:@"data"] objectAtIndex:0] objectForKey:@"id"]]
+                                          parameters:@{ @"fields": @"likes,comments",}
+                                          HTTPMethod:@"GET"];
+            [request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
+                // Insert your code here
+                int likesCount = [[[result objectForKey:@"likes"] objectForKey:@"data"] count];
+                int commentsCount = [[[result objectForKey:@"comments"] objectForKey:@"data"] count];
+
+                int  serverSentLikeValue;
+                int  serverSentcommentValue;
+                
+                //code for likes Count
+                if ([[NSUserDefaults standardUserDefaults] integerForKey:@"FBLikesCount"]) {
+                    int oldValue = [[NSUserDefaults standardUserDefaults] integerForKey:@"FBLikesCount"];
+                    serverSentLikeValue = likesCount - oldValue;
+                    if (serverSentLikeValue>0) {
+                        //server API call
+                    }else{
+                        
+                    }
+                }else{
+                    //API call with twitter friends Count
+                }
+                [[NSUserDefaults standardUserDefaults] setInteger:likesCount forKey:@"FBLikesCount"];
+                
+                //code for comments count
+                
+                if ([[NSUserDefaults standardUserDefaults] integerForKey:@"FBCommentsCount"]) {
+                    int oldValue = [[NSUserDefaults standardUserDefaults] integerForKey:@"FBCommentsCount"];
+                    serverSentLikeValue = commentsCount - oldValue;
+                    if (serverSentcommentValue>0) {
+                        //server API call
+                    }else{
+                        
+                    }
+                }else{
+                    //API call with twitter friends Count
+                }
+                [[NSUserDefaults standardUserDefaults] setInteger:commentsCount forKey:@"FBCommentsCount"];
+                
+            }];
+            
+        }];
+        
+        // Insert your code here
+    }];
+}
+
+
+-(void)getFriendsCount{
+}
+
+
 
 - (IBAction)nextBtnTapped:(id)sender {
     ProgressViewController *progressVc =[self.storyboard instantiateViewControllerWithIdentifier:@"ProgressVc"];
