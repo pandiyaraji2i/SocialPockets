@@ -185,12 +185,28 @@ static SocialHelper* _sharedInstance = nil;
     }
 }
 
+- (void)instagramDetailWithUserToken:(id)token WithCompletion:(void (^)(id obj))completionBlock
+{
+    if ([NetworkHelperClass getInternetStatus:YES]) {
+        NSString *urlString = [NSString stringWithFormat:@"%@%@",INSTAGRAM_DETAILURL,token];
+        [NetworkHelperClass sendAsynchronousRequestToServer:urlString httpMethod:GET requestBody:nil contentType:JSONCONTENTTYPE completion:^(id obj) {
+            if(completionBlock){
+                completionBlock(obj);
+            }
+        }];
+    }else{
+        if (completionBlock) {
+            completionBlock(nil);
+        }
+    }
+}
+
 #pragma mark LinkedIn Methods
 
 - (void)linkedInLoginWithCompletion:(void (^)(id obj))completionBlock
 {
-    __block NSString *reqURL = [NSString stringWithFormat:@"https://www.linkedin.com/v1/people/~:(id,first-name,last-name,headline,num-connections,picture-url,industry,summary,specialties,positions:(id,title,summary,start-date,end-date,is-current,company:(id,name,type,size,industry,ticker)),skills:(id,skill:(name)),three-current-positions,three-past-positions,volunteer)?format=json"];
-    [LISDKSessionManager createSessionWithAuth:[NSArray arrayWithObjects:LISDK_BASIC_PROFILE_PERMISSION,LISDK_EMAILADDRESS_PERMISSION,nil]
+    __block NSString *reqURL = [NSString stringWithFormat:@"https://api.linkedin.com/v1/people/~:(id,num-connections,picture-url,positions)?format=json"];
+  [LISDKSessionManager createSessionWithAuth:[NSArray arrayWithObjects:LISDK_BASIC_PROFILE_PERMISSION,LISDK_EMAILADDRESS_PERMISSION,nil]
                                          state:@"some state"
                         showGoToAppStoreDialog:YES
                                   successBlock:^(NSString *returnState) {

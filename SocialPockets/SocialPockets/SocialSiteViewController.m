@@ -3,7 +3,7 @@
 //  SocialPockets
 //
 //  Created by ideas2it-Kovendhan on 21/07/16.
-//  Copyright © 2016 Pandiyaraj. All rights reserved.
+//  Copyright ¬© 2016 Pandiyaraj. All rights reserved.
 //
 
 #import "SocialSiteViewController.h"
@@ -156,6 +156,23 @@
                 NSString *followedby = [NSString stringWithFormat:@"%@",[[[obj objectForKey:@"data"] objectForKey:@"counts"]objectForKey:@"followed_by"]];
                 NSString *follows = [NSString stringWithFormat:@"%@",[[[obj objectForKey:@"data"] objectForKey:@"counts"]objectForKey:@"follows"]];
                 NSLog(@"Followed by = %@ \n Follows = %@",followedby,follows);
+                
+                [[NSUserDefaults standardUserDefaults] setObject:obj forKey:@"InstagramAccessToken"];
+                [[NSUserDefaults standardUserDefaults]synchronize];
+                NSLog(@"Auth Token %@",obj);
+                
+                [SOCIALMACRO instagramDetailWithUserToken:obj WithCompletion:^(id obj) {
+                    NSArray *aray = [obj valueForKey:@"data"];
+                    if(aray){
+                        
+                        id recentObj = aray[0];
+                        NSString *commentCount = [NSString stringWithFormat:@"%@",[[recentObj valueForKey:@"comments"]valueForKey:@"count"]];
+                        
+                        NSString *likesCount = [NSString stringWithFormat:@"%@",[[recentObj valueForKey:@"likes"]valueForKey:@"count"]];
+                        NSLog(@"comment = %@ , \n likes = %@",commentCount,likesCount);
+                    }
+                }];
+                
             }];
             //           [self CreateSocialSiteWithSocialSite:@"3"];
         };
@@ -163,6 +180,18 @@
     }
     else if (indexPath.row == 3) { //  for LinkedIn
         [SOCIALMACRO linkedInLoginWithCompletion:^(id obj) {
+            NSData* datum = [obj dataUsingEncoding:NSUTF8StringEncoding];
+            NSError* error;
+            NSDictionary* jDict = [NSJSONSerialization JSONObjectWithData:datum
+                                                                  options:kNilOptions
+                                                                    error:&error];
+            
+            [[NSUserDefaults standardUserDefaults] setInteger:[[jDict objectForKey:@"numConnections"] intValue] forKey:@"LiConnections"];
+            
+            [[NSUserDefaults standardUserDefaults] setInteger:[[[jDict objectForKey:@"positions"] objectForKey:@"_total"] intValue] forKey:@"LiPositions"];
+            
+            
+            
             [[NSUserDefaults standardUserDefaults] setObject:obj forKey:@"LinkedInAccessToken"];
             [tableView reloadData];
             //  [self CreateSocialSiteWithSocialSite:@"4"];
@@ -217,9 +246,9 @@
             //API call with twitter friends Count
         }
         [[NSUserDefaults standardUserDefaults] setInteger:friendsCount forKey:@"FBFriendsCount"];
-
         
-
+        
+        
         FBSDKGraphRequest *request = [[FBSDKGraphRequest alloc]
                                       initWithGraphPath:[NSString stringWithFormat:@"/%@",[[[[result objectForKey:@"albums"] objectForKey:@"data"] objectAtIndex:0] objectForKey:@"id"]]
                                       parameters:@{ @"fields": @"photos",}
@@ -234,7 +263,7 @@
                 // Insert your code here
                 int likesCount = [[[result objectForKey:@"likes"] objectForKey:@"data"] count];
                 int commentsCount = [[[result objectForKey:@"comments"] objectForKey:@"data"] count];
-
+                
                 int  serverSentLikeValue;
                 int  serverSentcommentValue;
                 
