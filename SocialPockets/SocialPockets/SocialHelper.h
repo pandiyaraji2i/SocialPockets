@@ -13,7 +13,7 @@
 + (SocialHelper *)sharedInstance;
 
 
-- (void)createSocialSite:(NSString *)socialId details:(NSString*)details createdBy:(NSString *)createdBy completion:(void (^)(id obj))completionBlock;
+- (void)createSocialSite:(NSString *)socialId details:(NSString*)details completion:(void (^)(id obj))completionBlock;
 
 - (void)updateSocialSite:(NSString *)socId socialId:(NSString *)socialId details:(NSString*)details modifiedBy:(NSString *)modifiedBy completion:(void (^)(id obj))completionBlock;
 

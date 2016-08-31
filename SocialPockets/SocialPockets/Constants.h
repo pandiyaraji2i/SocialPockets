@@ -49,22 +49,29 @@
 #define JSONCONTENTTYPE       @"application/json"
 #define MULTIPARTFORMDATA     @"application/"
 
-#define MAX_ACCOUNT  3
-#define INDIANRUPEES_UNICODE @"\u20B9"
-#define SAND_CLOCK @"\u231B"
+#define MAX_ACCOUNT             3
+#define INDIANRUPEES_UNICODE    @"\u20B9"
+#define SAND_CLOCK              @"\u231B"
 
 
 //#-- USERDEFAULTS
 
-#define USERID @"User_ID"
-#define USERNAME @"User_Name"
-#define USEREMAIL @"User_Email"
-#define TWITTER_FOLLOWERS @"twitterFollowersCount"
-#define TWITTER_FRIENDS @"twitterFriendsCount"
-#define TWITTER_NEW_FOLLOWERS @"followersServerListCount"
-#define TWITTER_NEW_FRIENDS @"friendsServerListCount"
+#define USERID                         @"User_ID"
+#define USERNAME                       @"User_Name"
+#define USEREMAIL                      @"User_Email"
+#define TWITTER_FOLLOWERS              @"twitterFollowersCount"
+#define TWITTER_FRIENDS                @"twitterFriendsCount"
+#define TWITTER_NEW_FOLLOWERS          @"followersServerListCount"
+#define TWITTER_NEW_FRIENDS            @"friendsServerListCount"
 
 
+
+//#-- Constant Variables
+
+#define FACEBOOK_ID   @"1"
+#define TWITTER_ID    @"2"
+#define INSTAGRAM_ID  @"3"
+#define LINKEDIN_ID   @"4"
 
 //#-- APP Ids
 

@@ -137,14 +137,8 @@
     }
     else if (indexPath.row == 1) {         //  for Twitter
         [SOCIALMACRO twitterLoginWithCompletion:^(id obj) {
-            [[NSUserDefaults standardUserDefaults] setObject:[obj authTokenSecret] forKey:@"TwitterAccessToken"];
             [tableView reloadData];
             NSLog(@" userid === %@",[obj userID]);
-            [SOCIALMACRO getTwitterListFor:@"friendsList" WIthUserID:[obj userID]];
-            //[self getTwitterListFor:@"followersList" WIthUserID:[obj userID]];
-            
-            [self CreateSocialSiteWithSocialSite:@"2"];
-            
         }];
     }
     else if (indexPath.row == 2) { //  for Instagram
@@ -179,30 +173,6 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 60;
 }
-
--(void)CreateSocialSiteWithSocialSite:(NSString*)socialSiteId{
-    [SOCIALMACRO createSocialSite:socialSiteId details:@"just to test" createdBy:@"25" completion:^(id obj) {
-        NSLog( @"socail site created: %@",obj);
-    }];
-}
-
-- (IBAction)CreateSocialSiteBtnTapped:(id)sender {
-    [SOCIALMACRO createSocialSite:@"3" details:@"just to test" createdBy:@"25" completion:^(id obj) {
-        NSLog( @"socail site created: %@",obj);
-    }];
-}
-- (IBAction)ViewSocialSiteBtnTapped:(id)sender {
-    [SOCIALMACRO viewSocialSiteWithCompletion:^(id obj) {
-        NSLog( @"socail site list: %@",obj);
-    }];
-}
-- (IBAction)UpdateSocialSiteBtnTapped:(id)sender {
-    [SOCIALMACRO updateSocialSite:@"2" socialId:@"3" details:@"test by ko" modifiedBy:@"25" completion:^(id obj) {
-        NSLog(@"updated social sites: %@",obj);
-    }];
-}
-
-
 
 # pragma Mark Get FaceBook list Details
 

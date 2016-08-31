@@ -45,10 +45,10 @@ static SocialHelper* _sharedInstance = nil;
  *  @param createdBy       created by
  *  @param completionBlock response block
  */
-- (void)createSocialSite:(NSString *)socialId details:(NSString*)details createdBy:(NSString *)createdBy completion:(void (^)(id obj))completionBlock
+- (void)createSocialSite:(NSString *)socialId details:(NSString*)details completion:(void (^)(id obj))completionBlock
 {
     if ([NetworkHelperClass getInternetStatus:YES]) {
-        NSMutableDictionary *dict = [@{@"user_id":[[NSUserDefaults standardUserDefaults] valueForKey:USERID],@"social_id":socialId,@"details":details,@"created_by":createdBy} mutableCopy];
+        NSMutableDictionary *dict = [@{@"user_id":USERINFO.userId,@"social_id":socialId,@"details":details,@"created_by":USERINFO.userId} mutableCopy];
         //        NSMutableDictionary *dict = [@{@"user_id":[[NSUserDefaults standardUserDefaults]valueForKey:@"userid"],@"social_id":socialId,@"details":details,@"created_by":createdBy} mutableCopy];
         [NetworkHelperClass sendAsynchronousRequestToServer:@"createsocialsites" httpMethod:POST requestBody:dict contentType:JSONCONTENTTYPE completion:^(id obj) {
             if (completionBlock) {
@@ -146,10 +146,19 @@ static SocialHelper* _sharedInstance = nil;
     [[Twitter sharedInstance] logInWithCompletion:^(TWTRSession *session, NSError *error) {
         if (session) {
             NSLog(@"signed in as %@", [session userName]);
+            [[NSUserDefaults standardUserDefaults] setObject:[session authTokenSecret] forKey:@"TwitterAccessToken"];
+//            if (![[NSUserDefaults standardUserDefaults] boolForKey:@"TwitterLoggedIn"]) {
+//                [SOCIALMACRO createSocialSite:TWITTER_ID details:@"Twitter" completion:^(id obj) {
+//                    [self getTwitterListFor:@"friendsList" WIthUserID:[session userID]];
+//                }];
+//            }else{
+                [self getTwitterListFor:@"friendsList" WIthUserID:[session userID]];
+//            }
+            [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"TwitterLoggedIn"];
             if (completionBlock) {
                 completionBlock(session);
             }
-            //[self CreateSocialSiteWithSocialSite:@"2"];
+            
         } else {
             NSLog(@"error: %@", [error localizedDescription]);
             if (completionBlock) {
@@ -158,6 +167,7 @@ static SocialHelper* _sharedInstance = nil;
         }
     }];
 }
+
 #pragma mark Instagram Methods
 - (void)instagramLoginWithUserToken:(id)token WithCompletion:(void (^)(id obj))completionBlock
 {
@@ -229,12 +239,12 @@ static SocialHelper* _sharedInstance = nil;
     int updateFollower;
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     if ([list isEqualToString:@"friendsList"]) {
-        statusesShowEndpoint = @"https://api.twitter.com/1.1/friends/list.json";
+        statusesShowEndpoint = @"https://api.twitter.com/1.1/friends/ids.json?count=4999";
         userDefaultsKey = TWITTER_FRIENDS;
         serverUserDefaultsKey = TWITTER_NEW_FRIENDS;
         updateFollower = 1;
     }else if([list isEqualToString:@"followersList"]){
-        statusesShowEndpoint = @"https://api.twitter.com/1.1/followers/list.json";
+        statusesShowEndpoint = @"https://api.twitter.com/1.1/followers/ids.json?count=4999";
         userDefaultsKey = TWITTER_FOLLOWERS;
         serverUserDefaultsKey = TWITTER_NEW_FOLLOWERS;
         updateFollower = 2;
@@ -248,7 +258,7 @@ static SocialHelper* _sharedInstance = nil;
         if (data) {
             NSError *jsonError;
             NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonError];
-            NSInteger twitterFriendsCount = [[json valueForKey:@"users"] count];
+            NSInteger twitterFriendsCount = [[json valueForKey:@"ids"] count];
             NSInteger   serverSentValue  =0;
             if ([userDefaults integerForKey:userDefaultsKey]) {
                 NSInteger oldValue = [userDefaults integerForKey:userDefaultsKey];
@@ -322,6 +332,9 @@ static SocialHelper* _sharedInstance = nil;
     [PROFILEMACRO saveCreditScore:dict completion:^(id obj) {
         if ([obj isKindOfClass:[NSDictionary class]]) {
             //#-- send post notification to update credit score
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+            });
         }else{
             
         }

@@ -254,14 +254,14 @@
             {
                 [SOCIALMACRO facebookLoginWithCompletion:^(id obj) {
                     NSLog(@"FaceBook login Success");
-                    [self CreateSocialSiteWithSocialSite:@"1"];
+//                    [self CreateSocialSiteWithSocialSite:@"1"];
                 } ];
             }
                 break;
             case 1:{
                 [SOCIALMACRO twitterLoginWithCompletion:^(id obj) {
                     NSLog(@"Twitter login Success");
-                    [self CreateSocialSiteWithSocialSite:@"2"];
+                    //#-- Change selected color
                 }];
             }
                 break;
@@ -305,16 +305,6 @@
     
     
 }
-
-#pragma mark Creation of socialSiteId
-
--(void)CreateSocialSiteWithSocialSite:(NSString*)socialSiteId{
-    [SOCIALMACRO createSocialSite:socialSiteId details:@"just to test" createdBy:@"25" completion:^(id obj) {
-        NSLog( @"socail site created: %@",obj);
-    }];
-}
-
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

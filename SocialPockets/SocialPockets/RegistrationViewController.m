@@ -147,11 +147,6 @@
 }
 
 - (IBAction)onRegisterAction:(id)sender {
-#warning need to remove
-    SocialSiteViewController *socialVc =[self.storyboard instantiateViewControllerWithIdentifier:@"SocialVc"];
-    [self.navigationController pushViewController:socialVc animated:YES];
-    return;
-    
     if(!firstNameTextField.text.length || !emailTextField.text.length || !phoneNumberTextField.text.length || !usernameTextField.text.length || !passwordTextField.text.length || !confirmPasswordTextField.text.length)
     {
         ErrorMessageWithTitle(@"Message",@"Please enter all fields");
