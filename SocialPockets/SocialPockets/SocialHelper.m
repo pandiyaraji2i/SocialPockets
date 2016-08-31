@@ -607,7 +607,7 @@ static SocialHelper* _sharedInstance = nil;
     switch (socialMediaType) {
         case 1:
         {
-            socialDict = [@{@"photolikes":[NSNumber numberWithInt:[[NSUserDefaults standardUserDefaults] integerForKey:FB_NEW_LIKES]],@"photocomments":[NSNumber numberWithInt:[[NSUserDefaults standardUserDefaults] integerForKey:FB_NEW_COMMENTS]],@"newfriends":[NSNumber numberWithInt:[[NSUserDefaults standardUserDefaults] integerForKey:FB_NEW_FRIENDS]],@"newallpost":[NSNumber numberWithInt:[[NSUserDefaults standardUserDefaults] integerForKey:FB_NEW_POSTS]]}mutableCopy];
+            socialDict = [@{@"photolikes":[NSNumber numberWithInteger:[[NSUserDefaults standardUserDefaults] integerForKey:FB_NEW_LIKES]],@"photocomments":[NSNumber numberWithInteger:[[NSUserDefaults standardUserDefaults] integerForKey:FB_NEW_COMMENTS]],@"newfriends":[NSNumber numberWithInteger:[[NSUserDefaults standardUserDefaults] integerForKey:FB_NEW_FRIENDS]],@"newallpost":[NSNumber numberWithInteger:[[NSUserDefaults standardUserDefaults] integerForKey:FB_NEW_POSTS]]}mutableCopy];
             socialKey = @"facebook";
             break;
         }
@@ -619,7 +619,7 @@ static SocialHelper* _sharedInstance = nil;
         }
         case 3:
         {
-            socialDict = [@{@"newfollowers":[NSNumber numberWithInt:10],@"photolikes":[NSNumber numberWithInt:15],@"photocomments":[NSNumber numberWithInt:15]}mutableCopy];
+            socialDict = [@{@"newfollowers":[NSNumber numberWithInteger:[userDefaults integerForKey:INSTAGRAM_NEW_FOLLOWERS]],@"photolikes":[NSNumber numberWithInteger:[userDefaults integerForKey:INSTAGRAM_NEW_LIKES]],@"photocomments":[NSNumber numberWithInteger:[userDefaults integerForKey:INSTAGRAM_NEW_COMMENTS]],@"newmutualfriends":[NSNumber numberWithInteger:[userDefaults integerForKey:INSTAGRAM_NEW_FOLLOWEDBY]]}mutableCopy];
             socialKey = @"instagram";
             break;
         }
