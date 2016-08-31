@@ -39,7 +39,7 @@
 
 
 //#--  HTTP HEADERS
-#define GET     @"GET" 
+#define GET     @"GET"
 #define POST    @"POST"
 #define PUT     @"PUT"
 #define DELETE  @"DELETE"
@@ -59,6 +59,15 @@
 #define USERID                         @"User_ID"
 #define USERNAME                       @"User_Name"
 #define USEREMAIL                      @"User_Email"
+
+#define FB_LIKES                        @"FBLikesCount"
+#define FB_NEW_LIKES                    @"FBLikesServerCount"
+#define FB_FRIENDS                      @"FBFriendsCount"
+#define FB_NEW_FRIENDS                  @"FBFriendsServerCount"
+#define FB_COMMENTS                     @"FBCommentsCount"
+#define FB_NEW_COMMENTS                 @"FBCommentsServerCount"
+#define FB_POSTS                        @"FBPostCount"
+#define FB_NEW_POSTS                    @"FBPostServerCount"
 
 #define TWITTER_FOLLOWERS              @"twitterFollowersCount"
 #define TWITTER_FRIENDS                @"twitterFriendsCount"
