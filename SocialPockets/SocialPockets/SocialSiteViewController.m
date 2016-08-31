@@ -141,6 +141,7 @@
             NSLog(@" userid === %@",[obj userID]);
         }];
     }
+    
     else if (indexPath.row == 2) { //  for Instagram
         
         IGLoginViewController *IGloginVc = [self.storyboard instantiateViewControllerWithIdentifier:@"IGLoginView"];
@@ -152,34 +153,17 @@
             
             NSLog(@"Auth Token %@",obj);
             [SOCIALMACRO instagramLoginWithUserToken:obj WithCompletion:^(id obj) {
-                //NSLog(@"Fetch Data %@",obj);
-                NSString *followedby = [NSString stringWithFormat:@"%@",[[[obj objectForKey:@"data"] objectForKey:@"counts"]objectForKey:@"followed_by"]];
-                [[NSUserDefaults standardUserDefaults] setObject:followedby forKey:@"Instagramfollowedby"];
-                NSString *follows = [NSString stringWithFormat:@"%@",[[[obj objectForKey:@"data"] objectForKey:@"counts"]objectForKey:@"follows"]];
-                [[NSUserDefaults standardUserDefaults] setObject:follows forKey:@"Instagramfollows"];
-//                NSLog(@"Followed by = %@ \n Follows = %@",followedby,follows);
-                
-                
                 [SOCIALMACRO instagramDetailWithUserToken:[[NSUserDefaults standardUserDefaults] valueForKey:@"InstagramAccessToken"] WithCompletion:^(id obj) {
-                    NSArray *aray = [obj valueForKey:@"data"];
-                    if(aray){
-                        
-                        id recentObj = aray[0];
-                        NSString *commentCount = [NSString stringWithFormat:@"%@",[[recentObj valueForKey:@"comments"]valueForKey:@"count"]];
-                        [[NSUserDefaults standardUserDefaults] setObject:commentCount forKey:@"InstagramCommentsCount"];
-                        
-                        NSString *likesCount = [NSString stringWithFormat:@"%@",[[recentObj valueForKey:@"likes"]valueForKey:@"count"]];
-                        [[NSUserDefaults standardUserDefaults] setObject:likesCount forKey:@"InstagramLikesCount"];
-                        
-//                        NSLog(@"comment = %@ , \n likes = %@",commentCount,likesCount);
-                    }
+                    
+                    
+                    
                 }];
                 
             }];
-            //           [self CreateSocialSiteWithSocialSite:@"3"];
         };
         
     }
+    
     else if (indexPath.row == 3) { //  for LinkedIn
         [SOCIALMACRO linkedInLoginWithCompletion:^(id obj) {
             [tableView reloadData];

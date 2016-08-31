@@ -66,9 +66,14 @@
 #define TWITTER_NEW_FRIENDS            @"friendsServerListCount"
 
 #define INSTAGRAM_FOLLOWERS            @"Instagramfollows"
+#define INSTAGRAM_NEW_FOLLOWERS        @"InstagramfollowsNew"
 #define INSTAGRAM_FOLLOWEDBY           @"Instagramfollowedby"
+#define INSTAGRAM_NEW_FOLLOWEDBY       @"InstagramfollowedbyNew"
 #define INSTAGRAM_COMMENTS             @"InstagramCommentsCount"
+#define INSTAGRAM_NEW_COMMENTS         @"InstagramCommentsCountNew"
 #define INSTAGRAM_LIKES                @"InstagramLikesCount"
+#define INSTAGRAM_NEW_LIKES            @"InstagramLikesCountNew"
+
 
 #define LINKEDIN_CONNECTIONS           @"LiConnections"
 #define LINKEDIN_JOBS                  @"LiPositions"
