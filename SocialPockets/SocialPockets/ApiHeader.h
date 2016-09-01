@@ -53,4 +53,9 @@
 #import "UserDetails.h"
 #import "TransactionHistory.h"
 
+
+//******************* Citrus  classes ***************************//
+
+#import <CitrusPay/CitrusPay.h>
+
 #endif /* ApiHeader_h */

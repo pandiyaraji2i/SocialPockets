@@ -14,6 +14,7 @@
 
 //#define BASEURL @"http://192.168.1.185:8000"
 #define BASEURL @"http://128.199.150.145:8000"
+#define PRODUCTIONMODE NO
 
 
 //#-- Device Types
@@ -102,4 +103,21 @@
 #define INSTAGRAM_APPID @"15ee4b177c6d4817aa9a82fac4b6b955"
 #define FACEBOOK_APPID @"1543324899307513"
 #define TWITTER_APPID @""
+
+
+//#-- Citrus Merchant Constants
+
+#define SignInId (PRODUCTIONMODE)?:@"bkhy5lnqsg-signin"
+#define SignInSecretKey (PRODUCTIONMODE)?:@"3a26f6d622c193407578a12e1ec1ee62"
+#define SubscriptionId (PRODUCTIONMODE)?:@"bkhy5lnqsg-signup"
+#define SubscriptionSecretKey (PRODUCTIONMODE)?:@"85884d51524b8465811766d902201508"
+
+/*
+ set your Vanity / Bill / Return URL
+ */
+#define VanityUrl (PRODUCTIONMODE)?:@"bkhy5lnqsg"
+#define LoadWalletReturnUrl (PRODUCTIONMODE)?:@"https://salty-plateau-1529.herokuapp.com/redirectURL.sandbox.php"
+#define BillUrl (PRODUCTIONMODE)?:@"https://salty-plateau-1529.herokuapp.com/billGenerator.sandbox.php"
+
+
 #endif /* Constants_h */

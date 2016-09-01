@@ -103,6 +103,12 @@
 		A3D65AB41D463A0F00B47E46 /* sp logo.png in Resources */ = {isa = PBXBuildFile; fileRef = A3D65AB21D463A0F00B47E46 /* sp logo.png */; };
 		A3DB484C1D4F8B180047EDF2 /* TransactionHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3DB484B1D4F8B180047EDF2 /* TransactionHistoryViewController.m */; };
 		A3EAA2B41D4762210013A952 /* AddBankAccountController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3EAA2B31D4762210013A952 /* AddBankAccountController.m */; };
+		A3FA9B5E1D78441000F45E18 /* CardsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3FA9B5D1D78441000F45E18 /* CardsViewController.m */; };
+		A3FA9B671D78443000F45E18 /* AutoloadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3FA9B601D78443000F45E18 /* AutoloadViewController.m */; };
+		A3FA9B681D78443000F45E18 /* HMSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = A3FA9B621D78443000F45E18 /* HMSegmentedControl.m */; };
+		A3FA9B691D78443000F45E18 /* UICustomButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A3FA9B641D78443000F45E18 /* UICustomButton.m */; };
+		A3FA9B6A1D78443000F45E18 /* UICustomTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = A3FA9B661D78443000F45E18 /* UICustomTextField.m */; };
+		A3FA9B6D1D78447700F45E18 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3FA9B6C1D78447700F45E18 /* BaseViewController.m */; };
 		FB0342F31D54AE4C00C11019 /* NotificationBG.png in Resources */ = {isa = PBXBuildFile; fileRef = FB0342EF1D54AE4C00C11019 /* NotificationBG.png */; };
 		FB0342F41D54AE4C00C11019 /* NotificationBG4S.png in Resources */ = {isa = PBXBuildFile; fileRef = FB0342F01D54AE4C00C11019 /* NotificationBG4S.png */; };
 		FB0342F51D54AE4C00C11019 /* NotificationBG6S.png in Resources */ = {isa = PBXBuildFile; fileRef = FB0342F11D54AE4C00C11019 /* NotificationBG6S.png */; };
@@ -323,6 +329,18 @@
 		A3DB484B1D4F8B180047EDF2 /* TransactionHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransactionHistoryViewController.m; sourceTree = "<group>"; };
 		A3EAA2B21D4762210013A952 /* AddBankAccountController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddBankAccountController.h; sourceTree = "<group>"; };
 		A3EAA2B31D4762210013A952 /* AddBankAccountController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddBankAccountController.m; sourceTree = "<group>"; };
+		A3FA9B5C1D78441000F45E18 /* CardsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardsViewController.h; sourceTree = "<group>"; };
+		A3FA9B5D1D78441000F45E18 /* CardsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardsViewController.m; sourceTree = "<group>"; };
+		A3FA9B5F1D78443000F45E18 /* AutoloadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoloadViewController.h; sourceTree = "<group>"; };
+		A3FA9B601D78443000F45E18 /* AutoloadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutoloadViewController.m; sourceTree = "<group>"; };
+		A3FA9B611D78443000F45E18 /* HMSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMSegmentedControl.h; sourceTree = "<group>"; };
+		A3FA9B621D78443000F45E18 /* HMSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMSegmentedControl.m; sourceTree = "<group>"; };
+		A3FA9B631D78443000F45E18 /* UICustomButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICustomButton.h; sourceTree = "<group>"; };
+		A3FA9B641D78443000F45E18 /* UICustomButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICustomButton.m; sourceTree = "<group>"; };
+		A3FA9B651D78443000F45E18 /* UICustomTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICustomTextField.h; sourceTree = "<group>"; };
+		A3FA9B661D78443000F45E18 /* UICustomTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICustomTextField.m; sourceTree = "<group>"; };
+		A3FA9B6B1D78447700F45E18 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		A3FA9B6C1D78447700F45E18 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		EF9931AE443B4ADDC7E0B64A /* Pods-SocialPockets.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialPockets.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SocialPockets/Pods-SocialPockets.debug.xcconfig"; sourceTree = "<group>"; };
 		FB0342EF1D54AE4C00C11019 /* NotificationBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = NotificationBG.png; path = ../NotificationBG.png; sourceTree = "<group>"; };
 		FB0342F01D54AE4C00C11019 /* NotificationBG4S.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = NotificationBG4S.png; path = ../NotificationBG4S.png; sourceTree = "<group>"; };
@@ -339,7 +357,7 @@
 		FB58C6D01D66F11500279AEF /* QRScanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRScanViewController.m; sourceTree = "<group>"; };
 		FB58C6D81D67008100279AEF /* XMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLParser.h; sourceTree = "<group>"; };
 		FB58C6D91D67008100279AEF /* XMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLParser.m; sourceTree = "<group>"; };
-		FBAAB8281D422888001C918B /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		FBAAB8281D422888001C918B /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		FBAAB8331D4239D7001C918B /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		FBAAB8341D4239D7001C918B /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		FBAAB8351D4239D7001C918B /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
@@ -461,6 +479,7 @@
 			children = (
 				A3253D131D3C9DE90081A59C /* AppDelegate.h */,
 				A3253D141D3C9DE90081A59C /* AppDelegate.m */,
+				A3FA9B5A1D7843D900F45E18 /* Repayment */,
 				A3D65AB51D4652EF00B47E46 /* LaunchScreen */,
 				A3C3C89E1D3F837A00C65B09 /* Registration */,
 				A3C3C83D1D3DF1AF00C65B09 /* Login */,
@@ -844,8 +863,6 @@
 				A3C3C8A91D3FB4AF00C65B09 /* LoanHelper.m */,
 				671C44411D4091E4000C94A0 /* LoanViewController.h */,
 				671C44421D4091E4000C94A0 /* LoanViewController.m */,
-				6777A4C61D4A125300BF1EC3 /* RepayLoanViewController.h */,
-				6777A4C71D4A125300BF1EC3 /* RepayLoanViewController.m */,
 			);
 			name = Loan;
 			sourceTree = "<group>";
@@ -900,6 +917,35 @@
 				A3083F931D59E1C200476BA3 /* CircleProgressView.m */,
 			);
 			name = Dashboard;
+			sourceTree = "<group>";
+		};
+		A3FA9B5A1D7843D900F45E18 /* Repayment */ = {
+			isa = PBXGroup;
+			children = (
+				A3FA9B5B1D7843F300F45E18 /* Citrus */,
+				6777A4C61D4A125300BF1EC3 /* RepayLoanViewController.h */,
+				6777A4C71D4A125300BF1EC3 /* RepayLoanViewController.m */,
+			);
+			name = Repayment;
+			sourceTree = "<group>";
+		};
+		A3FA9B5B1D7843F300F45E18 /* Citrus */ = {
+			isa = PBXGroup;
+			children = (
+				A3FA9B6B1D78447700F45E18 /* BaseViewController.h */,
+				A3FA9B6C1D78447700F45E18 /* BaseViewController.m */,
+				A3FA9B5C1D78441000F45E18 /* CardsViewController.h */,
+				A3FA9B5D1D78441000F45E18 /* CardsViewController.m */,
+				A3FA9B5F1D78443000F45E18 /* AutoloadViewController.h */,
+				A3FA9B601D78443000F45E18 /* AutoloadViewController.m */,
+				A3FA9B611D78443000F45E18 /* HMSegmentedControl.h */,
+				A3FA9B621D78443000F45E18 /* HMSegmentedControl.m */,
+				A3FA9B631D78443000F45E18 /* UICustomButton.h */,
+				A3FA9B641D78443000F45E18 /* UICustomButton.m */,
+				A3FA9B651D78443000F45E18 /* UICustomTextField.h */,
+				A3FA9B661D78443000F45E18 /* UICustomTextField.m */,
+			);
+			name = Citrus;
 			sourceTree = "<group>";
 		};
 		FBAAB82A1D422B81001C918B /* SocialFrameworks */ = {
@@ -1120,6 +1166,7 @@
 				A3B7F51E1D66E2F9002E83FF /* SwipeTableCell.m in Sources */,
 				A3DB484C1D4F8B180047EDF2 /* TransactionHistoryViewController.m in Sources */,
 				A3B529281D49E1F200603451 /* IQKeyboardReturnKeyHandler.m in Sources */,
+				A3FA9B691D78443000F45E18 /* UICustomButton.m in Sources */,
 				A3B5292A1D49E1F200603451 /* IQBarButtonItem.m in Sources */,
 				A3B529251D49E1F200603451 /* IQUIViewController+Additions.m in Sources */,
 				FB06EF141D64798300ABF8FE /* PANCardViewController.m in Sources */,
@@ -1130,6 +1177,7 @@
 				A3B5292B1D49E1F200603451 /* IQPreviousNextView.m in Sources */,
 				FBFC66761D58A0480087F50B /* ForgotPasswordViewController.m in Sources */,
 				A3B529291D49E1F200603451 /* IQTextView.m in Sources */,
+				A3FA9B5E1D78441000F45E18 /* CardsViewController.m in Sources */,
 				A3C3C89D1D3F837700C65B09 /* RegistrationViewController.m in Sources */,
 				A32FFADE1D5C9D4700C1A519 /* UserDetails+CoreDataProperties.m in Sources */,
 				A3B5292D1D49E1F200603451 /* IQToolbar.m in Sources */,
@@ -1144,6 +1192,7 @@
 				A3C3C84A1D3DF1E000C65B09 /* Reachability.m in Sources */,
 				A32FFAE51D5C9D6E00C1A519 /* DatabaseObject.m in Sources */,
 				A3C3C89A1D3F837000C65B09 /* RegistrationModel.m in Sources */,
+				A3FA9B6A1D78443000F45E18 /* UICustomTextField.m in Sources */,
 				A389685D1D40DD3F00FA8F14 /* SharedMethods.m in Sources */,
 				A3C3C8501D3DF7D500C65B09 /* NSString+AdditionalMethods.m in Sources */,
 				A3B5292E1D49E1F200603451 /* IQUIView+IQKeyboardToolbar.m in Sources */,
@@ -1157,6 +1206,7 @@
 				A3C3C8A41D3F86EC00C65B09 /* ProfileModel.m in Sources */,
 				A3B529231D49E1F200603451 /* IQUITextFieldView+Additions.m in Sources */,
 				A3C3C83C1D3DF09F00C65B09 /* LoginHelper.m in Sources */,
+				A3FA9B6D1D78447700F45E18 /* BaseViewController.m in Sources */,
 				A38968621D40DDF000FA8F14 /* SocialHelper.m in Sources */,
 				A3083F941D59E1C200476BA3 /* CircleProgressView.m in Sources */,
 				A32FFAE01D5C9D4700C1A519 /* TransactionHistory+CoreDataProperties.m in Sources */,
@@ -1170,7 +1220,9 @@
 				A32FFAE11D5C9D4700C1A519 /* TransactionHistory.m in Sources */,
 				A3C3C8A71D3F928C00C65B09 /* OTPViewController.m in Sources */,
 				A3B529211D49E1F200603451 /* IQNSArray+Sort.m in Sources */,
+				A3FA9B681D78443000F45E18 /* HMSegmentedControl.m in Sources */,
 				A32FFAEB1D5CA2E500C1A519 /* UserProfileObject.m in Sources */,
+				A3FA9B671D78443000F45E18 /* AutoloadViewController.m in Sources */,
 				FB58C6DA1D67008100279AEF /* XMLParser.m in Sources */,
 				A3D65A881D4619A200B47E46 /* RearViewController.m in Sources */,
 				A3B5292C1D49E1F200603451 /* IQTitleBarButtonItem.m in Sources */,

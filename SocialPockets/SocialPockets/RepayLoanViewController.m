@@ -7,6 +7,8 @@
 //
 
 #import "RepayLoanViewController.h"
+#import "BaseViewController.h"
+#import "CardsViewController.h"
 
 @interface RepayLoanViewController ()
 {
@@ -91,6 +93,18 @@
 }
 
 - (void)repayLoan{
+#warning Need to work on citrus
+    BaseViewController *baseVc = [[BaseViewController alloc]init];
+    [baseVc initializeLayers];
+    
+    CardsViewController *cardVc = [self.storyboard instantiateViewControllerWithIdentifier:@"CardViewVc"];
+    cardVc.isDirectPaymentEnable = YES;
+    cardVc.amount = loanRepayAmount;
+    [self.navigationController pushViewController:cardVc animated:YES];
+    [ACTIVITY performSelectorOnMainThread:@selector(hideActivity) withObject:nil waitUntilDone:YES];
+
+    return;
+    
     [LOANMACRO repayLoan:repayLoanId mobileWallet:mobileWalletId repayAmount:loanRepayAmount completion:^(id obj) {
         [ACTIVITY performSelectorOnMainThread:@selector(hideActivity) withObject:nil waitUntilDone:YES];
         if ([obj isKindOfClass:[NSDictionary class]]) {
@@ -102,6 +116,53 @@
     }];
     self.okButton.layer.borderColor = [UIColor grayColor].CGColor;
     self.okButton.layer.masksToBounds = YES;
+
+}
+
+- (void)initiliazeCitrusLayers
+{
+    authLayer = [CTSAuthLayer fetchSharedAuthLayer];
+    proifleLayer = [CTSProfileLayer fetchSharedProfileLayer];
+    paymentLayer = [CTSPaymentLayer fetchSharedPaymentLayer];
+    [CitrusPaymentSDK enableDEBUGLogs];
+    
+    CTSKeyStore *keyStore = [[CTSKeyStore alloc] init];
+    keyStore.signinId = SignInId;
+    keyStore.signinSecret = SignInSecretKey;
+    keyStore.signUpId = SubscriptionId;
+    keyStore.signUpSecret = SubscriptionSecretKey;
+    keyStore.vanity = VanityUrl;
+    
+ 
+    
+    [CitrusPaymentSDK initializeWithKeyStore:keyStore environment:(PRODUCTIONMODE)?CTSEnvProduction:CTSEnvSandbox];
+
+    
+    [CitrusPaymentSDK enableDEBUGLogs];
+    
+    authLayer = [CTSAuthLayer fetchSharedAuthLayer];
+    proifleLayer = [CTSProfileLayer fetchSharedProfileLayer];
+    paymentLayer = [CTSPaymentLayer fetchSharedPaymentLayer];
+    
+    contactInfo = [[CTSContactUpdate alloc] init];
+    contactInfo.firstName = USERINFO.name;
+    contactInfo.lastName = USERINFO.name;
+    contactInfo.email = USERINFO.user_email;
+    contactInfo.mobile = USERINFO.user_phone_number;
+    
+    addressInfo = [[CTSUserAddress alloc] init];
+    addressInfo.city = @"Chennai";
+    addressInfo.country = @"India";
+    addressInfo.state = @"TamilNadu";
+    addressInfo.street1 = @"8th fllor, RR Towers 5";
+    addressInfo.street2 = @"TVK Estate, Guindy";
+    addressInfo.zip = @"600032";
+    
+    customParams = @{
+                     @"USERDATA2":@"MOB_RC|9988776655",
+                     @"USERDATA10":@"test",
+                     @"USERDATA4":@"MOB_RC|test@gmail.com",
+                     @"USERDATA3":@"MOB_RC|4111XXXXXXXX1111"};
 
 }
 

@@ -9,6 +9,14 @@
 #import <UIKit/UIKit.h>
 
 @interface RepayLoanViewController : UIViewController
+{
+    CTSAuthLayer *authLayer;
+    CTSProfileLayer *proifleLayer;
+    CTSPaymentLayer *paymentLayer;
+    CTSContactUpdate* contactInfo;
+    CTSUserAddress* addressInfo;
+    NSDictionary *customParams;
+}
 @property (weak, nonatomic) IBOutlet UILabel *loanTakenDate;
 @property (nonatomic,strong) NSDictionary *repayLoanObject;
 @property (weak, nonatomic) IBOutlet UILabel *loanDueDate;

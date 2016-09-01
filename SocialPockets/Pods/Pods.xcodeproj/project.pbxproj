@@ -7,55 +7,141 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B8F3CB35B04E7766D2E7BBCCDCD362BC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
-		FA33DE85F9560915D88AF8BC6EC74581 /* Pods-SocialPockets-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E254D93DC601AFF7C5D4FB1A8B8E6BE2 /* Pods-SocialPockets-dummy.m */; };
+		04E0EFD308A39DA6783F9004C5689973 /* JSONValueTransformer.h in Headers */ = {isa = PBXBuildFile; fileRef = 4EDEF2383CDAA3BEE457B5C254C55E0D /* JSONValueTransformer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		14E1A760EBA35C88A192317C914EEBCC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
+		19A2AEA6F18B93212006AFB2A7A25AF8 /* JSONModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C671ADBCCFE964689DA1D075F78344EA /* JSONModel.m */; };
+		291BFB06DD9A57904221DC507C8611F1 /* Pods-SocialPockets-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E254D93DC601AFF7C5D4FB1A8B8E6BE2 /* Pods-SocialPockets-dummy.m */; };
+		2F8D135BE069298B3FE7C13988B2CF08 /* JSONModelClassProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 965ABFBEBE27C7DD38306C32095F894E /* JSONModelClassProperty.m */; };
+		393E2E501D0B38AE7DD535362026926D /* JSONAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = B16ECF10FD7ECE1E5A00D21F38E2B9C3 /* JSONAPI.m */; };
+		4BDE97C783ED286933A60CAE9292B775 /* JSONKeyMapper.h in Headers */ = {isa = PBXBuildFile; fileRef = 457B7EC77875558260FFB6D1D7B6F98A /* JSONKeyMapper.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		52B9F1F399DEADDDFBE3F17BAA8D6D14 /* JSONModelArray.h in Headers */ = {isa = PBXBuildFile; fileRef = B5BD9B97F241EF9CE02262C685CA85B4 /* JSONModelArray.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		59DFAF46993F71E88A7336D2A8A3731D /* JSONHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CBCC59A94E1AEEE09F15AD649830AED /* JSONHTTPClient.m */; };
+		740B64AC8CA44CDC54A3A2CCB396A0EB /* JSONModelClassProperty.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A5389DD497B23542594CD78E907FBEF /* JSONModelClassProperty.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7EC57A971BC81BEFCD4D52ACF58BB517 /* JSONValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = C134D2204A3CD591CFAA7994B5484F9C /* JSONValueTransformer.m */; };
+		8572EA2DB7894989FDA4C085E70D96C8 /* NSArray+JSONModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FC449A5B10A8455340972BF41DDDDE17 /* NSArray+JSONModel.m */; };
+		85AC21BC7BD345D84F489F7A52D39E44 /* JSONAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = ED9B2E59C64E8402F27FB95DBD494E29 /* JSONAPI.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		880C99DF50E8C41EBE032934BE7F9905 /* JSONModelArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F1F019BD6720DACC0771540FD825240 /* JSONModelArray.m */; };
+		891A5DA07C60C95DAD969B542CCDE442 /* JSONModel+networking.m in Sources */ = {isa = PBXBuildFile; fileRef = D56237959A23030CB0E45EFFA61BDC47 /* JSONModel+networking.m */; };
+		8CD001B0217CFDD1F5D8A3A6C3A8A5DC /* JSONKeyMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = BE37DD3B3F5B68D306C75498A390DEB2 /* JSONKeyMapper.m */; };
+		8F11ABA0C553B18981097015226E5748 /* NSArray+JSONModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FFD7647ACFBABB64FF66CF9BA601A7E /* NSArray+JSONModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A049B322C75DF1C944935D7D0D7F1E7E /* JSONModelError.m in Sources */ = {isa = PBXBuildFile; fileRef = F03A7303D10F9703E4A86CCC02BAFBAC /* JSONModelError.m */; };
+		B82A170962598E7EAE9A8752574B7B74 /* JSONModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 30AD234358CD7918A41EF07F1387D8E8 /* JSONModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BDF30FFA3645BDDF209A9DECA3A914B2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
+		C591CE6B9FA1950409E543A70B3ECABE /* JSONModelLib.h in Headers */ = {isa = PBXBuildFile; fileRef = 951D2FC2B7CC89B420FE01A398DDEF89 /* JSONModelLib.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D2718FB5214DA8A524CE735932323F82 /* JSONHTTPClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 0773CB95066DB271FA97AEAFA7344C60 /* JSONHTTPClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EE27B8D800BD5CBC5A23FACF87210920 /* JSONModel-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D300F9C9479BEF8C7C7A4187AC0044A0 /* JSONModel-dummy.m */; };
+		F4D2A0918C2C064F1A16B4CA2D42089A /* JSONModelError.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F6D129BCE61724D00143101B6989D36 /* JSONModelError.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F7B5D2658B77049DDEC0AAA88E6FCEA7 /* JSONModel+networking.h in Headers */ = {isa = PBXBuildFile; fileRef = EA1F9BF3551DA569281846CDB5610A06 /* JSONModel+networking.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		10AA96C3A7AF41991CFB0A304D0708E4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 09FA060F1A0492FB25232F489AC4E573;
+			remoteInfo = JSONModel;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
-		04EE678B8AB04117735820A64A19461E /* TwitterKitResources.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = TwitterKitResources.bundle; path = TwitterKit.framework/Versions/A/Resources/TwitterKitResources.bundle; sourceTree = "<group>"; };
-		26E602CF0817BFC7854408C7BB8E1BF6 /* libPods-SocialPockets.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SocialPockets.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		059ECB46282C506FDB58D1D6EDF34CD6 /* CitrusPay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CitrusPay.framework; path = "Framework/core-sdk/CitrusPay.framework"; sourceTree = "<group>"; };
+		0773CB95066DB271FA97AEAFA7344C60 /* JSONHTTPClient.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JSONHTTPClient.h; path = JSONModel/JSONModelNetworking/JSONHTTPClient.h; sourceTree = "<group>"; };
+		0F1F019BD6720DACC0771540FD825240 /* JSONModelArray.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JSONModelArray.m; path = JSONModel/JSONModel/JSONModelArray.m; sourceTree = "<group>"; };
+		2FFD7647ACFBABB64FF66CF9BA601A7E /* NSArray+JSONModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSArray+JSONModel.h"; path = "JSONModel/JSONModelCategories/NSArray+JSONModel.h"; sourceTree = "<group>"; };
+		30AD234358CD7918A41EF07F1387D8E8 /* JSONModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JSONModel.h; path = JSONModel/JSONModel/JSONModel.h; sourceTree = "<group>"; };
 		32F8F5A8EDE9903CE1AB6C57F8A8685E /* Pods-SocialPockets-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SocialPockets-acknowledgements.plist"; sourceTree = "<group>"; };
-		3A4143F97CDA5BAC9818A9FA0D4C42F4 /* TwitterCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TwitterCore.framework; path = iOS/TwitterCore.framework; sourceTree = "<group>"; };
+		3E64C989C77DE5C23351AC4942F37AE9 /* TwitterCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TwitterCore.framework; path = iOS/TwitterCore.framework; sourceTree = "<group>"; };
+		41CDB8C6C4018D895BA52F53AC449A7B /* JSONModel-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JSONModel-prefix.pch"; sourceTree = "<group>"; };
+		457B7EC77875558260FFB6D1D7B6F98A /* JSONKeyMapper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JSONKeyMapper.h; path = JSONModel/JSONModelTransformations/JSONKeyMapper.h; sourceTree = "<group>"; };
+		4A5389DD497B23542594CD78E907FBEF /* JSONModelClassProperty.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JSONModelClassProperty.h; path = JSONModel/JSONModel/JSONModelClassProperty.h; sourceTree = "<group>"; };
+		4CBCC59A94E1AEEE09F15AD649830AED /* JSONHTTPClient.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JSONHTTPClient.m; path = JSONModel/JSONModelNetworking/JSONHTTPClient.m; sourceTree = "<group>"; };
+		4EDEF2383CDAA3BEE457B5C254C55E0D /* JSONValueTransformer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JSONValueTransformer.h; path = JSONModel/JSONModelTransformations/JSONValueTransformer.h; sourceTree = "<group>"; };
 		566CF268B87B6E3B743672B80894A421 /* Pods-SocialPockets.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SocialPockets.release.xcconfig"; sourceTree = "<group>"; };
-		6BDE818F1E291BD7FBB300C6B0BEAE16 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Fabric.framework; path = iOS/Fabric.framework; sourceTree = "<group>"; };
+		6F6D129BCE61724D00143101B6989D36 /* JSONModelError.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JSONModelError.h; path = JSONModel/JSONModel/JSONModelError.h; sourceTree = "<group>"; };
+		7BBA4236E40A264E2A0971202D53E094 /* JSONModel.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = JSONModel.xcconfig; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		951D2FC2B7CC89B420FE01A398DDEF89 /* JSONModelLib.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JSONModelLib.h; path = JSONModel/JSONModelLib.h; sourceTree = "<group>"; };
+		965ABFBEBE27C7DD38306C32095F894E /* JSONModelClassProperty.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JSONModelClassProperty.m; path = JSONModel/JSONModel/JSONModelClassProperty.m; sourceTree = "<group>"; };
+		97584765074FDD614A40C725459501EF /* TwitterKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterKit.framework; sourceTree = "<group>"; };
+		A5319D96D81ED41CB125AA2AF321952A /* libPods-SocialPockets.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SocialPockets.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B13E0D5A8672C7B953A4AADD478AD500 /* Pods-SocialPockets-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SocialPockets-frameworks.sh"; sourceTree = "<group>"; };
+		B16ECF10FD7ECE1E5A00D21F38E2B9C3 /* JSONAPI.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JSONAPI.m; path = JSONModel/JSONModelNetworking/JSONAPI.m; sourceTree = "<group>"; };
+		B5BD9B97F241EF9CE02262C685CA85B4 /* JSONModelArray.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JSONModelArray.h; path = JSONModel/JSONModel/JSONModelArray.h; sourceTree = "<group>"; };
 		B77DF9EBE8CEF899CD52B30ACA312750 /* Pods-SocialPockets-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SocialPockets-resources.sh"; sourceTree = "<group>"; };
+		B91DAB3DD56BFF132D26EB11DFD5E641 /* CitrusPay.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = CitrusPay.bundle; path = "Framework/core-sdk/CitrusPay.bundle"; sourceTree = "<group>"; };
+		BD2B787A2C5A8FCBABC6ECFB585AA662 /* TwitterKitResources.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = TwitterKitResources.bundle; path = TwitterKit.framework/Versions/A/Resources/TwitterKitResources.bundle; sourceTree = "<group>"; };
+		BE37DD3B3F5B68D306C75498A390DEB2 /* JSONKeyMapper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JSONKeyMapper.m; path = JSONModel/JSONModelTransformations/JSONKeyMapper.m; sourceTree = "<group>"; };
+		C134D2204A3CD591CFAA7994B5484F9C /* JSONValueTransformer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JSONValueTransformer.m; path = JSONModel/JSONModelTransformations/JSONValueTransformer.m; sourceTree = "<group>"; };
+		C595FAE5053D2C9088F05FCAD0684E6F /* libJSONModel.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libJSONModel.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5D6B8A2E9F5F4F9AF12102FA5A46591 /* Pods-SocialPockets.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SocialPockets.debug.xcconfig"; sourceTree = "<group>"; };
+		C671ADBCCFE964689DA1D075F78344EA /* JSONModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JSONModel.m; path = JSONModel/JSONModel/JSONModel.m; sourceTree = "<group>"; };
+		CAC0F07565820DD157592C2341005FF1 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Fabric.framework; path = iOS/Fabric.framework; sourceTree = "<group>"; };
 		CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		E1F7CED7EFFC782BA5BCF9C65FB8FE7F /* TwitterKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterKit.framework; sourceTree = "<group>"; };
+		D300F9C9479BEF8C7C7A4187AC0044A0 /* JSONModel-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "JSONModel-dummy.m"; sourceTree = "<group>"; };
+		D56237959A23030CB0E45EFFA61BDC47 /* JSONModel+networking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "JSONModel+networking.m"; path = "JSONModel/JSONModelNetworking/JSONModel+networking.m"; sourceTree = "<group>"; };
 		E254D93DC601AFF7C5D4FB1A8B8E6BE2 /* Pods-SocialPockets-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SocialPockets-dummy.m"; sourceTree = "<group>"; };
+		EA1F9BF3551DA569281846CDB5610A06 /* JSONModel+networking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "JSONModel+networking.h"; path = "JSONModel/JSONModelNetworking/JSONModel+networking.h"; sourceTree = "<group>"; };
+		ED9B2E59C64E8402F27FB95DBD494E29 /* JSONAPI.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JSONAPI.h; path = JSONModel/JSONModelNetworking/JSONAPI.h; sourceTree = "<group>"; };
+		F03A7303D10F9703E4A86CCC02BAFBAC /* JSONModelError.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JSONModelError.m; path = JSONModel/JSONModel/JSONModelError.m; sourceTree = "<group>"; };
 		F189A5269544A0630FB50A9E48FD82CF /* Pods-SocialPockets-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SocialPockets-acknowledgements.markdown"; sourceTree = "<group>"; };
+		FC449A5B10A8455340972BF41DDDDE17 /* NSArray+JSONModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSArray+JSONModel.m"; path = "JSONModel/JSONModelCategories/NSArray+JSONModel.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		240F44C64D8AFDBD092B76AF346EBD27 /* Frameworks */ = {
+		EB932C7244160CC464D5F7E2A9713D3F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B8F3CB35B04E7766D2E7BBCCDCD362BC /* Foundation.framework in Frameworks */,
+				14E1A760EBA35C88A192317C914EEBCC /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F413CF45E7ACC7D25647E9BC66A887C7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BDF30FFA3645BDDF209A9DECA3A914B2 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		20D1E612B0914806EF3C8B0BF8A12A27 /* Pods */ = {
+		007E5E8ECD8331DEF05D58338058D40E /* CitrusPay */ = {
 			isa = PBXGroup;
 			children = (
-				334D28153E86F2404B7F3F870C022F14 /* Fabric */,
-				66E6A3B97329AA8D102CF49A6EAE8C42 /* TwitterCore */,
-				C153494D9C466AF7986AA36B04FCE051 /* TwitterKit */,
+				F65E01E01BCA68827D4DC4274FD374A6 /* Frameworks */,
+				52F0E6BE0A89824FDEB20EEBCF799D10 /* Resources */,
 			);
-			name = Pods;
+			path = CitrusPay;
 			sourceTree = "<group>";
 		};
-		334D28153E86F2404B7F3F870C022F14 /* Fabric */ = {
+		143E5D7FF7990C65795CB3D7049A7391 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				F5CBC81D8BD9D19FAD8F6388FDFCD492 /* Frameworks */,
+				BD2B787A2C5A8FCBABC6ECFB585AA662 /* TwitterKitResources.bundle */,
 			);
-			path = Fabric;
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		237FF30C175BE11825481AC125595E91 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				7BBA4236E40A264E2A0971202D53E094 /* JSONModel.xcconfig */,
+				D300F9C9479BEF8C7C7A4187AC0044A0 /* JSONModel-dummy.m */,
+				41CDB8C6C4018D895BA52F53AC449A7B /* JSONModel-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/JSONModel";
+			sourceTree = "<group>";
+		};
+		24CC92AE2747C6C6F72B923F43E5B572 /* TwitterCore */ = {
+			isa = PBXGroup;
+			children = (
+				4A9D94796073EFA65FAE37A6F5ACEA52 /* Frameworks */,
+			);
+			path = TwitterCore;
 			sourceTree = "<group>";
 		};
 		3DCAB2B7CDE207B3958B6CB957FCC758 /* iOS */ = {
@@ -66,12 +152,20 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		497E02EF7EE37FA383D244AFCBA639D9 /* Frameworks */ = {
+		4A9D94796073EFA65FAE37A6F5ACEA52 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3A4143F97CDA5BAC9818A9FA0D4C42F4 /* TwitterCore.framework */,
+				3E64C989C77DE5C23351AC4942F37AE9 /* TwitterCore.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		52F0E6BE0A89824FDEB20EEBCF799D10 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B91DAB3DD56BFF132D26EB11DFD5E641 /* CitrusPay.bundle */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		539E6AD678A3FFE1291445B8174D8297 /* Pods-SocialPockets */ = {
@@ -89,12 +183,20 @@
 			path = "Target Support Files/Pods-SocialPockets";
 			sourceTree = "<group>";
 		};
-		66E6A3B97329AA8D102CF49A6EAE8C42 /* TwitterCore */ = {
+		60274B57016C0B1C95DF1A70385A31FB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				497E02EF7EE37FA383D244AFCBA639D9 /* Frameworks */,
+				CAC0F07565820DD157592C2341005FF1 /* Fabric.framework */,
 			);
-			path = TwitterCore;
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7A2F8DEC5986E4581E8F816784DCEEB6 /* Fabric */ = {
+			isa = PBXGroup;
+			children = (
+				60274B57016C0B1C95DF1A70385A31FB /* Frameworks */,
+			);
+			path = Fabric;
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
@@ -102,16 +204,16 @@
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
-				20D1E612B0914806EF3C8B0BF8A12A27 /* Pods */,
-				C28FE53E3561B22772F46C63286BE849 /* Products */,
+				C52CBC5A3A4F8327227566398E18E191 /* Pods */,
+				CF961EAA91465E678BB50FA7BB640517 /* Products */,
 				A64BF6403BED04536A3548802647002B /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		9958567BEA943CBA5CD7652B4EDFD6FF /* Frameworks */ = {
+		9856B648AE6BC51869423EFF72F533EA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				E1F7CED7EFFC782BA5BCF9C65FB8FE7F /* TwitterKit.framework */,
+				97584765074FDD614A40C725459501EF /* TwitterKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -132,56 +234,129 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		C153494D9C466AF7986AA36B04FCE051 /* TwitterKit */ = {
+		C014A74C4E1697DEFCCECD49618BF30F /* JSONModel */ = {
 			isa = PBXGroup;
 			children = (
-				9958567BEA943CBA5CD7652B4EDFD6FF /* Frameworks */,
-				ECE1A6433714DBA9584042CC97D55D38 /* Resources */,
+				ED9B2E59C64E8402F27FB95DBD494E29 /* JSONAPI.h */,
+				B16ECF10FD7ECE1E5A00D21F38E2B9C3 /* JSONAPI.m */,
+				0773CB95066DB271FA97AEAFA7344C60 /* JSONHTTPClient.h */,
+				4CBCC59A94E1AEEE09F15AD649830AED /* JSONHTTPClient.m */,
+				457B7EC77875558260FFB6D1D7B6F98A /* JSONKeyMapper.h */,
+				BE37DD3B3F5B68D306C75498A390DEB2 /* JSONKeyMapper.m */,
+				30AD234358CD7918A41EF07F1387D8E8 /* JSONModel.h */,
+				C671ADBCCFE964689DA1D075F78344EA /* JSONModel.m */,
+				EA1F9BF3551DA569281846CDB5610A06 /* JSONModel+networking.h */,
+				D56237959A23030CB0E45EFFA61BDC47 /* JSONModel+networking.m */,
+				B5BD9B97F241EF9CE02262C685CA85B4 /* JSONModelArray.h */,
+				0F1F019BD6720DACC0771540FD825240 /* JSONModelArray.m */,
+				4A5389DD497B23542594CD78E907FBEF /* JSONModelClassProperty.h */,
+				965ABFBEBE27C7DD38306C32095F894E /* JSONModelClassProperty.m */,
+				6F6D129BCE61724D00143101B6989D36 /* JSONModelError.h */,
+				F03A7303D10F9703E4A86CCC02BAFBAC /* JSONModelError.m */,
+				951D2FC2B7CC89B420FE01A398DDEF89 /* JSONModelLib.h */,
+				4EDEF2383CDAA3BEE457B5C254C55E0D /* JSONValueTransformer.h */,
+				C134D2204A3CD591CFAA7994B5484F9C /* JSONValueTransformer.m */,
+				2FFD7647ACFBABB64FF66CF9BA601A7E /* NSArray+JSONModel.h */,
+				FC449A5B10A8455340972BF41DDDDE17 /* NSArray+JSONModel.m */,
+				237FF30C175BE11825481AC125595E91 /* Support Files */,
 			);
-			path = TwitterKit;
+			path = JSONModel;
 			sourceTree = "<group>";
 		};
-		C28FE53E3561B22772F46C63286BE849 /* Products */ = {
+		C52CBC5A3A4F8327227566398E18E191 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				26E602CF0817BFC7854408C7BB8E1BF6 /* libPods-SocialPockets.a */,
+				007E5E8ECD8331DEF05D58338058D40E /* CitrusPay */,
+				7A2F8DEC5986E4581E8F816784DCEEB6 /* Fabric */,
+				C014A74C4E1697DEFCCECD49618BF30F /* JSONModel */,
+				24CC92AE2747C6C6F72B923F43E5B572 /* TwitterCore */,
+				E69F1D47024397B5BD17D2BFD5CD3497 /* TwitterKit */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		CF961EAA91465E678BB50FA7BB640517 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C595FAE5053D2C9088F05FCAD0684E6F /* libJSONModel.a */,
+				A5319D96D81ED41CB125AA2AF321952A /* libPods-SocialPockets.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		ECE1A6433714DBA9584042CC97D55D38 /* Resources */ = {
+		E69F1D47024397B5BD17D2BFD5CD3497 /* TwitterKit */ = {
 			isa = PBXGroup;
 			children = (
-				04EE678B8AB04117735820A64A19461E /* TwitterKitResources.bundle */,
+				9856B648AE6BC51869423EFF72F533EA /* Frameworks */,
+				143E5D7FF7990C65795CB3D7049A7391 /* Resources */,
 			);
-			name = Resources;
+			path = TwitterKit;
 			sourceTree = "<group>";
 		};
-		F5CBC81D8BD9D19FAD8F6388FDFCD492 /* Frameworks */ = {
+		F65E01E01BCA68827D4DC4274FD374A6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				6BDE818F1E291BD7FBB300C6B0BEAE16 /* Fabric.framework */,
+				059ECB46282C506FDB58D1D6EDF34CD6 /* CitrusPay.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		6EEA72BE015541ED3D178BEF9BB5788F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				85AC21BC7BD345D84F489F7A52D39E44 /* JSONAPI.h in Headers */,
+				D2718FB5214DA8A524CE735932323F82 /* JSONHTTPClient.h in Headers */,
+				4BDE97C783ED286933A60CAE9292B775 /* JSONKeyMapper.h in Headers */,
+				F7B5D2658B77049DDEC0AAA88E6FCEA7 /* JSONModel+networking.h in Headers */,
+				B82A170962598E7EAE9A8752574B7B74 /* JSONModel.h in Headers */,
+				52B9F1F399DEADDDFBE3F17BAA8D6D14 /* JSONModelArray.h in Headers */,
+				740B64AC8CA44CDC54A3A2CCB396A0EB /* JSONModelClassProperty.h in Headers */,
+				F4D2A0918C2C064F1A16B4CA2D42089A /* JSONModelError.h in Headers */,
+				C591CE6B9FA1950409E543A70B3ECABE /* JSONModelLib.h in Headers */,
+				04E0EFD308A39DA6783F9004C5689973 /* JSONValueTransformer.h in Headers */,
+				8F11ABA0C553B18981097015226E5748 /* NSArray+JSONModel.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
-		D574251506F09C90C4D19B632BC7CD10 /* Pods-SocialPockets */ = {
+		09FA060F1A0492FB25232F489AC4E573 /* JSONModel */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BBD7617B84943184D612344750775512 /* Build configuration list for PBXNativeTarget "Pods-SocialPockets" */;
+			buildConfigurationList = C6AF5E073E12BB724B34252D7E1E5E2E /* Build configuration list for PBXNativeTarget "JSONModel" */;
 			buildPhases = (
-				75F187888790A0C0B70F37AF334BBA06 /* Sources */,
-				240F44C64D8AFDBD092B76AF346EBD27 /* Frameworks */,
+				DCC9A773031824E51419098CE072BB9E /* Sources */,
+				EB932C7244160CC464D5F7E2A9713D3F /* Frameworks */,
+				6EEA72BE015541ED3D178BEF9BB5788F /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
+			name = JSONModel;
+			productName = JSONModel;
+			productReference = C595FAE5053D2C9088F05FCAD0684E6F /* libJSONModel.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		724C639EECE9B569E60B7E0CBD1FC68C /* Pods-SocialPockets */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 48A8B1E4E8C1299070AFA4D28D563CC4 /* Build configuration list for PBXNativeTarget "Pods-SocialPockets" */;
+			buildPhases = (
+				968A29771DC89D0C51C28F302510DA6E /* Sources */,
+				F413CF45E7ACC7D25647E9BC66A887C7 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F926DDBF9D34A3A58D8A16589CDC5CD8 /* PBXTargetDependency */,
+			);
 			name = "Pods-SocialPockets";
 			productName = "Pods-SocialPockets";
-			productReference = 26E602CF0817BFC7854408C7BB8E1BF6 /* libPods-SocialPockets.a */;
+			productReference = A5319D96D81ED41CB125AA2AF321952A /* libPods-SocialPockets.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -201,49 +376,77 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = C28FE53E3561B22772F46C63286BE849 /* Products */;
+			productRefGroup = CF961EAA91465E678BB50FA7BB640517 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D574251506F09C90C4D19B632BC7CD10 /* Pods-SocialPockets */,
+				09FA060F1A0492FB25232F489AC4E573 /* JSONModel */,
+				724C639EECE9B569E60B7E0CBD1FC68C /* Pods-SocialPockets */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		75F187888790A0C0B70F37AF334BBA06 /* Sources */ = {
+		968A29771DC89D0C51C28F302510DA6E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA33DE85F9560915D88AF8BC6EC74581 /* Pods-SocialPockets-dummy.m in Sources */,
+				291BFB06DD9A57904221DC507C8611F1 /* Pods-SocialPockets-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DCC9A773031824E51419098CE072BB9E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				393E2E501D0B38AE7DD535362026926D /* JSONAPI.m in Sources */,
+				59DFAF46993F71E88A7336D2A8A3731D /* JSONHTTPClient.m in Sources */,
+				8CD001B0217CFDD1F5D8A3A6C3A8A5DC /* JSONKeyMapper.m in Sources */,
+				891A5DA07C60C95DAD969B542CCDE442 /* JSONModel+networking.m in Sources */,
+				EE27B8D800BD5CBC5A23FACF87210920 /* JSONModel-dummy.m in Sources */,
+				19A2AEA6F18B93212006AFB2A7A25AF8 /* JSONModel.m in Sources */,
+				880C99DF50E8C41EBE032934BE7F9905 /* JSONModelArray.m in Sources */,
+				2F8D135BE069298B3FE7C13988B2CF08 /* JSONModelClassProperty.m in Sources */,
+				A049B322C75DF1C944935D7D0D7F1E7E /* JSONModelError.m in Sources */,
+				7EC57A971BC81BEFCD4D52ACF58BB517 /* JSONValueTransformer.m in Sources */,
+				8572EA2DB7894989FDA4C085E70D96C8 /* NSArray+JSONModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		F926DDBF9D34A3A58D8A16589CDC5CD8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = JSONModel;
+			target = 09FA060F1A0492FB25232F489AC4E573 /* JSONModel */;
+			targetProxy = 10AA96C3A7AF41991CFB0A304D0708E4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
-		384AE222076BCAFDD11001490E886A8D /* Release */ = {
+		0DBE642F5854069458BF49D759675985 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 566CF268B87B6E3B743672B80894A421 /* Pods-SocialPockets.release.xcconfig */;
+			baseConfigurationReference = 7BBA4236E40A264E2A0971202D53E094 /* JSONModel.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
-				MACH_O_TYPE = staticlib;
+				GCC_PREFIX_HEADER = "Target Support Files/JSONModel/JSONModel-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
 		};
-		84FD87D359382A37B07149A12641B965 /* Debug */ = {
+		47BEF9D903506B003EA5C2B249729489 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -278,35 +481,14 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				ONLY_ACTIVE_ARCH = YES;
 				STRIP_INSTALLED_PRODUCT = NO;
 				SYMROOT = "${SRCROOT}/../build";
 			};
 			name = Debug;
 		};
-		888ACF8583ECD7C85602F4B1587360D3 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = C5D6B8A2E9F5F4F9AF12102FA5A46591 /* Pods-SocialPockets.debug.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
-				MACH_O_TYPE = staticlib;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		F594C655D48020EC34B00AA63E001773 /* Release */ = {
+		AAF678CED40D3499169D10F63CA0719E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -337,12 +519,75 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				STRIP_INSTALLED_PRODUCT = NO;
 				SYMROOT = "${SRCROOT}/../build";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
+		};
+		BC9A9FFEC4246630C5F96496ECBBADEB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C5D6B8A2E9F5F4F9AF12102FA5A46591 /* Pods-SocialPockets.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		D2C52407AE7233A464F0C11A679E0438 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 566CF268B87B6E3B743672B80894A421 /* Pods-SocialPockets.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		E5352B93854945DBF5ACEB8850DE93F0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7BBA4236E40A264E2A0971202D53E094 /* JSONModel.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/JSONModel/JSONModel-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
 		};
 /* End XCBuildConfiguration section */
 
@@ -350,17 +595,26 @@
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				84FD87D359382A37B07149A12641B965 /* Debug */,
-				F594C655D48020EC34B00AA63E001773 /* Release */,
+				47BEF9D903506B003EA5C2B249729489 /* Debug */,
+				AAF678CED40D3499169D10F63CA0719E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BBD7617B84943184D612344750775512 /* Build configuration list for PBXNativeTarget "Pods-SocialPockets" */ = {
+		48A8B1E4E8C1299070AFA4D28D563CC4 /* Build configuration list for PBXNativeTarget "Pods-SocialPockets" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				888ACF8583ECD7C85602F4B1587360D3 /* Debug */,
-				384AE222076BCAFDD11001490E886A8D /* Release */,
+				BC9A9FFEC4246630C5F96496ECBBADEB /* Debug */,
+				D2C52407AE7233A464F0C11A679E0438 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C6AF5E073E12BB724B34252D7E1E5E2E /* Build configuration list for PBXNativeTarget "JSONModel" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E5352B93854945DBF5ACEB8850DE93F0 /* Debug */,
+				0DBE642F5854069458BF49D759675985 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
