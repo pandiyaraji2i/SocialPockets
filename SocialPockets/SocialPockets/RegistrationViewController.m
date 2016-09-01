@@ -53,13 +53,13 @@
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@" " style:UIBarButtonItemStylePlain target:self action:nil];
     profileImage = nil;
     
-    //#warning just for testing
-    //        firstNameTextField.text = @"kishore";
-    //        usernameTextField.text = @"kishore";
-    //        passwordTextField.text = @"kishore";
-    //        confirmPasswordTextField.text = @"kishore";
-    //        emailTextField.text = @"kishore@ideas2it.com";
-    //        phoneNumberTextField.text = @"9090909090";
+    #warning just for testing
+            firstNameTextField.text = @"kishores";
+            usernameTextField.text = @"kishores";
+            passwordTextField.text = @"kishores";
+            confirmPasswordTextField.text = @"kishores";
+            emailTextField.text = @"kishores@ideas2it.com";
+            phoneNumberTextField.text = @"9090909095";
     profileImage = [UIImage imageNamed:@"ProfileImage"];
     
     self.navigationController.navigationBarHidden = YES;
@@ -148,9 +148,9 @@
 
 - (IBAction)onRegisterAction:(id)sender {
     
-    SocialSiteViewController *socialVc =[self.storyboard instantiateViewControllerWithIdentifier:@"SocialVc"];
-    [self.navigationController pushViewController:socialVc animated:YES];
-    return;
+//    SocialSiteViewController *socialVc =[self.storyboard instantiateViewControllerWithIdentifier:@"SocialVc"];
+//    [self.navigationController pushViewController:socialVc animated:YES];
+//    return;
     
     
     if(!firstNameTextField.text.length || !emailTextField.text.length || !phoneNumberTextField.text.length || !usernameTextField.text.length || !passwordTextField.text.length || !confirmPasswordTextField.text.length)

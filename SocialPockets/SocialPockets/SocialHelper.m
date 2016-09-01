@@ -191,10 +191,10 @@ static SocialHelper* _sharedInstance = nil;
             //code to get followedBy count
             NSInteger followedByCount = [[NSString stringWithFormat:@"%@",[[[obj objectForKey:@"data"] objectForKey:@"counts"]objectForKey:@"followed_by"]] integerValue];
             
-            NSInteger  serverSentfollowedByCount;
+            NSInteger  serverSentfollowedByCount = 0;
             
             //code for likes Count
-            if ([userDefaults integerForKey:INSTAGRAM_FOLLOWEDBY]) {
+            if ([userDefaults integerForKey:INSTAGRAM_FOLLOWEDBY]>0) {
                 NSInteger oldValue = [[NSUserDefaults standardUserDefaults] integerForKey:INSTAGRAM_FOLLOWEDBY];
                 serverSentfollowedByCount = followedByCount - oldValue;
                 if (serverSentfollowedByCount>0) {
@@ -204,17 +204,20 @@ static SocialHelper* _sharedInstance = nil;
                     [userDefaults setInteger:serverSentfollowedByCount forKey:INSTAGRAM_NEW_FOLLOWEDBY];
                 }
             }else{
+                serverSentfollowedByCount = followedByCount;
+                [userDefaults setInteger:followedByCount forKey:INSTAGRAM_FOLLOWEDBY];
                 [userDefaults setInteger:serverSentfollowedByCount forKey:INSTAGRAM_NEW_FOLLOWEDBY];
+                
             }
             [userDefaults synchronize];
             
             //code to get follows count
             NSInteger followsCount = [[NSString stringWithFormat:@"%@",[[[obj objectForKey:@"data"] objectForKey:@"counts"]objectForKey:@"follows"]] integerValue];
             
-            NSInteger  serverSentfollowsCount;
+            NSInteger  serverSentfollowsCount = 0;
             
             //code for Follows Count
-            if ([userDefaults integerForKey:INSTAGRAM_FOLLOWERS]) {
+            if ([userDefaults integerForKey:INSTAGRAM_FOLLOWERS]>0) {
                 NSInteger oldValue = [[NSUserDefaults standardUserDefaults] integerForKey:INSTAGRAM_FOLLOWERS];
                 serverSentfollowsCount = followsCount - oldValue;
                 if (serverSentfollowsCount>0) {
@@ -224,6 +227,8 @@ static SocialHelper* _sharedInstance = nil;
                     [userDefaults setInteger:serverSentfollowsCount forKey:INSTAGRAM_NEW_FOLLOWERS];
                 }
             }else{
+                serverSentfollowsCount = followsCount;
+                [userDefaults setInteger:followsCount forKey:INSTAGRAM_FOLLOWERS];
                 [userDefaults setInteger:serverSentfollowsCount forKey:INSTAGRAM_NEW_FOLLOWERS];
             }
             [userDefaults synchronize];
@@ -253,10 +258,10 @@ static SocialHelper* _sharedInstance = nil;
                 //code to get comments count
                 NSInteger commentsCount = [[NSString stringWithFormat:@"%@",[[recentObj valueForKey:@"comments"]valueForKey:@"count"]] integerValue];
                 
-                NSInteger  serverSentCommentsCount;
+                NSInteger  serverSentCommentsCount = 0;
                 
                 //code for comments Count
-                if ([userDefaults integerForKey:INSTAGRAM_COMMENTS]) {
+                if ([userDefaults integerForKey:INSTAGRAM_COMMENTS]>0) {
                     NSInteger oldValue = [[NSUserDefaults standardUserDefaults] integerForKey:INSTAGRAM_COMMENTS];
                     serverSentCommentsCount = commentsCount - oldValue;
                     if (serverSentCommentsCount>0) {
@@ -266,6 +271,8 @@ static SocialHelper* _sharedInstance = nil;
                         [userDefaults setInteger:serverSentCommentsCount forKey:INSTAGRAM_NEW_COMMENTS];
                     }
                 }else{
+                    serverSentCommentsCount = commentsCount;
+                    [userDefaults setInteger:commentsCount forKey:INSTAGRAM_COMMENTS];
                     [userDefaults setInteger:serverSentCommentsCount forKey:INSTAGRAM_NEW_COMMENTS];
                 }
                 [userDefaults synchronize];
@@ -273,10 +280,10 @@ static SocialHelper* _sharedInstance = nil;
                 //code to get likes count
                 NSInteger likesCount = [[NSString stringWithFormat:@"%@",[[recentObj valueForKey:@"likes"]valueForKey:@"count"]] integerValue];
                 
-                NSInteger  serverSentlikesCount;
+                NSInteger  serverSentlikesCount = 0;
                 
                 //code for comments Count
-                if ([userDefaults integerForKey:INSTAGRAM_LIKES]) {
+                if ([userDefaults integerForKey:INSTAGRAM_LIKES]>0) {
                     NSInteger oldValue = [[NSUserDefaults standardUserDefaults] integerForKey:INSTAGRAM_LIKES];
                     serverSentlikesCount = likesCount - oldValue;
                     if (serverSentlikesCount>0) {
@@ -286,6 +293,8 @@ static SocialHelper* _sharedInstance = nil;
                         [userDefaults setInteger:serverSentlikesCount forKey:INSTAGRAM_NEW_LIKES];
                     }
                 }else{
+                    serverSentlikesCount = likesCount;
+                    [userDefaults setInteger:likesCount forKey:INSTAGRAM_LIKES];
                     [userDefaults setInteger:serverSentlikesCount forKey:INSTAGRAM_NEW_LIKES];
                 }
                 [userDefaults synchronize];
@@ -358,10 +367,10 @@ static SocialHelper* _sharedInstance = nil;
         //code to get friends count
         NSInteger friendsCount = [[[[result objectForKey:@"friends"] objectForKey:@"summary"] objectForKey:@"total_count"] intValue];
         
-        NSInteger  serverSentFriendsCount;
+        NSInteger  serverSentFriendsCount = 0;
         
         //code for likes Count
-        if ([userDefaults integerForKey:FB_FRIENDS]) {
+        if ([userDefaults integerForKey:FB_FRIENDS]>0) {
             NSInteger oldValue = [[NSUserDefaults standardUserDefaults] integerForKey:FB_FRIENDS];
             serverSentFriendsCount = friendsCount - oldValue;
             if (serverSentFriendsCount>0) {
@@ -373,6 +382,8 @@ static SocialHelper* _sharedInstance = nil;
             }
         }else{
             //API call with twitter friends Count
+            serverSentFriendsCount = friendsCount;
+            [userDefaults setInteger:friendsCount forKey:FB_FRIENDS];
             [userDefaults setInteger:serverSentFriendsCount forKey:FB_NEW_FRIENDS];
         }
         [userDefaults synchronize];
@@ -381,10 +392,10 @@ static SocialHelper* _sharedInstance = nil;
         //code to get posts count
         NSInteger postCount = [[[result objectForKey:@"posts"] objectForKey:@"data"] count];
         
-        NSInteger  serverSentPostCount;
+        NSInteger  serverSentPostCount = 0;
         
         //code for likes Count
-        if ([userDefaults integerForKey:FB_POSTS]) {
+        if ([userDefaults integerForKey:FB_POSTS]>0) {
             NSInteger oldValue = [[NSUserDefaults standardUserDefaults] integerForKey:FB_POSTS];
             serverSentFriendsCount = friendsCount - oldValue;
             if (serverSentPostCount>0) {
@@ -396,6 +407,8 @@ static SocialHelper* _sharedInstance = nil;
             }
         }else{
             //API call with twitter friends Count
+            serverSentPostCount = postCount;
+            [userDefaults setInteger:postCount forKey:FB_POSTS];
             [userDefaults setInteger:serverSentPostCount forKey:FB_NEW_POSTS];
         }
         [userDefaults synchronize];
@@ -426,11 +439,11 @@ static SocialHelper* _sharedInstance = nil;
                 NSInteger likesCount = [[[result objectForKey:@"likes"] objectForKey:@"data"] count];
                 NSInteger commentsCount = [[[result objectForKey:@"comments"] objectForKey:@"data"] count];
                 
-                NSInteger  serverSentLikeCount;
-                NSInteger  serverSentcommentCount;
+                NSInteger  serverSentLikeCount = 0;
+                NSInteger  serverSentcommentCount = 0;
                 
                 //code for likes Count
-                if ([[NSUserDefaults standardUserDefaults] integerForKey:FB_LIKES]) {
+                if ([[NSUserDefaults standardUserDefaults] integerForKey:FB_LIKES]>0) {
                     NSInteger oldValue = [[NSUserDefaults standardUserDefaults] integerForKey:FB_LIKES];
                     serverSentLikeCount = likesCount - oldValue;
                     if (serverSentLikeCount>0) {
@@ -442,6 +455,8 @@ static SocialHelper* _sharedInstance = nil;
                     }
                 }else{
                     //API call with twitter friends Count
+                    serverSentLikeCount = likesCount;
+                    [userDefaults setInteger:likesCount forKey:FB_LIKES];
                     [userDefaults setInteger:serverSentLikeCount forKey:FB_NEW_LIKES];
                 }
                 [userDefaults synchronize];
@@ -449,8 +464,8 @@ static SocialHelper* _sharedInstance = nil;
                 
                 //code for comments count
                 
-                if ([[NSUserDefaults standardUserDefaults] integerForKey:FB_COMMENTS]) {
-                    int oldValue = [[NSUserDefaults standardUserDefaults] integerForKey:FB_COMMENTS];
+                if ([[NSUserDefaults standardUserDefaults] integerForKey:FB_COMMENTS]>0) {
+                    NSInteger oldValue = [[NSUserDefaults standardUserDefaults] integerForKey:FB_COMMENTS];
                     serverSentcommentCount = commentsCount - oldValue;
                     if (serverSentcommentCount>0) {
                         //server API call
@@ -461,6 +476,8 @@ static SocialHelper* _sharedInstance = nil;
                     }
                 }else{
                     //API call with twitter friends Count
+                    serverSentcommentCount = commentsCount;
+                    [userDefaults setInteger:commentsCount forKey:FB_COMMENTS];
                     [userDefaults setInteger:serverSentcommentCount forKey:FB_NEW_COMMENTS];
                 }
                 [userDefaults synchronize];
@@ -509,8 +526,9 @@ static SocialHelper* _sharedInstance = nil;
             NSError *jsonError;
             NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonError];
             NSInteger twitterFriendsCount = [[json valueForKey:@"ids"] count];
-            NSInteger   serverSentValue  =0;
-            if ([userDefaults integerForKey:userDefaultsKey]) {
+            NSInteger   serverSentValue  = 0;
+            
+            if ([userDefaults integerForKey:userDefaultsKey]>0) {
                 NSInteger oldValue = [userDefaults integerForKey:userDefaultsKey];
                 serverSentValue = twitterFriendsCount - oldValue;
                 if (serverSentValue>0) {
@@ -522,6 +540,7 @@ static SocialHelper* _sharedInstance = nil;
                 }
             }else{
                 //API call with twitter friends Count
+                serverSentValue = twitterFriendsCount;
                 [userDefaults setInteger:serverSentValue forKey:serverUserDefaultsKey];
                 [userDefaults setInteger:twitterFriendsCount forKey:userDefaultsKey];
             }
@@ -571,6 +590,7 @@ static SocialHelper* _sharedInstance = nil;
             [userDefaults setInteger:serverSentValue forKey:LINKEDIN_NEW_CONNECTIONS];
         }
     }else{
+        serverSentValue = totalConnections;
         [userDefaults setInteger:serverSentValue forKey:LINKEDIN_NEW_CONNECTIONS];
         [userDefaults setInteger:totalConnections forKey:LINKEDIN_CONNECTIONS];
     }
@@ -587,6 +607,7 @@ static SocialHelper* _sharedInstance = nil;
             [userDefaults setInteger:serverSentValue forKey:LINKEDIN_NEW_JOBS];
         }
     }else{
+        serverSentValue = totalPositions;
         [userDefaults setInteger:serverSentValue forKey:LINKEDIN_NEW_CONNECTIONS];
         [userDefaults setInteger:totalPositions forKey:LINKEDIN_JOBS];
     }
@@ -633,6 +654,8 @@ static SocialHelper* _sharedInstance = nil;
             break;
     }
     [dict setValue:socialDict forKey:socialKey];
+    NSLog(@"credit save dict %@",dict);
+    return;
     [PROFILEMACRO saveCreditScore:dict completion:^(id obj) {
         if ([obj isKindOfClass:[NSDictionary class]]) {
             //#-- send post notification to update credit score

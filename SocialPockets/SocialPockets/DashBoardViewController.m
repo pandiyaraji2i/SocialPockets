@@ -371,10 +371,11 @@
         NSString *loanAmount = [[NSString stringWithFormat:@"%@",[loanObject valueForKey:@"USRLN_AMOUNT"]] rupeesFormat];
         
        
-        NSDate *loanSdate = [SharedMethods dateFromGivenString:[loanObject valueForKey:@"USRLN_REQUESTED_DATE"] formatType:LOCALDATETIMEFORMAT];
+        //NSDate *loanSdate = [SharedMethods dateFromGivenString:[loanObject valueForKey:@"USRLN_REQUESTED_DATE"] formatType:LOCALDATETIMEFORMAT];
         NSDate *loanEdate = [SharedMethods dateFromGivenString:[loanObject valueForKey:@"USRLN_TENNURE_DATE"] formatType:LOCALDATETIMEFORMAT];
+        NSDate *currDate = [NSDate date];
 
-        NSTimeInterval secondsBetween = [loanEdate timeIntervalSinceDate:loanSdate];
+        NSTimeInterval secondsBetween = [loanEdate timeIntervalSinceDate:currDate];
         NSLog(@"%f",secondsBetween);
         double numberOfDays = secondsBetween / 86400;
         int daysLeft = (int)numberOfDays;

@@ -9,6 +9,7 @@
 #import "ManageAccountsViewController.h"
 #import "CollectionTableViewCell.h"
 #import "AddBankAccountController.h"
+#import "IGLoginViewController.h"
 
 @interface ManageAccountsViewController ()<UITableViewDataSource, UITableViewDelegate,CollectionViewDataDelegate>
 
@@ -254,7 +255,7 @@
             {
                 [SOCIALMACRO facebookLoginWithCompletion:^(id obj) {
                     NSLog(@"FaceBook login Success");
-//                    [self CreateSocialSiteWithSocialSite:@"1"];
+                    //                    [self CreateSocialSiteWithSocialSite:@"1"];
                 } ];
             }
                 break;
@@ -265,10 +266,31 @@
                 }];
             }
                 break;
+                
             case 2:
+            { //  for Instagram
+                
+                IGLoginViewController *IGloginVc = [self.storyboard instantiateViewControllerWithIdentifier:@"IGLoginView"];
+                UINavigationController *navVc = [[UINavigationController alloc]initWithRootViewController:IGloginVc];
+                [self presentViewController:navVc animated:YES completion:NULL];
+                IGloginVc.onLogin = ^(id obj){
+                    [[NSUserDefaults standardUserDefaults] setObject:obj forKey:@"InstagramAccessToken"];
+                    
+                    NSLog(@"Auth Token %@",obj);
+                    [SOCIALMACRO instagramLoginWithUserToken:obj WithCompletion:^(id obj) {
+                        [SOCIALMACRO instagramDetailWithUserToken:[[NSUserDefaults standardUserDefaults] valueForKey:@"InstagramAccessToken"] WithCompletion:^(id obj) {
+                            
+                        }];
+                    }];
+                };
+            }
                 break;
-            case 3:
+                
+            case 3:{
+                [SOCIALMACRO linkedInLoginWithCompletion:^(id obj) {
+                }];
                 break;
+            }
                 
             default:
                 break;

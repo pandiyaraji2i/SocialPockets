@@ -46,6 +46,34 @@
     if (USERINFO.userId.length) {
         [[NSFileManager defaultManager] removeItemAtPath:DOCUMENT_DIRECTORY_WITHPATH(USERINFO.userId) error:nil];
     }
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:FB_LIKES];
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:FB_NEW_LIKES];
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:FB_FRIENDS];
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:FB_NEW_FRIENDS];
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:FB_COMMENTS];
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:FB_NEW_COMMENTS];
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:FB_POSTS ];
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:FB_NEW_POSTS];
+    
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:TWITTER_FOLLOWERS];
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:TWITTER_NEW_FOLLOWERS];
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:TWITTER_FRIENDS];
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:TWITTER_NEW_FRIENDS];
+    
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:INSTAGRAM_FOLLOWERS];
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:INSTAGRAM_NEW_FOLLOWERS];
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:INSTAGRAM_FOLLOWEDBY];
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:INSTAGRAM_NEW_FOLLOWEDBY];
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:INSTAGRAM_COMMENTS];
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:INSTAGRAM_NEW_COMMENTS];
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:INSTAGRAM_LIKES];
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:INSTAGRAM_NEW_LIKES];
+    
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:LINKEDIN_JOBS];
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:LINKEDIN_NEW_JOBS];
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:LINKEDIN_CONNECTIONS];
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:LINKEDIN_NEW_CONNECTIONS];
+        
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 

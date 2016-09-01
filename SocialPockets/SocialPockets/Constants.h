@@ -59,6 +59,7 @@
 #define USERID                         @"User_ID"
 #define USERNAME                       @"User_Name"
 #define USEREMAIL                      @"User_Email"
+#define USER_PREV_ID                   @"User_prev_id"
 
 #define FB_LIKES                        @"FBLikesCount"
 #define FB_NEW_LIKES                    @"FBLikesServerCount"

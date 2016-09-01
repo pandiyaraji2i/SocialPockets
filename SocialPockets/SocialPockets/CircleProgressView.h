@@ -2,8 +2,8 @@
 //  CircleProgressView.h
 //  CircleProgressView
 //
-//  Created by Eric Rolf on 4/3/15.
-//  Copyright (c) 2015 Eric Rolf. All rights reserved.
+//  Created by GaneshM on 8/8/16.
+//  Copyright (c) 2016 GaneshM. All rights reserved.
 //
 
 @import UIKit;

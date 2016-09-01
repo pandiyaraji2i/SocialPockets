@@ -93,8 +93,17 @@
                                                     rightMenuViewController:nil];
     rearVc.menu =^(NSString* menuTitle){
         if ([menuTitle isEqualToString:@"Logout"]) {
+            
+            [[NSUserDefaults standardUserDefaults] setObject:USERID forKey:USER_PREV_ID];
+            [[NSUserDefaults standardUserDefaults]synchronize];
+            
             [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"USERINFO"];
             [[NSUserDefaults standardUserDefaults] setObject:nil forKey:USERID];
+            [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"FacebookAccessToken"];
+            [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"TwitterAccessToken"];
+            [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"InstagramAccessToken"];
+            [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"LinkedInAccessToken"];
+            
             AppDelegate *appDelegateTemp = (AppDelegate*)[UIApplication sharedApplication].delegate;
             appDelegateTemp.window.rootViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateInitialViewController];
         }
