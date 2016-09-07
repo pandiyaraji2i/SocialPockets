@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C4585FFDBD3AC655F6ACB2B /* Pods_SocialPockets.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F58B5BDF096D5A0F19D8476 /* Pods_SocialPockets.framework */; };
 		6710F0831D6DB0710026E535 /* IGLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6710F0821D6DB0700026E535 /* IGLoginViewController.m */; };
 		671C44431D4091E4000C94A0 /* LoanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 671C44421D4091E4000C94A0 /* LoanViewController.m */; };
 		671C44471D4094CA000C94A0 /* BankAccHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 671C44461D4094CA000C94A0 /* BankAccHelper.m */; };
@@ -16,7 +17,6 @@
 		6777A4CC1D4A2FF600BF1EC3 /* close_round_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 6777A4CB1D4A2FF600BF1EC3 /* close_round_button.png */; };
 		677A83D61D6327F800CCF822 /* RRCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 677A83D41D6327F800CCF822 /* RRCircleView.m */; };
 		679CCAE01D6C29D3003EBAF5 /* linkedin-sdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 679CCADF1D6C29D3003EBAF5 /* linkedin-sdk.framework */; };
-		802EDF43A49A32B470A0D8D8 /* libPods-SocialPockets.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0455716A8E3A563761CB5AAC /* libPods-SocialPockets.a */; };
 		A3083F941D59E1C200476BA3 /* CircleProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = A3083F931D59E1C200476BA3 /* CircleProgressView.m */; };
 		A3253D121D3C9DE90081A59C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A3253D111D3C9DE90081A59C /* main.m */; };
 		A3253D151D3C9DE90081A59C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A3253D141D3C9DE90081A59C /* AppDelegate.m */; };
@@ -158,7 +158,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0455716A8E3A563761CB5AAC /* libPods-SocialPockets.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SocialPockets.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F58B5BDF096D5A0F19D8476 /* Pods_SocialPockets.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SocialPockets.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		29C8499C909023AC3B862F75 /* Pods-SocialPockets.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialPockets.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SocialPockets/Pods-SocialPockets.debug.xcconfig"; sourceTree = "<group>"; };
+		636AFF9C66529397AABCEB1C /* Pods-SocialPockets.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialPockets.release.xcconfig"; path = "Pods/Target Support Files/Pods-SocialPockets/Pods-SocialPockets.release.xcconfig"; sourceTree = "<group>"; };
 		6710F0811D6DB0700026E535 /* IGLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGLoginViewController.h; sourceTree = "<group>"; };
 		6710F0821D6DB0700026E535 /* IGLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGLoginViewController.m; sourceTree = "<group>"; };
 		671C44411D4091E4000C94A0 /* LoanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoanViewController.h; sourceTree = "<group>"; };
@@ -174,7 +176,6 @@
 		677A83D41D6327F800CCF822 /* RRCircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRCircleView.m; sourceTree = "<group>"; };
 		677A83D51D6327F800CCF822 /* RRCircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRCircleView.h; sourceTree = "<group>"; };
 		679CCADF1D6C29D3003EBAF5 /* linkedin-sdk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = "linkedin-sdk.framework"; sourceTree = "<group>"; };
-		853DFEBFFD11370D4A6D76B8 /* Pods-SocialPockets.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialPockets.release.xcconfig"; path = "Pods/Target Support Files/Pods-SocialPockets/Pods-SocialPockets.release.xcconfig"; sourceTree = "<group>"; };
 		A3083F921D59E1C200476BA3 /* CircleProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleProgressView.h; sourceTree = "<group>"; };
 		A3083F931D59E1C200476BA3 /* CircleProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleProgressView.m; sourceTree = "<group>"; };
 		A3253D0D1D3C9DE90081A59C /* SocialPockets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocialPockets.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -341,7 +342,6 @@
 		A3FA9B661D78443000F45E18 /* UICustomTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICustomTextField.m; sourceTree = "<group>"; };
 		A3FA9B6B1D78447700F45E18 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		A3FA9B6C1D78447700F45E18 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
-		EF9931AE443B4ADDC7E0B64A /* Pods-SocialPockets.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialPockets.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SocialPockets/Pods-SocialPockets.debug.xcconfig"; sourceTree = "<group>"; };
 		FB0342EF1D54AE4C00C11019 /* NotificationBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = NotificationBG.png; path = ../NotificationBG.png; sourceTree = "<group>"; };
 		FB0342F01D54AE4C00C11019 /* NotificationBG4S.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = NotificationBG4S.png; path = ../NotificationBG4S.png; sourceTree = "<group>"; };
 		FB0342F11D54AE4C00C11019 /* NotificationBG6S.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = NotificationBG6S.png; path = ../NotificationBG6S.png; sourceTree = "<group>"; };
@@ -385,12 +385,12 @@
 				A3AEDCFD1D5DCD52007FE5C9 /* CoreMotion.framework in Frameworks */,
 				A3AEDCFB1D5DCD4A007FE5C9 /* CoreFoundation.framework in Frameworks */,
 				FBAAB8381D4239D7001C918B /* FBSDKShareKit.framework in Frameworks */,
-				802EDF43A49A32B470A0D8D8 /* libPods-SocialPockets.a in Frameworks */,
 				A3AEDD061D5DCD97007FE5C9 /* libTestFairy.a in Frameworks */,
 				679CCAE01D6C29D3003EBAF5 /* linkedin-sdk.framework in Frameworks */,
 				A3D65A831D460BA100B47E46 /* CameraFrameWork.framework in Frameworks */,
 				FBAAB8361D4239D7001C918B /* FBSDKCoreKit.framework in Frameworks */,
 				FBAAB8371D4239D7001C918B /* FBSDKLoginKit.framework in Frameworks */,
+				3C4585FFDBD3AC655F6ACB2B /* Pods_SocialPockets.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -404,15 +404,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1A440D39982BE729DDB2E6FA /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				EF9931AE443B4ADDC7E0B64A /* Pods-SocialPockets.debug.xcconfig */,
-				853DFEBFFD11370D4A6D76B8 /* Pods-SocialPockets.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		6710F0801D6DB05D0026E535 /* Instagram */ = {
 			isa = PBXGroup;
 			children = (
@@ -447,9 +438,18 @@
 				A3AEDCFE1D5DCD5A007FE5C9 /* AVFoundation.framework */,
 				A3AEDCFC1D5DCD52007FE5C9 /* CoreMotion.framework */,
 				A3AEDCFA1D5DCD4A007FE5C9 /* CoreFoundation.framework */,
-				0455716A8E3A563761CB5AAC /* libPods-SocialPockets.a */,
+				1F58B5BDF096D5A0F19D8476 /* Pods_SocialPockets.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		961B4024A410EF694EA9393E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				29C8499C909023AC3B862F75 /* Pods-SocialPockets.debug.xcconfig */,
+				636AFF9C66529397AABCEB1C /* Pods-SocialPockets.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		A3253D041D3C9DE90081A59C = {
@@ -460,8 +460,8 @@
 				A3253D0F1D3C9DE90081A59C /* SocialPockets */,
 				A3C3C8891D3F4AE300C65B09 /* SocialPocketsTests */,
 				A3253D0E1D3C9DE90081A59C /* Products */,
-				1A440D39982BE729DDB2E6FA /* Pods */,
 				8475099805C07C9E06A7A1F2 /* Frameworks */,
+				961B4024A410EF694EA9393E /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -998,7 +998,6 @@
 				1AA4AB063038C0AFD08C5C80 /* [CP] Embed Pods Frameworks */,
 				21A176EA3F6714CF05E794E4 /* [CP] Copy Pods Resources */,
 				A3D65A851D460BA100B47E46 /* Embed Frameworks */,
-				FFB175BF164D49CD3F1821F6 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1152,21 +1151,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		FFB175BF164D49CD3F1821F6 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SocialPockets/Pods-SocialPockets-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1380,11 +1364,11 @@
 		};
 		A3253D251D3C9DE90081A59C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EF9931AE443B4ADDC7E0B64A /* Pods-SocialPockets.debug.xcconfig */;
+			baseConfigurationReference = 29C8499C909023AC3B862F75 /* Pods-SocialPockets.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1409,11 +1393,11 @@
 		};
 		A3253D261D3C9DE90081A59C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 853DFEBFFD11370D4A6D76B8 /* Pods-SocialPockets.release.xcconfig */;
+			baseConfigurationReference = 636AFF9C66529397AABCEB1C /* Pods-SocialPockets.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (

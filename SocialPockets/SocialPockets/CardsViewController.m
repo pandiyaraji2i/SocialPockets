@@ -2083,7 +2083,11 @@ numberOfRowsInComponent:(NSInteger)component {
     self.indicatorView = nil;
     self.schemeTypeImageView = nil;
 }
-
+#pragma mark StatusBar Style
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
+}
 
 /*
 - (void)smartPay {
