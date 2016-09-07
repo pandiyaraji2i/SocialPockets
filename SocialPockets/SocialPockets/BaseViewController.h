@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CitrusPay/CitrusPay.h>
 
 @interface BaseViewController : UIViewController{
 

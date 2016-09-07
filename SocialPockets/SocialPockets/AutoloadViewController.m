@@ -83,7 +83,6 @@
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     [self.view endEditing:YES];
     if (alertView.tag ==10001){
-        NSLog(@"Array -> %@",self.navigationController.viewControllers );
         for (UIViewController* viewController in self.navigationController.viewControllers) {
             if ([viewController isKindOfClass:[DashBoardViewController class]] ) {
                 DashBoardViewController *dashboard = (DashBoardViewController*)viewController;

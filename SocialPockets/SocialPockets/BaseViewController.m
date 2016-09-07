@@ -7,8 +7,6 @@
 //
 
 #import "BaseViewController.h"
-#define PRODUCTION_MODE NO
-
 
 @interface BaseViewController ()
 
@@ -43,34 +41,39 @@
     keyStore.signUpSecret = SubscriptionSecretKey;
     keyStore.vanity = VanityUrl;
     
+
     [CitrusPaymentSDK initializeWithKeyStore:keyStore environment:(PRODUCTIONMODE)?CTSEnvProduction:CTSEnvSandbox];
-    
-    
+
     [CitrusPaymentSDK enableDEBUGLogs];
     
+    [CitrusPaymentSDK enableLoader];
+    
+    [CitrusPaymentSDK setLoaderColor:[UIColor orangeColor]];
+
     authLayer = [CTSAuthLayer fetchSharedAuthLayer];
     proifleLayer = [CTSProfileLayer fetchSharedProfileLayer];
     paymentLayer = [CTSPaymentLayer fetchSharedPaymentLayer];
-    
+
     contactInfo = [[CTSContactUpdate alloc] init];
-    contactInfo.firstName = USERINFO.name;
-    contactInfo.lastName = USERINFO.name;
-    contactInfo.email = USERINFO.user_email;
-    contactInfo.mobile = USERINFO.user_phone_number;
+    contactInfo.firstName = USERINFO.user_name;
+    contactInfo.lastName = USERINFO.user_name;
+    contactInfo.email = USERINFO.user_name;
+    contactInfo.mobile = USERINFO.user_name;
     
     addressInfo = [[CTSUserAddress alloc] init];
     addressInfo.city = @"Chennai";
     addressInfo.country = @"India";
     addressInfo.state = @"TamilNadu";
-    addressInfo.street1 = @"8th fllor, RR Towers 5";
-    addressInfo.street2 = @"TVK Estate, Guindy";
+    addressInfo.street1 = @"RR Towers 5, TVK Industrial Estate";
+    addressInfo.street2 = @"Guindy";
     addressInfo.zip = @"600032";
     
     customParams = @{
                      @"USERDATA2":@"MOB_RC|9988776655",
                      @"USERDATA10":@"test",
                      @"USERDATA4":@"MOB_RC|test@gmail.com",
-                     @"USERDATA3":@"MOB_RC|4111XXXXXXXX1111"};
+                     @"USERDATA3":@"MOB_RC|4111XXXXXXXX1111",
+                     };
 }
 
 @end
