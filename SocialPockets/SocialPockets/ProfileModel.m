@@ -127,7 +127,7 @@ static ProfileModel* _sharedInstance = nil;
  */
 - (void)getUserCreditScore:(void (^)(id))completionBlock
 {
-    NSString *urlString =[NSString stringWithFormat:@"creditshow?user_id=%@",[[NSUserDefaults standardUserDefaults] valueForKey:USERID]];
+    NSString *urlString =[NSString stringWithFormat:@"getCreditScore?user_id=%@",[[NSUserDefaults standardUserDefaults] valueForKey:USERID]];
     [NetworkHelperClass sendAsynchronousRequestToServer:urlString httpMethod:GET requestBody:nil contentType:JSONCONTENTTYPE completion:^(id obj) {
         if (completionBlock) {
             completionBlock(obj);

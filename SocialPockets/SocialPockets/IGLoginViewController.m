@@ -35,12 +35,24 @@
     // Pass the selected object to the new view controller.
 }
 */
-
+- (void) cancelButtonTap{
+    
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+    
+}
 - (void) viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear: animated];
     
-    [[UIApplication sharedApplication] setStatusBarHidden:YES];
+    [[UIApplication sharedApplication] setStatusBarHidden:NO];
+    [self.navigationItem setHidesBackButton:TRUE];
+    
+    UIBarButtonItem *rightBarButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelButtonTap)];
+    [self.navigationItem setRightBarButtonItem:rightBarButton];
+    self.navigationController.navigationBar.tintColor = [UIColor blackColor];
+    [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObject:[UIColor blackColor] forKey:UITextAttributeTextColor]];
+    
+    
     
     NSString* authURL = nil;
     

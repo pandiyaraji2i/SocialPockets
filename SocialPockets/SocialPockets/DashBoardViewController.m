@@ -233,12 +233,13 @@
     if ([NetworkHelperClass getInternetStatus:NO]) {
         [PROFILEMACRO getUserCreditScore:^(id obj) {
             if ([obj isKindOfClass:[NSDictionary class]]) {
-                NSString *stringValue = [NSString stringWithFormat:@"%@",[obj valueForKey:@"USRCS_SCORE"]];
+                NSString *stringValue = [NSString stringWithFormat:@"%@",[obj valueForKey:@"Total_CREDIT_SCORE"]];
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [self updateCrediScore:stringValue];
-                    id messageObj = [obj valueForKey:@"messages"];
-                    pointsCountLabel.text = [NSString stringWithFormat:@"%@",[messageObj valueForKey:@"MESSAGE"]];
-                    [self.pointsButton setTitle:[NSString stringWithFormat:@"%@ Points",[messageObj valueForKey:@"NEEDED_CREDIT_SCORE"]] forState:UIControlStateNormal];
+                    //id messageObj = [obj valueForKey:@"Total_CREDIT_SCORE"];
+                    //pointsCountLabel.text = [NSString stringWithFormat:@"%@",[messageObj valueForKey:@"MESSAGE"]];
+                    pointsCountLabel.text = [NSString stringWithFormat:@"%@",[obj valueForKey:@"Total_CREDIT_SCORE"]];
+                    [self.pointsButton setTitle:[NSString stringWithFormat:@"%@ Points",[obj valueForKey:@"Total_CREDIT_SCORE"]] forState:UIControlStateNormal];
                 });
             }else{
                 
@@ -418,7 +419,7 @@
                 [zerothDigitScoreButton setTitle:titleStr forState:UIControlStateNormal];
                 break;
             case 3:
-                [zerothDigitScoreButton setTitle:titleStr forState:UIControlStateNormal];
+                [thousandthDigitScoreButton setTitle:titleStr forState:UIControlStateNormal];
                 break;
             case 2:
                 [hundredDigitScoreButton setTitle:titleStr forState:UIControlStateNormal];

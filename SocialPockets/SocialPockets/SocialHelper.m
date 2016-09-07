@@ -628,26 +628,26 @@ static SocialHelper* _sharedInstance = nil;
     switch (socialMediaType) {
         case 1:
         {
-            socialDict = [@{@"photolikes":[NSNumber numberWithInteger:[[NSUserDefaults standardUserDefaults] integerForKey:FB_NEW_LIKES]],@"photocomments":[NSNumber numberWithInteger:[[NSUserDefaults standardUserDefaults] integerForKey:FB_NEW_COMMENTS]],@"newfriends":[NSNumber numberWithInteger:[[NSUserDefaults standardUserDefaults] integerForKey:FB_NEW_FRIENDS]],@"newallpost":[NSNumber numberWithInteger:[[NSUserDefaults standardUserDefaults] integerForKey:FB_NEW_POSTS]]}mutableCopy];
-            socialKey = @"facebook";
+            socialDict = [@{@"PL":[NSNumber numberWithInteger:[[NSUserDefaults standardUserDefaults] integerForKey:FB_NEW_LIKES]],@"PC":[NSNumber numberWithInteger:[[NSUserDefaults standardUserDefaults] integerForKey:FB_NEW_COMMENTS]],@"CI":@"0",@"NF":[NSNumber numberWithInteger:[[NSUserDefaults standardUserDefaults] integerForKey:FB_NEW_FRIENDS]],@"NWP":[NSNumber numberWithInteger:[[NSUserDefaults standardUserDefaults] integerForKey:FB_NEW_POSTS]]}mutableCopy];
+            socialKey = @"FB";
             break;
         }
         case 2:
         {
-            socialDict = [@{@"newfriends":[NSNumber numberWithInteger:[userDefaults integerForKey:TWITTER_NEW_FRIENDS]],@"newfollowers":[NSNumber numberWithInteger:[userDefaults integerForKey:TWITTER_NEW_FOLLOWERS]]}mutableCopy];
-            socialKey = @"twitter";
+            socialDict = [@{@"NF":[NSNumber numberWithInteger:[userDefaults integerForKey:TWITTER_NEW_FRIENDS]],@"NFOL":[NSNumber numberWithInteger:[userDefaults integerForKey:TWITTER_NEW_FOLLOWERS]]}mutableCopy];
+            socialKey = @"TW";
             break;
         }
         case 3:
         {
-            socialDict = [@{@"newfollowers":[NSNumber numberWithInteger:[userDefaults integerForKey:INSTAGRAM_NEW_FOLLOWERS]],@"photolikes":[NSNumber numberWithInteger:[userDefaults integerForKey:INSTAGRAM_NEW_LIKES]],@"photocomments":[NSNumber numberWithInteger:[userDefaults integerForKey:INSTAGRAM_NEW_COMMENTS]],@"newmutualfriends":[NSNumber numberWithInteger:[userDefaults integerForKey:INSTAGRAM_NEW_FOLLOWEDBY]]}mutableCopy];
-            socialKey = @"instagram";
+            socialDict = [@{@"NFOL":[NSNumber numberWithInteger:[userDefaults integerForKey:INSTAGRAM_NEW_FOLLOWERS]],@"PL":[NSNumber numberWithInteger:[userDefaults integerForKey:INSTAGRAM_NEW_LIKES]],@"PC":[NSNumber numberWithInteger:[userDefaults integerForKey:INSTAGRAM_NEW_COMMENTS]],@"NMF":[NSNumber numberWithInteger:[userDefaults integerForKey:INSTAGRAM_NEW_FOLLOWEDBY]]}mutableCopy];
+            socialKey = @"IN";
             break;
         }
         case 4:
         {
-            socialDict = [@{@"totalconnection":[NSNumber numberWithInteger:[userDefaults integerForKey:LINKEDIN_NEW_CONNECTIONS]],@"jobs":[NSNumber numberWithInteger:[userDefaults integerForKey:LINKEDIN_NEW_JOBS]]}mutableCopy];
-            socialKey = @"linkedin";
+            socialDict = [@{@"TC":[NSNumber numberWithInteger:[userDefaults integerForKey:LINKEDIN_NEW_CONNECTIONS]],@"JO":[NSNumber numberWithInteger:[userDefaults integerForKey:LINKEDIN_NEW_JOBS]],@"SAVG":@"0"}mutableCopy];
+            socialKey = @"LI";
             break;
         }
         default:
