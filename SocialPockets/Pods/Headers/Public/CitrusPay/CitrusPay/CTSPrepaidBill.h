@@ -1,1 +1,1 @@
-../../../../CitrusPay/Framework/core-sdk/CitrusPay.framework/Versions/A/Headers/CTSPrepaidBill.h
+../../../../CitrusPay/Framework/core-sdk/CitrusPay.framework/Headers/CTSPrepaidBill.h

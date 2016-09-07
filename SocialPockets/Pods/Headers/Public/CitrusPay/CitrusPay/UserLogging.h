@@ -1,1 +1,1 @@
-../../../../CitrusPay/Framework/core-sdk/CitrusPay.framework/Versions/A/Headers/UserLogging.h
+../../../../CitrusPay/Framework/core-sdk/CitrusPay.framework/Headers/UserLogging.h

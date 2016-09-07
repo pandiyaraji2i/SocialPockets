@@ -1,1 +1,1 @@
-../../../../CitrusPay/Framework/core-sdk/CitrusPay.framework/Versions/A/Headers/CTSEotpVerSigninResp.h
+../../../../CitrusPay/Framework/core-sdk/CitrusPay.framework/Headers/CTSEotpVerSigninResp.h

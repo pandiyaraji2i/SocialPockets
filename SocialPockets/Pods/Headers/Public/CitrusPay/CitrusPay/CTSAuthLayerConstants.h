@@ -1,1 +1,1 @@
-../../../../CitrusPay/Framework/core-sdk/CitrusPay.framework/Versions/A/Headers/CTSAuthLayerConstants.h
+../../../../CitrusPay/Framework/core-sdk/CitrusPay.framework/Headers/CTSAuthLayerConstants.h

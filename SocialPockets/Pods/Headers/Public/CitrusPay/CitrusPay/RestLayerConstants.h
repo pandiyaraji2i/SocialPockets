@@ -1,1 +1,1 @@
-../../../../CitrusPay/Framework/core-sdk/CitrusPay.framework/Versions/A/Headers/RestLayerConstants.h
+../../../../CitrusPay/Framework/core-sdk/CitrusPay.framework/Headers/RestLayerConstants.h

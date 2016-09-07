@@ -1,1 +1,1 @@
-../../../../CitrusPay/Framework/core-sdk/CitrusPay.framework/Versions/A/Headers/CTSUtility.h
+../../../../CitrusPay/Framework/core-sdk/CitrusPay.framework/Headers/CTSUtility.h

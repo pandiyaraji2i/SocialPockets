@@ -1,1 +1,1 @@
-../../../../CitrusPay/Framework/core-sdk/CitrusPay.framework/Versions/A/Headers/CTSPGHealthRes.h
+../../../../CitrusPay/Framework/core-sdk/CitrusPay.framework/Headers/CTSPGHealthRes.h

@@ -1,1 +1,1 @@
-../../../../CitrusPay/Framework/core-sdk/CitrusPay.framework/Versions/A/Headers/CTSSaveCardResponse.h
+../../../../CitrusPay/Framework/core-sdk/CitrusPay.framework/Headers/CTSSaveCardResponse.h

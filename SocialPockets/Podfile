@@ -1,5 +1,6 @@
-target "SocialPockets" do
+platform :ios, '8.0'
+
+target 'SocialPockets' do
 pod 'TwitterKit'
-pod "CitrusPay"
-#pod 'SwiftyJSON', '~> 2.3.2'
+pod 'CitrusPay'
 end

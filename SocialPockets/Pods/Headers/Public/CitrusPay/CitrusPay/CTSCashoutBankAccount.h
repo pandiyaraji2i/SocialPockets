@@ -1,1 +1,1 @@
-../../../../CitrusPay/Framework/core-sdk/CitrusPay.framework/Versions/A/Headers/CTSCashoutBankAccount.h
+../../../../CitrusPay/Framework/core-sdk/CitrusPay.framework/Headers/CTSCashoutBankAccount.h

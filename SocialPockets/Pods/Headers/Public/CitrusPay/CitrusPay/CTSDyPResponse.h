@@ -1,1 +1,1 @@
-../../../../CitrusPay/Framework/core-sdk/CitrusPay.framework/Versions/A/Headers/CTSDyPResponse.h
+../../../../CitrusPay/Framework/core-sdk/CitrusPay.framework/Headers/CTSDyPResponse.h

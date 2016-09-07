@@ -1,1 +1,1 @@
-../../../../CitrusPay/Framework/core-sdk/CitrusPay.framework/Versions/A/Headers/CTSDyPValidateRuleReq.h
+../../../../CitrusPay/Framework/core-sdk/CitrusPay.framework/Headers/CTSDyPValidateRuleReq.h

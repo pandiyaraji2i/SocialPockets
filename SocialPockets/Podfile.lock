@@ -1,8 +1,8 @@
 PODS:
-  - CitrusPay (3.6.1):
+  - CitrusPay (4.0.0):
     - JSONModel
   - Fabric (1.6.7)
-  - JSONModel (1.2.0)
+  - JSONModel (1.4.0)
   - TwitterCore (2.3.0):
     - Fabric
   - TwitterKit (2.3.0):
@@ -13,12 +13,10 @@ DEPENDENCIES:
   - TwitterKit
 
 SPEC CHECKSUMS:
-  CitrusPay: 8d27effefe2098517f96c44394ae41becb99de75
+  CitrusPay: 19089e5a44ef2c6f8fd94ab9790b8025d28215c5
   Fabric: caf7580c725e64db144f610ac65cd60956911dc7
-  JSONModel: 12523685c4b623553ccf844bbbf7007624317b2c
+  JSONModel: 58fe3f8c29ff95ed94e7ee7dde87e807f5da5371
   TwitterCore: 817eae3e291fa4125b47789e26a4f6f024115c1f
   TwitterKit: 8a383da8d9c21b0423716381ea8bbfce20622d91
 
-PODFILE CHECKSUM: 6b8b80903a3a53f6a449e4a77e49f259cad4e5d4
-
-COCOAPODS: 1.0.1
+COCOAPODS: 0.39.0

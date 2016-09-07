@@ -1,1 +1,1 @@
-../../../../CitrusPay/Framework/core-sdk/CitrusPay.framework/Versions/A/Headers/CTSError.h
+../../../../CitrusPay/Framework/core-sdk/CitrusPay.framework/Headers/CTSError.h

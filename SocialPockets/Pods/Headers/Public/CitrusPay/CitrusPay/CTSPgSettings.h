@@ -1,1 +1,1 @@
-../../../../CitrusPay/Framework/core-sdk/CitrusPay.framework/Versions/A/Headers/CTSPgSettings.h
+../../../../CitrusPay/Framework/core-sdk/CitrusPay.framework/Headers/CTSPgSettings.h

@@ -1,1 +1,1 @@
-../../../../CitrusPay/Framework/core-sdk/CitrusPay.framework/Versions/A/Headers/CTSBlazeCardPayment.h
+../../../../CitrusPay/Framework/core-sdk/CitrusPay.framework/Headers/CTSBlazeCardPayment.h

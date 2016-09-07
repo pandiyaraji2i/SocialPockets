@@ -1,1 +1,1 @@
-../../../../CitrusPay/Framework/core-sdk/CitrusPay.framework/Versions/A/Headers/CTSSimpliChargeDistribution.h
+../../../../CitrusPay/Framework/core-sdk/CitrusPay.framework/Headers/CTSSimpliChargeDistribution.h
