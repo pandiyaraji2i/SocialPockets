@@ -107,17 +107,17 @@
 
 //#-- Citrus Merchant Constants
 
-#define SignInId (PRODUCTIONMODE)?:@"bkhy5lnqsg-signin"
-#define SignInSecretKey (PRODUCTIONMODE)?:@"3a26f6d622c193407578a12e1ec1ee62"
-#define SubscriptionId (PRODUCTIONMODE)?:@"bkhy5lnqsg-signup"
-#define SubscriptionSecretKey (PRODUCTIONMODE)?:@"85884d51524b8465811766d902201508"
+#define SignInId (PRODUCTIONMODE)?@"sqmkxzxq32-signin":@"bkhy5lnqsg-signin"
+#define SignInSecretKey (PRODUCTIONMODE)?@"4566e38c28d66cb3eb9281e100df1666":@"3a26f6d622c193407578a12e1ec1ee62"
+#define SubscriptionId (PRODUCTIONMODE)?@"sqmkxzxq32-signup":@"bkhy5lnqsg-signup"
+#define SubscriptionSecretKey (PRODUCTIONMODE)?@"5e916a30a8294019ff8d58502acdfab4":@"85884d51524b8465811766d902201508"
 
 /*
  set your Vanity / Bill / Return URL
  */
-#define VanityUrl (PRODUCTIONMODE)?:@"bkhy5lnqsg"
-#define LoadWalletReturnUrl (PRODUCTIONMODE)?:@"https://salty-plateau-1529.herokuapp.com/redirectURL.sandbox.php"
-#define BillUrl (PRODUCTIONMODE)?:@"https://salty-plateau-1529.herokuapp.com/billGenerator.sandbox.php"
+#define VanityUrl (PRODUCTIONMODE)?@"sqmkxzxq32":@"bkhy5lnqsg"
+#define LoadWalletReturnUrl (PRODUCTIONMODE)?@"https://salty-plateau-1529.herokuapp.com/redirectURL.sandbox.php":@"https://salty-plateau-1529.herokuapp.com/redirectURL.sandbox.php"
+#define BillUrl (PRODUCTIONMODE)?@"https://salty-plateau-1529.herokuapp.com/billGenerator.sandbox.php":@"https://salty-plateau-1529.herokuapp.com/billGenerator.sandbox.php"
 
 
 #endif /* Constants_h */

@@ -70,7 +70,8 @@
     
     self.inHandAmount.text = [NSString stringWithFormat:@"Rs. %@",[loanRepayAmount rupeesFormat]];
     
-    
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@" " style:UIBarButtonItemStylePlain target:self action:nil];
+
     
 }
 - (IBAction)DoneBtnTapped:(id)sender {

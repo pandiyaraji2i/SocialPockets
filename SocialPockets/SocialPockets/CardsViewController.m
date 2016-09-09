@@ -78,12 +78,28 @@
     selectedRow = NSNotFound;
     selectedPaymentoption = [[NSString alloc] init];
     self.amount = [NSString stringWithFormat:@"%.02f", [self.amount floatValue]];
-    
+    self.ccddtableView.tableHeaderView = [[UIView alloc]initWithFrame:CGRectZero];
+
+    self.ccddtableView.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
+    self.ccddtableView.backgroundColor = [UIColor clearColor];
     NSDecimal myFloatDecimal = [[NSNumber numberWithFloat:[self.amount floatValue]] decimalValue];
     transactionAmount = [NSDecimalNumber decimalNumberWithDecimal:myFloatDecimal];
-    
+
     [self initialSetting];
     LogTrace(@"landingscreeen : %d",self.landingScreen);
+    
+    if (IPHONE6PLUS_STANDARD){
+        self.bgImage.image = [UIImage imageNamed:@"NotificationBG6Splus.png"];
+        
+    }else if (IPHONE5){
+        self.bgImage.image = [UIImage imageNamed:@"NotificationBG.png"];
+        
+    }else if(IPHONE6_STANDARD){
+        self.bgImage.image = [UIImage imageNamed:@"NotificationBG6S.png"];
+        
+    }else{
+        self.bgImage.image = [UIImage imageNamed:@"NotificationBG4S.png"];
+    }
     
     _paymentOptions = [CTSPaymentOptions new];
 }
@@ -554,7 +570,7 @@
     _allSet = YES;
     if (self.landingScreen==1) {
         [self setPaymentInfoForSmartPay];
-        [self paymentSummary];
+//        [self paymentSummary];  //#-- For alertview
     }
     else if(self.landingScreen==0){
         [self setPaymentInfoForSmartPay];
@@ -935,6 +951,9 @@
     }
     
     [self validateCardSchemesBanks];
+    if (_allSet) {
+        [self simpliPay];
+    }
 }
 
 - (void)paymentSummary {
@@ -1678,7 +1697,8 @@ replacementString:(NSString *)string {
         }
     }
     
-    
+    cell.backgroundColor = [UIColor clearColor];
+
     return cell;
 }
 

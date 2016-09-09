@@ -30,6 +30,9 @@
 
 @property (nonatomic , weak) IBOutlet UIActivityIndicatorView *indicatorView;
 
+@property (nonatomic , weak) IBOutlet UIImageView *bgImage;
+
+
 @property (nonatomic , strong) CTSRuleInfo *ruleInfo;
 
 @property (assign) BOOL isDirectPaymentEnable;

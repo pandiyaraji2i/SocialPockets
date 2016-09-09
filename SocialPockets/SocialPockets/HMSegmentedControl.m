@@ -130,13 +130,14 @@
     self.scrollView.showsHorizontalScrollIndicator = NO;
     [self addSubview:self.scrollView];
     
-    _backgroundColor = [UIColor colorWithRed:245/255.0 green:133/255.0 blue:42/255.0 alpha:1.0f];
+//    _backgroundColor = [UIColor colorWithRed:245/255.0 green:133/255.0 blue:42/255.0 alpha:1.0f];
+    _backgroundColor = [UIColor colorWithRed:32.0/255.0 green:160.0/255.0 blue:18.0/255.0 alpha:1.0];
     self.opaque = NO;
 //    _selectionIndicatorColor = [UIColor colorWithRed:52.0f/255.0f green:181.0f/255.0f blue:229.0f/255.0f alpha:1.0f];
     
 //    _selectionIndicatorColor =  [UIColor colorWithRed:18.0f/255.0f green:165.0f/255.0f blue:244.0f/255.0f alpha:1.0f];
     
-    _selectionIndicatorColor = [UIColor colorWithRed:0.0f/255.0f green:0.0f/255.0f blue:128.0f/255.0f alpha:1.0f];
+    _selectionIndicatorColor = [UIColor whiteColor];
     
     self.selectedSegmentIndex = 0;
     self.segmentEdgeInset = UIEdgeInsetsMake(0, 5, 0, 5);
