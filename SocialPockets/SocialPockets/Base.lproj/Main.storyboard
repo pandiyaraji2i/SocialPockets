@@ -7269,19 +7269,19 @@ Tenure Period</string>
                                     </mask>
                                     <mask key="constraints">
                                         <exclude reference="iqG-8V-Rq7"/>
-                                        <exclude reference="Ibz-1a-YVJ"/>
-                                        <exclude reference="Sls-hC-Zxf"/>
-                                        <exclude reference="HAL-AY-s7F"/>
-                                        <exclude reference="ZL0-rQ-XTQ"/>
-                                        <exclude reference="gbM-vJ-vG2"/>
-                                        <exclude reference="q2E-ho-dnq"/>
                                         <exclude reference="QLB-cR-UdK"/>
                                         <exclude reference="VqZ-1g-lCp"/>
+                                        <exclude reference="Ibz-1a-YVJ"/>
+                                        <exclude reference="Sls-hC-Zxf"/>
                                         <exclude reference="ClI-aa-GYQ"/>
                                         <exclude reference="EPb-kA-d1q"/>
                                         <exclude reference="Rk4-7F-nv7"/>
                                         <exclude reference="SrC-kP-7ov"/>
                                         <exclude reference="aYd-1K-so1"/>
+                                        <exclude reference="HAL-AY-s7F"/>
+                                        <exclude reference="ZL0-rQ-XTQ"/>
+                                        <exclude reference="gbM-vJ-vG2"/>
+                                        <exclude reference="q2E-ho-dnq"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact">
@@ -7294,19 +7294,19 @@ Tenure Period</string>
                                     </mask>
                                     <mask key="constraints">
                                         <include reference="iqG-8V-Rq7"/>
-                                        <include reference="Ibz-1a-YVJ"/>
-                                        <include reference="Sls-hC-Zxf"/>
-                                        <include reference="HAL-AY-s7F"/>
-                                        <include reference="ZL0-rQ-XTQ"/>
-                                        <include reference="gbM-vJ-vG2"/>
-                                        <include reference="q2E-ho-dnq"/>
                                         <include reference="QLB-cR-UdK"/>
                                         <include reference="VqZ-1g-lCp"/>
+                                        <include reference="Ibz-1a-YVJ"/>
+                                        <include reference="Sls-hC-Zxf"/>
                                         <include reference="ClI-aa-GYQ"/>
                                         <exclude reference="EPb-kA-d1q"/>
                                         <exclude reference="Rk4-7F-nv7"/>
                                         <include reference="SrC-kP-7ov"/>
                                         <exclude reference="aYd-1K-so1"/>
+                                        <include reference="HAL-AY-s7F"/>
+                                        <include reference="ZL0-rQ-XTQ"/>
+                                        <include reference="gbM-vJ-vG2"/>
+                                        <include reference="q2E-ho-dnq"/>
                                     </mask>
                                 </variation>
                             </view>
@@ -8651,8 +8651,7 @@ Tenure Period</string>
                                                                         <exclude reference="ogp-9S-rTa"/>
                                                                     </mask>
                                                                 </variation>
-                                                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                                    <rect key="frame" x="34" y="28" width="116" height="12"/>
+                                                                <variation key="heightClass=regular-widthClass=compact">
                                                                     <mask key="constraints">
                                                                         <include reference="ogp-9S-rTa"/>
                                                                     </mask>
@@ -8835,8 +8834,7 @@ Tenure Period</string>
                                                                         <exclude reference="Iz7-IB-xRK"/>
                                                                     </mask>
                                                                 </variation>
-                                                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                                    <rect key="frame" x="31" y="11" width="119" height="12"/>
+                                                                <variation key="heightClass=regular-widthClass=compact">
                                                                     <mask key="constraints">
                                                                         <include reference="Iz7-IB-xRK"/>
                                                                     </mask>
@@ -9776,8 +9774,7 @@ Tenure Period</string>
                                                                 <exclude reference="Rrx-Mz-fFL"/>
                                                             </mask>
                                                         </variation>
-                                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                            <rect key="frame" x="34" y="28" width="116" height="12"/>
+                                                        <variation key="heightClass=regular-widthClass=compact">
                                                             <mask key="constraints">
                                                                 <include reference="Rrx-Mz-fFL"/>
                                                             </mask>
@@ -9960,8 +9957,7 @@ Tenure Period</string>
                                                                 <exclude reference="ed1-C1-wSB"/>
                                                             </mask>
                                                         </variation>
-                                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                            <rect key="frame" x="31" y="11" width="119" height="12"/>
+                                                        <variation key="heightClass=regular-widthClass=compact">
                                                             <mask key="constraints">
                                                                 <include reference="ed1-C1-wSB"/>
                                                             </mask>
@@ -10774,7 +10770,8 @@ Tenure Period</string>
                                                                 <exclude reference="Ro1-dd-Rua"/>
                                                             </mask>
                                                         </variation>
-                                                        <variation key="heightClass=regular-widthClass=compact">
+                                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                            <rect key="frame" x="34" y="28" width="116" height="12"/>
                                                             <mask key="constraints">
                                                                 <include reference="Ro1-dd-Rua"/>
                                                             </mask>
@@ -10957,7 +10954,8 @@ Tenure Period</string>
                                                                 <exclude reference="wnJ-RE-mdh"/>
                                                             </mask>
                                                         </variation>
-                                                        <variation key="heightClass=regular-widthClass=compact">
+                                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                            <rect key="frame" x="31" y="11" width="119" height="12"/>
                                                             <mask key="constraints">
                                                                 <include reference="wnJ-RE-mdh"/>
                                                             </mask>

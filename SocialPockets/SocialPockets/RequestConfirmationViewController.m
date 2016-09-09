@@ -6,16 +6,24 @@
 //  Copyright © 2016 Pandiyaraj. All rights reserved.
 //
 
+#import <CoreLocation/CoreLocation.h>
+#import <MobileCoreServices/MobileCoreServices.h>
+
 #import "RequestConfirmationViewController.h"
 #import "DashBoardViewController.h"
 #import "AddBankAccountController.h"
 #import "SwipeTableCell.h"
 #import "SwipeButton.h"
-@interface RequestConfirmationViewController ()<UITableViewDataSource,UITableViewDelegate,SwipeTableCellDelegate>{
+
+
+@interface RequestConfirmationViewController ()<UITableViewDataSource,UITableViewDelegate,SwipeTableCellDelegate,CLLocationManagerDelegate>{
     NSMutableArray *accountArray;
     NSMutableDictionary *accountDict;
     NSIndexPath *previousIndexpath;
-    NSString *bankAccountId;
+    NSString *bankAccountId,*_longitude,*_latitude;
+  
+    CLLocationManager *locationManager;
+    CLLocation *currentLocation;
 }
 @property (weak, nonatomic) IBOutlet UITableView *accountTableView;
 @property (weak, nonatomic) IBOutlet UIButton *acceptance;
@@ -29,6 +37,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self CurrentLocationIdentifier];
     self.transprantView.hidden = YES;
     self.thanksView.hidden = YES;
     self.accountTableView.allowsMultipleSelectionDuringEditing = YES;
@@ -322,6 +331,9 @@
         if ([obj isKindOfClass:[NSDictionary class]]) {
             [ACTIVITY showActivity:@"Processing loan..."];
             self.passwordView.hidden = YES;
+            
+            //*_latitude , *_longitude to be added below in the loan request API
+            
             [LOANMACRO requestLoanForUserId:[[NSUserDefaults standardUserDefaults] valueForKey:USERID] amount:self.loanAmount mobileWallerId:bankAccountId completion:^(id obj) {
                 [ACTIVITY performSelectorOnMainThread:@selector(hideActivity) withObject:nil waitUntilDone:YES];
                 dispatch_async(dispatch_get_main_queue(), ^{
@@ -405,5 +417,72 @@
 //    return @[delete, more]; //array with all the buttons you want. 1,2,3, etc...
 //}
 
+
+-(void)CurrentLocationIdentifier
+{
+    //---- For getting current gps location
+    if ([CLLocationManager locationServicesEnabled])
+    {
+        locationManager = [[CLLocationManager alloc] init];
+        locationManager.delegate = self;
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+        locationManager.distanceFilter = kCLDistanceFilterNone;
+        if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0 &&
+            [CLLocationManager authorizationStatus] != kCLAuthorizationStatusAuthorizedWhenInUse
+            //[CLLocationManager authorizationStatus] != kCLAuthorizationStatusAuthorizedAlways
+            ) {
+            // Will open an confirm dialog to get user's approval
+            [locationManager requestWhenInUseAuthorization];
+            //[_locationManager requestAlwaysAuthorization];
+        }
+        
+        [locationManager startUpdatingLocation];
+    }
+    else{
+        NSLog(@"err");
+    }
+    //------
+}
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
+{
+    NSLog(@"didFailWithError: %@", error);
+    UIAlertView *errorAlert = [[UIAlertView alloc]
+                               initWithTitle:@"Error" message:@"Failed to Get Your Location" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    //    [errorAlert show];
+}
+
+-(void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status
+{
+    switch (status) {
+        case kCLAuthorizationStatusNotDetermined:
+        case kCLAuthorizationStatusRestricted:
+        case kCLAuthorizationStatusDenied:
+        {
+            // do some error handling
+        }
+            break;
+        default:{
+            [locationManager startUpdatingLocation];
+        }
+            break;
+    }
+}
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
+    
+    CLLocation *location;
+    location =  [manager location];
+    CLLocationCoordinate2D coordinate = [location coordinate];
+    CLLocation *currentLocation = [[CLLocation alloc] init];
+    currentLocation = newLocation;
+    _longitude = [NSString stringWithFormat:@"%f",coordinate.longitude];
+    _latitude = [NSString stringWithFormat:@"%f",coordinate.latitude];
+    NSLog(@"value Lat : %@ Long :%@",_latitude,_longitude);
+    [locationManager stopUpdatingHeading];
+    locationManager = nil;
+    return;
+    //    globalObjects.longitude = [NSString stringWithFormat:@"%f",coordinate.longitude];
+    //    globalObjects.latitude = [NSString stringWithFormat:@"%f",coordinate.latitude];
+}
 
 @end

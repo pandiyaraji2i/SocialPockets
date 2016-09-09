@@ -16,6 +16,8 @@
 		6777A4CA1D4A1EE100BF1EC3 /* Calendar_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6777A4C91D4A1EE100BF1EC3 /* Calendar_icon.png */; };
 		6777A4CC1D4A2FF600BF1EC3 /* close_round_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 6777A4CB1D4A2FF600BF1EC3 /* close_round_button.png */; };
 		677A83D61D6327F800CCF822 /* RRCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 677A83D41D6327F800CCF822 /* RRCircleView.m */; };
+		6780EAF01D819E1200F87608 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6780EAEF1D819E1200F87608 /* MobileCoreServices.framework */; };
+		6780EAF21D819E1D00F87608 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6780EAF11D819E1D00F87608 /* CoreLocation.framework */; };
 		679CCAE01D6C29D3003EBAF5 /* linkedin-sdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 679CCADF1D6C29D3003EBAF5 /* linkedin-sdk.framework */; };
 		A3083F941D59E1C200476BA3 /* CircleProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = A3083F931D59E1C200476BA3 /* CircleProgressView.m */; };
 		A3253D121D3C9DE90081A59C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A3253D111D3C9DE90081A59C /* main.m */; };
@@ -175,6 +177,8 @@
 		6777A4CB1D4A2FF600BF1EC3 /* close_round_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close_round_button.png; sourceTree = "<group>"; };
 		677A83D41D6327F800CCF822 /* RRCircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRCircleView.m; sourceTree = "<group>"; };
 		677A83D51D6327F800CCF822 /* RRCircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRCircleView.h; sourceTree = "<group>"; };
+		6780EAEF1D819E1200F87608 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		6780EAF11D819E1D00F87608 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		679CCADF1D6C29D3003EBAF5 /* linkedin-sdk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = "linkedin-sdk.framework"; sourceTree = "<group>"; };
 		A3083F921D59E1C200476BA3 /* CircleProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleProgressView.h; sourceTree = "<group>"; };
 		A3083F931D59E1C200476BA3 /* CircleProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleProgressView.m; sourceTree = "<group>"; };
@@ -378,6 +382,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6780EAF21D819E1D00F87608 /* CoreLocation.framework in Frameworks */,
+				6780EAF01D819E1200F87608 /* MobileCoreServices.framework in Frameworks */,
 				FB58C6D21D66FAAE00279AEF /* QRCodeReaderFramework.framework in Frameworks */,
 				A3AEDD031D5DCD6C007FE5C9 /* OpenGLES.framework in Frameworks */,
 				A3AEDD011D5DCD63007FE5C9 /* SystemConfiguration.framework in Frameworks */,
@@ -433,6 +439,8 @@
 		8475099805C07C9E06A7A1F2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6780EAF11D819E1D00F87608 /* CoreLocation.framework */,
+				6780EAEF1D819E1200F87608 /* MobileCoreServices.framework */,
 				A3AEDD021D5DCD6C007FE5C9 /* OpenGLES.framework */,
 				A3AEDD001D5DCD63007FE5C9 /* SystemConfiguration.framework */,
 				A3AEDCFE1D5DCD5A007FE5C9 /* AVFoundation.framework */,
