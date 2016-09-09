@@ -680,8 +680,7 @@
 //    }
 }
 
-- (void)setPaymentInfoForSmartPay {
-    
+11
     _allSet = YES;
     
     NSDecimal zero = [NSDecimalNumber zero].decimalValue;
@@ -1075,89 +1074,6 @@
                          }
                      });
                  }];
-    
-    
-    // optional
-// If you wish to use CTSBill object follow below signature
-/*
-    [CTSUtility requestBillAmount:totalSelectedAmount
-                          billURL:BillUrl
-                         callback: ^(CTSBill *bill,
-                                     NSError *error) {
-                             if (error) {
-                                 dispatch_async(dispatch_get_main_queue(), ^{
-                                     [self.indicatorView stopAnimating];
-                                     self.indicatorView.hidden = TRUE;
-                                 });
-                                 [UIUtility toastMessageOnScreen:[error localizedDescription]];
-                                 NSLog(@"error %@", [error localizedDescription]);
-                                 [self.navigationController popViewControllerAnimated:YES];
-                                 return;
-                             }
-                             else {
-                                 bill.customParameters = customParams; // optional
-                                 
-                                 PaymentType *paymentType;
-                                 if ((!_useMVC && !_useCash) && _paymentOptions) {
-                                     paymentType = [PaymentType PGPayment:totalSelectedAmount
-                                                                  billObject:bill
-                                                            paymentOption:_paymentOptions
-                                                                  contact:contactInfo
-                                                                  address:addressInfo];
-                                 }
-                                 if ((_useMVC ||_useCash) && _paymentOptions) {
-                                     paymentType = [PaymentType splitPayment:totalSelectedAmount
-                                                                  billObject:bill
-                                                                      useMVC:_useMVC
-                                                                     useCash:_useCash
-                                                               paymentOption:_paymentOptions
-                                                                     contact:contactInfo
-                                                                     address:addressInfo];
-                                 }
-                                 else if (_useMVC && !_paymentOptions) {
-                                     paymentType = [PaymentType mvcPayment:totalSelectedAmount
-                                                                billObject:bill
-                                                                   contact:contactInfo
-                                                                   address:addressInfo];
-                                 }
-                                 else if (_useCash && !_paymentOptions) {
-                                     paymentType = [PaymentType citrusCashPayment:totalSelectedAmount
-                                                                       billObject:bill
-                                                                          contact:contactInfo
-                                                                          address:addressInfo];
-                                 }
-                                 
-                                 [paymentLayer requestSimpliPay:paymentType
-                                        andParentViewController:self
-                                              completionHandler:^(CTSPaymentReceipt *paymentReceipt, NSError *error) {
-                                                  dispatch_async(dispatch_get_main_queue(), ^{
-                                                      [self.indicatorView stopAnimating];
-                                                      self.indicatorView.hidden = TRUE;
-                                                  });
-                                                  
-                                                  dispatch_async(dispatch_get_main_queue(), ^{
-                                                      if (error) {
-                                                          [UIUtility toastMessageOnScreen:[error localizedDescription]];
-                                                          NSLog(@"error %@", [error localizedDescription]);
-                                                          [self.navigationController popViewControllerAnimated:YES];
-                                                      }
-                                                      else {
-                                                          NSLog(@"response %@", paymentReceipt.toDictionary);
-                                                          
-                                                          NSString *paymentStatus = paymentReceipt.toDictionary[@"TxStatus"];
-                                                          if ([paymentStatus length] == 0) {
-                                                              paymentStatus = paymentReceipt.toDictionary[@"Reason"];
-                                                          }
-                                                          
-                                                          [UIUtility toastMessageOnScreen:[NSString stringWithFormat:@"Payment Status: %@", paymentStatus]];
-                                                          [self resetUI];
-                                                          [self.navigationController popViewControllerAnimated:YES];
-                                                      }
-                                                  });
-                                              }];
-                             }
-                         }];
- */
 }
 
 
@@ -1256,67 +1172,6 @@
                          }
                      });
                  }];
-
-    
-    // optional
-    // If you wish to use CTSBill object follow below signature
-/*
-    [CTSUtility requestDPBillForRule:self.ruleInfo
-                             billURL:BillUrl
-                            callback:^(CTSBill *bill, NSError *error) {
-                                if (error) {
-                                    dispatch_async(dispatch_get_main_queue(), ^{
-                                        [self.indicatorView stopAnimating];
-                                        self.indicatorView.hidden = TRUE;
-                                    });
-                                    
-                                    [UIUtility toastMessageOnScreen:[error localizedDescription]];
-                                    NSLog(@"error %@", [error localizedDescription]);
-                                    [self.navigationController popViewControllerAnimated:YES];
-                                }
-                                else {
-                                    PaymentType *paymentType;
-                                    paymentType = [PaymentType performDynamicPricing:totalSelectedAmount
-                                                                          billObject:bill
-                                                                       paymentOption:_paymentOptions
-                                                                            ruleInfo:self.ruleInfo
-                                                                         extraParams:nil
-                                                                             contact:contactInfo
-                                                                             address:addressInfo];
-                                    
-                                    //
-                                    [paymentLayer requestSimpliPay:paymentType
-                                           andParentViewController:self
-                                                 completionHandler:^(CTSPaymentReceipt *paymentReceipt, NSError *error) {
-                                                     dispatch_async(dispatch_get_main_queue(), ^{
-                                                         [self.indicatorView stopAnimating];
-                                                         self.indicatorView.hidden = TRUE;
-                                                     });
-                                                     
-                                                     dispatch_async(dispatch_get_main_queue(), ^{
-                                                         if (error) {
-                                                             [UIUtility toastMessageOnScreen:[error localizedDescription]];
-                                                             NSLog(@"error %@", [error localizedDescription]);
-                                                             [self.navigationController popViewControllerAnimated:YES];
-                                                         }
-                                                         else {
-                                                             NSLog(@"response %@", paymentReceipt.toDictionary);
-                                                             
-                                                             NSString *paymentStatus = paymentReceipt.toDictionary[@"TxStatus"];
-                                                             if ([paymentStatus length] == 0) {
-                                                                 paymentStatus = paymentReceipt.toDictionary[@"Reason"];
-                                                             }
-                                                             
-                                                             [UIUtility toastMessageOnScreen:[NSString stringWithFormat:@"Payment Status: %@", paymentStatus]];
-                                                             [self resetUI];
-                                                             [self.navigationController popViewControllerAnimated:YES];
-                                                         }
-                                                     });
-                                                 }];
-
-                                }
-                            }];
-  */
 }
 
 - (void)resignKeyboard:(UITapGestureRecognizer *)sender {
