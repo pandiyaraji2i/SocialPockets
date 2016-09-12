@@ -101,7 +101,7 @@
 //#-- APP Ids
 
 #define INSTAGRAM_APPID @"15ee4b177c6d4817aa9a82fac4b6b955"
-#define FACEBOOK_APPID @"1543324899307513"
+#define FACEBOOK_APPID @"141207379639575"
 #define TWITTER_APPID @""
 
 
@@ -111,13 +111,27 @@
 #define SignInSecretKey (PRODUCTIONMODE)?@"4566e38c28d66cb3eb9281e100df1666":@"3a26f6d622c193407578a12e1ec1ee62"
 #define SubscriptionId (PRODUCTIONMODE)?@"sqmkxzxq32-signup":@"bkhy5lnqsg-signup"
 #define SubscriptionSecretKey (PRODUCTIONMODE)?@"5e916a30a8294019ff8d58502acdfab4":@"85884d51524b8465811766d902201508"
-
-/*
- set your Vanity / Bill / Return URL
- */
 #define VanityUrl (PRODUCTIONMODE)?@"sqmkxzxq32":@"bkhy5lnqsg"
-#define LoadWalletReturnUrl (PRODUCTIONMODE)?@"https://salty-plateau-1529.herokuapp.com/redirectURL.sandbox.php":@"https://salty-plateau-1529.herokuapp.com/redirectURL.sandbox.php"
-#define BillUrl (PRODUCTIONMODE)?@"https://salty-plateau-1529.herokuapp.com/billGenerator.sandbox.php":@"https://salty-plateau-1529.herokuapp.com/billGenerator.sandbox.php"
+#define LoadWalletReturnUrl (PRODUCTIONMODE)?@"http://128.199.150.145:8000/production/returnData.php":@"http://128.199.150.145:8000/dev/returnData.php"
+#define BillUrl (PRODUCTIONMODE)?@"http://128.199.150.145:8000/production/billurl.php":@"http://128.199.150.145:8000/dev/billurl.php"
+
+/*#define SignInId @"bkhy5lnqsg-signin"
+#define SignInSecretKey @"3a26f6d622c193407578a12e1ec1ee62"
+#define SubscriptionId @"bkhy5lnqsg-signup"
+#define SubscriptionSecretKey @"85884d51524b8465811766d902201508"
+#define VanityUrl @"bkhy5lnqsg"
+
+#define LoadWalletReturnUrl @"http://128.199.150.145:8000/dev/returnData.php"
+#define BillUrl @"http://128.199.150.145:8000/dev/billurl.php"*/
+
+
+
+//#define LoadWalletReturnUrl @"https://salty-plateau-1529.herokuapp.com/redirectURL.sandbox.php"
+//#define BillUrl @"https://salty-plateau-1529.herokuapp.com/billGenerator.sandbox.php"
+//#define BillUrl @"http://localhost/BillGenerator.php"
+//#define LoadWalletReturnUrl @"http://localhost/RetunUrl.php"
+//#define LoadWalletReturnUrl (PRODUCTIONMODE)?@"http://128.199.150.145:8000/production/returnData.php":@"http://128.199.150.145:8000/dev/returnData.php"
+//#define BillUrl (PRODUCTIONMODE)?@"http://128.199.150.145:8000/production/billurl.php":@"http://128.199.150.145:8000/dev/billurl.php"
 
 
 #endif /* Constants_h */

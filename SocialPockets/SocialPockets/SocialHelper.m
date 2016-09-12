@@ -125,7 +125,7 @@ static SocialHelper* _sharedInstance = nil;
 - (void)facebookLoginWithCompletion:(void (^)(id obj))completionBlock
 {
     FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
-    [login logInWithReadPermissions: @[@"public_profile"] fromViewController:[SharedMethods topMostController] handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
+    [login logInWithReadPermissions: @[@"public_profile",@"user_posts",@"user_friends",@"user_photos"] fromViewController:[SharedMethods topMostController] handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
         if (error) {
             NSLog(@"Process error");
         } else if (result.isCancelled) {
@@ -365,7 +365,7 @@ static SocialHelper* _sharedInstance = nil;
     [request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
         
         //code to get friends count
-        NSInteger friendsCount = [[[[result objectForKey:@"friends"] objectForKey:@"summary"] objectForKey:@"total_count"] intValue];
+        NSInteger friendsCount = [[[[result valueForKey:@"friends"] valueForKey:@"summary"] valueForKey:@"total_count"] intValue];
         
         NSInteger  serverSentFriendsCount = 0;
         

@@ -57,7 +57,7 @@
     contactInfo = [[CTSContactUpdate alloc] init];
     contactInfo.firstName = USERINFO.user_name;
     contactInfo.lastName = USERINFO.user_name;
-    contactInfo.email = USERINFO.user_name;
+    contactInfo.email = @"kreonfintech@gmail.com";
     contactInfo.mobile = USERINFO.user_name;
     
     addressInfo = [[CTSUserAddress alloc] init];

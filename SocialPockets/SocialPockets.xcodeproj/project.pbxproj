@@ -487,6 +487,7 @@
 			children = (
 				A3253D131D3C9DE90081A59C /* AppDelegate.h */,
 				A3253D141D3C9DE90081A59C /* AppDelegate.m */,
+				A38968681D40DF0400FA8F14 /* HeaderFiles */,
 				A3FA9B5A1D7843D900F45E18 /* Repayment */,
 				A3D65AB51D4652EF00B47E46 /* LaunchScreen */,
 				A3C3C89E1D3F837A00C65B09 /* Registration */,
@@ -502,7 +503,6 @@
 				A3C3C8511D3DFCA700C65B09 /* Categories */,
 				A3C3C84B1D3DF1E700C65B09 /* Network */,
 				A38968691D40DF1600FA8F14 /* SharedMethods */,
-				A38968681D40DF0400FA8F14 /* HeaderFiles */,
 				A3B528FC1D49E1F200603451 /* IQKeyboardManager */,
 				A32FFAEC1D5CC83D00C1A519 /* TransctionHistory */,
 				A3B529331D49E21F00603451 /* AboutView */,

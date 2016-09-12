@@ -102,7 +102,7 @@
     CardsViewController *cardVc = [self.storyboard instantiateViewControllerWithIdentifier:@"CardViewVc"];
     cardVc.isDirectPaymentEnable = YES;
     cardVc.landingScreen = 1;
-    cardVc.amount = loanRepayAmount;
+    cardVc.amount =(PRODUCTIONMODE)?@"1":@"10";
     [self.navigationController pushViewController:cardVc animated:YES];
     [ACTIVITY performSelectorOnMainThread:@selector(hideActivity) withObject:nil waitUntilDone:YES];
 

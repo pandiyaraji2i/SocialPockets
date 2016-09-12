@@ -102,6 +102,7 @@
     }
     
     _paymentOptions = [CTSPaymentOptions new];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -680,7 +681,8 @@
 //    }
 }
 
-11
+- (void)setPaymentInfoForSmartPay {
+    
     _allSet = YES;
     
     NSDecimal zero = [NSDecimalNumber zero].decimalValue;
@@ -1391,12 +1393,13 @@ replacementString:(NSString *)string {
             return 5;
         }
         else if(section == 0) {
-            return 4;
+            return 3;
         }
     }
     return 0;
     
 }
+
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     if (tableView == self.saveCardsTableView) {
@@ -1963,6 +1966,9 @@ numberOfRowsInComponent:(NSInteger)component {
 {
     return UIStatusBarStyleLightContent;
 }
+
+
+
 
 /*
 - (void)smartPay {

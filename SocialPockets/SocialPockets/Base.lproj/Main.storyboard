@@ -11507,7 +11507,7 @@ Tenure Period</string>
         <!--Cards View Controller-->
         <scene sceneID="LeA-4b-1yV">
             <objects>
-                <viewController storyboardIdentifier="CardViewVc" id="8n0-JG-7AE" customClass="CardsViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CardViewVc" automaticallyAdjustsScrollViewInsets="NO" id="8n0-JG-7AE" customClass="CardsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gLd-sY-6iP"/>
                         <viewControllerLayoutGuide type="bottom" id="C1o-Gh-Vgy"/>
@@ -11642,7 +11642,6 @@ Tenure Period</string>
                                                         <constraint firstAttribute="width" constant="84" id="hFv-1q-mMF"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="14"/>
-                                                    <color key="textColor" red="0.95235558710000001" green="0.54225712780000002" blue="0.2114394979" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="default">
                                                         <mask key="constraints">
@@ -11688,7 +11687,6 @@ Tenure Period</string>
                                                         <constraint firstAttribute="width" constant="40" id="cSt-bD-61s"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="14"/>
-                                                    <color key="textColor" red="0.95235558710000001" green="0.54225712780000002" blue="0.2114394979" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="default">
                                                         <mask key="constraints">
@@ -11906,7 +11904,6 @@ Tenure Period</string>
                             </constraint>
                             <constraint firstItem="C1o-Gh-Vgy" firstAttribute="top" secondItem="Qay-Ki-gmJ" secondAttribute="bottom" id="3g6-JE-xmH"/>
                             <constraint firstAttribute="trailing" secondItem="5m5-98-Y8w" secondAttribute="trailing" id="76Q-HP-zHt"/>
-                            <constraint firstItem="5m5-98-Y8w" firstAttribute="top" secondItem="gLd-sY-6iP" secondAttribute="bottom" id="88U-s3-XB8"/>
                             <constraint firstItem="C1o-Gh-Vgy" firstAttribute="top" secondItem="Q4G-dy-4pb" secondAttribute="bottom" constant="20" id="Dab-6h-SNg"/>
                             <constraint firstItem="Qay-Ki-gmJ" firstAttribute="leading" secondItem="5sw-WV-lsG" secondAttribute="leading" id="IZg-dD-zeG"/>
                             <constraint firstAttribute="trailing" secondItem="qxJ-FG-QxU" secondAttribute="trailing" id="K7B-l2-CS8"/>
@@ -11914,6 +11911,7 @@ Tenure Period</string>
                             <constraint firstAttribute="trailing" secondItem="Q4G-dy-4pb" secondAttribute="trailing" constant="20" id="OID-ke-ie9"/>
                             <constraint firstItem="5m5-98-Y8w" firstAttribute="leading" secondItem="5sw-WV-lsG" secondAttribute="leading" id="Olc-hs-6MG"/>
                             <constraint firstItem="V5k-Bf-zkx" firstAttribute="centerY" secondItem="5sw-WV-lsG" secondAttribute="centerY" id="ZJI-uO-NnK"/>
+                            <constraint firstItem="5m5-98-Y8w" firstAttribute="top" secondItem="gLd-sY-6iP" secondAttribute="bottom" constant="10" id="bOO-xW-j4D"/>
                             <constraint firstAttribute="trailing" secondItem="Qay-Ki-gmJ" secondAttribute="trailing" id="gkH-oI-vXE"/>
                             <constraint firstItem="Q4G-dy-4pb" firstAttribute="top" secondItem="5m5-98-Y8w" secondAttribute="bottom" constant="256" id="hVj-ms-AqN">
                                 <variation key="heightClass=regular-widthClass=compact" constant="10"/>
@@ -11935,8 +11933,8 @@ Tenure Period</string>
                                 <exclude reference="gkH-oI-vXE"/>
                                 <exclude reference="w3u-aE-oSC"/>
                                 <exclude reference="76Q-HP-zHt"/>
-                                <exclude reference="88U-s3-XB8"/>
                                 <exclude reference="Olc-hs-6MG"/>
+                                <exclude reference="bOO-xW-j4D"/>
                                 <exclude reference="30z-NN-opJ"/>
                                 <exclude reference="KiR-UZ-YUQ"/>
                                 <exclude reference="o7P-lg-4Af"/>
@@ -11962,8 +11960,8 @@ Tenure Period</string>
                                 <include reference="gkH-oI-vXE"/>
                                 <include reference="w3u-aE-oSC"/>
                                 <include reference="76Q-HP-zHt"/>
-                                <include reference="88U-s3-XB8"/>
                                 <include reference="Olc-hs-6MG"/>
+                                <include reference="bOO-xW-j4D"/>
                                 <include reference="30z-NN-opJ"/>
                                 <include reference="KiR-UZ-YUQ"/>
                                 <include reference="o7P-lg-4Af"/>
