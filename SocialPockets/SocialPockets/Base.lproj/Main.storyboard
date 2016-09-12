@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BnU-aH-d6h">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BnU-aH-d6h">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -2024,7 +2024,7 @@
                                         <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="16"/>
                                         <state key="normal" title="EDIT">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" red="0.44705882352941179" green="0.69019607843137254" blue="0.90196078431372551" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -8651,8 +8651,7 @@ Tenure Period</string>
                                                                         <exclude reference="ogp-9S-rTa"/>
                                                                     </mask>
                                                                 </variation>
-                                                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                                    <rect key="frame" x="34" y="28" width="116" height="12"/>
+                                                                <variation key="heightClass=regular-widthClass=compact">
                                                                     <mask key="constraints">
                                                                         <include reference="ogp-9S-rTa"/>
                                                                     </mask>
@@ -8835,8 +8834,7 @@ Tenure Period</string>
                                                                         <exclude reference="Iz7-IB-xRK"/>
                                                                     </mask>
                                                                 </variation>
-                                                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                                    <rect key="frame" x="31" y="11" width="119" height="12"/>
+                                                                <variation key="heightClass=regular-widthClass=compact">
                                                                     <mask key="constraints">
                                                                         <include reference="Iz7-IB-xRK"/>
                                                                     </mask>
@@ -9776,8 +9774,7 @@ Tenure Period</string>
                                                                 <exclude reference="Rrx-Mz-fFL"/>
                                                             </mask>
                                                         </variation>
-                                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                            <rect key="frame" x="34" y="28" width="116" height="12"/>
+                                                        <variation key="heightClass=regular-widthClass=compact">
                                                             <mask key="constraints">
                                                                 <include reference="Rrx-Mz-fFL"/>
                                                             </mask>
@@ -9960,8 +9957,7 @@ Tenure Period</string>
                                                                 <exclude reference="ed1-C1-wSB"/>
                                                             </mask>
                                                         </variation>
-                                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                            <rect key="frame" x="31" y="11" width="119" height="12"/>
+                                                        <variation key="heightClass=regular-widthClass=compact">
                                                             <mask key="constraints">
                                                                 <include reference="ed1-C1-wSB"/>
                                                             </mask>
@@ -10774,7 +10770,8 @@ Tenure Period</string>
                                                                 <exclude reference="Ro1-dd-Rua"/>
                                                             </mask>
                                                         </variation>
-                                                        <variation key="heightClass=regular-widthClass=compact">
+                                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                            <rect key="frame" x="34" y="28" width="116" height="12"/>
                                                             <mask key="constraints">
                                                                 <include reference="Ro1-dd-Rua"/>
                                                             </mask>
@@ -10957,7 +10954,8 @@ Tenure Period</string>
                                                                 <exclude reference="wnJ-RE-mdh"/>
                                                             </mask>
                                                         </variation>
-                                                        <variation key="heightClass=regular-widthClass=compact">
+                                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                            <rect key="frame" x="31" y="11" width="119" height="12"/>
                                                             <mask key="constraints">
                                                                 <include reference="wnJ-RE-mdh"/>
                                                             </mask>
@@ -11932,16 +11930,16 @@ Tenure Period</string>
                                 <exclude reference="IZg-dD-zeG"/>
                                 <exclude reference="gkH-oI-vXE"/>
                                 <exclude reference="w3u-aE-oSC"/>
-                                <exclude reference="76Q-HP-zHt"/>
-                                <exclude reference="Olc-hs-6MG"/>
-                                <exclude reference="bOO-xW-j4D"/>
                                 <exclude reference="30z-NN-opJ"/>
                                 <exclude reference="KiR-UZ-YUQ"/>
                                 <exclude reference="o7P-lg-4Af"/>
-                                <exclude reference="ZJI-uO-NnK"/>
-                                <exclude reference="rvp-6v-d8m"/>
+                                <exclude reference="76Q-HP-zHt"/>
+                                <exclude reference="Olc-hs-6MG"/>
+                                <exclude reference="bOO-xW-j4D"/>
                                 <exclude reference="K7B-l2-CS8"/>
                                 <exclude reference="whN-sw-Yf0"/>
+                                <exclude reference="ZJI-uO-NnK"/>
+                                <exclude reference="rvp-6v-d8m"/>
                                 <exclude reference="OID-ke-ie9"/>
                                 <exclude reference="hVj-ms-AqN"/>
                                 <exclude reference="zb0-R3-rZG"/>
@@ -11959,16 +11957,16 @@ Tenure Period</string>
                                 <include reference="IZg-dD-zeG"/>
                                 <include reference="gkH-oI-vXE"/>
                                 <include reference="w3u-aE-oSC"/>
-                                <include reference="76Q-HP-zHt"/>
-                                <include reference="Olc-hs-6MG"/>
-                                <include reference="bOO-xW-j4D"/>
                                 <include reference="30z-NN-opJ"/>
                                 <include reference="KiR-UZ-YUQ"/>
                                 <include reference="o7P-lg-4Af"/>
-                                <include reference="ZJI-uO-NnK"/>
-                                <include reference="rvp-6v-d8m"/>
+                                <include reference="76Q-HP-zHt"/>
+                                <include reference="Olc-hs-6MG"/>
+                                <include reference="bOO-xW-j4D"/>
                                 <include reference="K7B-l2-CS8"/>
                                 <include reference="whN-sw-Yf0"/>
+                                <include reference="ZJI-uO-NnK"/>
+                                <include reference="rvp-6v-d8m"/>
                                 <include reference="OID-ke-ie9"/>
                                 <include reference="hVj-ms-AqN"/>
                                 <include reference="zb0-R3-rZG"/>

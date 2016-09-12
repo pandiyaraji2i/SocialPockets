@@ -16,6 +16,9 @@
     NSDictionary *loanObject;
     double red , green, blue;
     double finalRed , finalGreen, finalBlue;
+    UILabel *titleLbl;
+    UILabel *subtitleLbl;
+    UIView *alertView;
 }
 @end
 
@@ -24,6 +27,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"Social Pocket";
+    
     //    //#-- Menu Button
     
     
@@ -111,6 +115,8 @@
     
     [DBPROFILE downloadImage];
     // Do any additional setup after loading the view.
+    
+    
 }
 
 #pragma mark barbutton items
@@ -152,6 +158,8 @@
         [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"isLoanProcessed"];
         [self getUserLoanStatus];
     }
+    
+    [self setUpView];
     
 }
 
@@ -547,6 +555,86 @@
              }
          }];
     }
+}
+
+
+-(void)setUpView{
+    
+    titleLbl = [[UILabel alloc] initWithFrame:CGRectMake(20, 20, self.view.frame.size.width-40, 20)];
+    subtitleLbl = [[UILabel alloc] initWithFrame:CGRectMake(20, titleLbl.frame.size.height+40, self.view.frame.size.width-40, 20)];
+    titleLbl.font =[UIFont fontWithName:@"Roboto-Medium" size:12];
+    subtitleLbl.font =[UIFont fontWithName:@"Roboto-Medium" size:10];
+    titleLbl.lineBreakMode = NSLineBreakByWordWrapping;
+    titleLbl.numberOfLines = 0;
+    subtitleLbl.lineBreakMode = NSLineBreakByWordWrapping;
+    subtitleLbl.numberOfLines = 0;
+    titleLbl.text = @" Hey, Do you want 100 more points?";
+    subtitleLbl.text = @"connect your twitter account now ";
+    titleLbl.textColor =[UIColor darkGrayColor];
+    subtitleLbl.textColor =[UIColor colorWithRed:114.0/255.0 green:176.0/255.0 blue:230.0/255.0 alpha:1];
+    
+    
+    float titleHeight = [self changeHeightForLabel:titleLbl withType:@"Title"];
+    float subtitleHeight = [self changeHeightForLabel:subtitleLbl  withType:@"SubTitle"];
+
+    alertView = [[UIView alloc] initWithFrame:CGRectMake(20, self.view.frame.size.height-(titleHeight+subtitleHeight+20), self.view.frame.size.width-40,titleHeight+subtitleHeight)];
+    [alertView addSubview:titleLbl];
+    [alertView addSubview:subtitleLbl];
+    titleLbl.frame = CGRectMake(20, 10, alertView.frame.size.width-70, titleHeight);
+    subtitleLbl.frame = CGRectMake(20, titleLbl.frame.size.height-7, alertView.frame.size.width-70, subtitleHeight);
+    alertView.layer.cornerRadius = 5;
+    titleLbl.layer.cornerRadius = 15;
+    subtitleLbl.layer.cornerRadius = 15;
+    
+    
+    UIButton *closeButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    closeButton .frame = CGRectMake(alertView.frame.size.width-40, alertView.bounds.origin.y+15, 20, 20);
+    [closeButton  addTarget:self
+                     action:@selector(CloseBtnTapped)
+           forControlEvents:UIControlEventTouchUpInside];
+    [closeButton setBackgroundImage:[UIImage imageNamed:@"crossBtn"] forState:UIControlStateNormal];
+    
+    [alertView addSubview:closeButton];
+    
+    
+    
+    [self.navigationController.view insertSubview:alertView atIndex:self.view.subviews.count-1];
+    [self.navigationController.view bringSubviewToFront:alertView];
+    
+    alertView.backgroundColor = [UIColor whiteColor];
+    alertView.layer.borderColor = [UIColor clearColor].CGColor;
+    alertView.layer.borderWidth = 1.0f;
+    
+    
+    
+}
+-(void)CloseBtnTapped{
+    alertView.alpha = 0;
+    
+}
+
+-(float)changeHeightForLabel:(UILabel *)label withType:(NSString *)type{
+    CGRect frame = label.frame;
+    [label sizeToFit];
+    frame.size.height = [self sizeForLabel:label withType:type];
+    return frame.size.height;
+}
+
+- (CGFloat)sizeForLabel:(UILabel *)label withType:(NSString *)type {
+    CGSize constrain = CGSizeMake(label.frame.size.width, FLT_MAX);
+    UIFont *font;
+    if ([type isEqualToString:@"Title"]) {
+        font = [UIFont fontWithName:@"Roboto-Medium" size:13];
+
+    }else if([type isEqualToString:@"SubTitle"]){
+        font = [UIFont fontWithName:@"Roboto-Medium" size:11];
+    }
+    
+    CGRect textRect = [label.text boundingRectWithSize:constrain
+                                               options:NSStringDrawingUsesLineFragmentOrigin| NSStringDrawingUsesFontLeading
+                                            attributes:@{NSFontAttributeName:font}
+                                               context:nil];
+    return textRect.size.height;
 }
 
 
