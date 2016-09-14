@@ -10,6 +10,7 @@
 #import "NotificationViewController.h"
 #import "ApplyLoanViewController.h"
 #import "RepayLoanViewController.h"
+#import "UIView+Animation.h"
 
 @interface DashBoardViewController ()
 {
@@ -114,9 +115,17 @@
     [self setDeviceDetail];
     
     [DBPROFILE downloadImage];
+    
+    
     // Do any additional setup after loading the view.
+    UISwipeGestureRecognizer *ges =[[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipe:)];
+    ges.direction = UISwipeGestureRecognizerDirectionDown;
+    [self.view addGestureRecognizer:ges];
     
-    
+}
+
+-(void)swipe:(UISwipeGestureRecognizer *)swipeGes{
+    [alertView removeSubviewWithFadeAnimation:1.0];
 }
 
 #pragma mark barbutton items
@@ -160,6 +169,7 @@
     }
     
     [self setUpView];
+    
     
 }
 
@@ -246,7 +256,7 @@
                     [self updateCrediScore:stringValue];
                     //id messageObj = [obj valueForKey:@"Total_CREDIT_SCORE"];
                     //pointsCountLabel.text = [NSString stringWithFormat:@"%@",[messageObj valueForKey:@"MESSAGE"]];
-                    pointsCountLabel.text = [NSString stringWithFormat:@"%@",[obj valueForKey:@"Total_CREDIT_SCORE"]];
+                    pointsCountLabel.text = [NSString stringWithFormat:@"%@",[obj valueForKey:@"MESSAGE"]];
                     [self.pointsButton setTitle:[NSString stringWithFormat:@"%@ Points",[obj valueForKey:@"Total_CREDIT_SCORE"]] forState:UIControlStateNormal];
                 });
             }else{
@@ -569,7 +579,7 @@
     subtitleLbl.lineBreakMode = NSLineBreakByWordWrapping;
     subtitleLbl.numberOfLines = 0;
     titleLbl.text = @" Hey, Do you want 100 more points?";
-    subtitleLbl.text = @"connect your twitter account now ";
+    subtitleLbl.text = @" Connect your Twitter account now ";
     titleLbl.textColor =[UIColor darkGrayColor];
     subtitleLbl.textColor =[UIColor colorWithRed:114.0/255.0 green:176.0/255.0 blue:230.0/255.0 alpha:1];
     
@@ -580,25 +590,35 @@
     alertView = [[UIView alloc] initWithFrame:CGRectMake(20, self.view.frame.size.height-(titleHeight+subtitleHeight+20), self.view.frame.size.width-40,titleHeight+subtitleHeight)];
     [alertView addSubview:titleLbl];
     [alertView addSubview:subtitleLbl];
-    titleLbl.frame = CGRectMake(20, 10, alertView.frame.size.width-70, titleHeight);
-    subtitleLbl.frame = CGRectMake(20, titleLbl.frame.size.height-7, alertView.frame.size.width-70, subtitleHeight);
+    titleLbl.frame = CGRectMake(50, 5, alertView.frame.size.width-70, titleHeight);
+    subtitleLbl.frame = CGRectMake(50, titleLbl.frame.size.height-10, alertView.frame.size.width-70, subtitleHeight);
     alertView.layer.cornerRadius = 5;
     titleLbl.layer.cornerRadius = 15;
     subtitleLbl.layer.cornerRadius = 15;
     
     
     UIButton *closeButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    closeButton .frame = CGRectMake(alertView.frame.size.width-40, alertView.bounds.origin.y+15, 20, 20);
+    closeButton .frame = CGRectMake(alertView.frame.size.width-60, alertView.bounds.origin.y+5, 40, 40);
     [closeButton  addTarget:self
                      action:@selector(CloseBtnTapped)
            forControlEvents:UIControlEventTouchUpInside];
-    [closeButton setBackgroundImage:[UIImage imageNamed:@"crossBtn"] forState:UIControlStateNormal];
-    
+    //[closeButton setBackgroundImage:[UIImage imageNamed:@"crossBtn"] forState:UIControlStateNormal];
+    [closeButton setImage:[UIImage imageNamed:@"crossBtn"] forState:UIControlStateNormal];
     [alertView addSubview:closeButton];
+    
+    UIButton *sharelogo = [UIButton buttonWithType:UIButtonTypeCustom];
+    sharelogo .frame = CGRectMake(15, 15, 30, 30);
+    [sharelogo  addTarget:self
+                     action:nil
+           forControlEvents:UIControlEventTouchUpInside];
+    [sharelogo setBackgroundImage:[UIImage imageNamed:@"share_logo"] forState:UIControlStateNormal];
+    
+    [alertView addSubview:sharelogo];
     
     
     
     [self.navigationController.view insertSubview:alertView atIndex:self.view.subviews.count-1];
+    [self.navigationController.view addSubviewWithZoomInAnimation:alertView duration:0.5 option:UIViewAnimationOptionCurveEaseIn];
     [self.navigationController.view bringSubviewToFront:alertView];
     
     alertView.backgroundColor = [UIColor whiteColor];
@@ -609,7 +629,9 @@
     
 }
 -(void)CloseBtnTapped{
-    alertView.alpha = 0;
+   // alertView.alpha = 0;
+    [alertView removeWithZoomOutAnimation:0.5 option:UIViewAnimationOptionCurveEaseOut];
+    
     
 }
 
