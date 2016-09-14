@@ -90,12 +90,6 @@
 }
 
 - (IBAction)RepayBtn:(id)sender {
-    [ACTIVITY showActivity:@"Loading..."];
-    [self performSelector:@selector(repayLoan) withObject:nil afterDelay:0.2];
-}
-
-- (void)repayLoan{
-#warning Need to work on citrus
     BaseViewController *baseVc = [[BaseViewController alloc]init];
     [baseVc initializeLayers];
     
@@ -105,10 +99,28 @@
     cardVc.amount =(PRODUCTIONMODE)?@"1":@"10";
     [self.navigationController pushViewController:cardVc animated:YES];
     [ACTIVITY performSelectorOnMainThread:@selector(hideActivity) withObject:nil waitUntilDone:YES];
-
-    return;
     
-    [LOANMACRO repayLoan:repayLoanId mobileWallet:mobileWalletId repayAmount:loanRepayAmount completion:^(id obj) {
+    cardVc.updateTransactionStatus = ^(id obj)
+    {
+        if ([obj isKindOfClass:[NSDictionary class]]) {
+            [ACTIVITY showActivity:@"Loading..."];
+            [self performSelector:@selector(updateTransactionStatus:) withObject:obj afterDelay:0.2];
+        }else{
+            dispatch_async(dispatch_get_main_queue(), ^{
+                ErrorMessageWithTitle(@"Message", obj);
+            });
+        }
+        
+    };
+    self.okButton.layer.borderColor = [UIColor grayColor].CGColor;
+    self.okButton.layer.masksToBounds = YES;
+
+}
+
+- (void)updateTransactionStatus:(id)obj
+{
+    NSLog(@"Obj %@",obj);
+    [LOANMACRO repayLoan:repayLoanId mobileWallet:mobileWalletId repayAmount:loanRepayAmount txRefNum:[obj valueForKey:@"TxId"] txId:[obj valueForKey:@"TxRefNo"] pgTxnNum:[obj valueForKey:@"pgTxnNo"] transactionId:[obj valueForKey:@"transactionId"] completion:^(id obj) {
         [ACTIVITY performSelectorOnMainThread:@selector(hideActivity) withObject:nil waitUntilDone:YES];
         if ([obj isKindOfClass:[NSDictionary class]]) {
             self.blackoutview.hidden = NO;
@@ -117,10 +129,8 @@
             ErrorMessageWithTitle(@"Message", obj);
         }
     }];
-    self.okButton.layer.borderColor = [UIColor grayColor].CGColor;
-    self.okButton.layer.masksToBounds = YES;
-
 }
+
 
 #pragma mark StatusBar Style
 - (UIStatusBarStyle)preferredStatusBarStyle

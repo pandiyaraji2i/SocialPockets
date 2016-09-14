@@ -138,9 +138,11 @@
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
 {
     NSLog(@"userInfo -- %@",userInfo);
-     NSString *pushMessage = [[[userInfo valueForKey:@"aps"] valueForKey:@"alert"] valueForKey:@"body"];
-    id json = [NSJSONSerialization JSONObjectWithData:[pushMessage dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableContainers error:nil];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"ReceivedPushNotification" object:json];
+     NSString *titleMessage = [[userInfo valueForKey:@"aps"] valueForKey:@"alert"];
+    NSLog(@"title %@",titleMessage);
+     id object = [[userInfo valueForKey:@"aps"] valueForKey:@"body"];
+//    id json = [NSJSONSerialization JSONObjectWithData:object options:NSJSONReadingMutableContainers error:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ReceivedPushNotification" object:object];
 
 //    NSLog(@"message --- %@",pushMessage );
 }

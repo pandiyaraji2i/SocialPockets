@@ -22,22 +22,6 @@
     
 }
 
-- (IBAction)LoanStatus:(id)sender {
-    [LOANMACRO checkStatusOfLoan:@"11" completion:^(id obj) {
-        NSLog(@"%@",obj);
-        
-//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Response " message:[obj objectForKey:@"USRN"] delegate:nil cancelButtonTitle:@"ok" otherButtonTitles: nil];
-//        [alert show];
-//        
-    }];
-}
-
-- (IBAction)repayLoan:(id)sender{
-    [LOANMACRO repayLoan:@"14" mobileWallet:@"1" repayAmount:@"1" completion:^(id obj) {
-        
-    }];
-}
-
 - (IBAction)extnLoan:(id)sender{
     [LOANMACRO extnLoanForUserId:@"14" completion:^(id obj) {
         NSLog(@"%@",obj);
@@ -48,20 +32,6 @@
         NSLog(@"%@",obj);
     }];
 }
-
-- (IBAction)createMWallet:(id)sender {
-//    [BANKACCHELPER mwalletForUserId:@"14" mobilewallet:@"4" createdBy:@"14" completion:^(id obj) {
-//        NSLog(@"%@",obj);
-//    }];
-    
-}
-
-- (IBAction)deleteMwallet:(id)sender {
-//    [BANKACCHELPER deletMwalletUserId:@"14" mobilewallet:@"4" completion:^(id obj) {
-//        NSLog(@"%@",obj);
-//    }];
-}
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

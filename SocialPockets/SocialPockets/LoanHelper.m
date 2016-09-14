@@ -71,8 +71,8 @@ static LoanHelper* _sharedInstance = nil;
  *  @param completionBlock responds with creation of Loan - ID
  */
 
-- (void)requestLoanForUserId:(NSString *)userId amount:(NSString *)amount mobileWallerId:(NSString *)mobileWallerId completion:(void (^)(id obj))completionBlock{
-    NSMutableDictionary *dict = [@{@"id":[NSNull null],@"userid":userId,@"amount":[amount stringByReplacingOccurrencesOfString:@"," withString:@""],@"created_by":userId,@"mobilewalletid":mobileWallerId} mutableCopy];
+- (void)requestLoanForUserId:(NSString *)userId amount:(NSString *)amount mobileWallerId:(NSString *)mobileWallerId latitude:(NSString *)latitude longitude:(NSString *)longitude completion:(void (^)(id obj))completionBlock{
+    NSMutableDictionary *dict = [@{@"id":[NSNull null],@"userid":userId,@"amount":[amount stringByReplacingOccurrencesOfString:@"," withString:@""],@"created_by":userId,@"mobilewalletid":mobileWallerId,@"latitude":latitude,@"longitude":longitude} mutableCopy];
     [NetworkHelperClass sendAsynchronousRequestToServer:@"loanrequest" httpMethod:POST requestBody:dict contentType:JSONCONTENTTYPE completion:^(id obj) {
         if (completionBlock) {
             completionBlock(obj);
@@ -105,18 +105,21 @@ static LoanHelper* _sharedInstance = nil;
 }
 
 /**
- *  To repay loan by sending amount from mobile wallet
+ *  Loan RepayMent
  *
- *  @param userId          Id of the user
- *  @param loanId          Created Loan id
- *  @param mobileWallet    mobileWallet for the user
- *  @param repayAmount     repayment amount of the user
- *  @param completionBlock responds by sending the repay amount from mobile wallet to the admin
+ *  @param loanId          selected loan id
+ *  @param mobileWallet    mobilewallet id * Not required
+ *  @param repayAmount     amount to be repay
+ *  @param txRefNum        Citrus Txn ReferenceNumber
+ *  @param txId            Citrus Txn Id
+ *  @param pgTxnNum        Citrus PG Txn Number
+ *  @param transactionId   Citrus PG Txn ID
+ *  @param completionBlock response block
  */
 
-- (void)repayLoan:(NSString *)loanId  mobileWallet:(NSString *)mobileWallet repayAmount:(NSString *)repayAmount completion:(void (^)(id obj))completionBlock{
+- (void)repayLoan:(NSString *)loanId  mobileWallet:(NSString *)mobileWallet repayAmount:(NSString *)repayAmount txRefNum:(NSString *)txRefNum txId:(NSString *)txId pgTxnNum:(NSString *)pgTxnNum transactionId:(NSString *)transactionId completion:(void (^)(id obj))completionBlock{
     
-    NSMutableDictionary *dict = [@{@"user_id":[[NSUserDefaults standardUserDefaults] valueForKey:USERID],@"loan_id":loanId,@"mobile_wallet":mobileWallet,@"repayment_amount":[repayAmount stringByReplacingOccurrencesOfString:@"," withString:@""]} mutableCopy];
+    NSMutableDictionary *dict = [@{@"user_id":[[NSUserDefaults standardUserDefaults] valueForKey:USERID],@"loan_id":loanId,@"mobile_wallet":mobileWallet,@"repayment_amount":[repayAmount stringByReplacingOccurrencesOfString:@"," withString:@""],@"TxRefNo":txRefNum,@"TxId":txId,@"pgTxnNo":pgTxnNum,@"transactionId":transactionId} mutableCopy];
     id successObject = [NetworkHelperClass sendSynchronousRequestToServer:@"loanRepayment" httpMethod:POST requestBody:dict contentType:JSONCONTENTTYPE];
     if (successObject) {
         if (completionBlock) {

@@ -58,7 +58,7 @@
 @end
 
 @implementation CardsViewController
-
+@synthesize updateTransactionStatus;
 
 
 - (void)viewDidLoad {
@@ -102,7 +102,7 @@
     }
     
     _paymentOptions = [CTSPaymentOptions new];
-    
+  
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -997,7 +997,6 @@
                 [alert show];
             });
         }
-        
     }
 }
 
@@ -1070,7 +1069,19 @@
                                  paymentStatus = paymentReceipt.toDictionary[@"Reason"];
                              }
                              
-                             [UIUtility toastMessageOnScreen:[NSString stringWithFormat:@"Payment Status: %@", paymentStatus]];
+                             if ([paymentStatus rangeOfString:@"SUCCESS" options:NSCaseInsensitiveSearch].length ) {
+                                 if (self.updateTransactionStatus) {
+                                     self.updateTransactionStatus(paymentReceipt.toDictionary);
+                                 }
+                             }else
+                             {
+                                 if (self.updateTransactionStatus) {
+                                     self.updateTransactionStatus(paymentStatus);
+                                 }
+                             }
+                            
+                             
+//                             [UIUtility toastMessageOnScreen:[NSString stringWithFormat:@"Payment Status: %@", paymentStatus]];
                              [self resetUI];
                              [self.navigationController popViewControllerAnimated:YES];
                          }

@@ -332,9 +332,7 @@
             [ACTIVITY showActivity:@"Processing loan..."];
             self.passwordView.hidden = YES;
             
-            //*_latitude , *_longitude to be added below in the loan request API
-            
-            [LOANMACRO requestLoanForUserId:[[NSUserDefaults standardUserDefaults] valueForKey:USERID] amount:self.loanAmount mobileWallerId:bankAccountId completion:^(id obj) {
+            [LOANMACRO requestLoanForUserId:[[NSUserDefaults standardUserDefaults] valueForKey:USERID] amount:self.loanAmount mobileWallerId:bankAccountId latitude:_latitude longitude:_longitude completion:^(id obj) {
                 [ACTIVITY performSelectorOnMainThread:@selector(hideActivity) withObject:nil waitUntilDone:YES];
                 dispatch_async(dispatch_get_main_queue(), ^{
                     if ([obj isKindOfClass:[NSDictionary class]]) {

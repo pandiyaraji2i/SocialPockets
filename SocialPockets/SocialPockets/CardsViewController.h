@@ -7,6 +7,8 @@
 //
 
 #import "BaseViewController.h"
+typedef void(^updateTransaction)(id);
+
 
 @interface CardsViewController : BaseViewController<UITextFieldDelegate>
 
@@ -36,5 +38,8 @@
 @property (nonatomic , strong) CTSRuleInfo *ruleInfo;
 
 @property (assign) BOOL isDirectPaymentEnable;
+
+@property(nonatomic,copy)updateTransaction updateTransactionStatus;
+
 
 @end

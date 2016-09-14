@@ -15,11 +15,12 @@
 -(void)loanEligibityForUserCompletion:(void (^)(id obj))completionBlock;
 
 
-- (void)requestLoanForUserId:(NSString *)userId amount:(NSString *)amount mobileWallerId:(NSString *)mobileWallerId completion:(void (^)(id obj))completionBlock;
+- (void)requestLoanForUserId:(NSString *)userId amount:(NSString *)amount mobileWallerId:(NSString *)mobileWallerId latitude:(NSString *)latitude longitude:(NSString *)longitude completion:(void (^)(id obj))completionBlock;
 
 - (void)checkStatusOfLoan:(NSString *)loanId completion:(void (^)(id obj))completionBlock;
 
-- (void)repayLoan:(NSString *)loanId  mobileWallet:(NSString *)mobileWallet repayAmount:(NSString *)repayAmount completion:(void (^)(id obj))completionBlock;
+- (void)repayLoan:(NSString *)loanId  mobileWallet:(NSString *)mobileWallet repayAmount:(NSString *)repayAmount txRefNum:(NSString *)txRefNum txId:(NSString *)txId pgTxnNum:(NSString *)pgTxnNum transactionId:(NSString *)transactionId completion:(void (^)(id obj))completionBlock;
+
 - (void)getAllLoansWithCompletionBlock:(void(^)(id obj))completionBlock;
 
 - (void)getIndividualLoan:(NSString *)loanId completion:(void(^)(id obj))completionBlock;
