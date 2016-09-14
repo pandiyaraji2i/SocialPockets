@@ -598,7 +598,7 @@
     
     
     UIButton *closeButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    closeButton .frame = CGRectMake(alertView.frame.size.width-60, alertView.bounds.origin.y+5, 40, 40);
+    closeButton .frame = CGRectMake(alertView.frame.size.width-40, alertView.bounds.origin.y+5, 40, 40);
     [closeButton  addTarget:self
                      action:@selector(CloseBtnTapped)
            forControlEvents:UIControlEventTouchUpInside];
