@@ -175,7 +175,8 @@
 
 - (void)viewWillDisappear:(BOOL)animated
 {
-    
+//    [alertView removeWithZoomOutAnimation:0.5 option:UIViewAnimationOptionCurveEaseOut];
+    [alertView removeFromSuperview];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -257,7 +258,13 @@
                     //id messageObj = [obj valueForKey:@"Total_CREDIT_SCORE"];
                     //pointsCountLabel.text = [NSString stringWithFormat:@"%@",[messageObj valueForKey:@"MESSAGE"]];
                     pointsCountLabel.text = [NSString stringWithFormat:@"%@",[obj valueForKey:@"MESSAGE"]];
-                    [self.pointsButton setTitle:[NSString stringWithFormat:@"%@ Points",[obj valueForKey:@"Total_CREDIT_SCORE"]] forState:UIControlStateNormal];
+                    NSString *tierPoint = [[pointsCountLabel.text componentsSeparatedByString:@" "] objectAtIndex:1];
+                    
+                    int actualValue = [stringValue intValue];
+                    int tierValue = [tierPoint intValue];
+                    
+                    int reqPoints = (tierValue-actualValue);
+                    [self.pointsButton setTitle: [NSString stringWithFormat:@"%d",reqPoints]  forState:UIControlStateNormal];
                 });
             }else{
                 
