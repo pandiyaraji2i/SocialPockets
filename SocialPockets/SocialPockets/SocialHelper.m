@@ -621,7 +621,7 @@ static SocialHelper* _sharedInstance = nil;
  */
 - (void)saveCreditScore:(int)socialMediaType
 {
-    NSMutableDictionary *dict = [@{@"user_id":USERINFO.userId,@"modified_by":USERINFO.userId,@"created_by":USERINFO.userId} mutableCopy];
+    NSMutableDictionary *dict = [@{@"user_id":USERINFO.userId,@"modified_by":USERINFO.userId} mutableCopy];
     NSMutableDictionary *socialDict;
     NSString *socialKey;
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
@@ -655,12 +655,11 @@ static SocialHelper* _sharedInstance = nil;
     }
     [dict setValue:socialDict forKey:socialKey];
     NSLog(@"credit save dict %@",dict);
-    return;
     [PROFILEMACRO saveCreditScore:dict completion:^(id obj) {
         if ([obj isKindOfClass:[NSDictionary class]]) {
             //#-- send post notification to update credit score
             dispatch_async(dispatch_get_main_queue(), ^{
-                
+                [[NSNotificationCenter defaultCenter]postNotificationName:@"UpdateCreditScore" object:nil];
             });
         }else{
             

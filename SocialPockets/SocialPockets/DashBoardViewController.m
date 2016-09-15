@@ -52,6 +52,9 @@
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@" " style:UIBarButtonItemStylePlain target:self action:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receivePushNotification:) name:@"ReceivedPushNotification" object:nil];
+    
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getCreditScore) name:@"UpdateCreditScore" object:nil];
+    
 
     //#-- Status Bar Color Change
     [self setNeedsStatusBarAppearanceUpdate];

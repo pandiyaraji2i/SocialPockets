@@ -85,7 +85,6 @@ static ProfileModel* _sharedInstance = nil;
  */
 -(void)changePassword:(NSString *)oldPassword newPassword:(NSString *)newPassword completion:(void (^)(id obj))completionBlock
 {
-    
     if ([NetworkHelperClass getInternetStatus:YES])
     {
         NSMutableDictionary *dict = [@{@"userid":[[NSUserDefaults standardUserDefaults] valueForKey:USERID],@"old_password":oldPassword,@"new_password":newPassword} mutableCopy];
@@ -137,7 +136,7 @@ static ProfileModel* _sharedInstance = nil;
 
 - (void)saveCreditScore:(NSDictionary *)dict completion:(void(^)(id obj))completionBlock
 {
-    [NetworkHelperClass sendAsynchronousRequestToServer:@"creditsave" httpMethod:POST requestBody:dict contentType:JSONCONTENTTYPE completion:^(id obj) {
+    [NetworkHelperClass sendAsynchronousRequestToServer:@"CalculateCreditScoreAlgorithm" httpMethod:POST requestBody:dict contentType:JSONCONTENTTYPE completion:^(id obj) {
         if (completionBlock) {
             completionBlock(obj);
         }
