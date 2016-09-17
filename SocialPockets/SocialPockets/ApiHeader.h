@@ -25,7 +25,7 @@
 #import "SocialHelper.h"
 #import "NetworkHelperClass.h"
 #import "ActivityIndicatior.h"
-
+#import "ISMessages.h"
 
 //******************* NSCategory  Classes ***************************//
 

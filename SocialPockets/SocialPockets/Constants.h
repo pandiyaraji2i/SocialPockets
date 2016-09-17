@@ -93,10 +93,10 @@
 
 //#-- Constant Variables
 
-#define FACEBOOK_ID   @"1"
-#define TWITTER_ID    @"2"
-#define INSTAGRAM_ID  @"3"
-#define LINKEDIN_ID   @"4"
+#define FACEBOOK_ID   @"FB"
+#define TWITTER_ID    @"TW"
+#define INSTAGRAM_ID  @"IN"
+#define LINKEDIN_ID   @"LN"
 
 //#-- APP Ids
 

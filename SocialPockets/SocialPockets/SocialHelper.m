@@ -133,17 +133,17 @@ static SocialHelper* _sharedInstance = nil;
         } else {
             NSLog(@"Logged in");
             [[NSUserDefaults standardUserDefaults] setObject:[[result token] tokenString] forKey:@"FacebookAccessToken"];
-            
-            //                        if (![[NSUserDefaults standardUserDefaults] boolForKey:@"FacebookLoggedIn"]) {
-            //                            [SOCIALMACRO createSocialSite:FACEBOOK_ID details:@"Facebook" completion:^(id obj) {
-            //                                [self getFaceBookDetails];
-            //                            }];
-            //                        }else{
-            //                            [self getFaceBookDetails];
-            //            }
-            [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"FacebookLoggedIn"];
-            
-            [self getFaceBookDetails];
+            if (![[NSUserDefaults standardUserDefaults] boolForKey:@"FacebookLoggedIn"]) {
+                [SOCIALMACRO createSocialSite:FACEBOOK_ID details:@"Facebook" completion:^(id obj) {
+                    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"FacebookLoggedIn"];
+                    [[NSNotificationCenter defaultCenter] postNotificationName:@"ReloadManageAccounts" object:nil];
+                    [self performSelectorOnMainThread:@selector(getFaceBookDetails) withObject:nil waitUntilDone:YES];
+//                    [self performSelector:@selector(getFaceBookDetails) withObject:nil afterDelay:1.0f];
+//                    [self getFaceBookDetails];
+                }];
+            }else{
+                [self getFaceBookDetails];
+            }
             if (completionBlock) {
                 completionBlock(result);
             }
@@ -159,14 +159,15 @@ static SocialHelper* _sharedInstance = nil;
         if (session) {
             NSLog(@"signed in as %@", [session userName]);
             [[NSUserDefaults standardUserDefaults] setObject:[session authTokenSecret] forKey:@"TwitterAccessToken"];
-            //            if (![[NSUserDefaults standardUserDefaults] boolForKey:@"TwitterLoggedIn"]) {
-            //                [SOCIALMACRO createSocialSite:TWITTER_ID details:@"Twitter" completion:^(id obj) {
-            //                    [self getTwitterListFor:@"friendsList" WIthUserID:[session userID]];
-            //                }];
-            //            }else{
+            if (![[NSUserDefaults standardUserDefaults] boolForKey:@"TwitterLoggedIn"]) {
+                [SOCIALMACRO createSocialSite:TWITTER_ID details:@"Twitter" completion:^(id obj) {
+                    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"TwitterLoggedIn"];
+                    [[NSNotificationCenter defaultCenter] postNotificationName:@"ReloadManageAccounts" object:nil];
+                    [self getTwitterListFor:@"friendsList" WIthUserID:[session userID]];
+                }];
+            }else{
             [self getTwitterListFor:@"friendsList" WIthUserID:[session userID]];
-            //            }
-            [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"TwitterLoggedIn"];
+            }
             if (completionBlock) {
                 completionBlock(session);
             }
@@ -183,6 +184,13 @@ static SocialHelper* _sharedInstance = nil;
 #pragma mark Instagram Methods
 - (void)instagramLoginWithUserToken:(id)token WithCompletion:(void (^)(id obj))completionBlock
 {
+    if (![[NSUserDefaults standardUserDefaults]boolForKey:@"InstagramInLogged"]) {
+        [SOCIALMACRO createSocialSite:INSTAGRAM_ID details:@"Instagram" completion:^(id obj) {
+            [[NSUserDefaults standardUserDefaults]setBool:YES forKey:@"InstagramInLogged"];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"ReloadManageAccounts" object:nil];
+        }];
+    }
+    
     if ([NetworkHelperClass getInternetStatus:YES]) {
         NSString *urlString = [NSString stringWithFormat:@"%@%@",INSTAGRAM_FETCHURL,token];
         [NetworkHelperClass sendAsynchronousRequestToServer:urlString httpMethod:GET requestBody:nil contentType:JSONCONTENTTYPE completion:^(id obj) {
@@ -190,8 +198,9 @@ static SocialHelper* _sharedInstance = nil;
             
             //code to get followedBy count
             NSInteger followedByCount = [[NSString stringWithFormat:@"%@",[[[obj objectForKey:@"data"] objectForKey:@"counts"]objectForKey:@"followed_by"]] integerValue];
-            
-            NSInteger  serverSentfollowedByCount = 0;
+             [userDefaults setInteger:followedByCount forKey:INSTAGRAM_NEW_FOLLOWEDBY];
+          
+            /*NSInteger  serverSentfollowedByCount = 0;
             
             //code for likes Count
             if ([userDefaults integerForKey:INSTAGRAM_FOLLOWEDBY]>0) {
@@ -208,13 +217,14 @@ static SocialHelper* _sharedInstance = nil;
                 [userDefaults setInteger:followedByCount forKey:INSTAGRAM_FOLLOWEDBY];
                 [userDefaults setInteger:serverSentfollowedByCount forKey:INSTAGRAM_NEW_FOLLOWEDBY];
                 
-            }
+            }*/
             [userDefaults synchronize];
             
             //code to get follows count
             NSInteger followsCount = [[NSString stringWithFormat:@"%@",[[[obj objectForKey:@"data"] objectForKey:@"counts"]objectForKey:@"follows"]] integerValue];
-            
-            NSInteger  serverSentfollowsCount = 0;
+            [userDefaults setInteger:followsCount forKey:INSTAGRAM_NEW_FOLLOWERS];
+           
+            /*NSInteger  serverSentfollowsCount = 0;
             
             //code for Follows Count
             if ([userDefaults integerForKey:INSTAGRAM_FOLLOWERS]>0) {
@@ -230,7 +240,7 @@ static SocialHelper* _sharedInstance = nil;
                 serverSentfollowsCount = followsCount;
                 [userDefaults setInteger:followsCount forKey:INSTAGRAM_FOLLOWERS];
                 [userDefaults setInteger:serverSentfollowsCount forKey:INSTAGRAM_NEW_FOLLOWERS];
-            }
+            }*/
             [userDefaults synchronize];
             
             if(completionBlock){
@@ -257,8 +267,9 @@ static SocialHelper* _sharedInstance = nil;
                 
                 //code to get comments count
                 NSInteger commentsCount = [[NSString stringWithFormat:@"%@",[[recentObj valueForKey:@"comments"]valueForKey:@"count"]] integerValue];
-                
-                NSInteger  serverSentCommentsCount = 0;
+                [userDefaults setInteger:commentsCount forKey:INSTAGRAM_NEW_COMMENTS];
+             
+              /*  NSInteger  serverSentCommentsCount = 0;
                 
                 //code for comments Count
                 if ([userDefaults integerForKey:INSTAGRAM_COMMENTS]>0) {
@@ -274,13 +285,14 @@ static SocialHelper* _sharedInstance = nil;
                     serverSentCommentsCount = commentsCount;
                     [userDefaults setInteger:commentsCount forKey:INSTAGRAM_COMMENTS];
                     [userDefaults setInteger:serverSentCommentsCount forKey:INSTAGRAM_NEW_COMMENTS];
-                }
+                }*/
                 [userDefaults synchronize];
                 
                 //code to get likes count
                 NSInteger likesCount = [[NSString stringWithFormat:@"%@",[[recentObj valueForKey:@"likes"]valueForKey:@"count"]] integerValue];
-                
-                NSInteger  serverSentlikesCount = 0;
+                [userDefaults setInteger:likesCount forKey:INSTAGRAM_NEW_LIKES];
+
+              /*  NSInteger  serverSentlikesCount = 0;
                 
                 //code for comments Count
                 if ([userDefaults integerForKey:INSTAGRAM_LIKES]>0) {
@@ -296,7 +308,7 @@ static SocialHelper* _sharedInstance = nil;
                     serverSentlikesCount = likesCount;
                     [userDefaults setInteger:likesCount forKey:INSTAGRAM_LIKES];
                     [userDefaults setInteger:serverSentlikesCount forKey:INSTAGRAM_NEW_LIKES];
-                }
+                }*/
                 [userDefaults synchronize];
             }
             [self saveCreditScore:3];
@@ -363,13 +375,14 @@ static SocialHelper* _sharedInstance = nil;
                                   parameters:@{ @"fields": @"albums,friends,posts",}
                                   HTTPMethod:@"GET"];
     [request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
-        
         //code to get friends count
         NSInteger friendsCount = [[[[result valueForKey:@"friends"] valueForKey:@"summary"] valueForKey:@"total_count"] intValue];
         
-        NSInteger  serverSentFriendsCount = 0;
         
-        //code for likes Count
+        [userDefaults setInteger:friendsCount forKey:FB_NEW_FRIENDS];
+
+        /*//code for likes Count
+         NSInteger  serverSentFriendsCount = 0;
         if ([userDefaults integerForKey:FB_FRIENDS]>0) {
             NSInteger oldValue = [[NSUserDefaults standardUserDefaults] integerForKey:FB_FRIENDS];
             serverSentFriendsCount = friendsCount - oldValue;
@@ -385,19 +398,19 @@ static SocialHelper* _sharedInstance = nil;
             serverSentFriendsCount = friendsCount;
             [userDefaults setInteger:friendsCount forKey:FB_FRIENDS];
             [userDefaults setInteger:serverSentFriendsCount forKey:FB_NEW_FRIENDS];
-        }
+        }*/
         [userDefaults synchronize];
         
         
         //code to get posts count
         NSInteger postCount = [[[result objectForKey:@"posts"] objectForKey:@"data"] count];
-        
-        NSInteger  serverSentPostCount = 0;
+         [userDefaults setInteger:postCount forKey:FB_NEW_POSTS];
+      /*  NSInteger  serverSentPostCount = 0;
         
         //code for likes Count
         if ([userDefaults integerForKey:FB_POSTS]>0) {
             NSInteger oldValue = [[NSUserDefaults standardUserDefaults] integerForKey:FB_POSTS];
-            serverSentFriendsCount = friendsCount - oldValue;
+            serverSentPostCount = postCount - oldValue;
             if (serverSentPostCount>0) {
                 //server API call
                 [userDefaults setInteger:postCount forKey:FB_POSTS];
@@ -411,7 +424,7 @@ static SocialHelper* _sharedInstance = nil;
             [userDefaults setInteger:postCount forKey:FB_POSTS];
             [userDefaults setInteger:serverSentPostCount forKey:FB_NEW_POSTS];
         }
-        [userDefaults synchronize];
+        [userDefaults synchronize];*/
         
         NSArray *dataArray = [[result objectForKey:@"albums"] objectForKey:@"data"];
         NSString *currentId;
@@ -438,8 +451,10 @@ static SocialHelper* _sharedInstance = nil;
                 // Insert your code here
                 NSInteger likesCount = [[[result objectForKey:@"likes"] objectForKey:@"data"] count];
                 NSInteger commentsCount = [[[result objectForKey:@"comments"] objectForKey:@"data"] count];
+                [userDefaults setInteger:likesCount forKey:FB_NEW_LIKES];
+                [userDefaults setInteger:commentsCount forKey:FB_NEW_COMMENTS];
                 
-                NSInteger  serverSentLikeCount = 0;
+               /* NSInteger  serverSentLikeCount = 0;
                 NSInteger  serverSentcommentCount = 0;
                 
                 //code for likes Count
@@ -479,7 +494,7 @@ static SocialHelper* _sharedInstance = nil;
                     serverSentcommentCount = commentsCount;
                     [userDefaults setInteger:commentsCount forKey:FB_COMMENTS];
                     [userDefaults setInteger:serverSentcommentCount forKey:FB_NEW_COMMENTS];
-                }
+                }*/
                 [userDefaults synchronize];
                 [self saveCreditScore:1];
                 
@@ -526,8 +541,10 @@ static SocialHelper* _sharedInstance = nil;
             NSError *jsonError;
             NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonError];
             NSInteger twitterFriendsCount = [[json valueForKey:@"ids"] count];
-            NSInteger   serverSentValue  = 0;
-            
+            [userDefaults setInteger:twitterFriendsCount forKey:serverUserDefaultsKey];
+
+            //Code for latest
+         /*   NSInteger   serverSentValue  = 0;
             if ([userDefaults integerForKey:userDefaultsKey]>0) {
                 NSInteger oldValue = [userDefaults integerForKey:userDefaultsKey];
                 serverSentValue = twitterFriendsCount - oldValue;
@@ -543,7 +560,7 @@ static SocialHelper* _sharedInstance = nil;
                 serverSentValue = twitterFriendsCount;
                 [userDefaults setInteger:serverSentValue forKey:serverUserDefaultsKey];
                 [userDefaults setInteger:twitterFriendsCount forKey:userDefaultsKey];
-            }
+            }*/
             [userDefaults synchronize];
             
             if (updateFollower == 1) {
@@ -563,8 +580,9 @@ static SocialHelper* _sharedInstance = nil;
 - (void)saveLinkedinConnections:(id)obj
 {
     if (![[NSUserDefaults standardUserDefaults]boolForKey:@"LinkedInLogged"]) {
-        [SOCIALMACRO createSocialSite:@"4" details:@"Linkedin" completion:^(id obj) {
+        [SOCIALMACRO createSocialSite:LINKEDIN_ID details:@"Linkedin" completion:^(id obj) {
             [[NSUserDefaults standardUserDefaults]setBool:YES forKey:@"LinkedInLogged"];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"ReloadManageAccounts" object:nil];
         }];
     }
     
@@ -576,8 +594,13 @@ static SocialHelper* _sharedInstance = nil;
     NSInteger totalConnections = [[jDict objectForKey:@"numConnections"] integerValue];
     NSInteger totalPositions = [[[jDict objectForKey:@"positions"] objectForKey:@"_total"] integerValue];
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    NSInteger   serverSentValue  =0;
     
+    [userDefaults setInteger:totalConnections forKey:LINKEDIN_NEW_CONNECTIONS];
+    [userDefaults setInteger:totalPositions forKey:LINKEDIN_NEW_JOBS];
+
+
+   //Code for new
+   /* NSInteger   serverSentValue  =0;
     if ([userDefaults integerForKey:LINKEDIN_CONNECTIONS]>0) {
         NSInteger   serverSentValue  =0;
         
@@ -608,9 +631,10 @@ static SocialHelper* _sharedInstance = nil;
         }
     }else{
         serverSentValue = totalPositions;
-        [userDefaults setInteger:serverSentValue forKey:LINKEDIN_NEW_CONNECTIONS];
+        [userDefaults setInteger:serverSentValue forKey:LINKEDIN_NEW_JOBS];
         [userDefaults setInteger:totalPositions forKey:LINKEDIN_JOBS];
-    }
+    }*/
+    [userDefaults synchronize];
     [self saveCreditScore:4];
 }
 
@@ -666,61 +690,4 @@ static SocialHelper* _sharedInstance = nil;
         }
     }];
 }
-
-#pragma Instagram helper methods
-
-- (void)saveInstagramConnections:(id)obj
-{
-//    if (![[NSUserDefaults standardUserDefaults]boolForKey:@"InstagramInLogged"]) {
-//        [SOCIALMACRO createSocialSite:@"3" details:@"Instagram" completion:^(id obj) {
-//            [[NSUserDefaults standardUserDefaults]setBool:YES forKey:@"InstagramInLogged"];
-//        }];
-//    }
-//    
-//    NSData* datum = [obj dataUsingEncoding:NSUTF8StringEncoding];
-//    NSError *error;
-//    NSDictionary* jDict = [NSJSONSerialization JSONObjectWithData:datum
-//                                                          options:kNilOptions
-//                                                            error:&error];
-//    NSInteger totalConnections = [[jDict objectForKey:@"numConnections"] integerValue];
-//    NSInteger totalPositions = [[[jDict objectForKey:@"positions"] objectForKey:@"_total"] integerValue];
-//    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-//    NSInteger   serverSentValue  =0;
-//    
-//    if ([userDefaults integerForKey:LINKEDIN_CONNECTIONS]>0) {
-//        NSInteger   serverSentValue  =0;
-//        
-//        NSInteger oldValue = [userDefaults integerForKey:LINKEDIN_CONNECTIONS];
-//        serverSentValue = totalConnections - oldValue;
-//        if (serverSentValue>0) {
-//            [userDefaults setInteger:totalConnections forKey:LINKEDIN_CONNECTIONS];
-//            [userDefaults setInteger:serverSentValue forKey:LINKEDIN_NEW_CONNECTIONS];
-//        }else{
-//            [userDefaults setInteger:serverSentValue forKey:LINKEDIN_NEW_CONNECTIONS];
-//        }
-//    }else{
-//        [userDefaults setInteger:serverSentValue forKey:LINKEDIN_NEW_CONNECTIONS];
-//        [userDefaults setInteger:totalConnections forKey:LINKEDIN_CONNECTIONS];
-//    }
-//    
-//    serverSentValue = 0;
-//    if ([userDefaults integerForKey:LINKEDIN_JOBS]>0) {
-//        
-//        NSInteger oldValue = [userDefaults integerForKey:LINKEDIN_JOBS];
-//        serverSentValue = totalPositions - oldValue;
-//        if (serverSentValue>0) {
-//            [userDefaults setInteger:totalPositions forKey:LINKEDIN_JOBS];
-//            [userDefaults setInteger:serverSentValue forKey:LINKEDIN_NEW_JOBS];
-//        }else{
-//            [userDefaults setInteger:serverSentValue forKey:LINKEDIN_NEW_JOBS];
-//        }
-//    }else{
-//        [userDefaults setInteger:serverSentValue forKey:LINKEDIN_NEW_CONNECTIONS];
-//        [userDefaults setInteger:totalPositions forKey:LINKEDIN_JOBS];
-//    }
-//    [self saveCreditScore:4];
-}
-
-
-
 @end

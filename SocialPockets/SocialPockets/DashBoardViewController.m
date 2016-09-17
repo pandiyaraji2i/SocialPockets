@@ -108,14 +108,18 @@
         applyLoan.hidden = YES;
         verificationButton.hidden = NO;
     }
-    
-    
+
     [self updateViewConstraints];
     
 //    [self setupMenuBarButtonItems];
-    
     [self getCreditScore];
+    
+#if TARGET_OS_SIMULATOR
+    //Simulator
+#else
     [self setDeviceDetail];
+    //Device
+#endif
     
     [DBPROFILE downloadImage];
     
@@ -196,8 +200,17 @@
     
     if ([jsonObject isKindOfClass:[NSDictionary class]]) {
         NSString *pushKey = [jsonObject valueForKey:@"LOC_KEY"];
+        [ISMessages showCardAlertWithTitle:@"Social Pockets"
+                                   message:NSLocalizedString(pushKey, nil)
+                                 iconImage:nil
+                                  duration:7.f
+                               hideOnSwipe:YES
+                                 hideOnTap:YES
+                                 alertType:ISAlertTypeWarning];
+
         NSString *loanId = [jsonObject valueForKey:@"USRLN_ID"];
         if ([pushKey isEqualToString:@"PUSH_UA"] || [pushKey isEqualToString:@"PUSH_UR"]) {
+            
             [PROFILEMACRO getUserInformation:^(id obj) {
                 if ([obj isKindOfClass:[NSDictionary class]]) {
                     [DBPROFILE generateUserInfo:obj forUser:USERINFO.userId];
@@ -272,7 +285,6 @@
             }else{
                 
             }
-            
         }];
     }else{
         

@@ -35,6 +35,8 @@
 		A32FFAE51D5C9D6E00C1A519 /* DatabaseObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A32FFAE41D5C9D6E00C1A519 /* DatabaseObject.m */; };
 		A32FFAE81D5C9F1600C1A519 /* TransactionObjectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A32FFAE71D5C9F1600C1A519 /* TransactionObjectModel.m */; };
 		A32FFAEB1D5CA2E500C1A519 /* UserProfileObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A32FFAEA1D5CA2E500C1A519 /* UserProfileObject.m */; };
+		A339F48F1D8D125600913E66 /* ISMessages.m in Sources */ = {isa = PBXBuildFile; fileRef = A339F48E1D8D125600913E66 /* ISMessages.m */; };
+		A339F4911D8D1BF000913E66 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A339F4901D8D1BF000913E66 /* Localizable.strings */; };
 		A38823E61D5AF566008042D9 /* ActivityIndicatior.m in Sources */ = {isa = PBXBuildFile; fileRef = A38823E31D5AF566008042D9 /* ActivityIndicatior.m */; };
 		A38823E71D5AF566008042D9 /* MessagePopUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = A38823E51D5AF566008042D9 /* MessagePopUpView.m */; };
 		A38823ED1D5B7158008042D9 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A38823E91D5B7158008042D9 /* Roboto-Bold.ttf */; };
@@ -210,6 +212,9 @@
 		A32FFAE71D5C9F1600C1A519 /* TransactionObjectModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransactionObjectModel.m; sourceTree = "<group>"; };
 		A32FFAE91D5CA2E500C1A519 /* UserProfileObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserProfileObject.h; sourceTree = "<group>"; };
 		A32FFAEA1D5CA2E500C1A519 /* UserProfileObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserProfileObject.m; sourceTree = "<group>"; };
+		A339F48D1D8D125600913E66 /* ISMessages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISMessages.h; sourceTree = "<group>"; };
+		A339F48E1D8D125600913E66 /* ISMessages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISMessages.m; sourceTree = "<group>"; };
+		A339F4901D8D1BF000913E66 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		A38823E21D5AF566008042D9 /* ActivityIndicatior.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityIndicatior.h; sourceTree = "<group>"; };
 		A38823E31D5AF566008042D9 /* ActivityIndicatior.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityIndicatior.m; sourceTree = "<group>"; };
 		A38823E41D5AF566008042D9 /* MessagePopUpView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessagePopUpView.h; sourceTree = "<group>"; };
@@ -466,6 +471,7 @@
 		A3253D041D3C9DE90081A59C = {
 			isa = PBXGroup;
 			children = (
+				A339F4901D8D1BF000913E66 /* Localizable.strings */,
 				A3D65A821D460BA100B47E46 /* CameraFrameWork.framework */,
 				FBAAB8281D422888001C918B /* Podfile */,
 				A3253D0F1D3C9DE90081A59C /* SocialPockets */,
@@ -764,6 +770,8 @@
 		A3B529321D49E21400603451 /* Notifications */ = {
 			isa = PBXGroup;
 			children = (
+				A339F48D1D8D125600913E66 /* ISMessages.h */,
+				A339F48E1D8D125600913E66 /* ISMessages.m */,
 				A39209731D48E0B600EBCC6F /* NotificationViewController.h */,
 				A39209741D48E0B600EBCC6F /* NotificationViewController.m */,
 			);
@@ -1086,6 +1094,7 @@
 				6777A4CC1D4A2FF600BF1EC3 /* close_round_button.png in Resources */,
 				A38823ED1D5B7158008042D9 /* Roboto-Bold.ttf in Resources */,
 				FB0342F61D54AE4C00C11019 /* NotificationBG6Splus.png in Resources */,
+				A339F4911D8D1BF000913E66 /* Localizable.strings in Resources */,
 				FB0342F41D54AE4C00C11019 /* NotificationBG4S.png in Resources */,
 				A38823EF1D5B7158008042D9 /* Roboto-Medium.ttf in Resources */,
 				A3BFCB5B1D48B02400D99D78 /* bg@3x.png in Resources */,
@@ -1246,6 +1255,7 @@
 				A3253D121D3C9DE90081A59C /* main.m in Sources */,
 				A3C3C8471D3DF1E000C65B09 /* NetworkHelperClass.m in Sources */,
 				A38968671D40DE1A00FA8F14 /* LoginViewController.m in Sources */,
+				A339F48F1D8D125600913E66 /* ISMessages.m in Sources */,
 				A3C3C8481D3DF1E000C65B09 /* NSJSONSerialization+RemovingNulls.m in Sources */,
 				A3B528F21D49DE7200603451 /* ApplyLoanViewController.m in Sources */,
 				FBB3A4FA1D4F570B001A7408 /* ManageAccountsViewController.m in Sources */,

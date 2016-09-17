@@ -37,9 +37,7 @@
         [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"isLoggedFirst"];
     }
     
-    /**
-     *  raghav!!!
-     */
+    
 //    [TestFairy begin:@"f14b423d572b0713919e7f409d38f680453d2166"];
     
     [[NSUserDefaults standardUserDefaults] synchronize];
@@ -143,8 +141,6 @@
      id object = [[userInfo valueForKey:@"aps"] valueForKey:@"body"];
 //    id json = [NSJSONSerialization JSONObjectWithData:object options:NSJSONReadingMutableContainers error:nil];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"ReceivedPushNotification" object:object];
-
-//    NSLog(@"message --- %@",pushMessage );
 }
 
 - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error

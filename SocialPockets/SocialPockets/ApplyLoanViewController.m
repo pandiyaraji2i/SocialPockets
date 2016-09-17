@@ -42,6 +42,10 @@
     
     float maxLoanAmount = [[loanObject objectForKey:@"MAXIMUM_LOAN_AMOUNT"] floatValue];
     //float maxLoanAmount = 5000;
+#warning Need to remove
+    if (maxLoanAmount <= 0) {
+        maxLoanAmount = 500;
+    }
     [self updateSliderForAmt:maxLoanAmount];
     self.loanAmtSlider.minimumValue = 0;
         _loanDetailsView.layer.cornerRadius = 5.0;

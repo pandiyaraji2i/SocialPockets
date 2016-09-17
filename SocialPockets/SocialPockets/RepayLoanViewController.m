@@ -76,6 +76,7 @@
 }
 - (IBAction)DoneBtnTapped:(id)sender {
     [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"isLoanRepaid"];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"UpdateCreditScore" object:nil];
     self.blackoutview.hidden = YES;
     self.thanksview.hidden = YES;
     [self.navigationController popViewControllerAnimated:YES];

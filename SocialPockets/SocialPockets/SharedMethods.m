@@ -71,7 +71,6 @@
     
     if ([topController isKindOfClass:[MFSideMenuContainerViewController class]]){
         MFSideMenuContainerViewController *tempC = (id)topController;
-        NSLog(@"-- Center %@ -- %@",tempC.centerViewController, [tempC.centerViewController visibleViewController]);
         return tempC.centerViewController;
     }
     return nil;

@@ -54,14 +54,22 @@
     profileImage = nil;
     
     #warning just for testing
-            firstNameTextField.text = @"kishores";
-            usernameTextField.text = @"kishores";
-            passwordTextField.text = @"kishores";
-            confirmPasswordTextField.text = @"kishores";
-            emailTextField.text = @"kishores@ideas2it.com";
-            phoneNumberTextField.text = @"9090909095";
-    profileImage = [UIImage imageNamed:@"ProfileImage"];
+            firstNameTextField.text = @"kish7";
+            usernameTextField.text = @"kish7";
+            passwordTextField.text = @"test1234";
+            confirmPasswordTextField.text = @"test1234";
+            emailTextField.text = @"kish7@ideas2it.com";
+            phoneNumberTextField.text = @"9070900000";
+        profileImage = [UIImage imageNamed:@"ProfileImage"];
+
     
+#if TARGET_OS_SIMULATOR
+    //Simulator
+    profileImage = [UIImage imageNamed:@"ProfileImage"];
+
+#else
+    //Device
+#endif
     self.navigationController.navigationBarHidden = YES;
     [self.view updateConstraints];
     [self.view layoutIfNeeded];
@@ -127,6 +135,10 @@
 
 - (IBAction)profileImageAction:(id)sender
 {
+#if TARGET_OS_SIMULATOR
+    //Simulator
+#else
+    // Device
     CameraViewController *vc =[[CameraViewController alloc]initwithController];
     [vc openCamera:0];
     [self.navigationController presentViewController:vc animated:NO completion:nil];
@@ -139,6 +151,8 @@
             [self dismissViewControllerAnimated:NO completion:nil];
         });
     };
+#endif
+   
 }
 
 - (IBAction)termsCheckBoxTapped:(id)sender {

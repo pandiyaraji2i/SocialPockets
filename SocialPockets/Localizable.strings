@@ -1,0 +1,14 @@
+/* 
+  Localizable.strings
+  SocialPockets
+
+  Created by Pandiyaraj on 17/09/16.
+  Copyright © 2016 Pandiyaraj. All rights reserved.
+*/
+
+"PUSH_UA" = "Your documents verification completed. Enjoy the app!!!";
+"PUSH_UR" = "Your documents are denied by admin.Please contact administrator";
+"PUSH_ULA" = "Your loan was approved by admin, amount will be credited to your account";
+"PUSH_ULR" = "Your loan was rejected by admin. Please contact administrator";
+"PUSH_ULRPA" = "Your repayment was approved by admin";
+"PUSH_ULRPR" = "Your repayment was denied by admin";

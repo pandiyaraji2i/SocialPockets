@@ -54,24 +54,29 @@
     TableCollectionViewCell *cell = (TableCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"TableCollectionViewCell" forIndexPath:indexPath];
     NSArray *currentRowDetail = [currentSectionDictionary objectForKey:[secTitle objectAtIndex:0]];
     
-    cell.ImageView.image = [UIImage imageNamed:[[currentRowDetail objectAtIndex:indexPath.row] objectForKey:@"ImageName"]];
+    NSDictionary *currentRowDictObject = [currentRowDetail objectAtIndex:indexPath.row];
+    
+    cell.ImageView.image = [UIImage imageNamed:[currentRowDictObject objectForKey:@"ImageName"]];
     if (currentTableIndex.section == 2) {
-      NSString *bankName = [[[[currentRowDetail objectAtIndex:indexPath.row] objectForKey:@"ImageText"] componentsSeparatedByString:@","] objectAtIndex:0];
+      NSString *bankName = [[[currentRowDictObject objectForKey:@"ImageText"] componentsSeparatedByString:@","] objectAtIndex:0];
         cell.InfoLabel.text = bankName;
     }else{
-    cell.InfoLabel.text = [[currentRowDetail objectAtIndex:indexPath.row] objectForKey:@"ImageText"];
-    }
-    if ([[currentRowDetail objectAtIndex:indexPath.row] objectForKey:@"Account Number"]) {
-
-        cell.accountNumber.text = [self secureBankAccount:[[currentRowDetail objectAtIndex:indexPath.row] objectForKey:@"Account Number"]];
+    cell.InfoLabel.text = [currentRowDictObject objectForKey:@"ImageText"];
     }
     
-    if (indexPath.row %2 == 0) {
-        cell.selectedBtn.selected = YES;
-    }else{
-        cell.selectedBtn.selected = NO;
+    if ([currentRowDictObject objectForKey:@"Account Number"]) {
 
+        cell.accountNumber.text = [self secureBankAccount:[currentRowDictObject objectForKey:@"Account Number"]];
     }
+    
+    cell.selectedBtn.selected = [[currentRowDictObject objectForKey:@"Linked"] boolValue];
+    
+//    if (indexPath.row %2 == 0) {
+//        cell.selectedBtn.selected = YES;
+//    }else{
+//        cell.selectedBtn.selected = NO;
+//
+//    }
     return cell;
     
 }

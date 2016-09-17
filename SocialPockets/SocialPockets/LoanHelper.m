@@ -72,6 +72,10 @@ static LoanHelper* _sharedInstance = nil;
  */
 
 - (void)requestLoanForUserId:(NSString *)userId amount:(NSString *)amount mobileWallerId:(NSString *)mobileWallerId latitude:(NSString *)latitude longitude:(NSString *)longitude completion:(void (^)(id obj))completionBlock{
+    if (latitude == nil || longitude == nil) {
+        latitude = @"13.082680";
+        longitude = @"80.270718";
+    }
     NSMutableDictionary *dict = [@{@"id":[NSNull null],@"userid":userId,@"amount":[amount stringByReplacingOccurrencesOfString:@"," withString:@""],@"created_by":userId,@"mobilewalletid":mobileWallerId,@"latitude":latitude,@"longitude":longitude} mutableCopy];
     [NetworkHelperClass sendAsynchronousRequestToServer:@"loanrequest" httpMethod:POST requestBody:dict contentType:JSONCONTENTTYPE completion:^(id obj) {
         if (completionBlock) {

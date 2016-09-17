@@ -130,7 +130,9 @@
         }];
     }
     else if (indexPath.row == 1) {         //  for Twitter
+        [ACTIVITY showActivity:@"Fetching twitter details from the settings..."];
         [SOCIALMACRO twitterLoginWithCompletion:^(id obj) {
+            [ACTIVITY performSelectorOnMainThread:@selector(hideActivity) withObject:nil waitUntilDone:YES];
             [tableView reloadData];
         }];
     }

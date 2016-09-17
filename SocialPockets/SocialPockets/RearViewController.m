@@ -31,7 +31,7 @@
 
 - (void)reloadAccount
 {
-    highlightAccountText = YES;
+//    highlightAccountText = YES;
 
     [self.tableView reloadData];
 }
