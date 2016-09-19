@@ -134,6 +134,8 @@
         [self updateTextfieldEnabled:YES];
         btn.selected = !btn.selected;
     }else{
+        btn.selected  = !btn.selected;
+        [self updateTextfieldEnabled:NO];
         return;
         
         if (self.accountNoTF.text.length>0 && self.bankNameTF.text.length>0  &&self.IFSCCodeTF.text.length>0) {
@@ -171,20 +173,22 @@
 
 - (IBAction)deleteAction:(id)sender {
     
-    [ACTIVITY showActivity:@"Loading..."];
-    [BANKACCHELPER deleteBankAccountWithId:bankAccountId completion:^(id obj) {
-        [ACTIVITY performSelectorOnMainThread:@selector(hideActivity) withObject:nil waitUntilDone:YES];
-        if ([obj isKindOfClass:[NSDictionary class]]) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self.navigationController popViewControllerAnimated:YES];
-                if (onCreate) {
-                    onCreate(obj);
-                }
-            });
-            
-        }else{
-            ErrorMessageWithTitle(@"Message", obj);
-        }
-    }];
+    if (bankAccountId!=nil) {
+        [ACTIVITY showActivity:@"Loading..."];
+        [BANKACCHELPER deleteBankAccountWithId:bankAccountId completion:^(id obj) {
+            [ACTIVITY performSelectorOnMainThread:@selector(hideActivity) withObject:nil waitUntilDone:YES];
+            if ([obj isKindOfClass:[NSDictionary class]]) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self.navigationController popViewControllerAnimated:YES];
+                    if (onCreate) {
+                        onCreate(obj);
+                    }
+                });
+                
+            }else{
+                ErrorMessageWithTitle(@"Message", obj);
+            }
+        }];
+    }
 }
 @end

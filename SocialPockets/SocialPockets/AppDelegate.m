@@ -138,6 +138,7 @@
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
 {
     NSLog(@"userInfo -- %@",userInfo);
+
      NSString *titleMessage = [[userInfo valueForKey:@"aps"] valueForKey:@"alert"];
     NSLog(@"title %@",titleMessage);
      id object = [[userInfo valueForKey:@"aps"] valueForKey:@"body"];

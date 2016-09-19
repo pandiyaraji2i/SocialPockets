@@ -195,6 +195,8 @@ static NSMutableArray* currentAlertArray = nil;
 }
 
 - (void)hide:(NSNumber*)force {
+    [self forceHideInMain];
+    return;
     if (force.boolValue == YES) {
         [self forceHideInMain];
     } else {

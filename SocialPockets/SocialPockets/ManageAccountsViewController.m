@@ -107,15 +107,10 @@
                                                              }
                                                            ]mutableCopy]
                                        },
-                                     @{@"Money Account":@[@{@"ImageName":@"HDFCIcon",
-                                                            @"ImageText":@"HDFC",
-                                                            @"Account Number":@"1231231123",
-                                                            @"Linked":[NSNumber numberWithBool:YES]
-                                                            },
-                                                          @{@"ImageName":@"AddAccountIcon",
+                                     @{@"Money Account":@[@{@"ImageName":@"AddAccountIcon",
                                                             @"ImageText":@"ADD account",
                                                             @"Linked":[NSNumber numberWithBool:YES]
-                                                            },]
+                                                            }]
                                        }]mutableCopy];
     
     NSMutableArray *accountArray = [[NSMutableArray alloc] init];
