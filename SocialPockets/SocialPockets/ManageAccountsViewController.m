@@ -71,73 +71,6 @@
 
 #pragma generateImages ::: delete this after the original image
 
-//#-- Edit by pandi
-/*- (void)getAccountDetails
- {
- [BANKACCHELPER showAllAccountWithcompletion:^(id obj) {
- [self.bankAccountsArray addObjectsFromArray:obj];
- [self loadSectionData];
- }];
- } */
-
-/* - (void)loadSectionData
- {
- [infoArray removeAllObjects];
- 
- NSMutableArray *firstSection=[@[@{@"ImageName":@"AadharIcon",
- @"ImageText":@"Aadhar Card"
- },
- @{@"ImageName":@"PanCardIcon",
- @"ImageText":@"PAN Card"
- }
- ]mutableCopy];
- 
- NSMutableArray *secondSection=[@[@{@"ImageName":@"FacebookIcon",
- @"ImageText":@"Facebook"
- },
- @{@"ImageName":@"TwitterIcon",
- @"ImageText":@"Twitter"
- },
- @{@"ImageName":@"InstagramIcon",
- @"ImageText":@"Instagram"
- },
- @{@"ImageName":@"LinkedinIcon",
- @"ImageText":@"LinkedIn"
- }
- ]mutableCopy];
- 
- [infoArray addObject:firstSection];
- [infoArray addObject:secondSection];
- NSMutableArray *thirdSection = [[NSMutableArray alloc]init];
- if (self.bankAccountsArray.count) {
- for (int x = 0; x<self.bankAccountsArray.count; x++) {
- NSDictionary *bankAccountDetail = self.bankAccountsArray[x];
- NSDictionary *alertDict= @{@"ImageText" : [bankAccountDetail valueForKey:@"USRMW_BANK_NAME"],
- @"ImageName":@"BankWithoutACCNO",
- @"Account Number" : [bankAccountDetail valueForKey:@"USRMW_ACCOUNT_NUMBER"]
- };
- [thirdSection insertObject:alertDict atIndex:x];
- }
- if (thirdSection.count != 3) {
- NSDictionary *alertDict= @{@"ImageText" : @"Add account",
- @"ImageName":@"AddAccountIcon"
- };
- [thirdSection insertObject:alertDict atIndex:thirdSection.count];
- }
- 
- }else
- {
- NSDictionary *alertDict= @{@"ImageText" : @"Add account",
- @"ImageName":@"AddAccountIcon"
- };
- [thirdSection insertObject:alertDict atIndex:0];
- }
- [infoArray addObject:thirdSection];
- dispatch_async(dispatch_get_main_queue(), ^{
- [self.tableView reloadData];
- });
- } */
-
 -(NSMutableArray *)generateImageArray {
     
     BOOL isFacebookLogged = [[NSUserDefaults standardUserDefaults] boolForKey:FACEBOOK_LOG];
@@ -196,6 +129,9 @@
                     [temp setValue:@"BankWithoutACCNO" forKey:@"ImageName"];
                     [temp setValue:[[obj objectAtIndex:i] valueForKey:@"USRMW_ACCOUNT_NUMBER"] forKey:@"Account Number"];
                     [temp setValue:[NSNumber numberWithBool:YES] forKey:@"Linked"];
+                    [temp setValue:[[obj objectAtIndex:i] valueForKey:@"USRMW_IFSC_CODE"] forKey:@"IfscCode"];
+                    [temp setValue:[[obj objectAtIndex:i] valueForKey:@"USRMW_ID"] forKey:@"AccountId"];
+
                     [accountArray addObject:temp];
                 }
                 if ([obj count]<3) {
@@ -415,12 +351,12 @@
     }
     else if (tableIndexPath.section == 2) {
         NSDictionary *currentSectionDictionary = infoArray[tableIndexPath.section];
-        BOOL isEdit = YES;
-        if ([[[currentSectionDictionary objectForKey:@"Money Account"] objectAtIndex:collectionIndexPath.row] valueForKey:@"Account Number"] == nil) {
-            isEdit = NO;
+        id selectedObject = [[currentSectionDictionary objectForKey:@"Money Account"] objectAtIndex:collectionIndexPath.row];
+        if ([selectedObject valueForKey:@"Account Number"] == nil) {
+            selectedObject = nil;
         }
         AddBankAccountController *addBankAccount = [self.storyboard instantiateViewControllerWithIdentifier:@"AddBankAccount"];
-        addBankAccount.isEdit = isEdit;
+        addBankAccount.currentAccountObject = selectedObject;
         [self.navigationController pushViewController:addBankAccount animated:YES];
         addBankAccount.onCreate = ^(id obj)
         {

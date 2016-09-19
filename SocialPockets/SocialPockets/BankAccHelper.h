@@ -14,7 +14,7 @@
 
 - (void)createBankAccountForUserId:(NSString *)userId bankName:(NSString *)bankName ifscCode:(NSString *)ifscCode accountNumber:(NSString*)
 accountNumber branchName:(NSString *)branchName createdBy:(NSString *)createdBy completion:(void (^)(id obj))completionBlock;
-
+- (void)updateBankAccount:(NSString *)bankAccountId bankName:(NSString *)bankName ifscCode:(NSString *)ifscCode accountNumber:(NSString*)accountNumber branchName:(NSString *)branchName createdBy:(NSString *)createdBy completion:(void (^)(id obj))completionBlock;
 - (void)deleteBankAccountWithId:(NSString *)bankAccountId completion:(void (^)(id obj))completionBlock;
 
 - (void)showAllAccountWithcompletion:(void (^)(id obj))completionBlock;

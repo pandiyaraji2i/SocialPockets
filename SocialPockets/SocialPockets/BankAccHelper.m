@@ -37,15 +37,21 @@ static BankAccHelper* _sharedInstance = nil;
                 completionBlock(obj);
             }
         }];
-//        id successObject = [NetworkHelperClass sendSynchronousRequestToServer:@"createCreditAccount" httpMethod:POST requestBody:dict contentType:JSONCONTENTTYPE];
-//        if (successObject){
-//            if(completionBlock){
-//                completionBlock(successObject);
-//            }
-//        }
     }
 }
 
+- (void)updateBankAccount:(NSString *)bankAccountId bankName:(NSString *)bankName ifscCode:(NSString *)ifscCode accountNumber:(NSString*)accountNumber branchName:(NSString *)branchName createdBy:(NSString *)createdBy completion:(void (^)(id obj))completionBlock
+{
+#warning Need to change
+    if([NetworkHelperClass getInternetStatus:YES]){
+        NSMutableDictionary *dict =[@{@"userid":USERINFO.userId,@"bankAccount_id":bankAccountId,@"bank_name":bankName,@"ifsc_code":ifscCode,@"account_number":accountNumber,@"branch":branchName,@"created_by":createdBy}mutableCopy];
+        [NetworkHelperClass sendAsynchronousRequestToServer:@"createCreditAccount" httpMethod:POST requestBody:dict contentType:JSONCONTENTTYPE completion:^(id obj) {
+            if(completionBlock){
+                completionBlock(obj);
+            }
+        }];
+    }
+}
 
 - (void)deleteBankAccountWithId:(NSString *)bankAccountId completion:(void (^)(id obj))completionBlock
 {
@@ -57,12 +63,6 @@ static BankAccHelper* _sharedInstance = nil;
                 completionBlock(obj);
             }
         }];
-//        id successObject = [NetworkHelperClass sendSynchronousRequestToServer:@"/deleteCreditAccount" httpMethod:POST requestBody:dict contentType:JSONCONTENTTYPE];
-//        if (successObject){
-//            if(completionBlock){
-//                completionBlock(successObject);
-//            }
-//        }
     }
 }
 
@@ -74,14 +74,6 @@ static BankAccHelper* _sharedInstance = nil;
             completionBlock(obj);
         }
     }];
-//        id successObject = [NetworkHelperClass sendSynchronousRequestToServer: httpMethod:GET requestBody:nil contentType:JSONCONTENTTYPE];
-//        if (successObject)
-//        {
-//            if(completionBlock)
-//            {
-//                completionBlock(successObject);
-//            }
-//        }
 }
 
 @end

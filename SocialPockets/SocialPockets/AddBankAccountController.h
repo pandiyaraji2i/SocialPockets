@@ -12,5 +12,13 @@ typedef void(^onCreateAction)(id);
 @property (weak, nonatomic) IBOutlet UITextField *accountNoTF;
 @property (weak, nonatomic) IBOutlet UITextField *bankNameTF;
 @property (weak, nonatomic) IBOutlet UITextField *IFSCCodeTF;
+@property (weak, nonatomic) IBOutlet UIView *addAccountview;
+@property (weak, nonatomic) IBOutlet UIButton *nextBtn;
+@property (weak, nonatomic) IBOutlet UIView *editAccountbtnView;
+@property (weak, nonatomic) IBOutlet UIView *editTitleView;
+@property (nonatomic,strong) id currentAccountObject;
+- (IBAction)editAction:(id)sender;
+- (IBAction)deleteAction:(id)sender;
+
 @property (nonatomic,copy) onCreateAction onCreate;
 @end
