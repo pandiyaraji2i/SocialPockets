@@ -56,16 +56,16 @@
     if ([[NSUserDefaults standardUserDefaults] boolForKey:@"PanCardUpdate"]) {
         [imageUpdatedArray addObject:@"PanCardProgress"];
     }
-    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"FacebookAccessToken"]) {
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:FACEBOOK_ACCESSTOKEN]) {
         [imageUpdatedArray addObject:@"FBProgress"];
     }
-    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"TwitterAccessToken"]) {
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:TWITTER_ACCESSTOKEN]) {
         [imageUpdatedArray addObject:@"TwitterProgress"];
     }
-    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"InstagramAccessToken"]) {
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:INSTAGRAM_ACCESSTOKEN]) {
         [imageUpdatedArray addObject:@"InstagramProgress"];
     }
-    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"LinkedInAccessToken"]) {
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:LINKEDIN_ACCESSTOKEN]) {
         [imageUpdatedArray addObject:@"LInkedInProgress"];
     }
 //    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"BankAccountUpdated"]) {

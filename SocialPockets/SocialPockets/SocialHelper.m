@@ -132,10 +132,10 @@ static SocialHelper* _sharedInstance = nil;
             NSLog(@"Cancelled");
         } else {
             NSLog(@"Logged in");
-            [[NSUserDefaults standardUserDefaults] setObject:[[result token] tokenString] forKey:@"FacebookAccessToken"];
-            if (![[NSUserDefaults standardUserDefaults] boolForKey:@"FacebookLoggedIn"]) {
+            [[NSUserDefaults standardUserDefaults] setObject:[[result token] tokenString] forKey:FACEBOOK_ACCESSTOKEN];
+            if (![[NSUserDefaults standardUserDefaults] boolForKey:FACEBOOK_LOG]) {
                 [SOCIALMACRO createSocialSite:FACEBOOK_ID details:@"Facebook" completion:^(id obj) {
-                    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"FacebookLoggedIn"];
+                    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:FACEBOOK_LOG];
                     [[NSNotificationCenter defaultCenter] postNotificationName:@"ReloadManageAccounts" object:nil];
                     [self performSelectorOnMainThread:@selector(getFaceBookDetails) withObject:nil waitUntilDone:YES];
 //                    [self performSelector:@selector(getFaceBookDetails) withObject:nil afterDelay:1.0f];
@@ -158,10 +158,10 @@ static SocialHelper* _sharedInstance = nil;
     [[Twitter sharedInstance] logInWithCompletion:^(TWTRSession *session, NSError *error) {
         if (session) {
             NSLog(@"signed in as %@", [session userName]);
-            [[NSUserDefaults standardUserDefaults] setObject:[session authTokenSecret] forKey:@"TwitterAccessToken"];
-            if (![[NSUserDefaults standardUserDefaults] boolForKey:@"TwitterLoggedIn"]) {
+            [[NSUserDefaults standardUserDefaults] setObject:[session authTokenSecret] forKey:TWITTER_ACCESSTOKEN];
+            if (![[NSUserDefaults standardUserDefaults] boolForKey:TWITTER_LOG]) {
                 [SOCIALMACRO createSocialSite:TWITTER_ID details:@"Twitter" completion:^(id obj) {
-                    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"TwitterLoggedIn"];
+                    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:TWITTER_LOG];
                     [[NSNotificationCenter defaultCenter] postNotificationName:@"ReloadManageAccounts" object:nil];
                     [self getTwitterListFor:@"friendsList" WIthUserID:[session userID]];
                 }];
@@ -184,9 +184,9 @@ static SocialHelper* _sharedInstance = nil;
 #pragma mark Instagram Methods
 - (void)instagramLoginWithUserToken:(id)token WithCompletion:(void (^)(id obj))completionBlock
 {
-    if (![[NSUserDefaults standardUserDefaults]boolForKey:@"InstagramInLogged"]) {
+    if (![[NSUserDefaults standardUserDefaults]boolForKey:INSTAGRAM_LOG]) {
         [SOCIALMACRO createSocialSite:INSTAGRAM_ID details:@"Instagram" completion:^(id obj) {
-            [[NSUserDefaults standardUserDefaults]setBool:YES forKey:@"InstagramInLogged"];
+            [[NSUserDefaults standardUserDefaults]setBool:YES forKey:INSTAGRAM_LOG];
             [[NSNotificationCenter defaultCenter] postNotificationName:@"ReloadManageAccounts" object:nil];
         }];
     }
@@ -341,7 +341,7 @@ static SocialHelper* _sharedInstance = nil;
                                                                                  body:[@"" dataUsingEncoding:NSUTF8StringEncoding]
                                                                               success:^(LISDKAPIResponse *response) {
                                                                                   //NSLog(@"2nd success called %@", response.data);
-                                                                                  [[NSUserDefaults standardUserDefaults] setObject:authtoken forKey:@"LinkedInAccessToken"];
+                                                                                  [[NSUserDefaults standardUserDefaults] setObject:authtoken forKey:LINKEDIN_ACCESSTOKEN];
                                                                                   
                                                                                   
                                                                                   [self saveLinkedinConnections:response.data];
@@ -579,9 +579,9 @@ static SocialHelper* _sharedInstance = nil;
 
 - (void)saveLinkedinConnections:(id)obj
 {
-    if (![[NSUserDefaults standardUserDefaults]boolForKey:@"LinkedInLogged"]) {
+    if (![[NSUserDefaults standardUserDefaults]boolForKey:LINKEDIN_LOG]) {
         [SOCIALMACRO createSocialSite:LINKEDIN_ID details:@"Linkedin" completion:^(id obj) {
-            [[NSUserDefaults standardUserDefaults]setBool:YES forKey:@"LinkedInLogged"];
+            [[NSUserDefaults standardUserDefaults]setBool:YES forKey:LINKEDIN_LOG];
             [[NSNotificationCenter defaultCenter] postNotificationName:@"ReloadManageAccounts" object:nil];
         }];
     }

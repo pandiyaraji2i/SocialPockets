@@ -137,7 +137,16 @@
  [self.tableView reloadData];
  });
  } */
+
 -(NSMutableArray *)generateImageArray {
+    
+    BOOL isFacebookLogged = [[NSUserDefaults standardUserDefaults] boolForKey:FACEBOOK_LOG];
+    BOOL isTwitterLogged = [[NSUserDefaults standardUserDefaults] boolForKey:TWITTER_LOG];
+    BOOL isInstagramLogged = [[NSUserDefaults standardUserDefaults] boolForKey:INSTAGRAM_LOG];
+    BOOL isLinkedInLogged = [[NSUserDefaults standardUserDefaults] boolForKey:LINKEDIN_LOG];
+    
+    linkedAccountCount = (int)(isFacebookLogged + isTwitterLogged + isInstagramLogged + isLinkedInLogged);
+    
     NSMutableArray *imagesArray = [@[@{@"Identification Proof":@[@{@"ImageName":@"AadharIcon",
                                                                    @"ImageText":@"Aadhar Card",
                                                                    @"Linked":[NSNumber numberWithBool:NO]
@@ -149,19 +158,19 @@
                                        },
                                      @{@"Social Account":[@[@{@"ImageName":@"FacebookIcon",
                                                              @"ImageText":@"Facebook",
-                                                             @"Linked":[NSNumber numberWithBool:NO]
+                                                             @"Linked":[NSNumber numberWithBool:isFacebookLogged]
                                                              },
                                                            @{@"ImageName":@"TwitterIcon",
                                                              @"ImageText":@"Twitter",
-                                                              @"Linked":[NSNumber numberWithBool:NO]
+                                                              @"Linked":[NSNumber numberWithBool:isTwitterLogged]
                                                              },
                                                            @{@"ImageName":@"InstagramIcon",
                                                              @"ImageText":@"Instagram",
-                                                              @"Linked":[NSNumber numberWithBool:NO]
+                                                              @"Linked":[NSNumber numberWithBool:isInstagramLogged]
                                                              },
                                                            @{@"ImageName":@"LinkedinIcon",
                                                              @"ImageText":@"LinkedIn",
-                                                              @"Linked":[NSNumber numberWithBool:NO]
+                                                              @"Linked":[NSNumber numberWithBool:isLinkedInLogged]
                                                              }
                                                            ]mutableCopy]
                                        },
@@ -175,7 +184,6 @@
                                                             @"Linked":[NSNumber numberWithBool:YES]
                                                             },]
                                        }]mutableCopy];
-#warning Need to work
     
     NSMutableArray *accountArray = [[NSMutableArray alloc] init];
     if ([NetworkHelperClass getInternetStatus:NO])
@@ -212,7 +220,7 @@
         }];
         
         
-        [SOCIALMACRO viewSocialSiteWithCompletion:^(id obj) {
+     /*   [SOCIALMACRO viewSocialSiteWithCompletion:^(id obj) {
             if ([obj count]) {
               
                 NSMutableArray *socialDict = [[imagesArray objectAtIndex:1] valueForKey:@"Social Account"];
@@ -271,7 +279,7 @@
 
 
             }
-        }];
+        }];*/
         
     }
     return imagesArray;
@@ -358,9 +366,7 @@
             {
                 [SOCIALMACRO facebookLoginWithCompletion:^(id obj) {
                     NSLog(@"FaceBook login Success");
-                    //                    [self CreateSocialSiteWithSocialSite:@"1"];
-                    infoArray = [self generateImageArray];
-                    [self.tableView reloadData];
+                    [self reloadManageAccounts];
                 } ];
             }
                 break;
@@ -370,10 +376,7 @@
                     NSLog(@"Twitter login Success");
                     //#-- Change selected color
                     [ACTIVITY performSelectorOnMainThread:@selector(hideActivity) withObject:nil waitUntilDone:YES];
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        infoArray = [self generateImageArray];
-                        [self.tableView reloadData];
-                    });
+                    [self reloadManageAccounts];
                 }];
             }
                 break;
@@ -385,13 +388,11 @@
                 UINavigationController *navVc = [[UINavigationController alloc]initWithRootViewController:IGloginVc];
                 [self presentViewController:navVc animated:YES completion:NULL];
                 IGloginVc.onLogin = ^(id obj){
-                    infoArray = [self generateImageArray];
-                    [self.tableView reloadData];
-                    [[NSUserDefaults standardUserDefaults] setObject:obj forKey:@"InstagramAccessToken"];
-                    
+                    [self reloadManageAccounts];
+                    [[NSUserDefaults standardUserDefaults] setObject:obj forKey:INSTAGRAM_ACCESSTOKEN];
                     NSLog(@"Auth Token %@",obj);
                     [SOCIALMACRO instagramLoginWithUserToken:obj WithCompletion:^(id obj) {
-                        [SOCIALMACRO instagramDetailWithUserToken:[[NSUserDefaults standardUserDefaults] valueForKey:@"InstagramAccessToken"] WithCompletion:^(id obj) {
+                        [SOCIALMACRO instagramDetailWithUserToken:[[NSUserDefaults standardUserDefaults] valueForKey:INSTAGRAM_ACCESSTOKEN] WithCompletion:^(id obj) {
                             
                         }];
                     }];
@@ -401,8 +402,9 @@
                 
             case 3:{
                 [SOCIALMACRO linkedInLoginWithCompletion:^(id obj) {
-                    infoArray = [self generateImageArray];
-                    [self.tableView reloadData];
+                    if (obj!= nil) {
+                        [self reloadManageAccounts];
+                    }
                 }];
                 break;
             }
@@ -411,17 +413,28 @@
                 break;
         }
     }
-    
-    NSDictionary *currentSectionDictionary = infoArray[tableIndexPath.section];
-    if (tableIndexPath.section == 2 &&  [[[currentSectionDictionary objectForKey:@"Money Account"] objectAtIndex:collectionIndexPath.row] valueForKey:@"Account Number"] == nil) {
+    else if (tableIndexPath.section == 2) {
+        NSDictionary *currentSectionDictionary = infoArray[tableIndexPath.section];
+        BOOL isEdit = YES;
+        if ([[[currentSectionDictionary objectForKey:@"Money Account"] objectAtIndex:collectionIndexPath.row] valueForKey:@"Account Number"] == nil) {
+            isEdit = NO;
+        }
         AddBankAccountController *addBankAccount = [self.storyboard instantiateViewControllerWithIdentifier:@"AddBankAccount"];
+        addBankAccount.isEdit = isEdit;
         [self.navigationController pushViewController:addBankAccount animated:YES];
         addBankAccount.onCreate = ^(id obj)
         {
             infoArray = [self generateImageArray];
             [self.tableView reloadData];
         };
+        
+      
     }
+    else{
+        
+    }
+    
+  
 }
 
 - (void)updateArrayValues:(id)object currentIndex:(int)index

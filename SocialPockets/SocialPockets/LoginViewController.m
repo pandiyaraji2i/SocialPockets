@@ -99,10 +99,17 @@
             
             [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"USERINFO"];
             [[NSUserDefaults standardUserDefaults] setObject:nil forKey:USERID];
-            [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"FacebookAccessToken"];
-            [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"TwitterAccessToken"];
-            [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"InstagramAccessToken"];
-            [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"LinkedInAccessToken"];
+            [[NSUserDefaults standardUserDefaults] setObject:nil forKey:FACEBOOK_ACCESSTOKEN];
+            [[NSUserDefaults standardUserDefaults] setObject:nil forKey:TWITTER_ACCESSTOKEN];
+            [[NSUserDefaults standardUserDefaults] setObject:nil forKey:INSTAGRAM_ACCESSTOKEN];
+            [[NSUserDefaults standardUserDefaults] setObject:nil forKey:LINKEDIN_ACCESSTOKEN];
+            [[NSUserDefaults standardUserDefaults] setObject:nil forKey:FACEBOOK_LOG];
+            [[NSUserDefaults standardUserDefaults] setObject:nil forKey:TWITTER_LOG];
+            [[NSUserDefaults standardUserDefaults] setObject:nil forKey:INSTAGRAM_LOG];
+            [[NSUserDefaults standardUserDefaults] setObject:nil forKey:LINKEDIN_LOG];
+
+            
+            
             
             AppDelegate *appDelegateTemp = (AppDelegate*)[UIApplication sharedApplication].delegate;
             appDelegateTemp.window.rootViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateInitialViewController];

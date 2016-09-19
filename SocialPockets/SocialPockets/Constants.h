@@ -91,6 +91,18 @@
 #define LINKEDIN_NEW_CONNECTIONS       @"LiConnectionsNew"
 #define LINKEDIN_NEW_JOBS              @"LiPositionsNew"
 
+#define FACEBOOK_LOG    @"FacebookLoggedIn"
+#define TWITTER_LOG     @"TwitterLoggedIn"
+#define INSTAGRAM_LOG   @"InstagramLoggedIn"
+#define LINKEDIN_LOG    @"LinkedInLoggedIn"
+
+
+#define FACEBOOK_ACCESSTOKEN    @"FacebookAccessToken"
+#define TWITTER_ACCESSTOKEN     @"TwitterAccessToken"
+#define INSTAGRAM_ACCESSTOKEN   @"InstagramAccessToken"
+#define LINKEDIN_ACCESSTOKEN   @"LinkedInAccessToken"
+
+
 //#-- Constant Variables
 
 #define FACEBOOK_ID   @"FB"

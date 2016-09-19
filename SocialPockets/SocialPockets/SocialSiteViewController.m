@@ -96,22 +96,22 @@
     UIButton *linkedBtn = (UIButton *)[cell.contentView viewWithTag:3];
     switch (indexPath.row) {
         case 0:
-            if ([[NSUserDefaults standardUserDefaults] objectForKey:@"FacebookAccessToken"]) {
+            if ([[NSUserDefaults standardUserDefaults] objectForKey:FACEBOOK_ACCESSTOKEN]) {
                 linkedBtn.backgroundColor = [UIColor colorWithRed:32.0/255.0 green:160.0/255.0 blue:18.0/255.0 alpha:1.0];
             }
             break;
         case 1:
-            if ([[NSUserDefaults standardUserDefaults] objectForKey:@"TwitterAccessToken"]) {
+            if ([[NSUserDefaults standardUserDefaults] objectForKey:TWITTER_ACCESSTOKEN]) {
                 linkedBtn.backgroundColor = [UIColor colorWithRed:32.0/255.0 green:160.0/255.0 blue:18.0/255.0 alpha:1.0];
             }
             break;
         case 2:
-            if ([[NSUserDefaults standardUserDefaults] objectForKey:@"InstagramAccessToken"]) {
+            if ([[NSUserDefaults standardUserDefaults] objectForKey:INSTAGRAM_ACCESSTOKEN]) {
                 linkedBtn.backgroundColor = [UIColor colorWithRed:32.0/255.0 green:160.0/255.0 blue:18.0/255.0 alpha:1.0];
             }
             break;
         case 3:
-            if ([[NSUserDefaults standardUserDefaults] objectForKey:@"LinkedInAccessToken"]) {
+            if ([[NSUserDefaults standardUserDefaults] objectForKey:LINKEDIN_ACCESSTOKEN]) {
                 linkedBtn.backgroundColor = [UIColor colorWithRed:32.0/255.0 green:160.0/255.0 blue:18.0/255.0 alpha:1.0];
             }
             break;
@@ -143,12 +143,12 @@
         UINavigationController *navVc = [[UINavigationController alloc]initWithRootViewController:IGloginVc];
         [self presentViewController:navVc animated:YES completion:NULL];
         IGloginVc.onLogin = ^(id obj){
-            [[NSUserDefaults standardUserDefaults] setObject:obj forKey:@"InstagramAccessToken"];
+            [[NSUserDefaults standardUserDefaults] setObject:obj forKey:INSTAGRAM_ACCESSTOKEN];
             [tableView reloadData];
             
             NSLog(@"Auth Token %@",obj);
             [SOCIALMACRO instagramLoginWithUserToken:obj WithCompletion:^(id obj) {
-                [SOCIALMACRO instagramDetailWithUserToken:[[NSUserDefaults standardUserDefaults] valueForKey:@"InstagramAccessToken"] WithCompletion:^(id obj) {
+                [SOCIALMACRO instagramDetailWithUserToken:[[NSUserDefaults standardUserDefaults] valueForKey:INSTAGRAM_ACCESSTOKEN] WithCompletion:^(id obj) {
 
             }];
         }];
