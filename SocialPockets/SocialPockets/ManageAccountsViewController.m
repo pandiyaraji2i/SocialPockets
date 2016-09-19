@@ -25,7 +25,7 @@
 }
 
 - (void)viewDidLoad {
-    linkedAccountCount = 1;
+    linkedAccountCount = 0;
     [super viewDidLoad];
     self.navigationController.navigationBarHidden = NO;
     self.title = @"Manage Accounts";
@@ -369,8 +369,10 @@
                     NSLog(@"Twitter login Success");
                     //#-- Change selected color
                     [ACTIVITY performSelectorOnMainThread:@selector(hideActivity) withObject:nil waitUntilDone:YES];
-                    infoArray = [self generateImageArray];
-                    [self.tableView reloadData];
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        infoArray = [self generateImageArray];
+                        [self.tableView reloadData];
+                    });
                 }];
             }
                 break;

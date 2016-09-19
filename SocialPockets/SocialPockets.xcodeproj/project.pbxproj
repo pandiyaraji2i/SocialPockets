@@ -108,6 +108,7 @@
 		A3D65AB41D463A0F00B47E46 /* sp logo.png in Resources */ = {isa = PBXBuildFile; fileRef = A3D65AB21D463A0F00B47E46 /* sp logo.png */; };
 		A3DB484C1D4F8B180047EDF2 /* TransactionHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3DB484B1D4F8B180047EDF2 /* TransactionHistoryViewController.m */; };
 		A3EAA2B41D4762210013A952 /* AddBankAccountController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3EAA2B31D4762210013A952 /* AddBankAccountController.m */; };
+		A3F97F191D8FA0C3004AA86F /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3F97F181D8FA0C3004AA86F /* Bolts.framework */; };
 		A3FA9B5E1D78441000F45E18 /* CardsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3FA9B5D1D78441000F45E18 /* CardsViewController.m */; };
 		A3FA9B671D78443000F45E18 /* AutoloadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3FA9B601D78443000F45E18 /* AutoloadViewController.m */; };
 		A3FA9B681D78443000F45E18 /* HMSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = A3FA9B621D78443000F45E18 /* HMSegmentedControl.m */; };
@@ -342,6 +343,7 @@
 		A3DB484B1D4F8B180047EDF2 /* TransactionHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransactionHistoryViewController.m; sourceTree = "<group>"; };
 		A3EAA2B21D4762210013A952 /* AddBankAccountController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddBankAccountController.h; sourceTree = "<group>"; };
 		A3EAA2B31D4762210013A952 /* AddBankAccountController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddBankAccountController.m; sourceTree = "<group>"; };
+		A3F97F181D8FA0C3004AA86F /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = System/Library/Frameworks/Bolts.framework; sourceTree = SDKROOT; };
 		A3FA9B5C1D78441000F45E18 /* CardsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardsViewController.h; sourceTree = "<group>"; };
 		A3FA9B5D1D78441000F45E18 /* CardsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardsViewController.m; sourceTree = "<group>"; };
 		A3FA9B5F1D78443000F45E18 /* AutoloadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoloadViewController.h; sourceTree = "<group>"; };
@@ -390,6 +392,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3F97F191D8FA0C3004AA86F /* Bolts.framework in Frameworks */,
 				6780EAF21D819E1D00F87608 /* CoreLocation.framework in Frameworks */,
 				6780EAF01D819E1200F87608 /* MobileCoreServices.framework in Frameworks */,
 				FB58C6D21D66FAAE00279AEF /* QRCodeReaderFramework.framework in Frameworks */,
@@ -447,6 +450,7 @@
 		8475099805C07C9E06A7A1F2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A3F97F181D8FA0C3004AA86F /* Bolts.framework */,
 				6780EAF11D819E1D00F87608 /* CoreLocation.framework */,
 				6780EAEF1D819E1200F87608 /* MobileCoreServices.framework */,
 				A3AEDD021D5DCD6C007FE5C9 /* OpenGLES.framework */,

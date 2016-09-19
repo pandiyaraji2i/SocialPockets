@@ -53,16 +53,6 @@
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@" " style:UIBarButtonItemStylePlain target:self action:nil];
     profileImage = nil;
     
-    #warning just for testing
-            firstNameTextField.text = @"kish7";
-            usernameTextField.text = @"kish7";
-            passwordTextField.text = @"test1234";
-            confirmPasswordTextField.text = @"test1234";
-            emailTextField.text = @"kish7@ideas2it.com";
-            phoneNumberTextField.text = @"9070900000";
-        profileImage = [UIImage imageNamed:@"ProfileImage"];
-
-    
 #if TARGET_OS_SIMULATOR
     //Simulator
     profileImage = [UIImage imageNamed:@"ProfileImage"];
