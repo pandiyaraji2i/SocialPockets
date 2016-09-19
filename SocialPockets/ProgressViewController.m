@@ -35,7 +35,13 @@
     [self getImageUpdatedArray];
     
     view.imagesArray = [self imageArray];
-    view.avatarImage = [UIImage imageNamed:@"ProfileImage"];
+    UIImage *image ;
+    if (USERINFO.localImagePath != nil) {
+      image =   [UIImage imageWithData:USERINFO.localImagePath];
+    }else{
+        image = [UIImage imageNamed:@"ProfileImage"];
+    } 
+    view.avatarImage = image;
     
     [view showFullView:true];
     

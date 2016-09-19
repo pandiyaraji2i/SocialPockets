@@ -61,9 +61,10 @@
 }
 - (void)reloadManageAccounts
 {
-    infoArray = [self generateImageArray];
-    [self.tableView reloadData];
-
+    dispatch_async(dispatch_get_main_queue(), ^{
+        infoArray = [self generateImageArray];
+        [self.tableView reloadData];
+    });
 }
 
 

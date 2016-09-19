@@ -249,6 +249,17 @@
     [self addSubview:view];
 }
 
+- (UIImage *)getRoundedRectImageFromImage :(UIImage *)image onReferenceView :(UIImageView*)imageView withCornerRadius :(float)cornerRadius
+{
+    UIGraphicsBeginImageContextWithOptions(imageView.bounds.size, NO, 1.0);
+    [[UIBezierPath bezierPathWithRoundedRect:imageView.bounds
+                                cornerRadius:cornerRadius] addClip];
+    [image drawInRect:imageView.bounds];
+    UIImage *finalImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return finalImage;
+}
 
 
 -(void) drawAvatarView {
@@ -257,9 +268,10 @@
     view.layer.cornerRadius = 2.0*(_menuRadius/4)/2;
     view.backgroundColor = [UIColor lightGrayColor];
     view.layer.borderColor = [UIColor whiteColor].CGColor;
+    view.contentMode = UIViewContentModeScaleAspectFit;
     view.layer.borderWidth = 3.0;
     view.center = _centerPoint;
-    view.image = self.avatarImage;
+    view.image = [self getRoundedRectImageFromImage:self.avatarImage onReferenceView:view withCornerRadius:view.layer.cornerRadius];//self.avatarImage;
     [self addSubview:view];
     
     [self drawCenterLine];
