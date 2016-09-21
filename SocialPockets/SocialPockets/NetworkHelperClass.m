@@ -124,6 +124,11 @@ static Reachability *reachability;
         return @"Error in parsing";
     }else /*if ([(NSHTTPURLResponse *)response statusCode] == 422)*/
     {
+        if ([[contentType valueForKey:@"Content-Type"] rangeOfString:XMLCONTENTTYPE].length) {
+            id obj =  [NSDictionary dictionaryWithXMLData:responseData];
+            return obj;
+        }
+        else{
         //#-- Request is successful but error in response
         id responseJson = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingMutableContainers error:nil removingNulls:YES ignoreArrays:NO];
         NSString *errorMessageTitle = [responseJson valueForKey:@"message"];
@@ -136,6 +141,7 @@ static Reachability *reachability;
           return errorMessageTitle;
         }else{
             return @"Error while send request";
+        }
         }
         
     }
@@ -200,6 +206,41 @@ static Reachability *reachability;
     }
     [uploadTask resume];
 
+}
+
++ (void)sendRefundAPIRequestToCitrus:(id)body signature:(NSString *)signature completion:(void (^)(id obj))completionBlock
+{
+    NSString *apiUrl = [NSString stringWithFormat:@"%@/api/v2/txn/refund",REFUNDAPI];
+   
+    NSURL *requestUrl=[NSURL URLWithString:apiUrl]; // encode url if + or some symbols occurs in action name
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:requestUrl];
+    request.HTTPMethod = POST;
+    request.timeoutInterval = 120;
+    NSString *jsonString;
+    NSError *error;
+    if (body) {
+        NSData *jsonData = [NSJSONSerialization dataWithJSONObject:body
+                                                           options:0
+                                                             error:&error];
+        jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+        if (!error) {
+            [request setHTTPBody:jsonData];
+        }
+        NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[jsonData length]];
+        [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+        [request setValue:JSONCONTENTTYPE forHTTPHeaderField:@"Content-type"];
+        [request setValue:ACCESSKEY forHTTPHeaderField:@"access_key"];
+        [request setValue:signature forHTTPHeaderField:@"signature"];
+//        [request setValue:@"Basic YWRtaW46YWRtaW4=" forHTTPHeaderField:@"Authorization"];
+
+    }
+    NSURLSessionDataTask *postDataTask = [[self getSessionWithContentType:JSONCONTENTTYPE] dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error)        {
+        if (completionBlock) {
+            id responseObj = [self getResponseBasedOnData:data response:response];
+            completionBlock(responseObj);
+        }
+    }];
+    [postDataTask resume];
 }
 
 #pragma mark download image

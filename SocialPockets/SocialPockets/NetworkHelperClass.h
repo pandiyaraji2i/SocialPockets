@@ -15,6 +15,8 @@
 
 + (void)sendAsynchronousRequestToServer:(NSString *)actionName httpMethod:(NSString *)httpMethod requestBody:(id)body contentType:(NSString *)contentType completion:(void (^)(id obj))completionBlock;
 
++ (void)sendRefundAPIRequestToCitrus:(id)body signature:(NSString *)signature completion:(void (^)(id obj))completionBlock;
+
 + (BOOL)getInternetStatus:(BOOL)shouldShowMessage;
 + (void)uploadImage:(UIImage *)image isUserOrLoan:(int)isUserOrLoan userId:(NSString *)userId  sync:(BOOL)isSync completion:(void (^)(id obj))completionBlock;
 + (void)downloadImage:(NSURL *)url withUserId:(NSString *)userId completionBlock:(void (^)(id obj))completionBlock;

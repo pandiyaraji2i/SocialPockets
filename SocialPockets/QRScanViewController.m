@@ -7,7 +7,6 @@
 //
 
 #import "QRScanViewController.h"
-#import "XMLParser.h"
 #import "VerifyAadharViewController.h"
 
 @interface QRScanViewController (){

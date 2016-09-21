@@ -111,7 +111,7 @@
                 ErrorMessageWithTitle(@"Message", obj);
             });
         }
-        
+        [self refund];
     };
     self.okButton.layer.borderColor = [UIColor grayColor].CGColor;
     self.okButton.layer.masksToBounds = YES;
@@ -130,6 +130,27 @@
             ErrorMessageWithTitle(@"Message", obj);
         }
     }];
+}
+
+- (void)refund
+{
+    NSString *dataString = [NSString stringWithFormat:@"merchantAccessKey=%@&transactionId=%@&amount=%@",ACCESSKEY,@"147368685123031",@"10"];
+    NSString *signature =  [SharedMethods hmacsha1:dataString secret:SECRETKEY];
+    NSLog(@"signature %@",signature);
+    NSMutableDictionary *dict = [@{@"merchantTxnId":@"147368685123031",@"pgTxnId":@"3562562571862560",@"authIdCode":@"999999",@"rrn":@"519622859545",@"currencyCode":@"INR",@"amount":@"10",@"txnType":@"Refund"} mutableCopy];
+    
+    [NetworkHelperClass sendRefundAPIRequestToCitrus:dict signature:signature completion:^(id obj) {
+        NSLog(@"obj %@",obj);
+        if ([obj isKindOfClass:[NSDictionary class]]) {
+            int statusCode = [[obj valueForKey:@"respCode"] intValue];
+            if (statusCode == 412) {
+                
+            }else{
+                
+            }
+        }
+    }];
+    
 }
 
 

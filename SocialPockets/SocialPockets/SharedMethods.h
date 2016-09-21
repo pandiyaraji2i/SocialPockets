@@ -21,4 +21,5 @@
 + (NSString*)convertString:(NSString*)dateString fromFormat:(NSString*)format1 toFormat:(NSString*)format2;
 + (NSDate *)addDaysToDate:(int)days startDate:(NSDate *)date;
 + (NSString*)documentPathWithPath:(NSString*)path;
++ (NSString *)hmacsha1:(NSString *)data secret:(NSString *)key;
 @end

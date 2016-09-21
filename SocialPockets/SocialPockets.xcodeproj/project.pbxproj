@@ -21,6 +21,7 @@
 		6780EAF21D819E1D00F87608 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6780EAF11D819E1D00F87608 /* CoreLocation.framework */; };
 		679CCAE01D6C29D3003EBAF5 /* linkedin-sdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 679CCADF1D6C29D3003EBAF5 /* linkedin-sdk.framework */; };
 		67A57B6F1D8FEE1300F99966 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67A57B6E1D8FEE1300F99966 /* Bolts.framework */; };
+		A30159DF1D915A600010C46D /* NSData+Encription.m in Sources */ = {isa = PBXBuildFile; fileRef = A30159DE1D915A600010C46D /* NSData+Encription.m */; };
 		A3083F941D59E1C200476BA3 /* CircleProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = A3083F931D59E1C200476BA3 /* CircleProgressView.m */; };
 		A3253D121D3C9DE90081A59C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A3253D111D3C9DE90081A59C /* main.m */; };
 		A3253D151D3C9DE90081A59C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A3253D141D3C9DE90081A59C /* AppDelegate.m */; };
@@ -188,6 +189,8 @@
 		679CCADF1D6C29D3003EBAF5 /* linkedin-sdk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = "linkedin-sdk.framework"; sourceTree = "<group>"; };
 		67A57B6B1D8FC38500F99966 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		67A57B6E1D8FEE1300F99966 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = System/Library/Frameworks/Bolts.framework; sourceTree = SDKROOT; };
+		A30159DD1D915A600010C46D /* NSData+Encription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Encription.h"; sourceTree = "<group>"; };
+		A30159DE1D915A600010C46D /* NSData+Encription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Encription.m"; sourceTree = "<group>"; };
 		A3083F921D59E1C200476BA3 /* CircleProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleProgressView.h; sourceTree = "<group>"; };
 		A3083F931D59E1C200476BA3 /* CircleProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleProgressView.m; sourceTree = "<group>"; };
 		A3253D0D1D3C9DE90081A59C /* SocialPockets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocialPockets.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -825,6 +828,8 @@
 		A3C3C8511D3DFCA700C65B09 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				A30159DD1D915A600010C46D /* NSData+Encription.h */,
+				A30159DE1D915A600010C46D /* NSData+Encription.m */,
 				A3C3C84E1D3DF7D500C65B09 /* NSString+AdditionalMethods.h */,
 				A3C3C84F1D3DF7D500C65B09 /* NSString+AdditionalMethods.m */,
 			);
@@ -1263,6 +1268,7 @@
 				A38968671D40DE1A00FA8F14 /* LoginViewController.m in Sources */,
 				A339F48F1D8D125600913E66 /* ISMessages.m in Sources */,
 				A3C3C8481D3DF1E000C65B09 /* NSJSONSerialization+RemovingNulls.m in Sources */,
+				A30159DF1D915A600010C46D /* NSData+Encription.m in Sources */,
 				A3B528F21D49DE7200603451 /* ApplyLoanViewController.m in Sources */,
 				FBB3A4FA1D4F570B001A7408 /* ManageAccountsViewController.m in Sources */,
 				A38823E71D5AF566008042D9 /* MessagePopUpView.m in Sources */,

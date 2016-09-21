@@ -120,5 +120,30 @@
     return [DOCUMENT_DIRECTORY stringByAppendingPathComponent:pathWithUserId];
 }
 
++ (NSString *)hmacsha1:(NSString *)data secret:(NSString *)key
+{
+    const char *cKey  = [key cStringUsingEncoding:NSASCIIStringEncoding];
+    const char *cData = [data cStringUsingEncoding:NSASCIIStringEncoding];
+    
+    unsigned char cHMAC[CC_SHA1_DIGEST_LENGTH];
+    
+    CCHmac(kCCHmacAlgSHA1, cKey, strlen(cKey), cData, strlen(cData), cHMAC);
+    
+    NSData *HMAC = [[NSData alloc] initWithBytes:cHMAC length:sizeof(cHMAC)];
+    const unsigned char *dataBuffer = (const unsigned char *)[HMAC bytes];
+    NSUInteger dataLength = [HMAC length];
+    NSMutableString *hexString = [NSMutableString stringWithCapacity:(dataLength * 2)];
+    
+    for (int i = 0; i < dataLength; ++i) {
+        [hexString appendFormat:@"%02x", (unsigned int)dataBuffer[i]];
+    }
+    
+    
+    NSString *hash = [NSString stringWithString:hexString];
+    
+//    NSString *hash = [HMAC base64EncodedString];
+    
+    return hash;
+}
 
 @end

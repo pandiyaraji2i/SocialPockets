@@ -12,6 +12,7 @@
 #import <linkedin-sdk/LISDK.h>
 #import <Bolts/Bolts.h>
 
+#import <MapKit/MapKit.h>
 @interface AppDelegate ()
 
 @end
@@ -40,7 +41,7 @@
     }
     
     
-    [TestFairy begin:@"f14b423d572b0713919e7f409d38f680453d2166"];
+    [TestFairy begin:@"bb9f4cd21d0bba3078f4f899fe3d0c28bcd4b53a"];
     
     [[NSUserDefaults standardUserDefaults] synchronize];
     
@@ -61,7 +62,8 @@
     [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
     
     [[UIApplication sharedApplication] registerForRemoteNotifications];
-  
+    
+     
     if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)])
     {
         [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound categories:nil]];

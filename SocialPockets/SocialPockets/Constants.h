@@ -49,6 +49,7 @@
 #define URLENCODEDCONTENTTYPE @"application/x-www-form-urlencoded"
 #define JSONCONTENTTYPE       @"application/json"
 #define MULTIPARTFORMDATA     @"application/"
+#define XMLCONTENTTYPE        @"application/xml"
 
 #define MAX_ACCOUNT             3
 #define INDIANRUPEES_UNICODE    @"\u20B9"
@@ -126,6 +127,9 @@
 #define VanityUrl (PRODUCTIONMODE)?@"sqmkxzxq32":@"bkhy5lnqsg"
 #define LoadWalletReturnUrl (PRODUCTIONMODE)?@"http://128.199.150.145:8000/production/returnData.php":@"http://128.199.150.145:8000/dev/returnData.php"
 #define BillUrl (PRODUCTIONMODE)?@"http://128.199.150.145:8000/production/billurl.php":@"http://128.199.150.145:8000/dev/billurl.php"
+#define REFUNDAPI (PRODUCTIONMODE)?@"https://admin.citruspay.com":@"https://sandboxadmin.citruspay.com"
+#define ACCESSKEY (PRODUCTIONMODE)?@"DSO34NNGGN0U0WB6HFXV":@"KSJEXO3N4IVGF2I4VNLD"
+#define SECRETKEY (PRODUCTIONMODE)?@"e4dd31f1b84fcc2ee3c86dd7c1ead770acb22445":@"9fced0f84c10512b405286d92912c48fecbedc2c"
 
 /*#define SignInId @"bkhy5lnqsg-signin"
 #define SignInSecretKey @"3a26f6d622c193407578a12e1ec1ee62"

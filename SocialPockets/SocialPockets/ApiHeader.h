@@ -26,10 +26,14 @@
 #import "NetworkHelperClass.h"
 #import "ActivityIndicatior.h"
 #import "ISMessages.h"
+#import "XMLParser.h"
 
 //******************* NSCategory  Classes ***************************//
 
 #import "NSString+AdditionalMethods.h"
+#import "NSData+Encription.h"
+#import <CommonCrypto/CommonCryptor.h>
+#import <CommonCrypto/CommonHMAC.h>
 
 
 //******************* Framework  Classes ***************************//

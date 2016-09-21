@@ -8,6 +8,8 @@
 
 #import "NSString+AdditionalMethods.h"
 
+
+
 @implementation NSString (AdditionalMethods)
 
 -(BOOL)isValidEmail
@@ -64,4 +66,7 @@
         }
     }
 }
+
+
+
 @end
